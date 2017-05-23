@@ -51,9 +51,10 @@ class ObjetosMaterialesController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($objeto_id=null)
     {
         $objetosMateriale = $this->ObjetosMateriales->newEntity();
+        $objetosMateriale->objeto_id=$objeto_id;
         if ($this->request->is('post')) {
             $objetosMateriale = $this->ObjetosMateriales->patchEntity($objetosMateriale, $this->request->getData());
             if ($this->ObjetosMateriales->save($objetosMateriale)) {

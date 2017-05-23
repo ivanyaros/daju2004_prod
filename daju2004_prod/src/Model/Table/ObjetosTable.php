@@ -51,15 +51,18 @@ class ObjetosTable extends Table
             'foreignKey' => 'localizacione_id',
             'joinType' => 'INNER'
         ]);
-        $this->belongsToMany('Materiales', [
+        /*$this->belongsToMany('Materiales', [
             'foreignKey' => 'objeto_id',
             'targetForeignKey' => 'materiale_id',
             'joinTable' => 'objetos_materiales'
-        ]);
+        ]);*/
         $this->belongsToMany('Objetos', [
             'foreignKey' => 'entrada',
             'targetForeignKey' => 'salida',
             'joinTable' => 'objetos_objetos'
+        ]);
+        $this->hasMany('ObjetosMateriales', [
+            'foreignKey' => 'objeto_id'
         ]);
     }
 

@@ -61,28 +61,32 @@
         </tr>
     </table>
     <div class="related">
-        <h4><?= __('Related Materiales') ?></h4>
-        <?php if (!empty($objeto->materiales)): ?>
+        <h4><?= __('Related Objetos-Materiales') ?>
+            <td class="actions">
+                <?=$this->Html->link(__('Add'),['controller' =>'ObjetosMateriales','action'=>'add', $objeto->id])?>
+            </td>
+        </h4>
+        <?php if (!empty($objeto->objetos_materiales)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Material Id') ?></th>
-                <th scope="col"><?= __('Fecha Entega') ?></th>
-                <th scope="col"><?= __('Localizacione Id') ?></th>
-                <th scope="col"><?= __('Entradas Material Id') ?></th>
+                <th scope="col"><?= __('Cantidad Producida') ?></th>
+                <th scope="col"><?= __('metros gastados') ?></th>
+                <th scope="col"><?= __('metros utiles') ?></th>
+                <th scope="col"><?= __('scrap') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
-            <?php foreach ($objeto->materiales as $materiales): ?>
+            <?php foreach ($objeto->objetos_materiales as $materiales): ?>
             <tr>
-                <td><?= h($materiales->id) ?></td>
-                <td><?= h($materiales->material_id) ?></td>
-                <td><?= h($materiales->fecha_entega) ?></td>
-                <td><?= h($materiales->localizacione_id) ?></td>
-                <td><?= h($materiales->entradas_material_id) ?></td>
+                <td><?= h($materiales->materiale_id) ?></td>
+                <td><?= h($materiales->cantidad_producida) ?></td>
+                <td><?= h($materiales->metros_gastados) ?></td>
+                <td><?= h($materiales->metros_utiles) ?></td>
+                <td><?= h($materiales->scrap) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Materiales', 'action' => 'view', $materiales->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Materiales', 'action' => 'edit', $materiales->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Materiales', 'action' => 'delete', $materiales->id], ['confirm' => __('Are you sure you want to delete # {0}?', $materiales->id)]) ?>
+                    <?= $this->Html->link(__('View'), ['controller' => 'ObjetosMateriales', 'action' => 'view', $materiales->materiale_id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'ObjetosMateriales', 'action' => 'edit', $materiales->materiale_id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'ObjetosMateriales', 'action' => 'delete', $materiales->materiale_id], ['confirm' => __('Are you sure you want to delete # {0}?', $materiales->materiale_id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -124,55 +128,5 @@
         </table>
         <?php endif; ?>
     </div>
-    <div class="related">
-        <h4><?= __('Related Material') ?></h4>
-        <?php if (!empty($objeto->material)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Nombre') ?></th>
-                <th scope="col"><?= __('Referencia') ?></th>
-                <th scope="col"><?= __('Familia Id') ?></th>
-                <th scope="col"><?= __('Longitud') ?></th>
-                <th scope="col"><?= __('Anchura') ?></th>
-                <th scope="col"><?= __('Profundidad') ?></th>
-                <th scope="col"><?= __('Color') ?></th>
-                <th scope="col"><?= __('Gramaje') ?></th>
-                <th scope="col"><?= __('Peso Ud') ?></th>
-                <th scope="col"><?= __('Unidades Embalaje') ?></th>
-                <th scope="col"><?= __('Precio') ?></th>
-                <th scope="col"><?= __('Moneda Id') ?></th>
-                <th scope="col"><?= __('Iva Id') ?></th>
-                <th scope="col"><?= __('Observaciones') ?></th>
-                <th scope="col"><?= __('Visible') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($objeto->material as $material): ?>
-            <tr>
-                <td><?= h($material->id) ?></td>
-                <td><?= h($material->nombre) ?></td>
-                <td><?= h($material->referencia) ?></td>
-                <td><?= h($material->familia_id) ?></td>
-                <td><?= h($material->longitud) ?></td>
-                <td><?= h($material->anchura) ?></td>
-                <td><?= h($material->profundidad) ?></td>
-                <td><?= h($material->color) ?></td>
-                <td><?= h($material->gramaje) ?></td>
-                <td><?= h($material->peso_ud) ?></td>
-                <td><?= h($material->unidades_embalaje) ?></td>
-                <td><?= h($material->precio) ?></td>
-                <td><?= h($material->moneda_id) ?></td>
-                <td><?= h($material->iva_id) ?></td>
-                <td><?= h($material->observaciones) ?></td>
-                <td><?= h($material->visible) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Material', 'action' => 'view', $material->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Material', 'action' => 'edit', $material->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Material', 'action' => 'delete', $material->id], ['confirm' => __('Are you sure you want to delete # {0}?', $material->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </table>
-        <?php endif; ?>
-    </div>
+    
 </div>

@@ -56,6 +56,7 @@ class MaterialesController extends AppController
         $materiale = $this->Materiales->newEntity();
         if ($this->request->is('post')) {
             $materiale = $this->Materiales->patchEntity($materiale, $this->request->getData());
+            $materiale->metros_actuales=$materiale->metros_netos;
             if ($this->Materiales->save($materiale)) {
                 $this->Flash->success(__('The materiale has been saved.'));
 
