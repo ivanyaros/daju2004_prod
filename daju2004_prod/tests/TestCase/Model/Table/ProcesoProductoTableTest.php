@@ -31,11 +31,7 @@ class ProcesoProductoTableTest extends TestCase
         'app.monedas',
         'app.producto',
         'app.ivas',
-        'app.materiales',
-        'app.localizaciones',
-        'app.centros',
-        'app.entradas_material',
-        'app.proveedores_clientes',
+        'app.objetos',
         'app.ordens',
         'app.estados',
         'app.ordens_estados',
@@ -45,11 +41,18 @@ class ProcesoProductoTableTest extends TestCase
         'app.ordens_estados_usuarios',
         'app.utensilios',
         'app.ordens_estados_utensilios',
-        'app.objetos',
-        'app.objetos_materiales',
+        'app.centros',
+        'app.entradas_material',
+        'app.proveedores_clientes',
+        'app.direcciones',
+        'app.pedidos_empresas',
         'app.salidas_objetos',
-        'app.proceso_material',
-        'app.proveedores_clientes_material'
+        'app.pedidos_empresas_producto',
+        'app.proveedores_clientes_material',
+        'app.materiales',
+        'app.localizaciones',
+        'app.objetos_materiales',
+        'app.proceso_material'
     ];
 
     /**

@@ -33,6 +33,11 @@ class ProductoTableTest extends TestCase
         'app.centros',
         'app.entradas_material',
         'app.proveedores_clientes',
+        'app.direcciones',
+        'app.pedidos_empresas',
+        'app.salidas_objetos',
+        'app.pedidos_empresas_producto',
+        'app.proveedores_clientes_material',
         'app.materiales',
         'app.localizaciones',
         'app.objetos',
@@ -46,12 +51,8 @@ class ProductoTableTest extends TestCase
         'app.utensilios',
         'app.ordens_estados_utensilios',
         'app.objetos_materiales',
-        'app.salidas_objetos',
         'app.proceso_material',
-        'app.proceso_producto',
-        'app.proveedores_clientes_material',
-        'app.pedidos_empresas',
-        'app.pedidos_empresas_producto'
+        'app.proceso_producto'
     ];
 
     /**

@@ -19,12 +19,12 @@ use Cake\ORM\Entity;
  * @property bool $visible
  * @property string $persona_contacto
  *
- * @property \App\Model\Entity\ProveedoresClientesMaterial[] $proveedores_clientes_material
- * @property \App\Model\Entity\Material[] $material
  * @property \App\Model\Entity\Direccione[] $direcciones
  * @property \App\Model\Entity\EntradasMaterial[] $entradas_material
  * @property \App\Model\Entity\PedidosEmpresa[] $pedidos_empresas
  * @property \App\Model\Entity\SalidasObjeto[] $salidas_objetos
+ * @property \App\Model\Entity\Material[] $material
+ * @property \App\Model\Entity\ProveedoresClientesMaterial[] $proveedores_clientes_material
  */
 class ProveedoresCliente extends Entity
 {

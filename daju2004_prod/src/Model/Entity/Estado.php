@@ -11,6 +11,7 @@ use Cake\ORM\Entity;
  * @property string $descripcion
  *
  * @property \App\Model\Entity\Orden[] $ordens
+ * @property \App\Model\Entity\OrdensEstado[] $ordens_estados
  */
 class Estado extends Entity
 {

@@ -13,8 +13,8 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $fecha
  * @property string $observaciones
  *
- * @property \App\Model\Entity\Producto $producto
  * @property \App\Model\Entity\PedidosEmpresa $pedidos_empresa
+ * @property \App\Model\Entity\Producto $producto
  */
 class PedidosEmpresasProducto extends Entity
 {

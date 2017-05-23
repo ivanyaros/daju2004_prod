@@ -26,8 +26,33 @@ class IvasTableTest extends TestCase
     public $fixtures = [
         'app.ivas',
         'app.material',
+        'app.familias',
         'app.proceso',
-        'app.producto'
+        'app.monedas',
+        'app.producto',
+        'app.objetos',
+        'app.ordens',
+        'app.estados',
+        'app.ordens_estados',
+        'app.maquinas',
+        'app.ordens_estados_maquinas',
+        'app.usuarios',
+        'app.ordens_estados_usuarios',
+        'app.utensilios',
+        'app.ordens_estados_utensilios',
+        'app.centros',
+        'app.entradas_material',
+        'app.proveedores_clientes',
+        'app.direcciones',
+        'app.pedidos_empresas',
+        'app.salidas_objetos',
+        'app.pedidos_empresas_producto',
+        'app.proveedores_clientes_material',
+        'app.materiales',
+        'app.localizaciones',
+        'app.objetos_materiales',
+        'app.proceso_producto',
+        'app.proceso_material'
     ];
 
     /**

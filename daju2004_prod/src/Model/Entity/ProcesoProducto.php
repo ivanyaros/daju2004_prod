@@ -12,8 +12,8 @@ use Cake\ORM\Entity;
  * @property int $cantidad
  * @property bool $entrada_salida
  *
- * @property \App\Model\Entity\Producto $producto
  * @property \App\Model\Entity\Proceso $proceso
+ * @property \App\Model\Entity\Producto $producto
  */
 class ProcesoProducto extends Entity
 {

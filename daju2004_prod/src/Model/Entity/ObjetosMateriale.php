@@ -15,8 +15,8 @@ use Cake\ORM\Entity;
  * @property string $observaciones
  *
  * @property \App\Model\Entity\Objeto $objeto
- * @property \App\Model\Entity\Material $material
  * @property \App\Model\Entity\Materiale $materiale
+ * @property \App\Model\Entity\Material $material
  */
 class ObjetosMateriale extends Entity
 {

@@ -22,13 +22,14 @@ use Cake\ORM\Entity;
  * @property string $larga
  * @property float $coste
  *
- * @property \App\Model\Entity\ProcesoProducto[] $proceso_producto
- * @property \App\Model\Entity\Proceso[] $proceso
  * @property \App\Model\Entity\Familia $familia
  * @property \App\Model\Entity\Moneda $moneda
  * @property \App\Model\Entity\Iva $iva
  * @property \App\Model\Entity\Objeto[] $objetos
  * @property \App\Model\Entity\PedidosEmpresa[] $pedidos_empresas
+ * @property \App\Model\Entity\Proceso[] $proceso
+ * @property \App\Model\Entity\PedidosEmpresasProducto[] $pedidos_empresas_producto
+ * @property \App\Model\Entity\ProcesoProducto[] $proceso_producto
  */
 class Producto extends Entity
 {

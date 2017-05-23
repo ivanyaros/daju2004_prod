@@ -15,13 +15,13 @@ use Cake\ORM\Entity;
  * @property float $coste
  * @property int $defectuosos
  *
- * @property \App\Model\Entity\ObjetosMateriale[] $objetos_materiales
- * @property \App\Model\Entity\Materiale[] $materiales
- * @property \App\Model\Entity\Material[] $material
  * @property \App\Model\Entity\Producto $producto
  * @property \App\Model\Entity\Orden $orden
  * @property \App\Model\Entity\Localizacione $localizacione
+ * @property \App\Model\Entity\Materiale[] $materiales
  * @property \App\Model\Entity\Objeto[] $objetos
+ * @property \App\Model\Entity\ObjetosMateriale[] $objetos_materiales
+ * @property \App\Model\Entity\Material[] $material
  */
 class Objeto extends Entity
 {

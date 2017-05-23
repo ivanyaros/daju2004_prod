@@ -26,7 +26,33 @@ class EstadosTableTest extends TestCase
     public $fixtures = [
         'app.estados',
         'app.ordens',
-        'app.ordens_estados'
+        'app.ordens_estados',
+        'app.maquinas',
+        'app.ordens_estados_maquinas',
+        'app.usuarios',
+        'app.ordens_estados_usuarios',
+        'app.utensilios',
+        'app.ordens_estados_utensilios',
+        'app.centros',
+        'app.entradas_material',
+        'app.proveedores_clientes',
+        'app.direcciones',
+        'app.pedidos_empresas',
+        'app.salidas_objetos',
+        'app.producto',
+        'app.familias',
+        'app.material',
+        'app.monedas',
+        'app.proceso',
+        'app.ivas',
+        'app.proceso_material',
+        'app.proceso_producto',
+        'app.materiales',
+        'app.localizaciones',
+        'app.objetos',
+        'app.objetos_materiales',
+        'app.proveedores_clientes_material',
+        'app.pedidos_empresas_producto'
     ];
 
     /**

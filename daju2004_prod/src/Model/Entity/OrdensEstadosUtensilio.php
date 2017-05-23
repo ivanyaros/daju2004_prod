@@ -11,8 +11,8 @@ use Cake\ORM\Entity;
  * @property int $utensilio_id
  * @property string $observaciones
  *
- * @property \App\Model\Entity\Utensilio $utensilio
  * @property \App\Model\Entity\OrdensEstado $ordens_estado
+ * @property \App\Model\Entity\Utensilio $utensilio
  */
 class OrdensEstadosUtensilio extends Entity
 {

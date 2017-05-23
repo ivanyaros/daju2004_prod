@@ -12,8 +12,8 @@ use Cake\ORM\Entity;
  * @property float $parte
  * @property string $observaciones
  *
- * @property \App\Model\Entity\Usuario $usuario
  * @property \App\Model\Entity\OrdensEstado $ordens_estado
+ * @property \App\Model\Entity\Usuario $usuario
  */
 class OrdensEstadosUsuario extends Entity
 {

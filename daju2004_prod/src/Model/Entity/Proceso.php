@@ -26,6 +26,8 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Orden[] $ordens
  * @property \App\Model\Entity\Material[] $material
  * @property \App\Model\Entity\Producto[] $producto
+ * @property \App\Model\Entity\ProcesoProducto[] $proceso_producto
+ * @property \App\Model\Entity\ProcesoMaterial[] $proceso_material
  */
 class Proceso extends Entity
 {

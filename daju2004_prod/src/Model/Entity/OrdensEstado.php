@@ -17,6 +17,9 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Maquina[] $maquinas
  * @property \App\Model\Entity\Usuario[] $usuarios
  * @property \App\Model\Entity\Utensilio[] $utensilios
+ * @property \App\Model\Entity\OrdensEstadosMaquina[] $ordens_estados_maquinas
+ * @property \App\Model\Entity\OrdensEstadosUsuario[] $ordens_estados_usuarios
+ * @property \App\Model\Entity\OrdensEstadosUtensilio[] $ordens_estados_utensilios
  */
 class OrdensEstado extends Entity
 {
