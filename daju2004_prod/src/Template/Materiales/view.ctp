@@ -36,12 +36,60 @@
             <td><?= $materiale->has('entradas_material') ? $this->Html->link($materiale->entradas_material->id, ['controller' => 'EntradasMaterial', 'action' => 'view', $materiale->entradas_material->id]) : '' ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Lote') ?></th>
+            <td><?= h($materiale->lote) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($materiale->id) ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Bobinas') ?></th>
+            <td><?= $this->Number->format($materiale->bobinas) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Numero Bobina') ?></th>
+            <td><?= $this->Number->format($materiale->numero_bobina) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Taras') ?></th>
+            <td><?= $this->Number->format($materiale->taras) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Metros Brutos') ?></th>
+            <td><?= $this->Number->format($materiale->metros_brutos) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Metros Netos') ?></th>
+            <td><?= $this->Number->format($materiale->metros_netos) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Metros Actuales') ?></th>
+            <td><?= $this->Number->format($materiale->metros_actuales) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Metros Utiles') ?></th>
+            <td><?= $this->Number->format($materiale->metros_utiles) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Scrap') ?></th>
+            <td><?= $this->Number->format($materiale->scrap) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Fecha Entega') ?></th>
             <td><?= h($materiale->fecha_entega) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Bobina Lote') ?></th>
+            <td><?= $materiale->bobina_lote ? __('Yes') : __('No'); ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('En Uso') ?></th>
+            <td><?= $materiale->en_uso ? __('Yes') : __('No'); ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Terminado') ?></th>
+            <td><?= $materiale->terminado ? __('Yes') : __('No'); ?></td>
         </tr>
     </table>
     <div class="related">

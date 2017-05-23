@@ -30,8 +30,24 @@
     <h3><?= h($material->id) ?></h3>
     <table class="vertical-table">
         <tr>
+            <th scope="row"><?= __('Nombre') ?></th>
+            <td><?= h($material->nombre) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Referencia') ?></th>
+            <td><?= h($material->referencia) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Referencia Proveedor') ?></th>
+            <td><?= h($material->referencia_proveedor) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Familia') ?></th>
             <td><?= $material->has('familia') ? $this->Html->link($material->familia->id, ['controller' => 'Familias', 'action' => 'view', $material->familia->id]) : '' ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Color') ?></th>
+            <td><?= h($material->color) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Moneda') ?></th>
@@ -203,7 +219,7 @@
                 <th scope="col"><?= __('Pagina Web') ?></th>
                 <th scope="col"><?= __('NIF CIF') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
-                <th scope="col"><?= __('Tipo') ?></th>
+                <th scope="col"><?= __('Proveedor Cliente') ?></th>
                 <th scope="col"><?= __('Visible') ?></th>
                 <th scope="col"><?= __('Persona Contacto') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -219,7 +235,7 @@
                 <td><?= h($proveedoresClientes->pagina_web) ?></td>
                 <td><?= h($proveedoresClientes->NIF_CIF) ?></td>
                 <td><?= h($proveedoresClientes->observaciones) ?></td>
-                <td><?= h($proveedoresClientes->tipo) ?></td>
+                <td><?= h($proveedoresClientes->proveedor_cliente) ?></td>
                 <td><?= h($proveedoresClientes->visible) ?></td>
                 <td><?= h($proveedoresClientes->persona_contacto) ?></td>
                 <td class="actions">

@@ -33,6 +33,11 @@ class BobinasTable extends Table
         $this->setTable('bobinas');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+        $this->hasOne('Materiales', [
+            'foreignKey' => 'material_id'])
+            ->setName('Materiales')
+            ->setConditions(['Bobinas.id' => 'Materiales.id'])
+            ->setDependent(true);
     }
 
     /**
@@ -43,9 +48,7 @@ class BobinasTable extends Table
      */
     public function validationDefault(Validator $validator)
     {
-        $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
+        
 
         $validator
             ->allowEmpty('lote');

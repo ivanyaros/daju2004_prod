@@ -34,10 +34,14 @@
     <fieldset>
         <legend><?= __('Edit Material') ?></legend>
         <?php
+            echo $this->Form->control('nombre');
+            echo $this->Form->control('referencia');
+            echo $this->Form->control('referencia_proveedor');
             echo $this->Form->control('familia_id', ['options' => $familias, 'empty' => true]);
             echo $this->Form->control('longitud');
             echo $this->Form->control('anchura');
             echo $this->Form->control('profundidad');
+            echo $this->Form->control('color');
             echo $this->Form->control('gramaje');
             echo $this->Form->control('peso_ud');
             echo $this->Form->control('unidades_embalaje');

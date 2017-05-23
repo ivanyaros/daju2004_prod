@@ -71,6 +71,53 @@ class MaterialesTable extends Table
             ->dateTime('fecha_entega')
             ->allowEmpty('fecha_entega');
 
+        $validator
+            ->boolean('bobina_lote')
+            ->allowEmpty('bobina_lote');
+
+        $validator
+            ->integer('bobinas')
+            ->allowEmpty('bobinas');
+
+        $validator
+            ->allowEmpty('lote');
+
+        $validator
+            ->integer('numero_bobina')
+            ->allowEmpty('numero_bobina');
+
+        $validator
+            ->integer('taras')
+            ->allowEmpty('taras');
+
+        $validator
+            ->numeric('metros_brutos')
+            ->allowEmpty('metros_brutos');
+
+        $validator
+            ->numeric('metros_netos')
+            ->allowEmpty('metros_netos');
+
+        $validator
+            ->numeric('metros_actuales')
+            ->allowEmpty('metros_actuales');
+
+        $validator
+            ->numeric('metros_utiles')
+            ->allowEmpty('metros_utiles');
+
+        $validator
+            ->numeric('scrap')
+            ->allowEmpty('scrap');
+
+        $validator
+            ->boolean('en_uso')
+            ->allowEmpty('en_uso');
+
+        $validator
+            ->boolean('terminado')
+            ->allowEmpty('terminado');
+
         return $validator;
     }
 

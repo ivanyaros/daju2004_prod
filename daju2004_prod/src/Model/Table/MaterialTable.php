@@ -90,6 +90,9 @@ class MaterialTable extends Table
             ->allowEmpty('referencia');
 
         $validator
+            ->allowEmpty('referencia_proveedor');
+
+        $validator
             ->numeric('longitud')
             ->allowEmpty('longitud');
 

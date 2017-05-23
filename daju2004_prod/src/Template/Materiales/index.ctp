@@ -27,6 +27,18 @@
                 <th scope="col"><?= $this->Paginator->sort('fecha_entega') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('localizacione_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('entradas_material_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('bobina_lote') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('bobinas') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('lote') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('numero_bobina') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('taras') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('metros_brutos') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('metros_netos') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('metros_actuales') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('metros_utiles') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('scrap') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('en_uso') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('terminado') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -38,6 +50,18 @@
                 <td><?= h($materiale->fecha_entega) ?></td>
                 <td><?= $materiale->has('localizacione') ? $this->Html->link($materiale->localizacione->id, ['controller' => 'Localizaciones', 'action' => 'view', $materiale->localizacione->id]) : '' ?></td>
                 <td><?= $materiale->has('entradas_material') ? $this->Html->link($materiale->entradas_material->id, ['controller' => 'EntradasMaterial', 'action' => 'view', $materiale->entradas_material->id]) : '' ?></td>
+                <td><?= h($materiale->bobina_lote) ?></td>
+                <td><?= $this->Number->format($materiale->bobinas) ?></td>
+                <td><?= h($materiale->lote) ?></td>
+                <td><?= $this->Number->format($materiale->numero_bobina) ?></td>
+                <td><?= $this->Number->format($materiale->taras) ?></td>
+                <td><?= $this->Number->format($materiale->metros_brutos) ?></td>
+                <td><?= $this->Number->format($materiale->metros_netos) ?></td>
+                <td><?= $this->Number->format($materiale->metros_actuales) ?></td>
+                <td><?= $this->Number->format($materiale->metros_utiles) ?></td>
+                <td><?= $this->Number->format($materiale->scrap) ?></td>
+                <td><?= h($materiale->en_uso) ?></td>
+                <td><?= h($materiale->terminado) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $materiale->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $materiale->id]) ?>

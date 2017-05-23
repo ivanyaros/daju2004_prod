@@ -7,13 +7,14 @@ use Cake\ORM\Entity;
  * Material Entity
  *
  * @property int $id
- * @property string|resource $nombre
- * @property string|resource $referencia
+ * @property string $nombre
+ * @property string $referencia
+ * @property string $referencia_proveedor
  * @property int $familia_id
  * @property float $longitud
  * @property float $anchura
  * @property float $profundidad
- * @property string|resource $color
+ * @property string $color
  * @property float $gramaje
  * @property float $peso_ud
  * @property int $unidades_embalaje
@@ -30,9 +31,6 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Objeto[] $objetos
  * @property \App\Model\Entity\Proceso[] $proceso
  * @property \App\Model\Entity\ProveedoresCliente[] $proveedores_clientes
- * @property \App\Model\Entity\ProcesoMaterial[] $proceso_material
- * @property \App\Model\Entity\ObjetosMateriale[] $objetos_materiales
- * @property \App\Model\Entity\ProveedoresClientesMaterial[] $proveedores_clientes_material
  */
 class Material extends Entity
 {

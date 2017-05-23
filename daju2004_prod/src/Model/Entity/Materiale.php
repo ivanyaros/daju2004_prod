@@ -11,12 +11,23 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $fecha_entega
  * @property int $localizacione_id
  * @property int $entradas_material_id
+ * @property bool $bobina_lote
+ * @property int $bobinas
+ * @property string $lote
+ * @property int $numero_bobina
+ * @property int $taras
+ * @property float $metros_brutos
+ * @property float $metros_netos
+ * @property float $metros_actuales
+ * @property float $metros_utiles
+ * @property float $scrap
+ * @property bool $en_uso
+ * @property bool $terminado
  *
  * @property \App\Model\Entity\Material $material
  * @property \App\Model\Entity\Localizacione $localizacione
  * @property \App\Model\Entity\EntradasMaterial $entradas_material
  * @property \App\Model\Entity\Objeto[] $objetos
- * @property \App\Model\Entity\ObjetosMateriale[] $objetos_materiales
  */
 class Materiale extends Entity
 {

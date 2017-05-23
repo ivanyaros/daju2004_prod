@@ -16,6 +16,8 @@ use Cake\ORM\Entity;
  * @property float $metros_utiles
  * @property float $scrap
  * @property bool $en_uso
+ *
+ * @property \App\Model\Entity\Materiale $materiale
  */
 class Bobina extends Entity
 {

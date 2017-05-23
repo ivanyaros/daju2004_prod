@@ -10,6 +10,8 @@
         <li><?= $this->Form->postLink(__('Delete Bobina'), ['action' => 'delete', $bobina->id], ['confirm' => __('Are you sure you want to delete # {0}?', $bobina->id)]) ?> </li>
         <li><?= $this->Html->link(__('List Bobinas'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Bobina'), ['action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Materiales'), ['controller' => 'Materiales', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Materiale'), ['controller' => 'Materiales', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
 <div class="bobinas view large-9 medium-8 columns content">
@@ -18,6 +20,10 @@
         <tr>
             <th scope="row"><?= __('Lote') ?></th>
             <td><?= h($bobina->lote) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Materiale') ?></th>
+            <td><?= $bobina->has('materiale') ? $this->Html->link($bobina->materiale->id, ['controller' => 'Materiales', 'action' => 'view', $bobina->materiale->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>

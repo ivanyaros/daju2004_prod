@@ -36,7 +36,7 @@ class BobinasController extends AppController
     public function view($id = null)
     {
         $bobina = $this->Bobinas->get($id, [
-            'contain' => []
+            'contain' => ['Materiales']
         ]);
 
         $this->set('bobina', $bobina);

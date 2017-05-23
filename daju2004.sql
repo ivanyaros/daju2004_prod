@@ -220,6 +220,18 @@ CREATE TABLE IF NOT EXISTS `daju_2004`.`materiales` (
   `fecha_entega` DATETIME NULL,
   `localizacione_id` INT UNSIGNED NULL,
   `entradas_material_id` INT UNSIGNED NULL,
+  `bobina_lote` TINYINT(1) NULL DEFAULT 0,
+  `bobinas` INT NULL,
+  `lote` VARCHAR(255) NULL,
+  `numero_bobina` INT NULL,
+  `taras` INT NULL,
+  `metros_brutos` FLOAT NULL,
+  `metros_netos` FLOAT NULL,
+  `metros_actuales` FLOAT NULL,
+  `metros_utiles` FLOAT NULL,
+  `scrap` FLOAT NULL,
+  `en_uso` TINYINT(1) NULL DEFAULT 0,
+  `terminado` TINYINT(1) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_materiales_entradas_material1_idx` (`entradas_material_id` ASC),
   INDEX `fk_materiales_material1_idx` (`material_id` ASC),
@@ -237,53 +249,6 @@ CREATE TABLE IF NOT EXISTS `daju_2004`.`materiales` (
   CONSTRAINT `fk_materiales_localizaciones1`
     FOREIGN KEY (`localizacione_id`)
     REFERENCES `daju_2004`.`localizaciones` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `daju_2004`.`bobinas`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `daju_2004`.`bobinas` ;
-
-CREATE TABLE IF NOT EXISTS `daju_2004`.`bobinas` (
-  `id` INT UNSIGNED NOT NULL,
-  `lote` VARCHAR(255) NULL,
-  `numero` INT NULL,
-  `taras` INT NULL,
-  `metros_brutos` FLOAT NULL,
-  `metros_netos` FLOAT NULL,
-  `metros_actuales` FLOAT NULL,
-  `metros_utiles` FLOAT NULL,
-  `scrap` FLOAT NULL,
-  `en_uso` TINYINT(1) NULL,
-  PRIMARY KEY (`id`),
-  CONSTRAINT `fk_materiales_bobinas_materiales1`
-    FOREIGN KEY (`id`)
-    REFERENCES `daju_2004`.`materiales` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `daju_2004`.`lotes`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `daju_2004`.`lotes` ;
-
-CREATE TABLE IF NOT EXISTS `daju_2004`.`lotes` (
-  `id` INT UNSIGNED NOT NULL,
-  `lote` VARCHAR(255) NULL,
-  `peso` FLOAT NULL,
-  `metros_iniciales` FLOAT NULL,
-  `metros_actuales` FLOAT NULL,
-  `metros_utiles` FLOAT NULL,
-  `unidades` INT NULL,
-  PRIMARY KEY (`id`),
-  CONSTRAINT `fk_materiales_lotes_materiales1`
-    FOREIGN KEY (`id`)
-    REFERENCES `daju_2004`.`materiales` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

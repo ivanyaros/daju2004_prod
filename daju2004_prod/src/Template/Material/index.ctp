@@ -29,10 +29,14 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('nombre') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('referencia') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('referencia_proveedor') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('familia_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('longitud') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('anchura') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('profundidad') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('color') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('gramaje') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('peso_ud') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('unidades_embalaje') ?></th>
@@ -48,10 +52,14 @@
             <?php foreach ($material as $material): ?>
             <tr>
                 <td><?= $this->Number->format($material->id) ?></td>
+                <td><?= h($material->nombre) ?></td>
+                <td><?= h($material->referencia) ?></td>
+                <td><?= h($material->referencia_proveedor) ?></td>
                 <td><?= $material->has('familia') ? $this->Html->link($material->familia->id, ['controller' => 'Familias', 'action' => 'view', $material->familia->id]) : '' ?></td>
                 <td><?= $this->Number->format($material->longitud) ?></td>
                 <td><?= $this->Number->format($material->anchura) ?></td>
                 <td><?= $this->Number->format($material->profundidad) ?></td>
+                <td><?= h($material->color) ?></td>
                 <td><?= $this->Number->format($material->gramaje) ?></td>
                 <td><?= $this->Number->format($material->peso_ud) ?></td>
                 <td><?= $this->Number->format($material->unidades_embalaje) ?></td>
