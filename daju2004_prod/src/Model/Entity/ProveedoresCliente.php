@@ -15,7 +15,7 @@ use Cake\ORM\Entity;
  * @property string $pagina_web
  * @property string $NIF_CIF
  * @property string $observaciones
- * @property bool $tipo
+ * @property bool $proveedor_cliente
  * @property bool $visible
  * @property string $persona_contacto
  *
@@ -24,7 +24,6 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\PedidosEmpresa[] $pedidos_empresas
  * @property \App\Model\Entity\SalidasObjeto[] $salidas_objetos
  * @property \App\Model\Entity\Material[] $material
- * @property \App\Model\Entity\ProveedoresClientesMaterial[] $proveedores_clientes_material
  */
 class ProveedoresCliente extends Entity
 {

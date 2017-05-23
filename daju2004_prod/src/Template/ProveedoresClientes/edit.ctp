@@ -38,7 +38,7 @@
             echo $this->Form->control('pagina_web');
             echo $this->Form->control('NIF_CIF');
             echo $this->Form->control('observaciones');
-            echo $this->Form->control('tipo');
+            echo $this->Form->control('proveedor_cliente');
             echo $this->Form->control('visible');
             echo $this->Form->control('persona_contacto');
             echo $this->Form->control('material._ids', ['options' => $material]);

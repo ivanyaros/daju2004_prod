@@ -26,8 +26,8 @@ class ProveedoresClientesFixture extends TestFixture
         'pagina_web' => ['type' => 'string', 'length' => 255, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'NIF_CIF' => ['type' => 'string', 'length' => 20, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'observaciones' => ['type' => 'string', 'length' => 1024, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
-        'tipo' => ['type' => 'boolean', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
-        'visible' => ['type' => 'boolean', 'length' => null, 'null' => true, 'default' => '1', 'comment' => '', 'precision' => null],
+        'proveedor_cliente' => ['type' => 'boolean', 'length' => null, 'null' => true, 'default' => '0', 'comment' => '', 'precision' => null],
+        'visible' => ['type' => 'boolean', 'length' => null, 'null' => false, 'default' => '1', 'comment' => '', 'precision' => null],
         'persona_contacto' => ['type' => 'string', 'length' => 45, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
@@ -55,7 +55,7 @@ class ProveedoresClientesFixture extends TestFixture
             'pagina_web' => 'Lorem ipsum dolor sit amet',
             'NIF_CIF' => 'Lorem ipsum dolor ',
             'observaciones' => 'Lorem ipsum dolor sit amet',
-            'tipo' => 1,
+            'proveedor_cliente' => 1,
             'visible' => 1,
             'persona_contacto' => 'Lorem ipsum dolor sit amet'
         ],

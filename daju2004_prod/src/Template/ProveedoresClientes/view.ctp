@@ -66,8 +66,8 @@
             <td><?= $this->Number->format($proveedoresCliente->id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Tipo') ?></th>
-            <td><?= $proveedoresCliente->tipo ? __('Yes') : __('No'); ?></td>
+            <th scope="row"><?= __('Proveedor Cliente') ?></th>
+            <td><?= $proveedoresCliente->proveedor_cliente ? __('Yes') : __('No'); ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Visible') ?></th>
@@ -212,6 +212,7 @@
                 <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Nombre') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
+                <th scope="col"><?= __('Referencia Proveedor') ?></th>
                 <th scope="col"><?= __('Familia Id') ?></th>
                 <th scope="col"><?= __('Longitud') ?></th>
                 <th scope="col"><?= __('Anchura') ?></th>
@@ -232,6 +233,7 @@
                 <td><?= h($material->id) ?></td>
                 <td><?= h($material->nombre) ?></td>
                 <td><?= h($material->referencia) ?></td>
+                <td><?= h($material->referencia_proveedor) ?></td>
                 <td><?= h($material->familia_id) ?></td>
                 <td><?= h($material->longitud) ?></td>
                 <td><?= h($material->anchura) ?></td>

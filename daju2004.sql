@@ -30,8 +30,8 @@ CREATE TABLE IF NOT EXISTS `daju_2004`.`proveedores_clientes` (
   `pagina_web` VARCHAR(255) NULL,
   `NIF_CIF` VARCHAR(20) NULL,
   `observaciones` VARCHAR(1024) NULL,
-  `tipo` TINYINT(1) NULL,
-  `visible` TINYINT(1) NULL DEFAULT 1,
+  `proveedor_cliente` TINYINT(1) NULL DEFAULT 0,
+  `visible` TINYINT(1) NOT NULL DEFAULT 1,
   `persona_contacto` VARCHAR(45) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
@@ -152,13 +152,14 @@ DROP TABLE IF EXISTS `daju_2004`.`material` ;
 
 CREATE TABLE IF NOT EXISTS `daju_2004`.`material` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `nombre` TINYBLOB NULL,
-  `referencia` TINYBLOB NULL,
+  `nombre` VARCHAR(255) NULL,
+  `referencia` VARCHAR(255) NULL,
+  `referencia_proveedor` VARCHAR(255) NULL,
   `familia_id` INT UNSIGNED NULL,
   `longitud` FLOAT NULL,
   `anchura` FLOAT NULL,
   `profundidad` FLOAT NULL,
-  `color` TINYBLOB NULL,
+  `color` VARCHAR(255) NULL,
   `gramaje` FLOAT NULL,
   `peso_ud` FLOAT NULL,
   `unidades_embalaje` INT UNSIGNED NULL,

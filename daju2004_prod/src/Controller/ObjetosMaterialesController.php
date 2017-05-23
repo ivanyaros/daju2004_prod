@@ -21,7 +21,7 @@ class ObjetosMaterialesController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Objetos', 'Materiales', 'Material']
+            'contain' => ['Objetos', 'Materiales'/*, 'Material'*/]
         ];
         $objetosMateriales = $this->paginate($this->ObjetosMateriales);
 
@@ -39,7 +39,7 @@ class ObjetosMaterialesController extends AppController
     public function view($id = null)
     {
         $objetosMateriale = $this->ObjetosMateriales->get($id, [
-            'contain' => ['Objetos', 'Materiales', 'Material']
+            'contain' => ['Objetos', 'Materiales'/*, 'Material'*/]
         ]);
 
         $this->set('objetosMateriale', $objetosMateriale);
@@ -65,8 +65,8 @@ class ObjetosMaterialesController extends AppController
         }
         $objetos = $this->ObjetosMateriales->Objetos->find('list', ['limit' => 200]);
         $materiales = $this->ObjetosMateriales->Materiales->find('list', ['limit' => 200]);
-        $material = $this->ObjetosMateriales->Material->find('list', ['limit' => 200]);
-        $this->set(compact('objetosMateriale', 'objetos', 'materiales', 'material'));
+        /*$material = $this->ObjetosMateriales->Material->find('list', ['limit' => 200]);*/
+        $this->set(compact('objetosMateriale', 'objetos', 'materiales'/*, 'material'*/));
         $this->set('_serialize', ['objetosMateriale']);
     }
 
@@ -93,8 +93,8 @@ class ObjetosMaterialesController extends AppController
         }
         $objetos = $this->ObjetosMateriales->Objetos->find('list', ['limit' => 200]);
         $materiales = $this->ObjetosMateriales->Materiales->find('list', ['limit' => 200]);
-        $material = $this->ObjetosMateriales->Material->find('list', ['limit' => 200]);
-        $this->set(compact('objetosMateriale', 'objetos', 'materiales', 'material'));
+        /*$material = $this->ObjetosMateriales->Material->find('list', ['limit' => 200]);*/
+        $this->set(compact('objetosMateriale', 'objetos', 'materiales'/*, 'material'*/));
         $this->set('_serialize', ['objetosMateriale']);
     }
 

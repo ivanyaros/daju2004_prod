@@ -33,7 +33,7 @@
                 <th scope="col"><?= $this->Paginator->sort('pagina_web') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('NIF_CIF') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('observaciones') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('tipo') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('proveedor_cliente') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('visible') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('persona_contacto') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -51,7 +51,7 @@
                 <td><?= h($proveedoresCliente->pagina_web) ?></td>
                 <td><?= h($proveedoresCliente->NIF_CIF) ?></td>
                 <td><?= h($proveedoresCliente->observaciones) ?></td>
-                <td><?= h($proveedoresCliente->tipo) ?></td>
+                <td><?= h($proveedoresCliente->proveedor_cliente) ?></td>
                 <td><?= h($proveedoresCliente->visible) ?></td>
                 <td><?= h($proveedoresCliente->persona_contacto) ?></td>
                 <td class="actions">

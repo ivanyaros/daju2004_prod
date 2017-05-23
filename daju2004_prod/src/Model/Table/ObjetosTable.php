@@ -57,8 +57,8 @@ class ObjetosTable extends Table
             'joinTable' => 'objetos_materiales'
         ]);
         $this->belongsToMany('Objetos', [
-            'foreignKey' => 'objeto_id',
-            'targetForeignKey' => 'objeto_id',
+            'foreignKey' => 'entrada',
+            'targetForeignKey' => 'salida',
             'joinTable' => 'objetos_objetos'
         ]);
     }

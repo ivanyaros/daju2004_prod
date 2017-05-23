@@ -96,12 +96,13 @@ class ProveedoresClientesTable extends Table
             ->allowEmpty('observaciones');
 
         $validator
-            ->boolean('tipo')
-            ->allowEmpty('tipo');
+            ->boolean('proveedor_cliente')
+            ->allowEmpty('proveedor_cliente');
 
         $validator
             ->boolean('visible')
-            ->allowEmpty('visible');
+            ->requirePresence('visible', 'create')
+            ->notEmpty('visible');
 
         $validator
             ->allowEmpty('persona_contacto');
