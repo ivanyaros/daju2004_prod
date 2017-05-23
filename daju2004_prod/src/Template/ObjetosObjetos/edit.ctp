@@ -22,11 +22,10 @@
     <fieldset>
         <legend><?= __('Edit Objetos Objeto') ?></legend>
         <?php
-            echo $this->Form->control('salida');
             echo $this->Form->control('entrada');
+            echo $this->Form->control('salida');
             echo $this->Form->control('cantidad_producida');
             echo $this->Form->control('cantidad_gastada');
-            echo $this->Form->control('scrap');
             echo $this->Form->control('observaciones');
         ?>
     </fieldset>

@@ -62,8 +62,12 @@ class ObjetosMaterialesTable extends Table
             ->allowEmpty('cantidad_producida');
 
         $validator
-            ->numeric('uso')
-            ->allowEmpty('uso');
+            ->numeric('metros_gastados')
+            ->allowEmpty('metros_gastados');
+
+        $validator
+            ->numeric('metros_utiles')
+            ->allowEmpty('metros_utiles');
 
         $validator
             ->numeric('scrap')

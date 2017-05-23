@@ -24,9 +24,9 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Iva $iva
  * @property \App\Model\Entity\Centro $centro
  * @property \App\Model\Entity\Orden[] $ordens
+ * @property \App\Model\Entity\ProcesoProductoEntrada[] $proceso_producto_entrada
+ * @property \App\Model\Entity\ProcesoProductoSalida[] $proceso_producto_salida
  * @property \App\Model\Entity\Material[] $material
- * @property \App\Model\Entity\Producto[] $producto
- * @property \App\Model\Entity\ProcesoProducto[] $proceso_producto
  * @property \App\Model\Entity\ProcesoMaterial[] $proceso_material
  */
 class Proceso extends Entity

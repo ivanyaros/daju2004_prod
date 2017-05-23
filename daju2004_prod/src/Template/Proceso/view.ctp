@@ -20,10 +20,12 @@
         <li><?= $this->Html->link(__('New Centro'), ['controller' => 'Centros', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Ordens'), ['controller' => 'Ordens', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Orden'), ['controller' => 'Ordens', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Proceso Producto Entrada'), ['controller' => 'ProcesoProductoEntrada', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Proceso Producto Entrada'), ['controller' => 'ProcesoProductoEntrada', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Proceso Producto Salida'), ['controller' => 'ProcesoProductoSalida', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Proceso Producto Salida'), ['controller' => 'ProcesoProductoSalida', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Material'), ['controller' => 'Material', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Material'), ['controller' => 'Material', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Producto'), ['controller' => 'Producto', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Producto'), ['controller' => 'Producto', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
 <div class="proceso view large-9 medium-8 columns content">
@@ -118,6 +120,64 @@
         <?php endif; ?>
     </div>
     <div class="related">
+        <h4><?= __('Related Proceso Producto Entrada') ?></h4>
+        <?php if (!empty($proceso->proceso_producto_entrada)): ?>
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Proceso Id') ?></th>
+                <th scope="col"><?= __('Producto Id') ?></th>
+                <th scope="col"><?= __('Cantidad') ?></th>
+                <th scope="col"><?= __('Observaciones') ?></th>
+                <th scope="col" class="actions"><?= __('Actions') ?></th>
+            </tr>
+            <?php foreach ($proceso->proceso_producto_entrada as $procesoProductoEntrada): ?>
+            <tr>
+                <td><?= h($procesoProductoEntrada->id) ?></td>
+                <td><?= h($procesoProductoEntrada->proceso_id) ?></td>
+                <td><?= h($procesoProductoEntrada->producto_id) ?></td>
+                <td><?= h($procesoProductoEntrada->cantidad) ?></td>
+                <td><?= h($procesoProductoEntrada->observaciones) ?></td>
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['controller' => 'ProcesoProductoEntrada', 'action' => 'view', $procesoProductoEntrada->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'ProcesoProductoEntrada', 'action' => 'edit', $procesoProductoEntrada->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'ProcesoProductoEntrada', 'action' => 'delete', $procesoProductoEntrada->id], ['confirm' => __('Are you sure you want to delete # {0}?', $procesoProductoEntrada->id)]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+        <?php endif; ?>
+    </div>
+    <div class="related">
+        <h4><?= __('Related Proceso Producto Salida') ?></h4>
+        <?php if (!empty($proceso->proceso_producto_salida)): ?>
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Proceso Id') ?></th>
+                <th scope="col"><?= __('Producto Id') ?></th>
+                <th scope="col"><?= __('Cantidad') ?></th>
+                <th scope="col"><?= __('Observaciones') ?></th>
+                <th scope="col" class="actions"><?= __('Actions') ?></th>
+            </tr>
+            <?php foreach ($proceso->proceso_producto_salida as $procesoProductoSalida): ?>
+            <tr>
+                <td><?= h($procesoProductoSalida->id) ?></td>
+                <td><?= h($procesoProductoSalida->proceso_id) ?></td>
+                <td><?= h($procesoProductoSalida->producto_id) ?></td>
+                <td><?= h($procesoProductoSalida->cantidad) ?></td>
+                <td><?= h($procesoProductoSalida->observaciones) ?></td>
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['controller' => 'ProcesoProductoSalida', 'action' => 'view', $procesoProductoSalida->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'ProcesoProductoSalida', 'action' => 'edit', $procesoProductoSalida->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'ProcesoProductoSalida', 'action' => 'delete', $procesoProductoSalida->id], ['confirm' => __('Are you sure you want to delete # {0}?', $procesoProductoSalida->id)]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+        <?php endif; ?>
+    </div>
+    <div class="related">
         <h4><?= __('Related Material') ?></h4>
         <?php if (!empty($proceso->material)): ?>
         <table cellpadding="0" cellspacing="0">
@@ -162,55 +222,6 @@
                     <?= $this->Html->link(__('View'), ['controller' => 'Material', 'action' => 'view', $material->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Material', 'action' => 'edit', $material->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['controller' => 'Material', 'action' => 'delete', $material->id], ['confirm' => __('Are you sure you want to delete # {0}?', $material->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </table>
-        <?php endif; ?>
-    </div>
-    <div class="related">
-        <h4><?= __('Related Producto') ?></h4>
-        <?php if (!empty($proceso->producto)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Nombre') ?></th>
-                <th scope="col"><?= __('Referencia') ?></th>
-                <th scope="col"><?= __('Referencia Proveedor') ?></th>
-                <th scope="col"><?= __('Familia Id') ?></th>
-                <th scope="col"><?= __('Precio') ?></th>
-                <th scope="col"><?= __('Moneda Id') ?></th>
-                <th scope="col"><?= __('Iva Id') ?></th>
-                <th scope="col"><?= __('Observaciones') ?></th>
-                <th scope="col"><?= __('Visible') ?></th>
-                <th scope="col"><?= __('Peso') ?></th>
-                <th scope="col"><?= __('Cantidad') ?></th>
-                <th scope="col"><?= __('Descripcion') ?></th>
-                <th scope="col"><?= __('Larga') ?></th>
-                <th scope="col"><?= __('Coste') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($proceso->producto as $producto): ?>
-            <tr>
-                <td><?= h($producto->id) ?></td>
-                <td><?= h($producto->nombre) ?></td>
-                <td><?= h($producto->referencia) ?></td>
-                <td><?= h($producto->referencia_proveedor) ?></td>
-                <td><?= h($producto->familia_id) ?></td>
-                <td><?= h($producto->precio) ?></td>
-                <td><?= h($producto->moneda_id) ?></td>
-                <td><?= h($producto->iva_id) ?></td>
-                <td><?= h($producto->observaciones) ?></td>
-                <td><?= h($producto->visible) ?></td>
-                <td><?= h($producto->peso) ?></td>
-                <td><?= h($producto->cantidad) ?></td>
-                <td><?= h($producto->descripcion) ?></td>
-                <td><?= h($producto->larga) ?></td>
-                <td><?= h($producto->coste) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Producto', 'action' => 'view', $producto->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Producto', 'action' => 'edit', $producto->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Producto', 'action' => 'delete', $producto->id], ['confirm' => __('Are you sure you want to delete # {0}?', $producto->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

@@ -39,7 +39,7 @@ class ProductoController extends AppController
     public function view($id = null)
     {
         $producto = $this->Producto->get($id, [
-            'contain' => ['Familias', 'Monedas', 'Ivas', 'PedidosEmpresas', 'Proceso', 'Objetos']
+            'contain' => ['Familias', 'Monedas', 'Ivas', 'PedidosEmpresas', 'Objetos', 'ProcesoProductoEntrada', 'ProcesoProductoSalida']
         ]);
 
         $this->set('producto', $producto);
@@ -67,8 +67,7 @@ class ProductoController extends AppController
         $monedas = $this->Producto->Monedas->find('list', ['limit' => 200]);
         $ivas = $this->Producto->Ivas->find('list', ['limit' => 200]);
         $pedidosEmpresas = $this->Producto->PedidosEmpresas->find('list', ['limit' => 200]);
-        $proceso = $this->Producto->Proceso->find('list', ['limit' => 200]);
-        $this->set(compact('producto', 'familias', 'monedas', 'ivas', 'pedidosEmpresas', 'proceso'));
+        $this->set(compact('producto', 'familias', 'monedas', 'ivas', 'pedidosEmpresas'));
         $this->set('_serialize', ['producto']);
     }
 
@@ -82,7 +81,7 @@ class ProductoController extends AppController
     public function edit($id = null)
     {
         $producto = $this->Producto->get($id, [
-            'contain' => ['PedidosEmpresas', 'Proceso']
+            'contain' => ['PedidosEmpresas']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $producto = $this->Producto->patchEntity($producto, $this->request->getData());
@@ -97,8 +96,7 @@ class ProductoController extends AppController
         $monedas = $this->Producto->Monedas->find('list', ['limit' => 200]);
         $ivas = $this->Producto->Ivas->find('list', ['limit' => 200]);
         $pedidosEmpresas = $this->Producto->PedidosEmpresas->find('list', ['limit' => 200]);
-        $proceso = $this->Producto->Proceso->find('list', ['limit' => 200]);
-        $this->set(compact('producto', 'familias', 'monedas', 'ivas', 'pedidosEmpresas', 'proceso'));
+        $this->set(compact('producto', 'familias', 'monedas', 'ivas', 'pedidosEmpresas'));
         $this->set('_serialize', ['producto']);
     }
 

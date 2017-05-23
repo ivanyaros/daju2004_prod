@@ -404,16 +404,16 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `daju_2004`.`proceso_producto`
+-- Table `daju_2004`.`proceso_producto_entrada`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `daju_2004`.`proceso_producto` ;
+DROP TABLE IF EXISTS `daju_2004`.`proceso_producto_entrada` ;
 
-CREATE TABLE IF NOT EXISTS `daju_2004`.`proceso_producto` (
-  `id` INT UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `daju_2004`.`proceso_producto_entrada` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `proceso_id` INT UNSIGNED NULL,
   `producto_id` INT UNSIGNED NULL,
   `cantidad` INT NULL,
-  `entrada_salida` TINYINT(1) NULL DEFAULT 0 COMMENT '0-entrada\n1-salida',
+  `observaciones` VARCHAR(255) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_proceso_has_producto_producto1_idx` (`producto_id` ASC),
   INDEX `fk_proceso_has_producto_proceso1_idx` (`proceso_id` ASC),
@@ -437,7 +437,7 @@ COMMENT = 'Entradas salidas productos en los procesos\n';
 DROP TABLE IF EXISTS `daju_2004`.`proceso_material` ;
 
 CREATE TABLE IF NOT EXISTS `daju_2004`.`proceso_material` (
-  `id` INT UNSIGNED NOT NULL,
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `proceso_id` INT UNSIGNED NULL,
   `material_id` INT UNSIGNED NULL,
   `metros_lineales` FLOAT NULL,
@@ -666,7 +666,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `daju_2004`.`ordens_estados` ;
 
 CREATE TABLE IF NOT EXISTS `daju_2004`.`ordens_estados` (
-  `id` INT UNSIGNED NOT NULL,
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `orden_id` INT UNSIGNED NULL,
   `estado_id` MEDIUMINT UNSIGNED NULL,
   `fecha_inicio` DATETIME NULL,
@@ -711,7 +711,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `daju_2004`.`ordens_estados_usuarios` ;
 
 CREATE TABLE IF NOT EXISTS `daju_2004`.`ordens_estados_usuarios` (
-  `id` INT UNSIGNED NOT NULL,
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `ordens_estado_id` INT UNSIGNED NULL,
   `usuario_id` INT UNSIGNED NULL,
   `parte` FLOAT NULL,
@@ -738,7 +738,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `daju_2004`.`ordens_estados_maquinas` ;
 
 CREATE TABLE IF NOT EXISTS `daju_2004`.`ordens_estados_maquinas` (
-  `id` INT UNSIGNED NOT NULL,
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `ordens_estado_id` INT UNSIGNED NULL,
   `maquina_id` INT UNSIGNED NULL,
   `operaciones` INT NULL,
@@ -766,7 +766,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `daju_2004`.`ordens_estados_utensilios` ;
 
 CREATE TABLE IF NOT EXISTS `daju_2004`.`ordens_estados_utensilios` (
-  `id` INT UNSIGNED NOT NULL,
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `ordens_estado_id` INT UNSIGNED NULL,
   `utensilio_id` INT UNSIGNED NULL,
   `observaciones` VARCHAR(255) NULL,
@@ -787,33 +787,30 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `daju_2004`.`objetos_materiales`
+-- Table `daju_2004`.`proceso_producto_salida`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `daju_2004`.`objetos_materiales` ;
+DROP TABLE IF EXISTS `daju_2004`.`proceso_producto_salida` ;
 
-CREATE TABLE IF NOT EXISTS `daju_2004`.`objetos_materiales` (
-  `id` INT NOT NULL,
-  `objeto_id` INT UNSIGNED NULL,
-  `materiale_id` INT UNSIGNED NULL,
-  `cantidad_producida` INT NULL,
-  `uso` FLOAT NULL,
-  `scrap` FLOAT NULL,
+CREATE TABLE IF NOT EXISTS `daju_2004`.`proceso_producto_salida` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `proceso_id` INT UNSIGNED NULL,
+  `producto_id` INT UNSIGNED NULL,
+  `cantidad` INT NULL,
   `observaciones` VARCHAR(255) NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_objetos_materiales_objetos1_idx` (`objeto_id` ASC),
-  INDEX `fk_objetos_materiales_materiales1_idx` (`materiale_id` ASC),
-  CONSTRAINT `fk_objetos_materiales_objetos1`
-    FOREIGN KEY (`objeto_id`)
-    REFERENCES `daju_2004`.`objetos` (`id`)
+  INDEX `fk_proceso_has_producto_producto2_idx` (`producto_id` ASC),
+  INDEX `fk_proceso_has_producto_proceso2_idx` (`proceso_id` ASC),
+  CONSTRAINT `fk_proceso_has_producto_proceso2`
+    FOREIGN KEY (`proceso_id`)
+    REFERENCES `daju_2004`.`proceso` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_objetos_materiales_materiales1`
-    FOREIGN KEY (`materiale_id`)
-    REFERENCES `daju_2004`.`materiales` (`id`)
+  CONSTRAINT `fk_proceso_has_producto_producto2`
+    FOREIGN KEY (`producto_id`)
+    REFERENCES `daju_2004`.`producto` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB
-COMMENT = 'cada objeto que se crea, esta relacionado con los materiales que se usan para fabricarlo.\npueden ser diferentes materiales y de cada uno, quiero saber cuantas piezas se han hecho, cuanto material se ha gastado y cuanto se ha tirado';
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -822,28 +819,56 @@ COMMENT = 'cada objeto que se crea, esta relacionado con los materiales que se u
 DROP TABLE IF EXISTS `daju_2004`.`objetos_objetos` ;
 
 CREATE TABLE IF NOT EXISTS `daju_2004`.`objetos_objetos` (
-  `id` INT UNSIGNED NOT NULL,
-  `salida` INT UNSIGNED NULL,
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `entrada` INT UNSIGNED NULL,
+  `salida` INT UNSIGNED NULL,
   `cantidad_producida` INT NULL,
   `cantidad_gastada` INT NULL,
-  `scrap` FLOAT NULL,
   `observaciones` VARCHAR(255) NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_objetos_objetos_objetos1_idx` (`salida` ASC),
-  INDEX `fk_objetos_objetos_objetos2_idx` (`entrada` ASC),
-  CONSTRAINT `fk_objetos_objetos_objetos1`
-    FOREIGN KEY (`salida`)
-    REFERENCES `daju_2004`.`objetos` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_objetos_objetos_objetos2`
+  INDEX `fk_objetos_has_objetos_objetos2_idx` (`salida` ASC),
+  INDEX `fk_objetos_has_objetos_objetos1_idx` (`entrada` ASC),
+  CONSTRAINT `fk_objetos_has_objetos_objetos1`
     FOREIGN KEY (`entrada`)
     REFERENCES `daju_2004`.`objetos` (`id`)
     ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_objetos_has_objetos_objetos2`
+    FOREIGN KEY (`salida`)
+    REFERENCES `daju_2004`.`objetos` (`id`)
+    ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB
-COMMENT = 'para hacer objetos, se gastan otros objetos.\naqui se relaciona el que se gasta y como\n';
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `daju_2004`.`objetos_materiales`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `daju_2004`.`objetos_materiales` ;
+
+CREATE TABLE IF NOT EXISTS `daju_2004`.`objetos_materiales` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `objeto_id` INT UNSIGNED NULL,
+  `materiale_id` INT UNSIGNED NULL,
+  `cantidad_producida` INT NULL,
+  `metros_gastados` FLOAT NULL,
+  `metros_utiles` FLOAT NULL,
+  `scrap` FLOAT NULL,
+  `observaciones` VARCHAR(255) NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_objetos_has_materiales_materiales1_idx` (`materiale_id` ASC),
+  INDEX `fk_objetos_has_materiales_objetos1_idx` (`objeto_id` ASC),
+  CONSTRAINT `fk_objetos_has_materiales_objetos1`
+    FOREIGN KEY (`objeto_id`)
+    REFERENCES `daju_2004`.`objetos` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_objetos_has_materiales_materiales1`
+    FOREIGN KEY (`materiale_id`)
+    REFERENCES `daju_2004`.`materiales` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

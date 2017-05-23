@@ -10,7 +10,8 @@ use Cake\ORM\Entity;
  * @property int $objeto_id
  * @property int $materiale_id
  * @property int $cantidad_producida
- * @property float $uso
+ * @property float $metros_gastados
+ * @property float $metros_utiles
  * @property float $scrap
  * @property string $observaciones
  *

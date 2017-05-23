@@ -24,7 +24,8 @@
                 <th scope="col"><?= $this->Paginator->sort('objeto_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('materiale_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('cantidad_producida') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('uso') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('metros_gastados') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('metros_utiles') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('scrap') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('observaciones') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -37,7 +38,8 @@
                 <td><?= $objetosMateriale->has('objeto') ? $this->Html->link($objetosMateriale->objeto->id, ['controller' => 'Objetos', 'action' => 'view', $objetosMateriale->objeto->id]) : '' ?></td>
                 <td><?= $objetosMateriale->has('materiale') ? $this->Html->link($objetosMateriale->materiale->id, ['controller' => 'Materiales', 'action' => 'view', $objetosMateriale->materiale->id]) : '' ?></td>
                 <td><?= $this->Number->format($objetosMateriale->cantidad_producida) ?></td>
-                <td><?= $this->Number->format($objetosMateriale->uso) ?></td>
+                <td><?= $this->Number->format($objetosMateriale->metros_gastados) ?></td>
+                <td><?= $this->Number->format($objetosMateriale->metros_utiles) ?></td>
                 <td><?= $this->Number->format($objetosMateriale->scrap) ?></td>
                 <td><?= h($objetosMateriale->observaciones) ?></td>
                 <td class="actions">

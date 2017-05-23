@@ -7,11 +7,10 @@ use Cake\ORM\Entity;
  * ObjetosObjeto Entity
  *
  * @property int $id
- * @property int $salida
  * @property int $entrada
+ * @property int $salida
  * @property int $cantidad_producida
  * @property int $cantidad_gastada
- * @property float $scrap
  * @property string $observaciones
  */
 class ObjetosObjeto extends Entity

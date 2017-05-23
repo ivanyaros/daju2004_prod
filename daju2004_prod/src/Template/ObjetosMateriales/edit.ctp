@@ -29,7 +29,8 @@
             echo $this->Form->control('objeto_id', ['options' => $objetos, 'empty' => true]);
             echo $this->Form->control('materiale_id', ['options' => $materiales, 'empty' => true]);
             echo $this->Form->control('cantidad_producida');
-            echo $this->Form->control('uso');
+            echo $this->Form->control('metros_gastados');
+            echo $this->Form->control('metros_utiles');
             echo $this->Form->control('scrap');
             echo $this->Form->control('observaciones');
         ?>

@@ -42,8 +42,12 @@
             <td><?= $this->Number->format($objetosMateriale->cantidad_producida) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Uso') ?></th>
-            <td><?= $this->Number->format($objetosMateriale->uso) ?></td>
+            <th scope="row"><?= __('Metros Gastados') ?></th>
+            <td><?= $this->Number->format($objetosMateriale->metros_gastados) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Metros Utiles') ?></th>
+            <td><?= $this->Number->format($objetosMateriale->metros_utiles) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Scrap') ?></th>

@@ -39,10 +39,11 @@ class DireccionesControllerTest extends IntegrationTestCase
         'app.utensilios',
         'app.ordens_estados_utensilios',
         'app.objetos_materiales',
+        'app.proceso_producto_entrada',
+        'app.proceso_producto_salida',
         'app.pedidos_empresas',
         'app.salidas_objetos',
         'app.pedidos_empresas_producto',
-        'app.proceso_producto',
         'app.proceso_material',
         'app.proveedores_clientes_material'
     ];

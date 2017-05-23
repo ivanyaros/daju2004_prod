@@ -26,12 +26,12 @@
             <td><?= $this->Number->format($objetosObjeto->id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Salida') ?></th>
-            <td><?= $this->Number->format($objetosObjeto->salida) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Entrada') ?></th>
             <td><?= $this->Number->format($objetosObjeto->entrada) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Salida') ?></th>
+            <td><?= $this->Number->format($objetosObjeto->salida) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Cantidad Producida') ?></th>
@@ -40,10 +40,6 @@
         <tr>
             <th scope="row"><?= __('Cantidad Gastada') ?></th>
             <td><?= $this->Number->format($objetosObjeto->cantidad_gastada) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Scrap') ?></th>
-            <td><?= $this->Number->format($objetosObjeto->scrap) ?></td>
         </tr>
     </table>
 </div>

@@ -39,7 +39,7 @@ class ProcesoController extends AppController
     public function view($id = null)
     {
         $proceso = $this->Proceso->get($id, [
-            'contain' => ['Familias', 'Monedas', 'Ivas', 'Centros', 'Material', 'Producto', 'Ordens']
+            'contain' => ['Familias', 'Monedas', 'Ivas', 'Centros', 'Material', 'Ordens', 'ProcesoProductoEntrada', 'ProcesoProductoSalida']
         ]);
 
         $this->set('proceso', $proceso);
@@ -68,8 +68,7 @@ class ProcesoController extends AppController
         $ivas = $this->Proceso->Ivas->find('list', ['limit' => 200]);
         $centros = $this->Proceso->Centros->find('list', ['limit' => 200]);
         $material = $this->Proceso->Material->find('list', ['limit' => 200]);
-        $producto = $this->Proceso->Producto->find('list', ['limit' => 200]);
-        $this->set(compact('proceso', 'familias', 'monedas', 'ivas', 'centros', 'material', 'producto'));
+        $this->set(compact('proceso', 'familias', 'monedas', 'ivas', 'centros', 'material'));
         $this->set('_serialize', ['proceso']);
     }
 
@@ -83,7 +82,7 @@ class ProcesoController extends AppController
     public function edit($id = null)
     {
         $proceso = $this->Proceso->get($id, [
-            'contain' => ['Material', 'Producto']
+            'contain' => ['Material']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $proceso = $this->Proceso->patchEntity($proceso, $this->request->getData());
@@ -99,8 +98,7 @@ class ProcesoController extends AppController
         $ivas = $this->Proceso->Ivas->find('list', ['limit' => 200]);
         $centros = $this->Proceso->Centros->find('list', ['limit' => 200]);
         $material = $this->Proceso->Material->find('list', ['limit' => 200]);
-        $producto = $this->Proceso->Producto->find('list', ['limit' => 200]);
-        $this->set(compact('proceso', 'familias', 'monedas', 'ivas', 'centros', 'material', 'producto'));
+        $this->set(compact('proceso', 'familias', 'monedas', 'ivas', 'centros', 'material'));
         $this->set('_serialize', ['proceso']);
     }
 

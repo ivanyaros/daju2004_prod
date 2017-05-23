@@ -51,8 +51,9 @@ class ObjetosTableTest extends TestCase
         'app.ordens_estados_usuarios',
         'app.utensilios',
         'app.ordens_estados_utensilios',
-        'app.proceso_material',
-        'app.proceso_producto'
+        'app.proceso_producto_entrada',
+        'app.proceso_producto_salida',
+        'app.proceso_material'
     ];
 
     /**

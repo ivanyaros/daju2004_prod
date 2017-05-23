@@ -49,8 +49,9 @@ class LocalizacionesTableTest extends TestCase
         'app.objetos',
         'app.materiales',
         'app.objetos_materiales',
+        'app.proceso_producto_entrada',
+        'app.proceso_producto_salida',
         'app.proceso_material',
-        'app.proceso_producto',
         'app.proveedores_clientes_material',
         'app.pedidos_empresas_producto'
     ];

@@ -43,7 +43,8 @@ class MaterialesControllerTest extends IntegrationTestCase
         'app.proveedores_clientes_material',
         'app.localizaciones',
         'app.objetos_materiales',
-        'app.proceso_producto',
+        'app.proceso_producto_entrada',
+        'app.proceso_producto_salida',
         'app.proceso_material'
     ];
 

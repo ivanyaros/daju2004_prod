@@ -26,10 +26,10 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Moneda $moneda
  * @property \App\Model\Entity\Iva $iva
  * @property \App\Model\Entity\Objeto[] $objetos
+ * @property \App\Model\Entity\ProcesoProductoEntrada[] $proceso_producto_entrada
+ * @property \App\Model\Entity\ProcesoProductoSalida[] $proceso_producto_salida
  * @property \App\Model\Entity\PedidosEmpresa[] $pedidos_empresas
- * @property \App\Model\Entity\Proceso[] $proceso
  * @property \App\Model\Entity\PedidosEmpresasProducto[] $pedidos_empresas_producto
- * @property \App\Model\Entity\ProcesoProducto[] $proceso_producto
  */
 class Producto extends Entity
 {

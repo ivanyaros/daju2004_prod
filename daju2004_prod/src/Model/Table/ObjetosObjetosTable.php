@@ -48,12 +48,12 @@ class ObjetosObjetosTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->integer('salida')
-            ->allowEmpty('salida');
-
-        $validator
             ->integer('entrada')
             ->allowEmpty('entrada');
+
+        $validator
+            ->integer('salida')
+            ->allowEmpty('salida');
 
         $validator
             ->integer('cantidad_producida')
@@ -62,10 +62,6 @@ class ObjetosObjetosTable extends Table
         $validator
             ->integer('cantidad_gastada')
             ->allowEmpty('cantidad_gastada');
-
-        $validator
-            ->numeric('scrap')
-            ->allowEmpty('scrap');
 
         $validator
             ->allowEmpty('observaciones');
