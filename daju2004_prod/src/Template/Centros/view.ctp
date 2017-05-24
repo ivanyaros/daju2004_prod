@@ -53,6 +53,7 @@
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Proveedores Cliente Id') ?></th>
+                <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col"><?= __('Albaran') ?></th>
                 <th scope="col"><?= __('Fecha') ?></th>
@@ -63,6 +64,7 @@
             <tr>
                 <td><?= h($entradasMaterial->id) ?></td>
                 <td><?= h($entradasMaterial->proveedores_cliente_id) ?></td>
+                <td><?= h($entradasMaterial->referencia) ?></td>
                 <td><?= h($entradasMaterial->observaciones) ?></td>
                 <td><?= h($entradasMaterial->albaran) ?></td>
                 <td><?= h($entradasMaterial->fecha) ?></td>

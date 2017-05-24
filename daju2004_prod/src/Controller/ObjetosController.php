@@ -39,7 +39,7 @@ class ObjetosController extends AppController
     public function view($id = null)
     {
         $objeto = $this->Objetos->get($id, [
-            'contain' => ['Producto', 'Ordens', 'Localizaciones', 'Materiales', 'Objetos', 'Material']
+            'contain' => ['Producto', 'Ordens', 'Localizaciones', 'MaterialesEntrada', 'ObjetosEntrada']
         ]);
 
         $this->set('objeto', $objeto);
@@ -66,10 +66,7 @@ class ObjetosController extends AppController
         $producto = $this->Objetos->Producto->find('list', ['limit' => 200]);
         $ordens = $this->Objetos->Ordens->find('list', ['limit' => 200]);
         $localizaciones = $this->Objetos->Localizaciones->find('list', ['limit' => 200]);
-        $materiales = $this->Objetos->Materiales->find('list', ['limit' => 200]);
-        $objetos = $this->Objetos->Objetos->find('list', ['limit' => 200]);
-        $material = $this->Objetos->Material->find('list', ['limit' => 200]);
-        $this->set(compact('objeto', 'producto', 'ordens', 'localizaciones', 'materiales', 'objetos', 'material'));
+        $this->set(compact('objeto', 'producto', 'ordens', 'localizaciones'));
         $this->set('_serialize', ['objeto']);
     }
 
@@ -83,7 +80,7 @@ class ObjetosController extends AppController
     public function edit($id = null)
     {
         $objeto = $this->Objetos->get($id, [
-            'contain' => ['Materiales', 'Objetos', 'Material']
+            'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $objeto = $this->Objetos->patchEntity($objeto, $this->request->getData());
@@ -97,10 +94,7 @@ class ObjetosController extends AppController
         $producto = $this->Objetos->Producto->find('list', ['limit' => 200]);
         $ordens = $this->Objetos->Ordens->find('list', ['limit' => 200]);
         $localizaciones = $this->Objetos->Localizaciones->find('list', ['limit' => 200]);
-        $materiales = $this->Objetos->Materiales->find('list', ['limit' => 200]);
-        $objetos = $this->Objetos->Objetos->find('list', ['limit' => 200]);
-        $material = $this->Objetos->Material->find('list', ['limit' => 200]);
-        $this->set(compact('objeto', 'producto', 'ordens', 'localizaciones', 'materiales', 'objetos', 'material'));
+        $this->set(compact('objeto', 'producto', 'ordens', 'localizaciones'));
         $this->set('_serialize', ['objeto']);
     }
 

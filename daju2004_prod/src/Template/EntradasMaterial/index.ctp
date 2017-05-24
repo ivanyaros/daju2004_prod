@@ -22,6 +22,7 @@
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('proveedores_cliente_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('referencia') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('observaciones') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('albaran') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('fecha') ?></th>
@@ -34,6 +35,7 @@
             <tr>
                 <td><?= $this->Number->format($entradasMaterial->id) ?></td>
                 <td><?= $entradasMaterial->has('proveedores_cliente') ? $this->Html->link($entradasMaterial->proveedores_cliente->id, ['controller' => 'ProveedoresClientes', 'action' => 'view', $entradasMaterial->proveedores_cliente->id]) : '' ?></td>
+                <td><?= h($entradasMaterial->referencia) ?></td>
                 <td><?= h($entradasMaterial->observaciones) ?></td>
                 <td><?= h($entradasMaterial->albaran) ?></td>
                 <td><?= h($entradasMaterial->fecha) ?></td>

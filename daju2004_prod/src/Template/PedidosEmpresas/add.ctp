@@ -25,6 +25,7 @@
             echo $this->Form->control('proveedores_cliente_id', ['options' => $proveedoresClientes, 'empty' => true]);
             echo $this->Form->control('fecha', ['empty' => true]);
             echo $this->Form->control('albaran');
+            echo $this->Form->control('observaciones');
             echo $this->Form->control('producto._ids', ['options' => $producto]);
         ?>
     </fieldset>

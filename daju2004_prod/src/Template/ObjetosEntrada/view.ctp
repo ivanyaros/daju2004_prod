@@ -10,6 +10,8 @@
         <li><?= $this->Form->postLink(__('Delete Objetos Entrada'), ['action' => 'delete', $objetosEntrada->id], ['confirm' => __('Are you sure you want to delete # {0}?', $objetosEntrada->id)]) ?> </li>
         <li><?= $this->Html->link(__('List Objetos Entrada'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Objetos Entrada'), ['action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Objetos'), ['controller' => 'Objetos', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Objeto'), ['controller' => 'Objetos', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
 <div class="objetosEntrada view large-9 medium-8 columns content">
@@ -24,20 +26,20 @@
             <td><?= $this->Number->format($objetosEntrada->id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Entrada') ?></th>
-            <td><?= $this->Number->format($objetosEntrada->entrada) ?></td>
+            <th scope="row"><?= __('Entrada Id') ?></th>
+            <td><?= $this->Number->format($objetosEntrada->entrada_id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Salida') ?></th>
-            <td><?= $this->Number->format($objetosEntrada->salida) ?></td>
+            <th scope="row"><?= __('Salida Id') ?></th>
+            <td><?= $this->Number->format($objetosEntrada->salida_id) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Cantidad Entrada') ?></th>
+            <td><?= $this->Number->format($objetosEntrada->cantidad_entrada) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Cantidad Producida') ?></th>
             <td><?= $this->Number->format($objetosEntrada->cantidad_producida) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Cantidad Gastada') ?></th>
-            <td><?= $this->Number->format($objetosEntrada->cantidad_gastada) ?></td>
         </tr>
     </table>
 </div>

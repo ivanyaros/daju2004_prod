@@ -42,8 +42,8 @@ class ProcesoControllerTest extends IntegrationTestCase
         'app.proveedores_clientes_material',
         'app.materiales',
         'app.localizaciones',
-        'app.objetos_materiales',
-        'app.objetos_objetos',
+        'app.materiales_entrada',
+        'app.objetos_entrada',
         'app.proceso_producto_entrada',
         'app.proceso_producto_salida',
         'app.proceso_material_entrada'

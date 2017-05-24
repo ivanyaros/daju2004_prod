@@ -76,6 +76,9 @@ class PedidosEmpresasTable extends Table
         $validator
             ->allowEmpty('albaran');
 
+        $validator
+            ->allowEmpty('observaciones');
+
         return $validator;
     }
 

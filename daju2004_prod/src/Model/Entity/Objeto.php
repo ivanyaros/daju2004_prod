@@ -19,10 +19,8 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Producto $producto
  * @property \App\Model\Entity\Orden $orden
  * @property \App\Model\Entity\Localizacione $localizacione
- * @property \App\Model\Entity\Materiale[] $materiales
- * @property \App\Model\Entity\Objeto[] $objetos
- * @property \App\Model\Entity\ObjetosMateriale[] $objetos_materiales
- * @property \App\Model\Entity\Material[] $material
+ * @property \App\Model\Entity\MaterialesEntrada[] $materiales_entrada
+ * @property \App\Model\Entity\ObjetosEntrada[] $objetos_entrada
  */
 class Objeto extends Entity
 {

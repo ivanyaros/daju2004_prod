@@ -38,6 +38,10 @@
             <td><?= h($pedidosEmpresa->albaran) ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Observaciones') ?></th>
+            <td><?= h($pedidosEmpresa->observaciones) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($pedidosEmpresa->id) ?></td>
         </tr>

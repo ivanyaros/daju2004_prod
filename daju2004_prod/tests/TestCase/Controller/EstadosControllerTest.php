@@ -43,7 +43,8 @@ class EstadosControllerTest extends IntegrationTestCase
         'app.materiales',
         'app.localizaciones',
         'app.objetos',
-        'app.objetos_materiales',
+        'app.materiales_entrada',
+        'app.objetos_entrada',
         'app.proveedores_clientes_material',
         'app.pedidos_empresas_producto'
     ];

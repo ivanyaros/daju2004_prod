@@ -42,7 +42,6 @@ class MaterialesEntradaTableTest extends TestCase
         'app.proveedores_clientes_material',
         'app.materiales',
         'app.localizaciones',
-        'app.objetos_materiales',
         'app.ordens',
         'app.estados',
         'app.ordens_estados',
@@ -54,7 +53,8 @@ class MaterialesEntradaTableTest extends TestCase
         'app.ordens_estados_utensilios',
         'app.proceso_material_entrada',
         'app.proceso_producto_entrada',
-        'app.proceso_producto_salida'
+        'app.proceso_producto_salida',
+        'app.objetos_entrada'
     ];
 
     /**

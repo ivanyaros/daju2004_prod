@@ -26,6 +26,10 @@
             <td><?= $entradasMaterial->has('proveedores_cliente') ? $this->Html->link($entradasMaterial->proveedores_cliente->id, ['controller' => 'ProveedoresClientes', 'action' => 'view', $entradasMaterial->proveedores_cliente->id]) : '' ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Referencia') ?></th>
+            <td><?= h($entradasMaterial->referencia) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Observaciones') ?></th>
             <td><?= h($entradasMaterial->observaciones) ?></td>
         </tr>

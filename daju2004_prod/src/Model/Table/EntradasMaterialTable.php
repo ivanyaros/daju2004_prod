@@ -62,6 +62,9 @@ class EntradasMaterialTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
+            ->allowEmpty('referencia');
+
+        $validator
             ->allowEmpty('observaciones');
 
         $validator

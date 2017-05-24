@@ -7,6 +7,8 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New Objetos Entrada'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Objetos'), ['controller' => 'Objetos', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Objeto'), ['controller' => 'Objetos', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="objetosEntrada index large-9 medium-8 columns content">
@@ -15,10 +17,10 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('entrada') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('salida') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('entrada_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('salida_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('cantidad_entrada') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('cantidad_producida') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('cantidad_gastada') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('observaciones') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
@@ -27,10 +29,10 @@
             <?php foreach ($objetosEntrada as $objetosEntrada): ?>
             <tr>
                 <td><?= $this->Number->format($objetosEntrada->id) ?></td>
-                <td><?= $this->Number->format($objetosEntrada->entrada) ?></td>
-                <td><?= $this->Number->format($objetosEntrada->salida) ?></td>
+                <td><?= $this->Number->format($objetosEntrada->entrada_id) ?></td>
+                <td><?= $this->Number->format($objetosEntrada->salida_id) ?></td>
+                <td><?= $this->Number->format($objetosEntrada->cantidad_entrada) ?></td>
                 <td><?= $this->Number->format($objetosEntrada->cantidad_producida) ?></td>
-                <td><?= $this->Number->format($objetosEntrada->cantidad_gastada) ?></td>
                 <td><?= h($objetosEntrada->observaciones) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $objetosEntrada->id]) ?>

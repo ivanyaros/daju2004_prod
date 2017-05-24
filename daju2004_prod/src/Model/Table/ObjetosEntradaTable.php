@@ -9,6 +9,9 @@ use Cake\Validation\Validator;
 /**
  * ObjetosEntrada Model
  *
+ * @property \Cake\ORM\Association\BelongsTo $Objetos
+ * @property \Cake\ORM\Association\BelongsTo $Objetos
+ *
  * @method \App\Model\Entity\ObjetosEntrada get($primaryKey, $options = [])
  * @method \App\Model\Entity\ObjetosEntrada newEntity($data = null, array $options = [])
  * @method \App\Model\Entity\ObjetosEntrada[] newEntities(array $data, array $options = [])
@@ -33,6 +36,13 @@ class ObjetosEntradaTable extends Table
         $this->setTable('objetos_entrada');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+
+        $this->belongsTo('Objetos', [
+            'foreignKey' => 'entrada_id'
+        ]);
+        $this->belongsTo('Objetos', [
+            'foreignKey' => 'salida_id'
+        ]);
     }
 
     /**
@@ -48,24 +58,31 @@ class ObjetosEntradaTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->integer('entrada')
-            ->allowEmpty('entrada');
-
-        $validator
-            ->integer('salida')
-            ->allowEmpty('salida');
+            ->integer('cantidad_entrada')
+            ->allowEmpty('cantidad_entrada');
 
         $validator
             ->integer('cantidad_producida')
             ->allowEmpty('cantidad_producida');
 
         $validator
-            ->integer('cantidad_gastada')
-            ->allowEmpty('cantidad_gastada');
-
-        $validator
             ->allowEmpty('observaciones');
 
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules)
+    {
+        $rules->add($rules->existsIn(['entrada_id'], 'Objetos'));
+        $rules->add($rules->existsIn(['salida_id'], 'Objetos'));
+
+        return $rules;
     }
 }

@@ -33,7 +33,7 @@ class ObjetosControllerTest extends IntegrationTestCase
         'app.proveedores_clientes_material',
         'app.materiales',
         'app.localizaciones',
-        'app.objetos_materiales',
+        'app.materiales_entrada',
         'app.ordens',
         'app.estados',
         'app.ordens_estados',
@@ -46,7 +46,7 @@ class ObjetosControllerTest extends IntegrationTestCase
         'app.proceso_material_entrada',
         'app.proceso_producto_entrada',
         'app.proceso_producto_salida',
-        'app.objetos_objetos'
+        'app.objetos_entrada'
     ];
 
     /**

@@ -39,7 +39,7 @@ class MaterialesController extends AppController
     public function view($id = null)
     {
         $materiale = $this->Materiales->get($id, [
-            'contain' => ['Material', 'Localizaciones', 'EntradasMaterial', 'Objetos']
+            'contain' => ['Material', 'Localizaciones', 'EntradasMaterial', 'MaterialesEntrada']
         ]);
 
         $this->set('materiale', $materiale);
@@ -66,8 +66,7 @@ class MaterialesController extends AppController
         $material = $this->Materiales->Material->find('list', ['limit' => 200]);
         $localizaciones = $this->Materiales->Localizaciones->find('list', ['limit' => 200]);
         $entradasMaterial = $this->Materiales->EntradasMaterial->find('list', ['limit' => 200]);
-        $objetos = $this->Materiales->Objetos->find('list', ['limit' => 200]);
-        $this->set(compact('materiale', 'material', 'localizaciones', 'entradasMaterial', 'objetos'));
+        $this->set(compact('materiale', 'material', 'localizaciones', 'entradasMaterial'));
         $this->set('_serialize', ['materiale']);
     }
 
@@ -81,7 +80,7 @@ class MaterialesController extends AppController
     public function edit($id = null)
     {
         $materiale = $this->Materiales->get($id, [
-            'contain' => ['Objetos']
+            'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $materiale = $this->Materiales->patchEntity($materiale, $this->request->getData());
@@ -95,8 +94,7 @@ class MaterialesController extends AppController
         $material = $this->Materiales->Material->find('list', ['limit' => 200]);
         $localizaciones = $this->Materiales->Localizaciones->find('list', ['limit' => 200]);
         $entradasMaterial = $this->Materiales->EntradasMaterial->find('list', ['limit' => 200]);
-        $objetos = $this->Materiales->Objetos->find('list', ['limit' => 200]);
-        $this->set(compact('materiale', 'material', 'localizaciones', 'entradasMaterial', 'objetos'));
+        $this->set(compact('materiale', 'material', 'localizaciones', 'entradasMaterial'));
         $this->set('_serialize', ['materiale']);
     }
 

@@ -8,6 +8,7 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property int $proveedores_cliente_id
+ * @property string $referencia
  * @property string $observaciones
  * @property string $albaran
  * @property \Cake\I18n\FrozenTime $fecha

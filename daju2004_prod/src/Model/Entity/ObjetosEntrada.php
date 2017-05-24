@@ -7,11 +7,13 @@ use Cake\ORM\Entity;
  * ObjetosEntrada Entity
  *
  * @property int $id
- * @property int $entrada
- * @property int $salida
+ * @property int $entrada_id
+ * @property int $salida_id
+ * @property int $cantidad_entrada
  * @property int $cantidad_producida
- * @property int $cantidad_gastada
  * @property string $observaciones
+ *
+ * @property \App\Model\Entity\Objeto $objeto
  */
 class ObjetosEntrada extends Entity
 {
