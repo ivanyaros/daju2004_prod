@@ -53,7 +53,7 @@ class ProcesoProductoEntradaTableTest extends TestCase
         'app.localizaciones',
         'app.objetos_materiales',
         'app.proceso_producto_salida',
-        'app.proceso_material'
+        'app.proceso_material_entrada'
     ];
 
     /**

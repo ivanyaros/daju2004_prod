@@ -39,7 +39,7 @@ class ProcesoController extends AppController
     public function view($id = null)
     {
         $proceso = $this->Proceso->get($id, [
-            'contain' => ['Familias', 'Monedas', 'Ivas', 'Centros', 'Material', 'Ordens', 'ProcesoProductoEntrada', 'ProcesoProductoSalida']
+            'contain' => ['Familias', 'Monedas', 'Ivas', 'Centros', 'Ordens', 'ProcesoMaterialEntrada', 'ProcesoProductoEntrada', 'ProcesoProductoSalida']
         ]);
 
         $this->set('proceso', $proceso);
@@ -67,8 +67,7 @@ class ProcesoController extends AppController
         $monedas = $this->Proceso->Monedas->find('list', ['limit' => 200]);
         $ivas = $this->Proceso->Ivas->find('list', ['limit' => 200]);
         $centros = $this->Proceso->Centros->find('list', ['limit' => 200]);
-        $material = $this->Proceso->Material->find('list', ['limit' => 200]);
-        $this->set(compact('proceso', 'familias', 'monedas', 'ivas', 'centros', 'material'));
+        $this->set(compact('proceso', 'familias', 'monedas', 'ivas', 'centros'));
         $this->set('_serialize', ['proceso']);
     }
 
@@ -82,7 +81,7 @@ class ProcesoController extends AppController
     public function edit($id = null)
     {
         $proceso = $this->Proceso->get($id, [
-            'contain' => ['Material']
+            'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $proceso = $this->Proceso->patchEntity($proceso, $this->request->getData());
@@ -97,8 +96,7 @@ class ProcesoController extends AppController
         $monedas = $this->Proceso->Monedas->find('list', ['limit' => 200]);
         $ivas = $this->Proceso->Ivas->find('list', ['limit' => 200]);
         $centros = $this->Proceso->Centros->find('list', ['limit' => 200]);
-        $material = $this->Proceso->Material->find('list', ['limit' => 200]);
-        $this->set(compact('proceso', 'familias', 'monedas', 'ivas', 'centros', 'material'));
+        $this->set(compact('proceso', 'familias', 'monedas', 'ivas', 'centros'));
         $this->set('_serialize', ['proceso']);
     }
 

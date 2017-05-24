@@ -46,7 +46,7 @@ class ProcesoProductoSalidaControllerTest extends IntegrationTestCase
         'app.objetos_materiales',
         'app.objetos_objetos',
         'app.proceso_producto_entrada',
-        'app.proceso_material'
+        'app.proceso_material_entrada'
     ];
 
     /**

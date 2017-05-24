@@ -79,7 +79,7 @@ class CentrosTable extends Table
             ->allowEmpty('direccion');
 
         $validator
-            ->allowEmpty('centroscol');
+            ->allowEmpty('observaciones');
 
         return $validator;
     }

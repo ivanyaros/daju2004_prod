@@ -51,7 +51,7 @@ class PedidosEmpresasProductoTableTest extends TestCase
         'app.objetos_materiales',
         'app.proceso_producto_entrada',
         'app.proceso_producto_salida',
-        'app.proceso_material',
+        'app.proceso_material_entrada',
         'app.proveedores_clientes_material',
         'app.salidas_objetos'
     ];

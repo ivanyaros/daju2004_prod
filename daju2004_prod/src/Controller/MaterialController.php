@@ -39,7 +39,7 @@ class MaterialController extends AppController
     public function view($id = null)
     {
         $material = $this->Material->get($id, [
-            'contain' => ['Familias', 'Monedas', 'Ivas', 'Objetos', 'Proceso', 'ProveedoresClientes', 'Materiales']
+            'contain' => ['Familias', 'Monedas', 'Ivas', 'Objetos', 'ProveedoresClientes', 'Materiales', 'ProcesoMaterialEntrada']
         ]);
 
         $this->set('material', $material);
@@ -67,9 +67,8 @@ class MaterialController extends AppController
         $monedas = $this->Material->Monedas->find('list', ['limit' => 200]);
         $ivas = $this->Material->Ivas->find('list', ['limit' => 200]);
         $objetos = $this->Material->Objetos->find('list', ['limit' => 200]);
-        $proceso = $this->Material->Proceso->find('list', ['limit' => 200]);
         $proveedoresClientes = $this->Material->ProveedoresClientes->find('list', ['limit' => 200]);
-        $this->set(compact('material', 'familias', 'monedas', 'ivas', 'objetos', 'proceso', 'proveedoresClientes'));
+        $this->set(compact('material', 'familias', 'monedas', 'ivas', 'objetos', 'proveedoresClientes'));
         $this->set('_serialize', ['material']);
     }
 
@@ -83,7 +82,7 @@ class MaterialController extends AppController
     public function edit($id = null)
     {
         $material = $this->Material->get($id, [
-            'contain' => ['Objetos', 'Proceso', 'ProveedoresClientes']
+            'contain' => ['Objetos', 'ProveedoresClientes']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $material = $this->Material->patchEntity($material, $this->request->getData());
@@ -98,9 +97,8 @@ class MaterialController extends AppController
         $monedas = $this->Material->Monedas->find('list', ['limit' => 200]);
         $ivas = $this->Material->Ivas->find('list', ['limit' => 200]);
         $objetos = $this->Material->Objetos->find('list', ['limit' => 200]);
-        $proceso = $this->Material->Proceso->find('list', ['limit' => 200]);
         $proveedoresClientes = $this->Material->ProveedoresClientes->find('list', ['limit' => 200]);
-        $this->set(compact('material', 'familias', 'monedas', 'ivas', 'objetos', 'proceso', 'proveedoresClientes'));
+        $this->set(compact('material', 'familias', 'monedas', 'ivas', 'objetos', 'proveedoresClientes'));
         $this->set('_serialize', ['material']);
     }
 

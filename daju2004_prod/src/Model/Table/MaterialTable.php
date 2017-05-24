@@ -14,7 +14,6 @@ use Cake\Validation\Validator;
  * @property \Cake\ORM\Association\BelongsTo $Ivas
  * @property \Cake\ORM\Association\HasMany $Materiales
  * @property \Cake\ORM\Association\HasMany $ProcesoMaterialEntrada
- * @property \Cake\ORM\Association\BelongsToMany $Objetos
  * @property \Cake\ORM\Association\BelongsToMany $ProveedoresClientes
  *
  * @method \App\Model\Entity\Material get($primaryKey, $options = [])
@@ -56,11 +55,6 @@ class MaterialTable extends Table
         ]);
         $this->hasMany('ProcesoMaterialEntrada', [
             'foreignKey' => 'material_id'
-        ]);
-        $this->belongsToMany('Objetos', [
-            'foreignKey' => 'material_id',
-            'targetForeignKey' => 'objeto_id',
-            'joinTable' => 'objetos_materiales'
         ]);
         $this->belongsToMany('ProveedoresClientes', [
             'foreignKey' => 'material_id',

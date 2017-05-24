@@ -12,8 +12,7 @@ use Cake\Validation\Validator;
  * @property \Cake\ORM\Association\BelongsTo $Producto
  * @property \Cake\ORM\Association\BelongsTo $Ordens
  * @property \Cake\ORM\Association\BelongsTo $Localizaciones
- * @property \Cake\ORM\Association\BelongsToMany $Materiales
- * @property \Cake\ORM\Association\BelongsToMany $Objetos
+ * @property \Cake\ORM\Association\HasMany $MaterialesEntrada
  *
  * @method \App\Model\Entity\Objeto get($primaryKey, $options = [])
  * @method \App\Model\Entity\Objeto newEntity($data = null, array $options = [])
@@ -51,15 +50,8 @@ class ObjetosTable extends Table
             'foreignKey' => 'localizacione_id',
             'joinType' => 'INNER'
         ]);
-        $this->belongsToMany('Materiales', [
-            'foreignKey' => 'objeto_id',
-            'targetForeignKey' => 'materiale_id',
-            'joinTable' => 'objetos_materiales'
-        ]);
-        $this->belongsToMany('Objetos', [
-            'foreignKey' => 'objeto_id',
-            'targetForeignKey' => 'objeto_id',
-            'joinTable' => 'objetos_objetos'
+        $this->hasMany('MaterialesEntrada', [
+            'foreignKey' => 'objeto_id'
         ]);
     }
 

@@ -20,12 +20,12 @@
         <li><?= $this->Html->link(__('New Centro'), ['controller' => 'Centros', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Ordens'), ['controller' => 'Ordens', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Orden'), ['controller' => 'Ordens', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Proceso Material Entrada'), ['controller' => 'ProcesoMaterialEntrada', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Proceso Material Entrada'), ['controller' => 'ProcesoMaterialEntrada', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Proceso Producto Entrada'), ['controller' => 'ProcesoProductoEntrada', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Proceso Producto Entrada'), ['controller' => 'ProcesoProductoEntrada', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Proceso Producto Salida'), ['controller' => 'ProcesoProductoSalida', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Proceso Producto Salida'), ['controller' => 'ProcesoProductoSalida', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Material'), ['controller' => 'Material', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Material'), ['controller' => 'Material', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
 <div class="proceso view large-9 medium-8 columns content">
@@ -124,6 +124,37 @@
         <?php endif; ?>
     </div>
     <div class="related">
+        <h4><?= __('Related Proceso Material Entrada') ?></h4>
+        <?php if (!empty($proceso->proceso_material_entrada)): ?>
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Proceso Id') ?></th>
+                <th scope="col"><?= __('Material Id') ?></th>
+                <th scope="col"><?= __('Metros Lineales') ?></th>
+                <th scope="col"><?= __('Metros Cuadrados') ?></th>
+                <th scope="col"><?= __('Observaciones') ?></th>
+                <th scope="col" class="actions"><?= __('Actions') ?></th>
+            </tr>
+            <?php foreach ($proceso->proceso_material_entrada as $procesoMaterialEntrada): ?>
+            <tr>
+                <td><?= h($procesoMaterialEntrada->id) ?></td>
+                <td><?= h($procesoMaterialEntrada->proceso_id) ?></td>
+                <td><?= h($procesoMaterialEntrada->material_id) ?></td>
+                <td><?= h($procesoMaterialEntrada->metros_lineales) ?></td>
+                <td><?= h($procesoMaterialEntrada->metros_cuadrados) ?></td>
+                <td><?= h($procesoMaterialEntrada->observaciones) ?></td>
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['controller' => 'ProcesoMaterialEntrada', 'action' => 'view', $procesoMaterialEntrada->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'ProcesoMaterialEntrada', 'action' => 'edit', $procesoMaterialEntrada->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'ProcesoMaterialEntrada', 'action' => 'delete', $procesoMaterialEntrada->id], ['confirm' => __('Are you sure you want to delete # {0}?', $procesoMaterialEntrada->id)]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+        <?php endif; ?>
+    </div>
+    <div class="related">
         <h4><?= __('Related Proceso Producto Entrada') ?></h4>
         <?php if (!empty($proceso->proceso_producto_entrada)): ?>
         <table cellpadding="0" cellspacing="0">
@@ -175,59 +206,6 @@
                     <?= $this->Html->link(__('View'), ['controller' => 'ProcesoProductoSalida', 'action' => 'view', $procesoProductoSalida->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'ProcesoProductoSalida', 'action' => 'edit', $procesoProductoSalida->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['controller' => 'ProcesoProductoSalida', 'action' => 'delete', $procesoProductoSalida->id], ['confirm' => __('Are you sure you want to delete # {0}?', $procesoProductoSalida->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </table>
-        <?php endif; ?>
-    </div>
-    <div class="related">
-        <h4><?= __('Related Material') ?></h4>
-        <?php if (!empty($proceso->material)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Nombre') ?></th>
-                <th scope="col"><?= __('Referencia') ?></th>
-                <th scope="col"><?= __('Referencia Proveedor') ?></th>
-                <th scope="col"><?= __('Familia Id') ?></th>
-                <th scope="col"><?= __('Longitud') ?></th>
-                <th scope="col"><?= __('Anchura') ?></th>
-                <th scope="col"><?= __('Profundidad') ?></th>
-                <th scope="col"><?= __('Color') ?></th>
-                <th scope="col"><?= __('Gramaje') ?></th>
-                <th scope="col"><?= __('Peso Ud') ?></th>
-                <th scope="col"><?= __('Unidades Embalaje') ?></th>
-                <th scope="col"><?= __('Precio') ?></th>
-                <th scope="col"><?= __('Moneda Id') ?></th>
-                <th scope="col"><?= __('Iva Id') ?></th>
-                <th scope="col"><?= __('Observaciones') ?></th>
-                <th scope="col"><?= __('Visible') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($proceso->material as $material): ?>
-            <tr>
-                <td><?= h($material->id) ?></td>
-                <td><?= h($material->nombre) ?></td>
-                <td><?= h($material->referencia) ?></td>
-                <td><?= h($material->referencia_proveedor) ?></td>
-                <td><?= h($material->familia_id) ?></td>
-                <td><?= h($material->longitud) ?></td>
-                <td><?= h($material->anchura) ?></td>
-                <td><?= h($material->profundidad) ?></td>
-                <td><?= h($material->color) ?></td>
-                <td><?= h($material->gramaje) ?></td>
-                <td><?= h($material->peso_ud) ?></td>
-                <td><?= h($material->unidades_embalaje) ?></td>
-                <td><?= h($material->precio) ?></td>
-                <td><?= h($material->moneda_id) ?></td>
-                <td><?= h($material->iva_id) ?></td>
-                <td><?= h($material->observaciones) ?></td>
-                <td><?= h($material->visible) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Material', 'action' => 'view', $material->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Material', 'action' => 'edit', $material->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Material', 'action' => 'delete', $material->id], ['confirm' => __('Are you sure you want to delete # {0}?', $material->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

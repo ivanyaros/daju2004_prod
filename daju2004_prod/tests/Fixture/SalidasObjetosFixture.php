@@ -51,8 +51,8 @@ class SalidasObjetosFixture extends TestFixture
         [
             'id' => 1,
             'proveedores_cliente_id' => 1,
-            'fecha_pedido' => '2017-05-24 06:29:57',
-            'fecha_entrega' => '2017-05-24 06:29:57',
+            'fecha_pedido' => '2017-05-24 06:33:35',
+            'fecha_entrega' => '2017-05-24 06:33:35',
             'albaran' => 'Lorem ipsum dolor sit amet',
             'pedidos_empresa_id' => 1,
             'centro_id' => 1

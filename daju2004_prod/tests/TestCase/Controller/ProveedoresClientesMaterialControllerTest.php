@@ -46,7 +46,7 @@ class ProveedoresClientesMaterialControllerTest extends IntegrationTestCase
         'app.pedidos_empresas',
         'app.salidas_objetos',
         'app.pedidos_empresas_producto',
-        'app.proceso_material'
+        'app.proceso_material_entrada'
     ];
 
     /**

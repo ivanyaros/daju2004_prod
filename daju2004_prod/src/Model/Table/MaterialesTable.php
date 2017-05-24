@@ -12,7 +12,7 @@ use Cake\Validation\Validator;
  * @property \Cake\ORM\Association\BelongsTo $Material
  * @property \Cake\ORM\Association\BelongsTo $Localizaciones
  * @property \Cake\ORM\Association\BelongsTo $EntradasMaterial
- * @property \Cake\ORM\Association\BelongsToMany $Objetos
+ * @property \Cake\ORM\Association\HasMany $MaterialesEntrada
  *
  * @method \App\Model\Entity\Materiale get($primaryKey, $options = [])
  * @method \App\Model\Entity\Materiale newEntity($data = null, array $options = [])
@@ -48,10 +48,8 @@ class MaterialesTable extends Table
         $this->belongsTo('EntradasMaterial', [
             'foreignKey' => 'entradas_material_id'
         ]);
-        $this->belongsToMany('Objetos', [
-            'foreignKey' => 'materiale_id',
-            'targetForeignKey' => 'objeto_id',
-            'joinTable' => 'objetos_materiales'
+        $this->hasMany('MaterialesEntrada', [
+            'foreignKey' => 'materiale_id'
         ]);
     }
 

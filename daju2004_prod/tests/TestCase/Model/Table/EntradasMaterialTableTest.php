@@ -52,7 +52,7 @@ class EntradasMaterialTableTest extends TestCase
         'app.proceso_producto_entrada',
         'app.proceso_producto_salida',
         'app.pedidos_empresas_producto',
-        'app.proceso_material',
+        'app.proceso_material_entrada',
         'app.proveedores_clientes_material'
     ];
 

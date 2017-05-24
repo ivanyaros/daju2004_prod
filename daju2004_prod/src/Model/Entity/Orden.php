@@ -23,7 +23,6 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Centro $centro
  * @property \App\Model\Entity\Proceso $proceso
  * @property \App\Model\Entity\Objeto[] $objetos
- * @property \App\Model\Entity\OrdensEstado[] $ordens_estados
  */
 class Orden extends Entity
 {

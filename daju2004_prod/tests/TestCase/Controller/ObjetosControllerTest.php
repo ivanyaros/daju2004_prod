@@ -43,9 +43,9 @@ class ObjetosControllerTest extends IntegrationTestCase
         'app.ordens_estados_usuarios',
         'app.utensilios',
         'app.ordens_estados_utensilios',
+        'app.proceso_material_entrada',
         'app.proceso_producto_entrada',
         'app.proceso_producto_salida',
-        'app.proceso_material',
         'app.objetos_objetos'
     ];
 
