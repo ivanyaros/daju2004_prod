@@ -22,6 +22,7 @@ class OrdensEstadosFixture extends TestFixture
         'estado_id' => ['type' => 'integer', 'length' => 8, 'unsigned' => true, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'fecha_inicio' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
         'fecha_fin' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
+        'descripcion' => ['type' => 'string', 'length' => 255, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         '_indexes' => [
             'fk_ordens_has_estados_estados1_idx' => ['type' => 'index', 'columns' => ['estado_id'], 'length' => []],
             'fk_ordens_has_estados_ordens1_idx' => ['type' => 'index', 'columns' => ['orden_id'], 'length' => []],
@@ -48,8 +49,9 @@ class OrdensEstadosFixture extends TestFixture
             'id' => 1,
             'orden_id' => 1,
             'estado_id' => 1,
-            'fecha_inicio' => '2017-05-23 09:30:21',
-            'fecha_fin' => '2017-05-23 09:30:21'
+            'fecha_inicio' => '2017-05-24 06:29:54',
+            'fecha_fin' => '2017-05-24 06:29:54',
+            'descripcion' => 'Lorem ipsum dolor sit amet'
         ],
     ];
 }

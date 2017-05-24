@@ -77,6 +77,14 @@ class UsuariosTable extends Table
         $validator
             ->allowEmpty('tipo');
 
+        $validator
+            ->numeric('coste_operacion')
+            ->allowEmpty('coste_operacion');
+
+        $validator
+            ->numeric('coste_tiempo')
+            ->allowEmpty('coste_tiempo');
+
         return $validator;
     }
 

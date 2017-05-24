@@ -95,6 +95,8 @@
                 <th scope="col"><?= __('Centro Id') ?></th>
                 <th scope="col"><?= __('Proceso Id') ?></th>
                 <th scope="col"><?= __('Scrap') ?></th>
+                <th scope="col"><?= __('Coste') ?></th>
+                <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($proceso->ordens as $ordens): ?>
@@ -109,6 +111,8 @@
                 <td><?= h($ordens->centro_id) ?></td>
                 <td><?= h($ordens->proceso_id) ?></td>
                 <td><?= h($ordens->scrap) ?></td>
+                <td><?= h($ordens->coste) ?></td>
+                <td><?= h($ordens->observaciones) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Ordens', 'action' => 'view', $ordens->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Ordens', 'action' => 'edit', $ordens->id]) ?>
@@ -185,6 +189,7 @@
                 <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Nombre') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
+                <th scope="col"><?= __('Referencia Proveedor') ?></th>
                 <th scope="col"><?= __('Familia Id') ?></th>
                 <th scope="col"><?= __('Longitud') ?></th>
                 <th scope="col"><?= __('Anchura') ?></th>
@@ -205,6 +210,7 @@
                 <td><?= h($material->id) ?></td>
                 <td><?= h($material->nombre) ?></td>
                 <td><?= h($material->referencia) ?></td>
+                <td><?= h($material->referencia_proveedor) ?></td>
                 <td><?= h($material->familia_id) ?></td>
                 <td><?= h($material->longitud) ?></td>
                 <td><?= h($material->anchura) ?></td>

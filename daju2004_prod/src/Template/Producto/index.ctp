@@ -43,6 +43,9 @@
                 <th scope="col"><?= $this->Paginator->sort('descripcion') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('larga') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('coste') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('ancho') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('largo') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('tolerancia') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -64,6 +67,9 @@
                 <td><?= h($producto->descripcion) ?></td>
                 <td><?= h($producto->larga) ?></td>
                 <td><?= $this->Number->format($producto->coste) ?></td>
+                <td><?= $this->Number->format($producto->ancho) ?></td>
+                <td><?= $this->Number->format($producto->largo) ?></td>
+                <td><?= $this->Number->format($producto->tolerancia) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $producto->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $producto->id]) ?>

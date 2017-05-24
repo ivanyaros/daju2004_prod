@@ -40,6 +40,10 @@
             <td><?= $orden->has('proceso') ? $this->Html->link($orden->proceso->id, ['controller' => 'Proceso', 'action' => 'view', $orden->proceso->id]) : '' ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Observaciones') ?></th>
+            <td><?= h($orden->observaciones) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($orden->id) ?></td>
         </tr>
@@ -54,6 +58,10 @@
         <tr>
             <th scope="row"><?= __('Scrap') ?></th>
             <td><?= $this->Number->format($orden->scrap) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Coste') ?></th>
+            <td><?= $this->Number->format($orden->coste) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Fecha Creacion') ?></th>
@@ -71,6 +79,7 @@
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Producto Id') ?></th>
+                <th scope="col"><?= __('Numero Serie') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Orden Id') ?></th>
                 <th scope="col"><?= __('Lote') ?></th>
@@ -83,6 +92,7 @@
             <tr>
                 <td><?= h($objetos->id) ?></td>
                 <td><?= h($objetos->producto_id) ?></td>
+                <td><?= h($objetos->numero_serie) ?></td>
                 <td><?= h($objetos->referencia) ?></td>
                 <td><?= h($objetos->orden_id) ?></td>
                 <td><?= h($objetos->lote) ?></td>

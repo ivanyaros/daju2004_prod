@@ -1,13 +1,13 @@
 <?php
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\LocalizacionesController;
+use App\Controller\ProcesoMaterialEntradaController;
 use Cake\TestSuite\IntegrationTestCase;
 
 /**
- * App\Controller\LocalizacionesController Test Case
+ * App\Controller\ProcesoMaterialEntradaController Test Case
  */
-class LocalizacionesControllerTest extends IntegrationTestCase
+class ProcesoMaterialEntradaControllerTest extends IntegrationTestCase
 {
 
     /**
@@ -16,19 +16,14 @@ class LocalizacionesControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'app.localizaciones',
-        'app.centros',
-        'app.entradas_material',
-        'app.proveedores_clientes',
-        'app.direcciones',
-        'app.pedidos_empresas',
-        'app.salidas_objetos',
-        'app.producto',
+        'app.proceso_material_entrada',
+        'app.proceso',
         'app.familias',
         'app.material',
         'app.monedas',
-        'app.proceso',
+        'app.producto',
         'app.ivas',
+        'app.objetos',
         'app.ordens',
         'app.estados',
         'app.ordens_estados',
@@ -38,14 +33,21 @@ class LocalizacionesControllerTest extends IntegrationTestCase
         'app.ordens_estados_usuarios',
         'app.utensilios',
         'app.ordens_estados_utensilios',
-        'app.objetos',
-        'app.objetos_materiales',
+        'app.centros',
+        'app.entradas_material',
+        'app.proveedores_clientes',
+        'app.direcciones',
+        'app.pedidos_empresas',
+        'app.salidas_objetos',
+        'app.pedidos_empresas_producto',
+        'app.proveedores_clientes_material',
         'app.materiales',
+        'app.localizaciones',
+        'app.objetos_materiales',
+        'app.objetos_objetos',
         'app.proceso_producto_entrada',
         'app.proceso_producto_salida',
-        'app.proceso_material',
-        'app.proveedores_clientes_material',
-        'app.pedidos_empresas_producto'
+        'app.proceso_material'
     ];
 
     /**

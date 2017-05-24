@@ -19,10 +19,10 @@
         <li><?= $this->Html->link(__('New Orden'), ['controller' => 'Ordens', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Localizaciones'), ['controller' => 'Localizaciones', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Localizacione'), ['controller' => 'Localizaciones', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Materiales'), ['controller' => 'Materiales', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Materiale'), ['controller' => 'Materiales', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Objetos'), ['controller' => 'Objetos', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Objeto'), ['controller' => 'Objetos', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Materiales'), ['controller' => 'Materiales', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Materiale'), ['controller' => 'Materiales', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Material'), ['controller' => 'Material', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Material'), ['controller' => 'Material', 'action' => 'add']) ?></li>
     </ul>
@@ -33,14 +33,15 @@
         <legend><?= __('Edit Objeto') ?></legend>
         <?php
             echo $this->Form->control('producto_id', ['options' => $producto, 'empty' => true]);
+            echo $this->Form->control('numero_serie');
             echo $this->Form->control('referencia');
             echo $this->Form->control('orden_id', ['options' => $ordens]);
             echo $this->Form->control('lote');
             echo $this->Form->control('localizacione_id', ['options' => $localizaciones]);
             echo $this->Form->control('coste');
             echo $this->Form->control('defectuosos');
-            echo $this->Form->control('materiales._ids', ['options' => $materiales]);
             echo $this->Form->control('objetos._ids', ['options' => $objetos]);
+            echo $this->Form->control('materiales._ids', ['options' => $materiales]);
             echo $this->Form->control('material._ids', ['options' => $material]);
         ?>
     </fieldset>

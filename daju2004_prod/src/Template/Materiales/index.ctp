@@ -39,6 +39,7 @@
                 <th scope="col"><?= $this->Paginator->sort('scrap') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('en_uso') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('terminado') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('peso_ud') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -62,6 +63,7 @@
                 <td><?= $this->Number->format($materiale->scrap) ?></td>
                 <td><?= h($materiale->en_uso) ?></td>
                 <td><?= h($materiale->terminado) ?></td>
+                <td><?= $this->Number->format($materiale->peso_ud) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $materiale->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $materiale->id]) ?>

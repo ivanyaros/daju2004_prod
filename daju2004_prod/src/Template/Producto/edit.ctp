@@ -48,6 +48,9 @@
             echo $this->Form->control('descripcion');
             echo $this->Form->control('larga');
             echo $this->Form->control('coste');
+            echo $this->Form->control('ancho');
+            echo $this->Form->control('largo');
+            echo $this->Form->control('tolerancia');
             echo $this->Form->control('pedidos_empresas._ids', ['options' => $pedidosEmpresas]);
         ?>
     </fieldset>

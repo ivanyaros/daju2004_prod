@@ -12,6 +12,8 @@ use Cake\ORM\Entity;
  * @property int $cantidad_producida
  * @property int $cantidad_gastada
  * @property string $observaciones
+ *
+ * @property \App\Model\Entity\Objeto $objeto
  */
 class ObjetosObjeto extends Entity
 {

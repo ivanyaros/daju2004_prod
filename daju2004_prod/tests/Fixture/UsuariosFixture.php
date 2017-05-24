@@ -25,6 +25,8 @@ class UsuariosFixture extends TestFixture
         'email' => ['type' => 'string', 'length' => 45, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'direccion' => ['type' => 'string', 'length' => 45, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'tipo' => ['type' => 'string', 'length' => 45, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
+        'coste_operacion' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => ''],
+        'coste_tiempo' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => ''],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
@@ -49,7 +51,9 @@ class UsuariosFixture extends TestFixture
             'pass' => 'Lorem ipsum dolor sit amet',
             'email' => 'Lorem ipsum dolor sit amet',
             'direccion' => 'Lorem ipsum dolor sit amet',
-            'tipo' => 'Lorem ipsum dolor sit amet'
+            'tipo' => 'Lorem ipsum dolor sit amet',
+            'coste_operacion' => 1,
+            'coste_tiempo' => 1
         ],
     ];
 }

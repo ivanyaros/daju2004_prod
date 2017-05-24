@@ -8,6 +8,7 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property int $producto_id
+ * @property int $numero_serie
  * @property string $referencia
  * @property int $orden_id
  * @property string $lote
@@ -18,9 +19,9 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Producto $producto
  * @property \App\Model\Entity\Orden $orden
  * @property \App\Model\Entity\Localizacione $localizacione
- * @property \App\Model\Entity\Materiale[] $materiales
  * @property \App\Model\Entity\Objeto[] $objetos
  * @property \App\Model\Entity\ObjetosMateriale[] $objetos_materiales
+ * @property \App\Model\Entity\Materiale[] $materiales
  * @property \App\Model\Entity\Material[] $material
  */
 class Objeto extends Entity

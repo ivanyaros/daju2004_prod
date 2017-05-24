@@ -11,6 +11,7 @@ use Cake\ORM\Entity;
  * @property int $estado_id
  * @property \Cake\I18n\FrozenTime $fecha_inicio
  * @property \Cake\I18n\FrozenTime $fecha_fin
+ * @property string $descripcion
  *
  * @property \App\Model\Entity\Orden $orden
  * @property \App\Model\Entity\Estado $estado

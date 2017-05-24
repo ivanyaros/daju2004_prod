@@ -32,6 +32,8 @@
                 <th scope="col"><?= $this->Paginator->sort('centro_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('proceso_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('scrap') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('coste') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('observaciones') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -48,6 +50,8 @@
                 <td><?= $orden->has('centro') ? $this->Html->link($orden->centro->id, ['controller' => 'Centros', 'action' => 'view', $orden->centro->id]) : '' ?></td>
                 <td><?= $orden->has('proceso') ? $this->Html->link($orden->proceso->id, ['controller' => 'Proceso', 'action' => 'view', $orden->proceso->id]) : '' ?></td>
                 <td><?= $this->Number->format($orden->scrap) ?></td>
+                <td><?= $this->Number->format($orden->coste) ?></td>
+                <td><?= h($orden->observaciones) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $orden->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $orden->id]) ?>

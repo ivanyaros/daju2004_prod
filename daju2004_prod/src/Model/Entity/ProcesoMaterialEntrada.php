@@ -4,21 +4,19 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Centro Entity
+ * ProcesoMaterialEntrada Entity
  *
  * @property int $id
- * @property string $nombre
- * @property string $referencia
- * @property string $direccion
+ * @property int $proceso_id
+ * @property int $material_id
+ * @property float $metros_lineales
+ * @property float $metros_cuadrados
  * @property string $observaciones
  *
- * @property \App\Model\Entity\EntradasMaterial[] $entradas_material
- * @property \App\Model\Entity\Localizacione[] $localizaciones
- * @property \App\Model\Entity\Orden[] $ordens
- * @property \App\Model\Entity\Proceso[] $proceso
- * @property \App\Model\Entity\SalidasObjeto[] $salidas_objetos
+ * @property \App\Model\Entity\Proceso $proceso
+ * @property \App\Model\Entity\Material $material
  */
-class Centro extends Entity
+class ProcesoMaterialEntrada extends Entity
 {
 
     /**

@@ -34,6 +34,7 @@ class MaterialesFixture extends TestFixture
         'scrap' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => ''],
         'en_uso' => ['type' => 'boolean', 'length' => null, 'null' => true, 'default' => '0', 'comment' => '', 'precision' => null],
         'terminado' => ['type' => 'boolean', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
+        'peso_ud' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => ''],
         '_indexes' => [
             'fk_materiales_entradas_material1_idx' => ['type' => 'index', 'columns' => ['entradas_material_id'], 'length' => []],
             'fk_materiales_material1_idx' => ['type' => 'index', 'columns' => ['material_id'], 'length' => []],
@@ -61,7 +62,7 @@ class MaterialesFixture extends TestFixture
         [
             'id' => 1,
             'material_id' => 1,
-            'fecha_entega' => '2017-05-23 11:33:14',
+            'fecha_entega' => '2017-05-24 06:29:53',
             'localizacione_id' => 1,
             'entradas_material_id' => 1,
             'bobina_lote' => 1,
@@ -75,7 +76,8 @@ class MaterialesFixture extends TestFixture
             'metros_utiles' => 1,
             'scrap' => 1,
             'en_uso' => 1,
-            'terminado' => 1
+            'terminado' => 1,
+            'peso_ud' => 1
         ],
     ];
 }

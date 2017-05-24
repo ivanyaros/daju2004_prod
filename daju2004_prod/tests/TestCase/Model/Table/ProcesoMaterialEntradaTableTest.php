@@ -1,22 +1,22 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\LocalizacionesTable;
+use App\Model\Table\ProcesoMaterialEntradaTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\LocalizacionesTable Test Case
+ * App\Model\Table\ProcesoMaterialEntradaTable Test Case
  */
-class LocalizacionesTableTest extends TestCase
+class ProcesoMaterialEntradaTableTest extends TestCase
 {
 
     /**
      * Test subject
      *
-     * @var \App\Model\Table\LocalizacionesTable
+     * @var \App\Model\Table\ProcesoMaterialEntradaTable
      */
-    public $Localizaciones;
+    public $ProcesoMaterialEntrada;
 
     /**
      * Fixtures
@@ -24,19 +24,14 @@ class LocalizacionesTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.localizaciones',
-        'app.centros',
-        'app.entradas_material',
-        'app.proveedores_clientes',
-        'app.direcciones',
-        'app.pedidos_empresas',
-        'app.salidas_objetos',
-        'app.producto',
+        'app.proceso_material_entrada',
+        'app.proceso',
         'app.familias',
         'app.material',
         'app.monedas',
-        'app.proceso',
+        'app.producto',
         'app.ivas',
+        'app.objetos',
         'app.ordens',
         'app.estados',
         'app.ordens_estados',
@@ -46,14 +41,20 @@ class LocalizacionesTableTest extends TestCase
         'app.ordens_estados_usuarios',
         'app.utensilios',
         'app.ordens_estados_utensilios',
-        'app.objetos',
-        'app.objetos_materiales',
+        'app.centros',
+        'app.entradas_material',
+        'app.proveedores_clientes',
+        'app.direcciones',
+        'app.pedidos_empresas',
+        'app.salidas_objetos',
+        'app.pedidos_empresas_producto',
+        'app.proveedores_clientes_material',
         'app.materiales',
+        'app.localizaciones',
+        'app.objetos_materiales',
         'app.proceso_producto_entrada',
         'app.proceso_producto_salida',
-        'app.proceso_material',
-        'app.proveedores_clientes_material',
-        'app.pedidos_empresas_producto'
+        'app.proceso_material'
     ];
 
     /**
@@ -64,8 +65,8 @@ class LocalizacionesTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Localizaciones') ? [] : ['className' => 'App\Model\Table\LocalizacionesTable'];
-        $this->Localizaciones = TableRegistry::get('Localizaciones', $config);
+        $config = TableRegistry::exists('ProcesoMaterialEntrada') ? [] : ['className' => 'App\Model\Table\ProcesoMaterialEntradaTable'];
+        $this->ProcesoMaterialEntrada = TableRegistry::get('ProcesoMaterialEntrada', $config);
     }
 
     /**
@@ -75,7 +76,7 @@ class LocalizacionesTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Localizaciones);
+        unset($this->ProcesoMaterialEntrada);
 
         parent::tearDown();
     }

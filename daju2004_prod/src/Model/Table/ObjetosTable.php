@@ -51,18 +51,15 @@ class ObjetosTable extends Table
             'foreignKey' => 'localizacione_id',
             'joinType' => 'INNER'
         ]);
-        /*$this->belongsToMany('Materiales', [
+        $this->belongsToMany('Materiales', [
             'foreignKey' => 'objeto_id',
             'targetForeignKey' => 'materiale_id',
             'joinTable' => 'objetos_materiales'
-        ]);*/
-        $this->belongsToMany('Objetos', [
-            'foreignKey' => 'entrada',
-            'targetForeignKey' => 'salida',
-            'joinTable' => 'objetos_objetos'
         ]);
-        $this->hasMany('ObjetosMateriales', [
-            'foreignKey' => 'objeto_id'
+        $this->belongsToMany('Objetos', [
+            'foreignKey' => 'objeto_id',
+            'targetForeignKey' => 'objeto_id',
+            'joinTable' => 'objetos_objetos'
         ]);
     }
 
@@ -77,6 +74,10 @@ class ObjetosTable extends Table
         $validator
             ->integer('id')
             ->allowEmpty('id', 'create');
+
+        $validator
+            ->integer('numero_serie')
+            ->allowEmpty('numero_serie');
 
         $validator
             ->allowEmpty('referencia');

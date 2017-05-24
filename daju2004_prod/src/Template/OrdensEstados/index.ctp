@@ -29,6 +29,7 @@
                 <th scope="col"><?= $this->Paginator->sort('estado_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('fecha_inicio') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('fecha_fin') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('descripcion') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -40,6 +41,7 @@
                 <td><?= $ordensEstado->has('estado') ? $this->Html->link($ordensEstado->estado->id, ['controller' => 'Estados', 'action' => 'view', $ordensEstado->estado->id]) : '' ?></td>
                 <td><?= h($ordensEstado->fecha_inicio) ?></td>
                 <td><?= h($ordensEstado->fecha_fin) ?></td>
+                <td><?= h($ordensEstado->descripcion) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $ordensEstado->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $ordensEstado->id]) ?>

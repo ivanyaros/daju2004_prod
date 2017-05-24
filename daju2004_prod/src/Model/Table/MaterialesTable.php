@@ -118,6 +118,10 @@ class MaterialesTable extends Table
             ->boolean('terminado')
             ->allowEmpty('terminado');
 
+        $validator
+            ->numeric('peso_ud')
+            ->allowEmpty('peso_ud');
+
         return $validator;
     }
 

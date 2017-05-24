@@ -38,8 +38,8 @@
             <td><?= h($centro->direccion) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Centroscol') ?></th>
-            <td><?= h($centro->centroscol) ?></td>
+            <th scope="row"><?= __('Observaciones') ?></th>
+            <td><?= h($centro->observaciones) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>
@@ -117,6 +117,8 @@
                 <th scope="col"><?= __('Centro Id') ?></th>
                 <th scope="col"><?= __('Proceso Id') ?></th>
                 <th scope="col"><?= __('Scrap') ?></th>
+                <th scope="col"><?= __('Coste') ?></th>
+                <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($centro->ordens as $ordens): ?>
@@ -131,6 +133,8 @@
                 <td><?= h($ordens->centro_id) ?></td>
                 <td><?= h($ordens->proceso_id) ?></td>
                 <td><?= h($ordens->scrap) ?></td>
+                <td><?= h($ordens->coste) ?></td>
+                <td><?= h($ordens->observaciones) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Ordens', 'action' => 'view', $ordens->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Ordens', 'action' => 'edit', $ordens->id]) ?>

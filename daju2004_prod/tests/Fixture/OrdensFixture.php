@@ -27,6 +27,8 @@ class OrdensFixture extends TestFixture
         'centro_id' => ['type' => 'integer', 'length' => 10, 'unsigned' => true, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'proceso_id' => ['type' => 'integer', 'length' => 10, 'unsigned' => true, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'scrap' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => ''],
+        'coste' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => ''],
+        'observaciones' => ['type' => 'string', 'length' => 255, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         '_indexes' => [
             'fk_ordenes_produccion_centros1_idx' => ['type' => 'index', 'columns' => ['centro_id'], 'length' => []],
             'fk_ordenes_produccion_estados1_idx' => ['type' => 'index', 'columns' => ['estado_id'], 'length' => []],
@@ -56,12 +58,14 @@ class OrdensFixture extends TestFixture
             'nombre' => 'Lorem ipsum dolor sit amet',
             'referencia' => 'Lorem ipsum dolor sit amet',
             'cantidad' => 1,
-            'fecha_creacion' => '2017-05-23 09:30:21',
-            'fecha_terminacion' => '2017-05-23 09:30:21',
+            'fecha_creacion' => '2017-05-24 06:29:54',
+            'fecha_terminacion' => '2017-05-24 06:29:54',
             'estado_id' => 1,
             'centro_id' => 1,
             'proceso_id' => 1,
-            'scrap' => 1
+            'scrap' => 1,
+            'coste' => 1,
+            'observaciones' => 'Lorem ipsum dolor sit amet'
         ],
     ];
 }

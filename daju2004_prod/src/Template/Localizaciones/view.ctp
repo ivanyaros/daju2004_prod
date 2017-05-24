@@ -44,6 +44,19 @@
                 <th scope="col"><?= __('Fecha Entega') ?></th>
                 <th scope="col"><?= __('Localizacione Id') ?></th>
                 <th scope="col"><?= __('Entradas Material Id') ?></th>
+                <th scope="col"><?= __('Bobina Lote') ?></th>
+                <th scope="col"><?= __('Bobinas') ?></th>
+                <th scope="col"><?= __('Lote') ?></th>
+                <th scope="col"><?= __('Numero Bobina') ?></th>
+                <th scope="col"><?= __('Taras') ?></th>
+                <th scope="col"><?= __('Metros Brutos') ?></th>
+                <th scope="col"><?= __('Metros Netos') ?></th>
+                <th scope="col"><?= __('Metros Actuales') ?></th>
+                <th scope="col"><?= __('Metros Utiles') ?></th>
+                <th scope="col"><?= __('Scrap') ?></th>
+                <th scope="col"><?= __('En Uso') ?></th>
+                <th scope="col"><?= __('Terminado') ?></th>
+                <th scope="col"><?= __('Peso Ud') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($localizacione->materiales as $materiales): ?>
@@ -53,6 +66,19 @@
                 <td><?= h($materiales->fecha_entega) ?></td>
                 <td><?= h($materiales->localizacione_id) ?></td>
                 <td><?= h($materiales->entradas_material_id) ?></td>
+                <td><?= h($materiales->bobina_lote) ?></td>
+                <td><?= h($materiales->bobinas) ?></td>
+                <td><?= h($materiales->lote) ?></td>
+                <td><?= h($materiales->numero_bobina) ?></td>
+                <td><?= h($materiales->taras) ?></td>
+                <td><?= h($materiales->metros_brutos) ?></td>
+                <td><?= h($materiales->metros_netos) ?></td>
+                <td><?= h($materiales->metros_actuales) ?></td>
+                <td><?= h($materiales->metros_utiles) ?></td>
+                <td><?= h($materiales->scrap) ?></td>
+                <td><?= h($materiales->en_uso) ?></td>
+                <td><?= h($materiales->terminado) ?></td>
+                <td><?= h($materiales->peso_ud) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Materiales', 'action' => 'view', $materiales->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Materiales', 'action' => 'edit', $materiales->id]) ?>
@@ -70,6 +96,7 @@
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Producto Id') ?></th>
+                <th scope="col"><?= __('Numero Serie') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Orden Id') ?></th>
                 <th scope="col"><?= __('Lote') ?></th>
@@ -82,6 +109,7 @@
             <tr>
                 <td><?= h($objetos->id) ?></td>
                 <td><?= h($objetos->producto_id) ?></td>
+                <td><?= h($objetos->numero_serie) ?></td>
                 <td><?= h($objetos->referencia) ?></td>
                 <td><?= h($objetos->orden_id) ?></td>
                 <td><?= h($objetos->lote) ?></td>

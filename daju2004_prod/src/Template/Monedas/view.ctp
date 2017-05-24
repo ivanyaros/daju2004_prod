@@ -46,6 +46,7 @@
                 <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Nombre') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
+                <th scope="col"><?= __('Referencia Proveedor') ?></th>
                 <th scope="col"><?= __('Familia Id') ?></th>
                 <th scope="col"><?= __('Longitud') ?></th>
                 <th scope="col"><?= __('Anchura') ?></th>
@@ -66,6 +67,7 @@
                 <td><?= h($material->id) ?></td>
                 <td><?= h($material->nombre) ?></td>
                 <td><?= h($material->referencia) ?></td>
+                <td><?= h($material->referencia_proveedor) ?></td>
                 <td><?= h($material->familia_id) ?></td>
                 <td><?= h($material->longitud) ?></td>
                 <td><?= h($material->anchura) ?></td>
@@ -152,6 +154,9 @@
                 <th scope="col"><?= __('Descripcion') ?></th>
                 <th scope="col"><?= __('Larga') ?></th>
                 <th scope="col"><?= __('Coste') ?></th>
+                <th scope="col"><?= __('Ancho') ?></th>
+                <th scope="col"><?= __('Largo') ?></th>
+                <th scope="col"><?= __('Tolerancia') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($moneda->producto as $producto): ?>
@@ -171,6 +176,9 @@
                 <td><?= h($producto->descripcion) ?></td>
                 <td><?= h($producto->larga) ?></td>
                 <td><?= h($producto->coste) ?></td>
+                <td><?= h($producto->ancho) ?></td>
+                <td><?= h($producto->largo) ?></td>
+                <td><?= h($producto->tolerancia) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Producto', 'action' => 'view', $producto->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Producto', 'action' => 'edit', $producto->id]) ?>

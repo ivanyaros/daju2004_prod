@@ -33,12 +33,6 @@ class ObjetosObjetosTable extends Table
         $this->setTable('objetos_objetos');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
-        $this->belongsTo('Objetos', [
-            'foreignKey' => 'entada'
-        ]);
-        $this->belongsTo('Objetos', [
-            'foreignKey' => 'salida'
-        ]);
     }
 
     /**
@@ -54,6 +48,14 @@ class ObjetosObjetosTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
+            ->integer('entrada')
+            ->allowEmpty('entrada');
+
+        $validator
+            ->integer('salida')
+            ->allowEmpty('salida');
+
+        $validator
             ->integer('cantidad_producida')
             ->allowEmpty('cantidad_producida');
 
@@ -65,19 +67,5 @@ class ObjetosObjetosTable extends Table
             ->allowEmpty('observaciones');
 
         return $validator;
-    }
-    /**
-     * Returns a rules checker object that will be used for validating
-     * application integrity.
-     *
-     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
-     * @return \Cake\ORM\RulesChecker
-     */
-    public function buildRules(RulesChecker $rules)
-    {
-        $rules->add($rules->existsIn(['entrada'], 'Objetos'));
-        $rules->add($rules->existsIn(['salida'], 'Objetos'));
-
-        return $rules;
     }
 }

@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `daju_2004`.`centros` (
   `nombre` VARCHAR(255) NULL,
   `referencia` VARCHAR(255) NULL,
   `direccion` VARCHAR(255) NULL,
-  `centroscol` VARCHAR(45) NULL,
+  `observaciones` VARCHAR(255) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -232,6 +232,7 @@ CREATE TABLE IF NOT EXISTS `daju_2004`.`materiales` (
   `scrap` FLOAT NULL,
   `en_uso` TINYINT(1) NULL DEFAULT 0,
   `terminado` TINYINT(1) NULL,
+  `peso_ud` FLOAT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_materiales_entradas_material1_idx` (`entradas_material_id` ASC),
   INDEX `fk_materiales_material1_idx` (`material_id` ASC),
@@ -301,6 +302,9 @@ CREATE TABLE IF NOT EXISTS `daju_2004`.`producto` (
   `descripcion` VARCHAR(255) NULL,
   `larga` VARCHAR(2550) NULL,
   `coste` FLOAT NULL,
+  `ancho` FLOAT NULL,
+  `largo` FLOAT NULL,
+  `tolerancia` FLOAT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_producto_familias1_idx` (`familia_id` ASC),
   INDEX `fk_producto_monedas1_idx` (`moneda_id` ASC),
@@ -398,11 +402,11 @@ COMMENT = 'Entradas salidas productos en los procesos\n';
 
 
 -- -----------------------------------------------------
--- Table `daju_2004`.`proceso_material`
+-- Table `daju_2004`.`proceso_material_entrada`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `daju_2004`.`proceso_material` ;
+DROP TABLE IF EXISTS `daju_2004`.`proceso_material_entrada` ;
 
-CREATE TABLE IF NOT EXISTS `daju_2004`.`proceso_material` (
+CREATE TABLE IF NOT EXISTS `daju_2004`.`proceso_material_entrada` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `proceso_id` INT UNSIGNED NULL,
   `material_id` INT UNSIGNED NULL,
@@ -454,6 +458,8 @@ CREATE TABLE IF NOT EXISTS `daju_2004`.`ordens` (
   `centro_id` INT UNSIGNED NULL,
   `proceso_id` INT UNSIGNED NOT NULL,
   `scrap` FLOAT NULL,
+  `coste` FLOAT NULL,
+  `observaciones` VARCHAR(255) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_ordenes_produccion_centros1_idx` (`centro_id` ASC),
   INDEX `fk_ordenes_produccion_estados1_idx` (`estado_id` ASC),
@@ -485,6 +491,7 @@ DROP TABLE IF EXISTS `daju_2004`.`objetos` ;
 CREATE TABLE IF NOT EXISTS `daju_2004`.`objetos` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `producto_id` INT UNSIGNED NULL,
+  `numero_serie` INT NULL,
   `referencia` VARCHAR(255) NULL,
   `orden_id` INT UNSIGNED NOT NULL,
   `lote` VARCHAR(255) NULL,
@@ -523,6 +530,8 @@ CREATE TABLE IF NOT EXISTS `daju_2004`.`maquinas` (
   `nombre` VARCHAR(255) NULL,
   `referencia` VARCHAR(255) NULL,
   `observaciones` VARCHAR(255) NULL,
+  `coste_operacion` FLOAT NULL,
+  `coste_tiempo` FLOAT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -637,6 +646,7 @@ CREATE TABLE IF NOT EXISTS `daju_2004`.`ordens_estados` (
   `estado_id` MEDIUMINT UNSIGNED NULL,
   `fecha_inicio` DATETIME NULL,
   `fecha_fin` DATETIME NULL,
+  `descripcion` VARCHAR(255) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_ordens_has_estados_estados1_idx` (`estado_id` ASC),
   INDEX `fk_ordens_has_estados_ordens1_idx` (`orden_id` ASC),
@@ -667,6 +677,8 @@ CREATE TABLE IF NOT EXISTS `daju_2004`.`usuarios` (
   `email` VARCHAR(45) NULL,
   `direccion` VARCHAR(45) NULL,
   `tipo` VARCHAR(45) NULL,
+  `coste_operacion` FLOAT NULL,
+  `coste_tiempo` FLOAT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 

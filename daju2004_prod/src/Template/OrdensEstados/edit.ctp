@@ -34,6 +34,7 @@
             echo $this->Form->control('estado_id', ['options' => $estados, 'empty' => true]);
             echo $this->Form->control('fecha_inicio', ['empty' => true]);
             echo $this->Form->control('fecha_fin', ['empty' => true]);
+            echo $this->Form->control('descripcion');
             echo $this->Form->control('maquinas._ids', ['options' => $maquinas]);
             echo $this->Form->control('usuarios._ids', ['options' => $usuarios]);
             echo $this->Form->control('utensilios._ids', ['options' => $utensilios]);

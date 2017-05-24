@@ -18,6 +18,10 @@
     <h3><?= h($objetosObjeto->id) ?></h3>
     <table class="vertical-table">
         <tr>
+            <th scope="row"><?= __('Objeto') ?></th>
+            <td><?= $objetosObjeto->has('objeto') ? $this->Html->link($objetosObjeto->objeto->id, ['controller' => 'Objetos', 'action' => 'view', $objetosObjeto->objeto->id]) : '' ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Observaciones') ?></th>
             <td><?= h($objetosObjeto->observaciones) ?></td>
         </tr>
@@ -28,10 +32,6 @@
         <tr>
             <th scope="row"><?= __('Entrada') ?></th>
             <td><?= $this->Number->format($objetosObjeto->entrada) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Salida') ?></th>
-            <td><?= $this->Number->format($objetosObjeto->salida) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Cantidad Producida') ?></th>

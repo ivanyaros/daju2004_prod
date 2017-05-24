@@ -14,9 +14,9 @@ use Cake\Validation\Validator;
  * @property \Cake\ORM\Association\BelongsTo $Ivas
  * @property \Cake\ORM\Association\BelongsTo $Centros
  * @property \Cake\ORM\Association\HasMany $Ordens
+ * @property \Cake\ORM\Association\HasMany $ProcesoMaterialEntrada
  * @property \Cake\ORM\Association\HasMany $ProcesoProductoEntrada
  * @property \Cake\ORM\Association\HasMany $ProcesoProductoSalida
- * @property \Cake\ORM\Association\BelongsToMany $Material
  *
  * @method \App\Model\Entity\Proceso get($primaryKey, $options = [])
  * @method \App\Model\Entity\Proceso newEntity($data = null, array $options = [])
@@ -58,16 +58,14 @@ class ProcesoTable extends Table
         $this->hasMany('Ordens', [
             'foreignKey' => 'proceso_id'
         ]);
+        $this->hasMany('ProcesoMaterialEntrada', [
+            'foreignKey' => 'proceso_id'
+        ]);
         $this->hasMany('ProcesoProductoEntrada', [
             'foreignKey' => 'proceso_id'
         ]);
         $this->hasMany('ProcesoProductoSalida', [
             'foreignKey' => 'proceso_id'
-        ]);
-        $this->belongsToMany('Material', [
-            'foreignKey' => 'proceso_id',
-            'targetForeignKey' => 'material_id',
-            'joinTable' => 'proceso_material'
         ]);
     }
 

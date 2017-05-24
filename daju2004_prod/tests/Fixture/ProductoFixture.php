@@ -39,6 +39,9 @@ class ProductoFixture extends TestFixture
         'descripcion' => ['type' => 'string', 'length' => 255, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'larga' => ['type' => 'string', 'length' => 2550, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'coste' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => ''],
+        'ancho' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => ''],
+        'largo' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => ''],
+        'tolerancia' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => ''],
         '_indexes' => [
             'fk_producto_familias1_idx' => ['type' => 'index', 'columns' => ['familia_id'], 'length' => []],
             'fk_producto_monedas1_idx' => ['type' => 'index', 'columns' => ['moneda_id'], 'length' => []],
@@ -78,7 +81,10 @@ class ProductoFixture extends TestFixture
             'cantidad' => 1,
             'descripcion' => 'Lorem ipsum dolor sit amet',
             'larga' => 'Lorem ipsum dolor sit amet',
-            'coste' => 1
+            'coste' => 1,
+            'ancho' => 1,
+            'largo' => 1,
+            'tolerancia' => 1
         ],
     ];
 }

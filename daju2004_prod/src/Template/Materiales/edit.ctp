@@ -44,6 +44,7 @@
             echo $this->Form->control('scrap');
             echo $this->Form->control('en_uso');
             echo $this->Form->control('terminado');
+            echo $this->Form->control('peso_ud');
             echo $this->Form->control('objetos._ids', ['options' => $objetos]);
         ?>
     </fieldset>

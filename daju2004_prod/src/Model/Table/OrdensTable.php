@@ -94,6 +94,13 @@ class OrdensTable extends Table
             ->numeric('scrap')
             ->allowEmpty('scrap');
 
+        $validator
+            ->numeric('coste')
+            ->allowEmpty('coste');
+
+        $validator
+            ->allowEmpty('observaciones');
+
         return $validator;
     }
 

@@ -23,6 +23,8 @@
             echo $this->Form->control('email');
             echo $this->Form->control('direccion');
             echo $this->Form->control('tipo');
+            echo $this->Form->control('coste_operacion');
+            echo $this->Form->control('coste_tiempo');
             echo $this->Form->control('ordens_estados._ids', ['options' => $ordensEstados]);
         ?>
     </fieldset>

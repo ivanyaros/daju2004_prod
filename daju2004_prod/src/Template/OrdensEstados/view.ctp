@@ -34,6 +34,10 @@
             <td><?= $ordensEstado->has('estado') ? $this->Html->link($ordensEstado->estado->id, ['controller' => 'Estados', 'action' => 'view', $ordensEstado->estado->id]) : '' ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Descripcion') ?></th>
+            <td><?= h($ordensEstado->descripcion) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($ordensEstado->id) ?></td>
         </tr>
@@ -55,6 +59,8 @@
                 <th scope="col"><?= __('Nombre') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
+                <th scope="col"><?= __('Coste Operacion') ?></th>
+                <th scope="col"><?= __('Coste Tiempo') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($ordensEstado->maquinas as $maquinas): ?>
@@ -63,6 +69,8 @@
                 <td><?= h($maquinas->nombre) ?></td>
                 <td><?= h($maquinas->referencia) ?></td>
                 <td><?= h($maquinas->observaciones) ?></td>
+                <td><?= h($maquinas->coste_operacion) ?></td>
+                <td><?= h($maquinas->coste_tiempo) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Maquinas', 'action' => 'view', $maquinas->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Maquinas', 'action' => 'edit', $maquinas->id]) ?>
@@ -86,6 +94,8 @@
                 <th scope="col"><?= __('Email') ?></th>
                 <th scope="col"><?= __('Direccion') ?></th>
                 <th scope="col"><?= __('Tipo') ?></th>
+                <th scope="col"><?= __('Coste Operacion') ?></th>
+                <th scope="col"><?= __('Coste Tiempo') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($ordensEstado->usuarios as $usuarios): ?>
@@ -98,6 +108,8 @@
                 <td><?= h($usuarios->email) ?></td>
                 <td><?= h($usuarios->direccion) ?></td>
                 <td><?= h($usuarios->tipo) ?></td>
+                <td><?= h($usuarios->coste_operacion) ?></td>
+                <td><?= h($usuarios->coste_tiempo) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Usuarios', 'action' => 'view', $usuarios->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Usuarios', 'action' => 'edit', $usuarios->id]) ?>

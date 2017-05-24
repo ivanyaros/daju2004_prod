@@ -21,6 +21,9 @@ use Cake\ORM\Entity;
  * @property string $descripcion
  * @property string $larga
  * @property float $coste
+ * @property float $ancho
+ * @property float $largo
+ * @property float $tolerancia
  *
  * @property \App\Model\Entity\Familia $familia
  * @property \App\Model\Entity\Moneda $moneda

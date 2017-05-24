@@ -24,6 +24,8 @@
                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('direccion') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('tipo') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('coste_operacion') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('coste_tiempo') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -38,6 +40,8 @@
                 <td><?= h($usuario->email) ?></td>
                 <td><?= h($usuario->direccion) ?></td>
                 <td><?= h($usuario->tipo) ?></td>
+                <td><?= $this->Number->format($usuario->coste_operacion) ?></td>
+                <td><?= $this->Number->format($usuario->coste_tiempo) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $usuario->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $usuario->id]) ?>

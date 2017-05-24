@@ -83,6 +83,9 @@ class OrdensEstadosTable extends Table
             ->dateTime('fecha_fin')
             ->allowEmpty('fecha_fin');
 
+        $validator
+            ->allowEmpty('descripcion');
+
         return $validator;
     }
 

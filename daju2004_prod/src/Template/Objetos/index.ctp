@@ -26,6 +26,7 @@
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('producto_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('numero_serie') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('referencia') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('orden_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('lote') ?></th>
@@ -40,6 +41,7 @@
             <tr>
                 <td><?= $this->Number->format($objeto->id) ?></td>
                 <td><?= $objeto->has('producto') ? $this->Html->link($objeto->producto->id, ['controller' => 'Producto', 'action' => 'view', $objeto->producto->id]) : '' ?></td>
+                <td><?= $this->Number->format($objeto->numero_serie) ?></td>
                 <td><?= h($objeto->referencia) ?></td>
                 <td><?= $objeto->has('orden') ? $this->Html->link($objeto->orden->id, ['controller' => 'Ordens', 'action' => 'view', $objeto->orden->id]) : '' ?></td>
                 <td><?= h($objeto->lote) ?></td>

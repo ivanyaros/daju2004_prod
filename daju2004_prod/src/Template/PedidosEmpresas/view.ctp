@@ -99,6 +99,9 @@
                 <th scope="col"><?= __('Descripcion') ?></th>
                 <th scope="col"><?= __('Larga') ?></th>
                 <th scope="col"><?= __('Coste') ?></th>
+                <th scope="col"><?= __('Ancho') ?></th>
+                <th scope="col"><?= __('Largo') ?></th>
+                <th scope="col"><?= __('Tolerancia') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($pedidosEmpresa->producto as $producto): ?>
@@ -118,6 +121,9 @@
                 <td><?= h($producto->descripcion) ?></td>
                 <td><?= h($producto->larga) ?></td>
                 <td><?= h($producto->coste) ?></td>
+                <td><?= h($producto->ancho) ?></td>
+                <td><?= h($producto->largo) ?></td>
+                <td><?= h($producto->tolerancia) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Producto', 'action' => 'view', $producto->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Producto', 'action' => 'edit', $producto->id]) ?>

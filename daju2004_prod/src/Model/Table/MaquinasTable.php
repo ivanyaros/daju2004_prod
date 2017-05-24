@@ -64,6 +64,14 @@ class MaquinasTable extends Table
         $validator
             ->allowEmpty('observaciones');
 
+        $validator
+            ->numeric('coste_operacion')
+            ->allowEmpty('coste_operacion');
+
+        $validator
+            ->numeric('coste_tiempo')
+            ->allowEmpty('coste_tiempo');
+
         return $validator;
     }
 }

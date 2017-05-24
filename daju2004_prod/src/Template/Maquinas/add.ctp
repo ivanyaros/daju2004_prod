@@ -19,6 +19,8 @@
             echo $this->Form->control('nombre');
             echo $this->Form->control('referencia');
             echo $this->Form->control('observaciones');
+            echo $this->Form->control('coste_operacion');
+            echo $this->Form->control('coste_tiempo');
             echo $this->Form->control('ordens_estados._ids', ['options' => $ordensEstados]);
         ?>
     </fieldset>

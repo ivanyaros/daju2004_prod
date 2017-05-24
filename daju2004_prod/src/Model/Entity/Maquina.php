@@ -10,8 +10,11 @@ use Cake\ORM\Entity;
  * @property string $nombre
  * @property string $referencia
  * @property string $observaciones
+ * @property float $coste_operacion
+ * @property float $coste_tiempo
  *
  * @property \App\Model\Entity\OrdensEstado[] $ordens_estados
+ * @property \App\Model\Entity\OrdensEstadosMaquina[] $ordens_estados_maquinas
  */
 class Maquina extends Entity
 {

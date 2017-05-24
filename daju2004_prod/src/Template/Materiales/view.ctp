@@ -76,6 +76,10 @@
             <td><?= $this->Number->format($materiale->scrap) ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Peso Ud') ?></th>
+            <td><?= $this->Number->format($materiale->peso_ud) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Fecha Entega') ?></th>
             <td><?= h($materiale->fecha_entega) ?></td>
         </tr>
@@ -99,6 +103,7 @@
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Producto Id') ?></th>
+                <th scope="col"><?= __('Numero Serie') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Orden Id') ?></th>
                 <th scope="col"><?= __('Lote') ?></th>
@@ -111,6 +116,7 @@
             <tr>
                 <td><?= h($objetos->id) ?></td>
                 <td><?= h($objetos->producto_id) ?></td>
+                <td><?= h($objetos->numero_serie) ?></td>
                 <td><?= h($objetos->referencia) ?></td>
                 <td><?= h($objetos->orden_id) ?></td>
                 <td><?= h($objetos->lote) ?></td>

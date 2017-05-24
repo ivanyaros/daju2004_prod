@@ -23,11 +23,13 @@ use Cake\ORM\Entity;
  * @property float $scrap
  * @property bool $en_uso
  * @property bool $terminado
+ * @property float $peso_ud
  *
  * @property \App\Model\Entity\Material $material
  * @property \App\Model\Entity\Localizacione $localizacione
  * @property \App\Model\Entity\EntradasMaterial $entradas_material
  * @property \App\Model\Entity\Objeto[] $objetos
+ * @property \App\Model\Entity\ObjetosMateriale[] $objetos_materiales
  */
 class Materiale extends Entity
 {

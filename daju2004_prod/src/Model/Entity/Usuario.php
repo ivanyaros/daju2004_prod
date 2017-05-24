@@ -14,6 +14,8 @@ use Cake\ORM\Entity;
  * @property string $email
  * @property string $direccion
  * @property string $tipo
+ * @property float $coste_operacion
+ * @property float $coste_tiempo
  *
  * @property \App\Model\Entity\OrdensEstado[] $ordens_estados
  * @property \App\Model\Entity\OrdensEstadosUsuario[] $ordens_estados_usuarios

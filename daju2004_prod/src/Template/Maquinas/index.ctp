@@ -20,6 +20,8 @@
                 <th scope="col"><?= $this->Paginator->sort('nombre') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('referencia') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('observaciones') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('coste_operacion') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('coste_tiempo') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -30,6 +32,8 @@
                 <td><?= h($maquina->nombre) ?></td>
                 <td><?= h($maquina->referencia) ?></td>
                 <td><?= h($maquina->observaciones) ?></td>
+                <td><?= $this->Number->format($maquina->coste_operacion) ?></td>
+                <td><?= $this->Number->format($maquina->coste_tiempo) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $maquina->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $maquina->id]) ?>

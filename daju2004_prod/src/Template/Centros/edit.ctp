@@ -33,7 +33,7 @@
             echo $this->Form->control('nombre');
             echo $this->Form->control('referencia');
             echo $this->Form->control('direccion');
-            echo $this->Form->control('centroscol');
+            echo $this->Form->control('observaciones');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

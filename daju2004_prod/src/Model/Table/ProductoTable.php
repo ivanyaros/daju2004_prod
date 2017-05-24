@@ -117,6 +117,18 @@ class ProductoTable extends Table
             ->numeric('coste')
             ->allowEmpty('coste');
 
+        $validator
+            ->numeric('ancho')
+            ->allowEmpty('ancho');
+
+        $validator
+            ->numeric('largo')
+            ->allowEmpty('largo');
+
+        $validator
+            ->numeric('tolerancia')
+            ->allowEmpty('tolerancia');
+
         return $validator;
     }
 
