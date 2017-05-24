@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\I18n\Time;
 /**
  * OrdensEstados Controller
  *
@@ -54,6 +54,9 @@ class OrdensEstadosController extends AppController
     public function add()
     {
         $ordensEstado = $this->OrdensEstados->newEntity();
+        $tiempo= Time::now();
+        $tiempo->timezone = 'Europe/Paris';
+        $ordensEstado->fecha_inicio=$tiempo;
         if ($this->request->is('post')) {
             $ordensEstado = $this->OrdensEstados->patchEntity($ordensEstado, $this->request->getData());
             if ($this->OrdensEstados->save($ordensEstado)) {

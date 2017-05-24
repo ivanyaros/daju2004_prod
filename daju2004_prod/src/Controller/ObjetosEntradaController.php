@@ -21,7 +21,7 @@ class ObjetosEntradaController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Objetos']
+            'contain' => ['Entradas','Salidas']
         ];
         $objetosEntrada = $this->paginate($this->ObjetosEntrada);
 
@@ -39,7 +39,7 @@ class ObjetosEntradaController extends AppController
     public function view($id = null)
     {
         $objetosEntrada = $this->ObjetosEntrada->get($id, [
-            'contain' => ['Objetos']
+            'contain' => ['Entradas','Salidas']
         ]);
 
         $this->set('objetosEntrada', $objetosEntrada);
@@ -54,6 +54,7 @@ class ObjetosEntradaController extends AppController
     public function add()
     {
         $objetosEntrada = $this->ObjetosEntrada->newEntity();
+        
         if ($this->request->is('post')) {
             $objetosEntrada = $this->ObjetosEntrada->patchEntity($objetosEntrada, $this->request->getData());
             if ($this->ObjetosEntrada->save($objetosEntrada)) {
@@ -63,8 +64,9 @@ class ObjetosEntradaController extends AppController
             }
             $this->Flash->error(__('The objetos entrada could not be saved. Please, try again.'));
         }
-        $objetos = $this->ObjetosEntrada->Objetos->find('list', ['limit' => 200]);
-        $this->set(compact('objetosEntrada', 'objetos'));
+        $entradas = $this->ObjetosEntrada->Entradas->find('list', ['limit' => 200]);
+        $salidas = $this->ObjetosEntrada->Salidas->find('list', ['limit' => 200]);
+        $this->set(compact('objetosEntrada', 'entradas','salidas'));
         $this->set('_serialize', ['objetosEntrada']);
     }
 

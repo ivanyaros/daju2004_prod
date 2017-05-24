@@ -29,7 +29,7 @@
             <?php foreach ($objetosEntrada as $objetosEntrada): ?>
             <tr>
                 <td><?= $this->Number->format($objetosEntrada->id) ?></td>
-                <td><?= $this->Number->format($objetosEntrada->entrada_id) ?></td>
+                <td><?= $objetosEntrada->has('entrada') ? $this->Html->link($objetosEntrada->entrada->id, ['controller' => 'Objetos', 'action' => 'view', $objetosEntrada->entrada->id]) : '' ?></td>
                 <td><?= $this->Number->format($objetosEntrada->salida_id) ?></td>
                 <td><?= $this->Number->format($objetosEntrada->cantidad_entrada) ?></td>
                 <td><?= $this->Number->format($objetosEntrada->cantidad_producida) ?></td>
