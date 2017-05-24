@@ -4,27 +4,17 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Orden Entity
+ * UtensiliosUsado Entity
  *
  * @property int $id
- * @property string $nombre
- * @property string $referencia
- * @property int $cantidad
- * @property \Cake\I18n\FrozenTime $fecha_creacion
- * @property \Cake\I18n\FrozenTime $fecha_terminacion
- * @property int $estado_id
- * @property int $centro_id
- * @property int $proceso_id
- * @property float $scrap
- * @property float $coste
+ * @property int $estados_de_orden_id
+ * @property int $utensilio_id
  * @property string $observaciones
  *
- * @property \App\Model\Entity\Estado[] $estados
- * @property \App\Model\Entity\Centro $centro
- * @property \App\Model\Entity\Proceso $proceso
- * @property \App\Model\Entity\Objeto[] $objetos
+ * @property \App\Model\Entity\EstadosDeOrden $estados_de_orden
+ * @property \App\Model\Entity\Utensilio $utensilio
  */
-class Orden extends Entity
+class UtensiliosUsado extends Entity
 {
 
     /**

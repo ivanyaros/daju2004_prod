@@ -45,6 +45,8 @@ class OrdensControllerTest extends IntegrationTestCase
         'app.objetos',
         'app.materiales_entrada',
         'app.objetos_entrada',
+        'app.entradas',
+        'app.salidas',
         'app.proveedores_clientes_material',
         'app.pedidos_empresas_producto'
     ];

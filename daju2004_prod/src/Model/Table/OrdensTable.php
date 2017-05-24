@@ -12,8 +12,8 @@ use Cake\Validation\Validator;
  * @property \Cake\ORM\Association\BelongsTo $Estados
  * @property \Cake\ORM\Association\BelongsTo $Centros
  * @property \Cake\ORM\Association\BelongsTo $Proceso
+ * @property \Cake\ORM\Association\HasMany $EstadosDeOrdens
  * @property \Cake\ORM\Association\HasMany $Objetos
- * @property \Cake\ORM\Association\BelongsToMany $Estados
  *
  * @method \App\Model\Entity\Orden get($primaryKey, $options = [])
  * @method \App\Model\Entity\Orden newEntity($data = null, array $options = [])
@@ -50,13 +50,11 @@ class OrdensTable extends Table
             'foreignKey' => 'proceso_id',
             'joinType' => 'INNER'
         ]);
-        $this->hasMany('Objetos', [
+        $this->hasMany('EstadosDeOrdens', [
             'foreignKey' => 'orden_id'
         ]);
-        $this->belongsToMany('Estados', [
-            'foreignKey' => 'orden_id',
-            'targetForeignKey' => 'estado_id',
-            'joinTable' => 'ordens_estados'
+        $this->hasMany('Objetos', [
+            'foreignKey' => 'orden_id'
         ]);
     }
 

@@ -4,27 +4,22 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Orden Entity
+ * EstadosDeOrden Entity
  *
  * @property int $id
- * @property string $nombre
- * @property string $referencia
- * @property int $cantidad
- * @property \Cake\I18n\FrozenTime $fecha_creacion
- * @property \Cake\I18n\FrozenTime $fecha_terminacion
+ * @property int $orden_id
  * @property int $estado_id
- * @property int $centro_id
- * @property int $proceso_id
- * @property float $scrap
- * @property float $coste
- * @property string $observaciones
+ * @property \Cake\I18n\FrozenTime $fecha_inicio
+ * @property \Cake\I18n\FrozenTime $fecha_fin
+ * @property string $descripcion
  *
- * @property \App\Model\Entity\Estado[] $estados
- * @property \App\Model\Entity\Centro $centro
- * @property \App\Model\Entity\Proceso $proceso
- * @property \App\Model\Entity\Objeto[] $objetos
+ * @property \App\Model\Entity\Orden $orden
+ * @property \App\Model\Entity\Estado $estado
+ * @property \App\Model\Entity\MaquinasUsada[] $maquinas_usadas
+ * @property \App\Model\Entity\UsuariosEnEstadosOrden[] $usuarios_en_estados_orden
+ * @property \App\Model\Entity\UtensiliosUsado[] $utensilios_usados
  */
-class Orden extends Entity
+class EstadosDeOrden extends Entity
 {
 
     /**

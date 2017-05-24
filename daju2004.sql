@@ -638,11 +638,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `daju_2004`.`ordens_estados`
+-- Table `daju_2004`.`estados_de_ordens`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `daju_2004`.`ordens_estados` ;
+DROP TABLE IF EXISTS `daju_2004`.`estados_de_ordens` ;
 
-CREATE TABLE IF NOT EXISTS `daju_2004`.`ordens_estados` (
+CREATE TABLE IF NOT EXISTS `daju_2004`.`estados_de_ordens` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `orden_id` INT UNSIGNED NULL,
   `estado_id` MEDIUMINT UNSIGNED NULL,
@@ -650,14 +650,14 @@ CREATE TABLE IF NOT EXISTS `daju_2004`.`ordens_estados` (
   `fecha_fin` DATETIME NULL,
   `descripcion` VARCHAR(255) NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_ordens_has_estados_estados1_idx` (`estado_id` ASC),
-  INDEX `fk_ordens_has_estados_ordens1_idx` (`orden_id` ASC),
-  CONSTRAINT `fk_ordens_has_estados_ordens1`
+  INDEX `fk_estados_de_ordenes_ordens1_idx` (`orden_id` ASC),
+  INDEX `fk_estados_de_ordenes_estados1_idx` (`estado_id` ASC),
+  CONSTRAINT `fk_estados_de_ordenes_ordens1`
     FOREIGN KEY (`orden_id`)
     REFERENCES `daju_2004`.`ordens` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_ordens_has_estados_estados1`
+  CONSTRAINT `fk_estados_de_ordenes_estados1`
     FOREIGN KEY (`estado_id`)
     REFERENCES `daju_2004`.`estados` (`id`)
     ON DELETE NO ACTION
@@ -686,81 +686,81 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `daju_2004`.`ordens_estados_usuarios`
+-- Table `daju_2004`.`usuarios_en_estados_orden`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `daju_2004`.`ordens_estados_usuarios` ;
+DROP TABLE IF EXISTS `daju_2004`.`usuarios_en_estados_orden` ;
 
-CREATE TABLE IF NOT EXISTS `daju_2004`.`ordens_estados_usuarios` (
+CREATE TABLE IF NOT EXISTS `daju_2004`.`usuarios_en_estados_orden` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `ordens_estado_id` INT UNSIGNED NULL,
+  `estados_de_orden_id` INT UNSIGNED NULL,
   `usuario_id` INT UNSIGNED NULL,
   `parte` FLOAT NULL,
   `observaciones` VARCHAR(255) NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_ordens_estados_has_usuarios_usuarios1_idx` (`usuario_id` ASC),
-  INDEX `fk_ordens_estados_usuarios_ordens_estados1_idx` (`ordens_estado_id` ASC),
-  CONSTRAINT `fk_ordens_estados_has_usuarios_usuarios1`
-    FOREIGN KEY (`usuario_id`)
-    REFERENCES `daju_2004`.`usuarios` (`id`)
+  INDEX `fk_usuarios_en_estados_orden_estados_de_ordens1_idx` (`estados_de_orden_id` ASC),
+  INDEX `fk_usuarios_en_estados_orden_usuarios1_idx` (`usuario_id` ASC),
+  CONSTRAINT `fk_usuarios_en_estados_orden_estados_de_ordens1`
+    FOREIGN KEY (`estados_de_orden_id`)
+    REFERENCES `daju_2004`.`estados_de_ordens` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_ordens_estados_usuarios_ordens_estados1`
-    FOREIGN KEY (`ordens_estado_id`)
-    REFERENCES `daju_2004`.`ordens_estados` (`id`)
+  CONSTRAINT `fk_usuarios_en_estados_orden_usuarios1`
+    FOREIGN KEY (`usuario_id`)
+    REFERENCES `daju_2004`.`usuarios` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `daju_2004`.`ordens_estados_maquinas`
+-- Table `daju_2004`.`maquinas_usadas`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `daju_2004`.`ordens_estados_maquinas` ;
+DROP TABLE IF EXISTS `daju_2004`.`maquinas_usadas` ;
 
-CREATE TABLE IF NOT EXISTS `daju_2004`.`ordens_estados_maquinas` (
+CREATE TABLE IF NOT EXISTS `daju_2004`.`maquinas_usadas` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `ordens_estado_id` INT UNSIGNED NULL,
+  `estados_de_orden_id` INT UNSIGNED NULL,
   `maquina_id` INT UNSIGNED NULL,
   `operaciones` INT NULL,
   `uso` FLOAT NULL,
   `observaciones` VARCHAR(255) NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_ordens_estados_has_maquinas_maquinas1_idx` (`maquina_id` ASC),
-  INDEX `fk_ordens_estados_maquinas_ordens_estados1_idx` (`ordens_estado_id` ASC),
-  CONSTRAINT `fk_ordens_estados_has_maquinas_maquinas1`
-    FOREIGN KEY (`maquina_id`)
-    REFERENCES `daju_2004`.`maquinas` (`id`)
+  INDEX `fk_maquinas_usadas_estados_de_ordens1_idx` (`estados_de_orden_id` ASC),
+  INDEX `fk_maquinas_usadas_maquinas1_idx` (`maquina_id` ASC),
+  CONSTRAINT `fk_maquinas_usadas_estados_de_ordens1`
+    FOREIGN KEY (`estados_de_orden_id`)
+    REFERENCES `daju_2004`.`estados_de_ordens` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_ordens_estados_maquinas_ordens_estados1`
-    FOREIGN KEY (`ordens_estado_id`)
-    REFERENCES `daju_2004`.`ordens_estados` (`id`)
+  CONSTRAINT `fk_maquinas_usadas_maquinas1`
+    FOREIGN KEY (`maquina_id`)
+    REFERENCES `daju_2004`.`maquinas` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `daju_2004`.`ordens_estados_utensilios`
+-- Table `daju_2004`.`utensilios_usados`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `daju_2004`.`ordens_estados_utensilios` ;
+DROP TABLE IF EXISTS `daju_2004`.`utensilios_usados` ;
 
-CREATE TABLE IF NOT EXISTS `daju_2004`.`ordens_estados_utensilios` (
+CREATE TABLE IF NOT EXISTS `daju_2004`.`utensilios_usados` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `ordens_estado_id` INT UNSIGNED NULL,
+  `estados_de_orden_id` INT UNSIGNED NULL,
   `utensilio_id` INT UNSIGNED NULL,
   `observaciones` VARCHAR(255) NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_ordens_estados_has_utensilios_utensilios1_idx` (`utensilio_id` ASC),
-  INDEX `fk_ordens_estados_utensilios_ordens_estados1_idx` (`ordens_estado_id` ASC),
-  CONSTRAINT `fk_ordens_estados_has_utensilios_utensilios1`
-    FOREIGN KEY (`utensilio_id`)
-    REFERENCES `daju_2004`.`utensilios` (`id`)
+  INDEX `fk_utensilios_usados_estados_de_ordens1_idx` (`estados_de_orden_id` ASC),
+  INDEX `fk_utensilios_usados_utensilios1_idx` (`utensilio_id` ASC),
+  CONSTRAINT `fk_utensilios_usados_estados_de_ordens1`
+    FOREIGN KEY (`estados_de_orden_id`)
+    REFERENCES `daju_2004`.`estados_de_ordens` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_ordens_estados_utensilios_ordens_estados1`
-    FOREIGN KEY (`ordens_estado_id`)
-    REFERENCES `daju_2004`.`ordens_estados` (`id`)
+  CONSTRAINT `fk_utensilios_usados_utensilios1`
+    FOREIGN KEY (`utensilio_id`)
+    REFERENCES `daju_2004`.`utensilios` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
