@@ -10,7 +10,7 @@ use Cake\ORM\Entity;
  * @property string $nombre
  *
  * @property \App\Model\Entity\Orden[] $ordens
- * @property \App\Model\Entity\PedidosEmpresasProducto[] $pedidos_empresas_producto
+ * @property \App\Model\Entity\PedidosProductosDetalle[] $pedidos_productos_detalle
  */
 class Prioridade extends Entity
 {

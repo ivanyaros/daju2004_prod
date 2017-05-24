@@ -13,8 +13,7 @@ use Cake\ORM\Entity;
  * @property float $coste_operacion
  * @property float $coste_tiempo
  *
- * @property \App\Model\Entity\OrdensEstado[] $ordens_estados
- * @property \App\Model\Entity\OrdensEstadosMaquina[] $ordens_estados_maquinas
+ * @property \App\Model\Entity\MaquinasUsada[] $maquinas_usadas
  */
 class Maquina extends Entity
 {

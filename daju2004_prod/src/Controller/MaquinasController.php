@@ -36,7 +36,7 @@ class MaquinasController extends AppController
     public function view($id = null)
     {
         $maquina = $this->Maquinas->get($id, [
-            'contain' => ['OrdensEstados']
+            'contain' => ['MaquinasUsadas']
         ]);
 
         $this->set('maquina', $maquina);
@@ -60,8 +60,7 @@ class MaquinasController extends AppController
             }
             $this->Flash->error(__('The maquina could not be saved. Please, try again.'));
         }
-        $ordensEstados = $this->Maquinas->OrdensEstados->find('list', ['limit' => 200]);
-        $this->set(compact('maquina', 'ordensEstados'));
+        $this->set(compact('maquina'));
         $this->set('_serialize', ['maquina']);
     }
 
@@ -75,7 +74,7 @@ class MaquinasController extends AppController
     public function edit($id = null)
     {
         $maquina = $this->Maquinas->get($id, [
-            'contain' => ['OrdensEstados']
+            'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $maquina = $this->Maquinas->patchEntity($maquina, $this->request->getData());
@@ -86,8 +85,7 @@ class MaquinasController extends AppController
             }
             $this->Flash->error(__('The maquina could not be saved. Please, try again.'));
         }
-        $ordensEstados = $this->Maquinas->OrdensEstados->find('list', ['limit' => 200]);
-        $this->set(compact('maquina', 'ordensEstados'));
+        $this->set(compact('maquina'));
         $this->set('_serialize', ['maquina']);
     }
 

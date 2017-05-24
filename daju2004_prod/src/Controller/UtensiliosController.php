@@ -36,7 +36,7 @@ class UtensiliosController extends AppController
     public function view($id = null)
     {
         $utensilio = $this->Utensilios->get($id, [
-            'contain' => ['OrdensEstados']
+            'contain' => ['UtensiliosUsados']
         ]);
 
         $this->set('utensilio', $utensilio);
@@ -60,8 +60,7 @@ class UtensiliosController extends AppController
             }
             $this->Flash->error(__('The utensilio could not be saved. Please, try again.'));
         }
-        $ordensEstados = $this->Utensilios->OrdensEstados->find('list', ['limit' => 200]);
-        $this->set(compact('utensilio', 'ordensEstados'));
+        $this->set(compact('utensilio'));
         $this->set('_serialize', ['utensilio']);
     }
 
@@ -75,7 +74,7 @@ class UtensiliosController extends AppController
     public function edit($id = null)
     {
         $utensilio = $this->Utensilios->get($id, [
-            'contain' => ['OrdensEstados']
+            'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $utensilio = $this->Utensilios->patchEntity($utensilio, $this->request->getData());
@@ -86,8 +85,7 @@ class UtensiliosController extends AppController
             }
             $this->Flash->error(__('The utensilio could not be saved. Please, try again.'));
         }
-        $ordensEstados = $this->Utensilios->OrdensEstados->find('list', ['limit' => 200]);
-        $this->set(compact('utensilio', 'ordensEstados'));
+        $this->set(compact('utensilio'));
         $this->set('_serialize', ['utensilio']);
     }
 

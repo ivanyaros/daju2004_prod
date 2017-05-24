@@ -270,10 +270,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
             </li>
         </ul>
     </div>
-    
 </div>
-<div class="columns large-4">
-    <li><a href="127.0.0.1:8765/proveedores-clientes">Listar proveedores-clientes</a> </li>
-</div>
+
 </body>
 </html>

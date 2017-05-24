@@ -39,7 +39,7 @@ class OrdensController extends AppController
     public function view($id = null)
     {
         $orden = $this->Ordens->get($id, [
-            'contain' => ['Estados', 'Centros', 'Proceso', 'Prioridades', 'EstadosDeOrdens', 'Objetos', 'OrdensEstados']
+            'contain' => ['Estados', 'Centros', 'Proceso', 'Prioridades', 'EstadosDeOrdens', 'Objetos']
         ]);
 
         $this->set('orden', $orden);

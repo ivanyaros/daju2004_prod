@@ -7,8 +7,8 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New Objetos Entrada'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Entradas'), ['controller' => 'Objetos', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Entrada'), ['controller' => 'Objetos', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Objetos'), ['controller' => 'Objetos', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Objeto'), ['controller' => 'Objetos', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="objetosEntrada index large-9 medium-8 columns content">
@@ -29,8 +29,8 @@
             <?php foreach ($objetosEntrada as $objetosEntrada): ?>
             <tr>
                 <td><?= $this->Number->format($objetosEntrada->id) ?></td>
-                <td><?= $objetosEntrada->has('entrada') ? $this->Html->link($objetosEntrada->entrada->id, ['controller' => 'Objetos', 'action' => 'view', $objetosEntrada->entrada->id]) : '' ?></td>
-                <td><?= $objetosEntrada->has('salida') ? $this->Html->link($objetosEntrada->salida->id, ['controller' => 'Objetos', 'action' => 'view', $objetosEntrada->salida->id]) : '' ?></td>
+                <td><?= $this->Number->format($objetosEntrada->entrada_id) ?></td>
+                <td><?= $objetosEntrada->has('objeto') ? $this->Html->link($objetosEntrada->objeto->id, ['controller' => 'Objetos', 'action' => 'view', $objetosEntrada->objeto->id]) : '' ?></td>
                 <td><?= $this->Number->format($objetosEntrada->cantidad_entrada) ?></td>
                 <td><?= $this->Number->format($objetosEntrada->cantidad_producida) ?></td>
                 <td><?= h($objetosEntrada->observaciones) ?></td>

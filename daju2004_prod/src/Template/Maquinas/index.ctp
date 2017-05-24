@@ -7,6 +7,8 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New Maquina'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Maquinas Usadas'), ['controller' => 'MaquinasUsadas', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Maquinas Usada'), ['controller' => 'MaquinasUsadas', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="maquinas index large-9 medium-8 columns content">

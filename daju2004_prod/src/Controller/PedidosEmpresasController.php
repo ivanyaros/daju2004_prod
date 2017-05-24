@@ -39,7 +39,7 @@ class PedidosEmpresasController extends AppController
     public function view($id = null)
     {
         $pedidosEmpresa = $this->PedidosEmpresas->get($id, [
-            'contain' => ['ProveedoresClientes', 'Producto', 'SalidasObjetos']
+            'contain' => ['ProveedoresClientes', 'PedidosProductosDetalle', 'SalidasObjetos']
         ]);
 
         $this->set('pedidosEmpresa', $pedidosEmpresa);
@@ -64,8 +64,7 @@ class PedidosEmpresasController extends AppController
             $this->Flash->error(__('The pedidos empresa could not be saved. Please, try again.'));
         }
         $proveedoresClientes = $this->PedidosEmpresas->ProveedoresClientes->find('list', ['limit' => 200]);
-        $producto = $this->PedidosEmpresas->Producto->find('list', ['limit' => 200]);
-        $this->set(compact('pedidosEmpresa', 'proveedoresClientes', 'producto'));
+        $this->set(compact('pedidosEmpresa', 'proveedoresClientes'));
         $this->set('_serialize', ['pedidosEmpresa']);
     }
 
@@ -79,7 +78,7 @@ class PedidosEmpresasController extends AppController
     public function edit($id = null)
     {
         $pedidosEmpresa = $this->PedidosEmpresas->get($id, [
-            'contain' => ['Producto']
+            'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $pedidosEmpresa = $this->PedidosEmpresas->patchEntity($pedidosEmpresa, $this->request->getData());
@@ -91,8 +90,7 @@ class PedidosEmpresasController extends AppController
             $this->Flash->error(__('The pedidos empresa could not be saved. Please, try again.'));
         }
         $proveedoresClientes = $this->PedidosEmpresas->ProveedoresClientes->find('list', ['limit' => 200]);
-        $producto = $this->PedidosEmpresas->Producto->find('list', ['limit' => 200]);
-        $this->set(compact('pedidosEmpresa', 'proveedoresClientes', 'producto'));
+        $this->set(compact('pedidosEmpresa', 'proveedoresClientes'));
         $this->set('_serialize', ['pedidosEmpresa']);
     }
 

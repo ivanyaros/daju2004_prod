@@ -10,6 +10,8 @@
         <li><?= $this->Form->postLink(__('Delete Estado'), ['action' => 'delete', $estado->id], ['confirm' => __('Are you sure you want to delete # {0}?', $estado->id)]) ?> </li>
         <li><?= $this->Html->link(__('List Estados'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Estado'), ['action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Estados De Ordens'), ['controller' => 'EstadosDeOrdens', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Estados De Orden'), ['controller' => 'EstadosDeOrdens', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Ordens'), ['controller' => 'Ordens', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Orden'), ['controller' => 'Ordens', 'action' => 'add']) ?> </li>
     </ul>
@@ -30,6 +32,37 @@
             <td><?= $this->Number->format($estado->id) ?></td>
         </tr>
     </table>
+    <div class="related">
+        <h4><?= __('Related Estados De Ordens') ?></h4>
+        <?php if (!empty($estado->estados_de_ordens)): ?>
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Orden Id') ?></th>
+                <th scope="col"><?= __('Estado Id') ?></th>
+                <th scope="col"><?= __('Fecha Inicio') ?></th>
+                <th scope="col"><?= __('Fecha Fin') ?></th>
+                <th scope="col"><?= __('Descripcion') ?></th>
+                <th scope="col" class="actions"><?= __('Actions') ?></th>
+            </tr>
+            <?php foreach ($estado->estados_de_ordens as $estadosDeOrdens): ?>
+            <tr>
+                <td><?= h($estadosDeOrdens->id) ?></td>
+                <td><?= h($estadosDeOrdens->orden_id) ?></td>
+                <td><?= h($estadosDeOrdens->estado_id) ?></td>
+                <td><?= h($estadosDeOrdens->fecha_inicio) ?></td>
+                <td><?= h($estadosDeOrdens->fecha_fin) ?></td>
+                <td><?= h($estadosDeOrdens->descripcion) ?></td>
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['controller' => 'EstadosDeOrdens', 'action' => 'view', $estadosDeOrdens->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'EstadosDeOrdens', 'action' => 'edit', $estadosDeOrdens->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'EstadosDeOrdens', 'action' => 'delete', $estadosDeOrdens->id], ['confirm' => __('Are you sure you want to delete # {0}?', $estadosDeOrdens->id)]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+        <?php endif; ?>
+    </div>
     <div class="related">
         <h4><?= __('Related Ordens') ?></h4>
         <?php if (!empty($estado->ordens)): ?>

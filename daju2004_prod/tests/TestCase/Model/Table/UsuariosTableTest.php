@@ -25,8 +25,7 @@ class UsuariosTableTest extends TestCase
      */
     public $fixtures = [
         'app.usuarios',
-        'app.ordens_estados',
-        'app.ordens_estados_usuarios'
+        'app.usuarios_en_estados_orden'
     ];
 
     /**

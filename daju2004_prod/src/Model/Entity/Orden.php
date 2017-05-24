@@ -26,7 +26,6 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Prioridade $prioridade
  * @property \App\Model\Entity\EstadosDeOrden[] $estados_de_ordens
  * @property \App\Model\Entity\Objeto[] $objetos
- * @property \App\Model\Entity\OrdensEstado[] $ordens_estados
  */
 class Orden extends Entity
 {

@@ -17,8 +17,7 @@ use Cake\ORM\Entity;
  * @property float $coste_operacion
  * @property float $coste_tiempo
  *
- * @property \App\Model\Entity\OrdensEstado[] $ordens_estados
- * @property \App\Model\Entity\OrdensEstadosUsuario[] $ordens_estados_usuarios
+ * @property \App\Model\Entity\UsuariosEnEstadosOrden[] $usuarios_en_estados_orden
  */
 class Usuario extends Entity
 {

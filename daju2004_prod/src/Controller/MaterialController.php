@@ -39,7 +39,7 @@ class MaterialController extends AppController
     public function view($id = null)
     {
         $material = $this->Material->get($id, [
-            'contain' => ['Familias', 'Monedas', 'Ivas', 'ProveedoresClientes', 'Materiales', 'ProcesoMaterialEntrada']
+            'contain' => ['Familias', 'Monedas', 'Ivas', 'Materiales', 'ProcesoMaterialEntrada', 'ProveedoresMaterial']
         ]);
 
         $this->set('material', $material);
@@ -66,8 +66,7 @@ class MaterialController extends AppController
         $familias = $this->Material->Familias->find('list', ['limit' => 200]);
         $monedas = $this->Material->Monedas->find('list', ['limit' => 200]);
         $ivas = $this->Material->Ivas->find('list', ['limit' => 200]);
-        $proveedoresClientes = $this->Material->ProveedoresClientes->find('list', ['limit' => 200]);
-        $this->set(compact('material', 'familias', 'monedas', 'ivas', 'proveedoresClientes'));
+        $this->set(compact('material', 'familias', 'monedas', 'ivas'));
         $this->set('_serialize', ['material']);
     }
 
@@ -81,7 +80,7 @@ class MaterialController extends AppController
     public function edit($id = null)
     {
         $material = $this->Material->get($id, [
-            'contain' => ['ProveedoresClientes']
+            'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $material = $this->Material->patchEntity($material, $this->request->getData());
@@ -95,8 +94,7 @@ class MaterialController extends AppController
         $familias = $this->Material->Familias->find('list', ['limit' => 200]);
         $monedas = $this->Material->Monedas->find('list', ['limit' => 200]);
         $ivas = $this->Material->Ivas->find('list', ['limit' => 200]);
-        $proveedoresClientes = $this->Material->ProveedoresClientes->find('list', ['limit' => 200]);
-        $this->set(compact('material', 'familias', 'monedas', 'ivas', 'proveedoresClientes'));
+        $this->set(compact('material', 'familias', 'monedas', 'ivas'));
         $this->set('_serialize', ['material']);
     }
 

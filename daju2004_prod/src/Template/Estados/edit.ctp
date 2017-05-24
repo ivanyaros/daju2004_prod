@@ -13,6 +13,8 @@
             )
         ?></li>
         <li><?= $this->Html->link(__('List Estados'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List Estados De Ordens'), ['controller' => 'EstadosDeOrdens', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Estados De Orden'), ['controller' => 'EstadosDeOrdens', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Ordens'), ['controller' => 'Ordens', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Orden'), ['controller' => 'Ordens', 'action' => 'add']) ?></li>
     </ul>
@@ -24,7 +26,6 @@
         <?php
             echo $this->Form->control('nombre');
             echo $this->Form->control('descripcion');
-            echo $this->Form->control('ordens._ids', ['options' => $ordens]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

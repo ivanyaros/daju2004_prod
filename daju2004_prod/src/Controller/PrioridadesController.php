@@ -36,7 +36,7 @@ class PrioridadesController extends AppController
     public function view($id = null)
     {
         $prioridade = $this->Prioridades->get($id, [
-            'contain' => ['Ordens', 'PedidosEmpresasProducto']
+            'contain' => ['Ordens', 'PedidosProductosDetalle']
         ]);
 
         $this->set('prioridade', $prioridade);

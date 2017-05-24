@@ -16,9 +16,8 @@ use Cake\ORM\Entity;
  * @property bool $terminado
  *
  * @property \App\Model\Entity\ProveedoresCliente $proveedores_cliente
+ * @property \App\Model\Entity\PedidosProductosDetalle[] $pedidos_productos_detalle
  * @property \App\Model\Entity\SalidasObjeto[] $salidas_objetos
- * @property \App\Model\Entity\Producto[] $producto
- * @property \App\Model\Entity\PedidosEmpresasProducto[] $pedidos_empresas_producto
  */
 class PedidosEmpresa extends Entity
 {

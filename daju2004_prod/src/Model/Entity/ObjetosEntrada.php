@@ -13,8 +13,7 @@ use Cake\ORM\Entity;
  * @property int $cantidad_producida
  * @property string $observaciones
  *
- * @property \App\Model\Entity\Objeto $entrada
- * @property \App\Model\Entity\Objeto $salida
+ * @property \App\Model\Entity\Objeto $objeto
  */
 class ObjetosEntrada extends Entity
 {

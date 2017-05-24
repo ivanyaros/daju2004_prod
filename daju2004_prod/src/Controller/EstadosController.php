@@ -36,7 +36,7 @@ class EstadosController extends AppController
     public function view($id = null)
     {
         $estado = $this->Estados->get($id, [
-            'contain' => ['Ordens']
+            'contain' => ['EstadosDeOrdens', 'Ordens']
         ]);
 
         $this->set('estado', $estado);
@@ -60,8 +60,7 @@ class EstadosController extends AppController
             }
             $this->Flash->error(__('The estado could not be saved. Please, try again.'));
         }
-        $ordens = $this->Estados->Ordens->find('list', ['limit' => 200]);
-        $this->set(compact('estado', 'ordens'));
+        $this->set(compact('estado'));
         $this->set('_serialize', ['estado']);
     }
 
@@ -75,7 +74,7 @@ class EstadosController extends AppController
     public function edit($id = null)
     {
         $estado = $this->Estados->get($id, [
-            'contain' => ['Ordens']
+            'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $estado = $this->Estados->patchEntity($estado, $this->request->getData());
@@ -86,8 +85,7 @@ class EstadosController extends AppController
             }
             $this->Flash->error(__('The estado could not be saved. Please, try again.'));
         }
-        $ordens = $this->Estados->Ordens->find('list', ['limit' => 200]);
-        $this->set(compact('estado', 'ordens'));
+        $this->set(compact('estado'));
         $this->set('_serialize', ['estado']);
     }
 

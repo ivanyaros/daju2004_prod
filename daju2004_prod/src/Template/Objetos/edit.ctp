@@ -21,8 +21,6 @@
         <li><?= $this->Html->link(__('New Localizacione'), ['controller' => 'Localizaciones', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Materiales Entrada'), ['controller' => 'MaterialesEntrada', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Materiales Entrada'), ['controller' => 'MaterialesEntrada', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Objetos Entrada'), ['controller' => 'ObjetosEntrada', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Objetos Entrada'), ['controller' => 'ObjetosEntrada', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="objetos form large-9 medium-8 columns content">

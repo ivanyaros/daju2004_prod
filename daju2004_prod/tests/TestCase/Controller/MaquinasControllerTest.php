@@ -17,7 +17,8 @@ class MaquinasControllerTest extends IntegrationTestCase
      */
     public $fixtures = [
         'app.maquinas',
-        'app.ordens_estados',
+        'app.maquinas_usadas',
+        'app.estados_de_ordens',
         'app.ordens',
         'app.estados',
         'app.centros',
@@ -25,7 +26,7 @@ class MaquinasControllerTest extends IntegrationTestCase
         'app.proveedores_clientes',
         'app.direcciones',
         'app.pedidos_empresas',
-        'app.salidas_objetos',
+        'app.pedidos_productos_detalle',
         'app.producto',
         'app.familias',
         'app.material',
@@ -39,21 +40,13 @@ class MaquinasControllerTest extends IntegrationTestCase
         'app.localizaciones',
         'app.objetos',
         'app.materiales_entrada',
-        'app.objetos_entrada',
-        'app.entradas',
-        'app.salidas',
-        'app.proveedores_clientes_material',
-        'app.pedidos_empresas_producto',
+        'app.proveedores_material',
         'app.prioridades',
-        'app.estados_de_ordens',
-        'app.maquinas_usadas',
+        'app.salidas_objetos',
         'app.usuarios_en_estados_orden',
         'app.usuarios',
-        'app.ordens_estados_usuarios',
         'app.utensilios_usados',
-        'app.utensilios',
-        'app.ordens_estados_utensilios',
-        'app.ordens_estados_maquinas'
+        'app.utensilios'
     ];
 
     /**

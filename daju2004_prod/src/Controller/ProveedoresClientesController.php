@@ -36,7 +36,7 @@ class ProveedoresClientesController extends AppController
     public function view($id = null)
     {
         $proveedoresCliente = $this->ProveedoresClientes->get($id, [
-            'contain' => ['Material', 'Direcciones', 'EntradasMaterial', 'PedidosEmpresas', 'SalidasObjetos']
+            'contain' => ['Direcciones', 'EntradasMaterial', 'PedidosEmpresas', 'ProveedoresMaterial', 'SalidasObjetos']
         ]);
 
         $this->set('proveedoresCliente', $proveedoresCliente);
@@ -60,8 +60,7 @@ class ProveedoresClientesController extends AppController
             }
             $this->Flash->error(__('The proveedores cliente could not be saved. Please, try again.'));
         }
-        $material = $this->ProveedoresClientes->Material->find('list', ['limit' => 200]);
-        $this->set(compact('proveedoresCliente', 'material'));
+        $this->set(compact('proveedoresCliente'));
         $this->set('_serialize', ['proveedoresCliente']);
     }
 
@@ -75,7 +74,7 @@ class ProveedoresClientesController extends AppController
     public function edit($id = null)
     {
         $proveedoresCliente = $this->ProveedoresClientes->get($id, [
-            'contain' => ['Material']
+            'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $proveedoresCliente = $this->ProveedoresClientes->patchEntity($proveedoresCliente, $this->request->getData());
@@ -86,8 +85,7 @@ class ProveedoresClientesController extends AppController
             }
             $this->Flash->error(__('The proveedores cliente could not be saved. Please, try again.'));
         }
-        $material = $this->ProveedoresClientes->Material->find('list', ['limit' => 200]);
-        $this->set(compact('proveedoresCliente', 'material'));
+        $this->set(compact('proveedoresCliente'));
         $this->set('_serialize', ['proveedoresCliente']);
     }
 

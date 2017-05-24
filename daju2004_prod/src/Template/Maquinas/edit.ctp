@@ -13,6 +13,8 @@
             )
         ?></li>
         <li><?= $this->Html->link(__('List Maquinas'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List Maquinas Usadas'), ['controller' => 'MaquinasUsadas', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Maquinas Usada'), ['controller' => 'MaquinasUsadas', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="maquinas form large-9 medium-8 columns content">

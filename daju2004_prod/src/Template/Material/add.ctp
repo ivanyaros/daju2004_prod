@@ -17,8 +17,8 @@
         <li><?= $this->Html->link(__('New Materiale'), ['controller' => 'Materiales', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Proceso Material Entrada'), ['controller' => 'ProcesoMaterialEntrada', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Proceso Material Entrada'), ['controller' => 'ProcesoMaterialEntrada', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Proveedores Clientes'), ['controller' => 'ProveedoresClientes', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Proveedores Cliente'), ['controller' => 'ProveedoresClientes', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Proveedores Material'), ['controller' => 'ProveedoresMaterial', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Proveedores Material'), ['controller' => 'ProveedoresMaterial', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="material form large-9 medium-8 columns content">
@@ -42,7 +42,6 @@
             echo $this->Form->control('iva_id', ['options' => $ivas, 'empty' => true]);
             echo $this->Form->control('observaciones');
             echo $this->Form->control('visible');
-            echo $this->Form->control('proveedores_clientes._ids', ['options' => $proveedoresClientes]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

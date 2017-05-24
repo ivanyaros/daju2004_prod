@@ -40,28 +40,19 @@ class SalidasObjetosTableTest extends TestCase
         'app.objetos',
         'app.ordens',
         'app.estados',
-        'app.ordens_estados',
-        'app.prioridades',
-        'app.pedidos_empresas_producto',
-        'app.pedidos_empresas',
         'app.estados_de_ordens',
         'app.maquinas_usadas',
         'app.maquinas',
-        'app.ordens_estados_maquinas',
         'app.usuarios_en_estados_orden',
-        'app.usuarios',
-        'app.ordens_estados_usuarios',
         'app.utensilios_usados',
-        'app.utensilios',
-        'app.ordens_estados_utensilios',
+        'app.prioridades',
+        'app.pedidos_productos_detalle',
+        'app.pedidos_empresas',
         'app.materiales_entrada',
-        'app.objetos_entrada',
-        'app.entradas',
-        'app.salidas',
         'app.proceso_producto_entrada',
         'app.proceso_producto_salida',
         'app.proceso_material_entrada',
-        'app.proveedores_clientes_material'
+        'app.proveedores_material'
     ];
 
     /**

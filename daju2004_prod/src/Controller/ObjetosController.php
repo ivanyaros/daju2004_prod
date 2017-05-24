@@ -39,7 +39,7 @@ class ObjetosController extends AppController
     public function view($id = null)
     {
         $objeto = $this->Objetos->get($id, [
-            'contain' => ['Producto', 'Ordens', 'Localizaciones', 'MaterialesEntrada', 'ObjetosEntrada']
+            'contain' => ['Producto', 'Ordens', 'Localizaciones', 'MaterialesEntrada']
         ]);
 
         $this->set('objeto', $objeto);

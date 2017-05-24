@@ -25,8 +25,7 @@ class UtensiliosTableTest extends TestCase
      */
     public $fixtures = [
         'app.utensilios',
-        'app.ordens_estados',
-        'app.ordens_estados_utensilios'
+        'app.utensilios_usados'
     ];
 
     /**

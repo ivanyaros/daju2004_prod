@@ -13,6 +13,8 @@
             )
         ?></li>
         <li><?= $this->Html->link(__('List Utensilios'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List Utensilios Usados'), ['controller' => 'UtensiliosUsados', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Utensilios Usado'), ['controller' => 'UtensiliosUsados', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="utensilios form large-9 medium-8 columns content">

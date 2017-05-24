@@ -25,43 +25,23 @@ class ObjetosEntradaTableTest extends TestCase
      */
     public $fixtures = [
         'app.objetos_entrada',
-        'app.entradas',
+        'app.objetos',
         'app.producto',
-        'app.familias',
-        'app.material',
-        'app.monedas',
-        'app.proceso',
-        'app.ivas',
+        'app.ordens',
+        'app.localizaciones',
         'app.centros',
         'app.entradas_material',
         'app.proveedores_clientes',
-        'app.direcciones',
-        'app.pedidos_empresas',
-        'app.salidas_objetos',
-        'app.pedidos_empresas_producto',
-        'app.proveedores_clientes_material',
         'app.materiales',
-        'app.localizaciones',
-        'app.objetos',
-        'app.ordens',
-        'app.estados',
-        'app.ordens_estados',
-        'app.prioridades',
-        'app.estados_de_ordens',
-        'app.maquinas_usadas',
-        'app.maquinas',
-        'app.ordens_estados_maquinas',
-        'app.usuarios_en_estados_orden',
-        'app.usuarios',
-        'app.ordens_estados_usuarios',
-        'app.utensilios_usados',
-        'app.utensilios',
-        'app.ordens_estados_utensilios',
-        'app.materiales_entrada',
+        'app.material',
+        'app.familias',
+        'app.proceso',
+        'app.monedas',
+        'app.ivas',
         'app.proceso_material_entrada',
-        'app.proceso_producto_entrada',
-        'app.proceso_producto_salida',
-        'app.salidas'
+        'app.proveedores_material',
+        'app.materiales_entrada',
+        'app.salidas_objetos'
     ];
 
     /**
@@ -104,6 +84,16 @@ class ObjetosEntradaTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test buildRules method
+     *
+     * @return void
+     */
+    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

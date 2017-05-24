@@ -25,8 +25,7 @@ class MaquinasTableTest extends TestCase
      */
     public $fixtures = [
         'app.maquinas',
-        'app.ordens_estados',
-        'app.ordens_estados_maquinas'
+        'app.maquinas_usadas'
     ];
 
     /**
