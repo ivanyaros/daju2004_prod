@@ -63,7 +63,8 @@ class MaterialController extends AppController
             }
             $this->Flash->error(__('The material could not be saved. Please, try again.'));
         }
-        $familias = $this->Material->Familias->find('list', ['limit' => 200]);
+        $familias = $this->Material->Familias->find('ldap_list(link_identifier, base_dn, filter)', ['limit' => 200]);
+        /*$familiasTodas=$this->Material->Familias->*/
         $monedas = $this->Material->Monedas->find('list', ['limit' => 200]);
         $ivas = $this->Material->Ivas->find('list', ['limit' => 200]);
         $this->set(compact('material', 'familias', 'monedas', 'ivas'));
@@ -92,9 +93,16 @@ class MaterialController extends AppController
             $this->Flash->error(__('The material could not be saved. Please, try again.'));
         }
         $familias = $this->Material->Familias->find('list', ['limit' => 200]);
+        /*$familias_todo=$this->Material->Familias->find('list', ['limit' => 200]);*/
+        $this->loadModel('Familias');
+        $query = $this->Familias->find('list', [
+        'keyField' => 'id',
+        'valueField' => 'nombre'
+        ]);
+
         $monedas = $this->Material->Monedas->find('list', ['limit' => 200]);
         $ivas = $this->Material->Ivas->find('list', ['limit' => 200]);
-        $this->set(compact('material', 'familias', 'monedas', 'ivas'));
+        $this->set(compact('material', 'familias', 'monedas', 'ivas','query'));
         $this->set('_serialize', ['material']);
     }
 

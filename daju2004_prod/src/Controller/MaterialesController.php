@@ -51,9 +51,10 @@ class MaterialesController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($entradaM=null)
     {
         $materiale = $this->Materiales->newEntity();
+        $materiale->entradas_material_id=$entradaM;
         if ($this->request->is('post')) {
             $materiale = $this->Materiales->patchEntity($materiale, $this->request->getData());
             if ($this->Materiales->save($materiale)) {

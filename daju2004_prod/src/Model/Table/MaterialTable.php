@@ -38,7 +38,7 @@ class MaterialTable extends Table
         parent::initialize($config);
 
         $this->setTable('material');
-        $this->setDisplayField('id');
+        $this->setDisplayField('label');
         $this->setPrimaryKey('id');
 
         $this->belongsTo('Familias', [

@@ -25,6 +25,10 @@ class Utensilio extends Entity
      *
      * @var array
      */
+    protected function _getLabel()
+    {
+    return $this->_properties['nombre'] . ' ' . $this->_properties['referencia'];
+    }
     protected $_accessible = [
         '*' => true,
         'id' => false
