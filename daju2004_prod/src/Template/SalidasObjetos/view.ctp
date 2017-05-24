@@ -46,6 +46,10 @@
             <td><?= h($salidasObjeto->fecha_pedido) ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Fecha Envio') ?></th>
+            <td><?= h($salidasObjeto->fecha_envio) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Fecha Entrega') ?></th>
             <td><?= h($salidasObjeto->fecha_entrega) ?></td>
         </tr>

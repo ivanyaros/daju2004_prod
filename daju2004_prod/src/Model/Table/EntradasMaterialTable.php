@@ -71,8 +71,12 @@ class EntradasMaterialTable extends Table
             ->allowEmpty('albaran');
 
         $validator
-            ->dateTime('fecha')
-            ->allowEmpty('fecha');
+            ->dateTime('fecha_envio')
+            ->allowEmpty('fecha_envio');
+
+        $validator
+            ->dateTime('fecha_recepcion')
+            ->allowEmpty('fecha_recepcion');
 
         return $validator;
     }

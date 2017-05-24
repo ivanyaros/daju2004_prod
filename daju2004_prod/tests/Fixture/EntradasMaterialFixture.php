@@ -29,8 +29,9 @@ class EntradasMaterialFixture extends TestFixture
         'referencia' => ['type' => 'string', 'length' => 255, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'observaciones' => ['type' => 'string', 'length' => 255, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'albaran' => ['type' => 'string', 'length' => 255, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
-        'fecha' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
+        'fecha_envio' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
         'centro_id' => ['type' => 'integer', 'length' => 10, 'unsigned' => true, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'fecha_recepcion' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
         '_indexes' => [
             'fk_entradas_material_proveedores_clientes1_idx' => ['type' => 'index', 'columns' => ['proveedores_cliente_id'], 'length' => []],
             'fk_entradas_material_centros1_idx' => ['type' => 'index', 'columns' => ['centro_id'], 'length' => []],
@@ -59,8 +60,9 @@ class EntradasMaterialFixture extends TestFixture
             'referencia' => 'Lorem ipsum dolor sit amet',
             'observaciones' => 'Lorem ipsum dolor sit amet',
             'albaran' => 'Lorem ipsum dolor sit amet',
-            'fecha' => '2017-05-24 07:13:33',
-            'centro_id' => 1
+            'fecha_envio' => '2017-05-24 09:04:25',
+            'centro_id' => 1,
+            'fecha_recepcion' => '2017-05-24 09:04:25'
         ],
     ];
 }

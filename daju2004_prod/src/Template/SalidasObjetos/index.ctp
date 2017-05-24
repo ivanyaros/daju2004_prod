@@ -23,10 +23,11 @@
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('proveedores_cliente_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('fecha_pedido') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('fecha_entrega') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('fecha_envio') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('albaran') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('pedidos_empresa_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('centro_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('fecha_entrega') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -36,10 +37,11 @@
                 <td><?= $this->Number->format($salidasObjeto->id) ?></td>
                 <td><?= $salidasObjeto->has('proveedores_cliente') ? $this->Html->link($salidasObjeto->proveedores_cliente->id, ['controller' => 'ProveedoresClientes', 'action' => 'view', $salidasObjeto->proveedores_cliente->id]) : '' ?></td>
                 <td><?= h($salidasObjeto->fecha_pedido) ?></td>
-                <td><?= h($salidasObjeto->fecha_entrega) ?></td>
+                <td><?= h($salidasObjeto->fecha_envio) ?></td>
                 <td><?= h($salidasObjeto->albaran) ?></td>
                 <td><?= $salidasObjeto->has('pedidos_empresa') ? $this->Html->link($salidasObjeto->pedidos_empresa->id, ['controller' => 'PedidosEmpresas', 'action' => 'view', $salidasObjeto->pedidos_empresa->id]) : '' ?></td>
                 <td><?= $salidasObjeto->has('centro') ? $this->Html->link($salidasObjeto->centro->id, ['controller' => 'Centros', 'action' => 'view', $salidasObjeto->centro->id]) : '' ?></td>
+                <td><?= h($salidasObjeto->fecha_entrega) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $salidasObjeto->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $salidasObjeto->id]) ?>

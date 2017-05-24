@@ -13,6 +13,7 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $fecha
  * @property string $albaran
  * @property string $observaciones
+ * @property bool $terminado
  *
  * @property \App\Model\Entity\ProveedoresCliente $proveedores_cliente
  * @property \App\Model\Entity\SalidasObjeto[] $salidas_objetos

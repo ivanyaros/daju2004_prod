@@ -20,10 +20,11 @@ class SalidasObjetosFixture extends TestFixture
         'id' => ['type' => 'integer', 'length' => 10, 'unsigned' => true, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
         'proveedores_cliente_id' => ['type' => 'integer', 'length' => 10, 'unsigned' => true, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'fecha_pedido' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
-        'fecha_entrega' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
+        'fecha_envio' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
         'albaran' => ['type' => 'string', 'length' => 255, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'pedidos_empresa_id' => ['type' => 'integer', 'length' => 10, 'unsigned' => true, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'centro_id' => ['type' => 'integer', 'length' => 10, 'unsigned' => true, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'fecha_entrega' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
         '_indexes' => [
             'fk_salidas_productos_proveedores_clientes1_idx' => ['type' => 'index', 'columns' => ['proveedores_cliente_id'], 'length' => []],
             'fk_salidas_productos_pedidos_empresa1_idx' => ['type' => 'index', 'columns' => ['pedidos_empresa_id'], 'length' => []],
@@ -51,11 +52,12 @@ class SalidasObjetosFixture extends TestFixture
         [
             'id' => 1,
             'proveedores_cliente_id' => 1,
-            'fecha_pedido' => '2017-05-24 07:13:38',
-            'fecha_entrega' => '2017-05-24 07:13:38',
+            'fecha_pedido' => '2017-05-24 09:04:30',
+            'fecha_envio' => '2017-05-24 09:04:30',
             'albaran' => 'Lorem ipsum dolor sit amet',
             'pedidos_empresa_id' => 1,
-            'centro_id' => 1
+            'centro_id' => 1,
+            'fecha_entrega' => '2017-05-24 09:04:30'
         ],
     ];
 }

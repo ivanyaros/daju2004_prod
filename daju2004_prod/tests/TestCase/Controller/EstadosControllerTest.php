@@ -18,13 +18,6 @@ class EstadosControllerTest extends IntegrationTestCase
     public $fixtures = [
         'app.estados',
         'app.ordens',
-        'app.ordens_estados',
-        'app.maquinas',
-        'app.ordens_estados_maquinas',
-        'app.usuarios',
-        'app.ordens_estados_usuarios',
-        'app.utensilios',
-        'app.ordens_estados_utensilios',
         'app.centros',
         'app.entradas_material',
         'app.proveedores_clientes',
@@ -45,8 +38,22 @@ class EstadosControllerTest extends IntegrationTestCase
         'app.objetos',
         'app.materiales_entrada',
         'app.objetos_entrada',
+        'app.entradas',
+        'app.salidas',
         'app.proveedores_clientes_material',
-        'app.pedidos_empresas_producto'
+        'app.pedidos_empresas_producto',
+        'app.prioridades',
+        'app.estados_de_ordens',
+        'app.maquinas_usadas',
+        'app.maquinas',
+        'app.ordens_estados',
+        'app.ordens_estados_maquinas',
+        'app.ordens_estados_usuarios',
+        'app.usuarios',
+        'app.ordens_estados_utensilios',
+        'app.utensilios',
+        'app.usuarios_en_estados_orden',
+        'app.utensilios_usados'
     ];
 
     /**

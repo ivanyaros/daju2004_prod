@@ -24,6 +24,7 @@ class PedidosEmpresasFixture extends TestFixture
         'fecha' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
         'albaran' => ['type' => 'string', 'length' => 255, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'observaciones' => ['type' => 'string', 'length' => 255, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
+        'terminado' => ['type' => 'boolean', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
         '_indexes' => [
             'fk_pedidos_empresa_proveedores_clientes1_idx' => ['type' => 'index', 'columns' => ['proveedores_cliente_id'], 'length' => []],
         ],
@@ -49,9 +50,10 @@ class PedidosEmpresasFixture extends TestFixture
             'nombre' => 'Lorem ipsum dolor sit amet',
             'referencia' => 'Lorem ipsum dolor sit amet',
             'proveedores_cliente_id' => 1,
-            'fecha' => '2017-05-24 07:13:36',
+            'fecha' => '2017-05-24 09:04:28',
             'albaran' => 'Lorem ipsum dolor sit amet',
-            'observaciones' => 'Lorem ipsum dolor sit amet'
+            'observaciones' => 'Lorem ipsum dolor sit amet',
+            'terminado' => 1
         ],
     ];
 }

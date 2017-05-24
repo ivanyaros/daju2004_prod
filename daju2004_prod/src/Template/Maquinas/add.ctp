@@ -7,8 +7,6 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('List Maquinas'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Ordens Estados'), ['controller' => 'OrdensEstados', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Ordens Estado'), ['controller' => 'OrdensEstados', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="maquinas form large-9 medium-8 columns content">
@@ -21,7 +19,6 @@
             echo $this->Form->control('observaciones');
             echo $this->Form->control('coste_operacion');
             echo $this->Form->control('coste_tiempo');
-            echo $this->Form->control('ordens_estados._ids', ['options' => $ordensEstados]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

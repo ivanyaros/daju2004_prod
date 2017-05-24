@@ -7,14 +7,18 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New Orden'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Estados'), ['controller' => 'Estados', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Estado'), ['controller' => 'Estados', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Centros'), ['controller' => 'Centros', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Centro'), ['controller' => 'Centros', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Proceso'), ['controller' => 'Proceso', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Proceso'), ['controller' => 'Proceso', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Prioridades'), ['controller' => 'Prioridades', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Prioridade'), ['controller' => 'Prioridades', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Estados De Ordens'), ['controller' => 'EstadosDeOrdens', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Estados De Orden'), ['controller' => 'EstadosDeOrdens', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Objetos'), ['controller' => 'Objetos', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Objeto'), ['controller' => 'Objetos', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Estados'), ['controller' => 'Estados', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Estado'), ['controller' => 'Estados', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="ordens index large-9 medium-8 columns content">
@@ -34,6 +38,7 @@
                 <th scope="col"><?= $this->Paginator->sort('scrap') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('coste') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('observaciones') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('prioridade_id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -46,12 +51,13 @@
                 <td><?= $this->Number->format($orden->cantidad) ?></td>
                 <td><?= h($orden->fecha_creacion) ?></td>
                 <td><?= h($orden->fecha_terminacion) ?></td>
-                <td><?= $this->Number->format($orden->estado_id) ?></td>
+                <td><?= $orden->has('estado') ? $this->Html->link($orden->estado->id, ['controller' => 'Estados', 'action' => 'view', $orden->estado->id]) : '' ?></td>
                 <td><?= $orden->has('centro') ? $this->Html->link($orden->centro->id, ['controller' => 'Centros', 'action' => 'view', $orden->centro->id]) : '' ?></td>
                 <td><?= $orden->has('proceso') ? $this->Html->link($orden->proceso->id, ['controller' => 'Proceso', 'action' => 'view', $orden->proceso->id]) : '' ?></td>
                 <td><?= $this->Number->format($orden->scrap) ?></td>
                 <td><?= $this->Number->format($orden->coste) ?></td>
                 <td><?= h($orden->observaciones) ?></td>
+                <td><?= $orden->has('prioridade') ? $this->Html->link($orden->prioridade->id, ['controller' => 'Prioridades', 'action' => 'view', $orden->prioridade->id]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $orden->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $orden->id]) ?>

@@ -46,8 +46,12 @@
             <td><?= $this->Number->format($entradasMaterial->id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Fecha') ?></th>
-            <td><?= h($entradasMaterial->fecha) ?></td>
+            <th scope="row"><?= __('Fecha Envio') ?></th>
+            <td><?= h($entradasMaterial->fecha_envio) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Fecha Recepcion') ?></th>
+            <td><?= h($entradasMaterial->fecha_recepcion) ?></td>
         </tr>
     </table>
     <div class="related">

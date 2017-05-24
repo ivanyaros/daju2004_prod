@@ -209,6 +209,7 @@
                 <th scope="col"><?= __('Fecha') ?></th>
                 <th scope="col"><?= __('Albaran') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
+                <th scope="col"><?= __('Terminado') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($producto->pedidos_empresas as $pedidosEmpresas): ?>
@@ -220,6 +221,7 @@
                 <td><?= h($pedidosEmpresas->fecha) ?></td>
                 <td><?= h($pedidosEmpresas->albaran) ?></td>
                 <td><?= h($pedidosEmpresas->observaciones) ?></td>
+                <td><?= h($pedidosEmpresas->terminado) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'PedidosEmpresas', 'action' => 'view', $pedidosEmpresas->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'PedidosEmpresas', 'action' => 'edit', $pedidosEmpresas->id]) ?>

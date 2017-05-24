@@ -66,11 +66,15 @@ class SalidasObjetosTable extends Table
             ->allowEmpty('fecha_pedido');
 
         $validator
-            ->dateTime('fecha_entrega')
-            ->allowEmpty('fecha_entrega');
+            ->dateTime('fecha_envio')
+            ->allowEmpty('fecha_envio');
 
         $validator
             ->allowEmpty('albaran');
+
+        $validator
+            ->dateTime('fecha_entrega')
+            ->allowEmpty('fecha_entrega');
 
         return $validator;
     }

@@ -9,7 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Utensilios Model
  *
- * @property \Cake\ORM\Association\BelongsToMany $OrdensEstados
+ * @property \Cake\ORM\Association\HasMany $UtensiliosUsados
  *
  * @method \App\Model\Entity\Utensilio get($primaryKey, $options = [])
  * @method \App\Model\Entity\Utensilio newEntity($data = null, array $options = [])
@@ -36,10 +36,8 @@ class UtensiliosTable extends Table
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
-        $this->belongsToMany('OrdensEstados', [
-            'foreignKey' => 'utensilio_id',
-            'targetForeignKey' => 'ordens_estado_id',
-            'joinTable' => 'ordens_estados_utensilios'
+        $this->hasMany('UtensiliosUsados', [
+            'foreignKey' => 'utensilio_id'
         ]);
     }
 

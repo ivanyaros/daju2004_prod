@@ -11,8 +11,9 @@ use Cake\ORM\Entity;
  * @property string $referencia
  * @property string $observaciones
  * @property string $albaran
- * @property \Cake\I18n\FrozenTime $fecha
+ * @property \Cake\I18n\FrozenTime $fecha_envio
  * @property int $centro_id
+ * @property \Cake\I18n\FrozenTime $fecha_recepcion
  *
  * @property \App\Model\Entity\ProveedoresCliente $proveedores_cliente
  * @property \App\Model\Entity\Centro $centro

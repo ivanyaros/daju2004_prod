@@ -13,9 +13,9 @@ use Cake\Validation\Validator;
  * @property \Cake\ORM\Association\BelongsTo $Monedas
  * @property \Cake\ORM\Association\BelongsTo $Ivas
  * @property \Cake\ORM\Association\HasMany $Objetos
+ * @property \Cake\ORM\Association\HasMany $PedidosProductosDetalle
  * @property \Cake\ORM\Association\HasMany $ProcesoProductoEntrada
  * @property \Cake\ORM\Association\HasMany $ProcesoProductoSalida
- * @property \Cake\ORM\Association\BelongsToMany $PedidosEmpresas
  *
  * @method \App\Model\Entity\Producto get($primaryKey, $options = [])
  * @method \App\Model\Entity\Producto newEntity($data = null, array $options = [])
@@ -54,16 +54,14 @@ class ProductoTable extends Table
         $this->hasMany('Objetos', [
             'foreignKey' => 'producto_id'
         ]);
+        $this->hasMany('PedidosProductosDetalle', [
+            'foreignKey' => 'producto_id'
+        ]);
         $this->hasMany('ProcesoProductoEntrada', [
             'foreignKey' => 'producto_id'
         ]);
         $this->hasMany('ProcesoProductoSalida', [
             'foreignKey' => 'producto_id'
-        ]);
-        $this->belongsToMany('PedidosEmpresas', [
-            'foreignKey' => 'producto_id',
-            'targetForeignKey' => 'pedidos_empresa_id',
-            'joinTable' => 'pedidos_empresas_producto'
         ]);
     }
 

@@ -9,10 +9,11 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property int $proveedores_cliente_id
  * @property \Cake\I18n\FrozenTime $fecha_pedido
- * @property \Cake\I18n\FrozenTime $fecha_entrega
+ * @property \Cake\I18n\FrozenTime $fecha_envio
  * @property string $albaran
  * @property int $pedidos_empresa_id
  * @property int $centro_id
+ * @property \Cake\I18n\FrozenTime $fecha_entrega
  *
  * @property \App\Model\Entity\ProveedoresCliente $proveedores_cliente
  * @property \App\Model\Entity\PedidosEmpresa $pedidos_empresa

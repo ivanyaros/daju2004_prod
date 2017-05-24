@@ -24,8 +24,9 @@
             echo $this->Form->control('referencia');
             echo $this->Form->control('observaciones');
             echo $this->Form->control('albaran');
-            echo $this->Form->control('fecha', ['empty' => true]);
+            echo $this->Form->control('fecha_envio', ['empty' => true]);
             echo $this->Form->control('centro_id', ['options' => $centros, 'empty' => true]);
+            echo $this->Form->control('fecha_recepcion', ['empty' => true]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

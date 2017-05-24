@@ -12,6 +12,7 @@ use Cake\Validation\Validator;
  * @property \Cake\ORM\Association\BelongsTo $Estados
  * @property \Cake\ORM\Association\BelongsTo $Centros
  * @property \Cake\ORM\Association\BelongsTo $Proceso
+ * @property \Cake\ORM\Association\BelongsTo $Prioridades
  * @property \Cake\ORM\Association\HasMany $EstadosDeOrdens
  * @property \Cake\ORM\Association\HasMany $Objetos
  *
@@ -48,6 +49,10 @@ class OrdensTable extends Table
         ]);
         $this->belongsTo('Proceso', [
             'foreignKey' => 'proceso_id',
+            'joinType' => 'INNER'
+        ]);
+        $this->belongsTo('Prioridades', [
+            'foreignKey' => 'prioridade_id',
             'joinType' => 'INNER'
         ]);
         $this->hasMany('EstadosDeOrdens', [
@@ -114,6 +119,7 @@ class OrdensTable extends Table
         $rules->add($rules->existsIn(['estado_id'], 'Estados'));
         $rules->add($rules->existsIn(['centro_id'], 'Centros'));
         $rules->add($rules->existsIn(['proceso_id'], 'Proceso'));
+        $rules->add($rules->existsIn(['prioridade_id'], 'Prioridades'));
 
         return $rules;
     }

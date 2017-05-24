@@ -9,7 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Usuarios Model
  *
- * @property \Cake\ORM\Association\BelongsToMany $OrdensEstados
+ * @property \Cake\ORM\Association\HasMany $UsuariosEnEstadosOrden
  *
  * @method \App\Model\Entity\Usuario get($primaryKey, $options = [])
  * @method \App\Model\Entity\Usuario newEntity($data = null, array $options = [])
@@ -36,10 +36,8 @@ class UsuariosTable extends Table
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
-        $this->belongsToMany('OrdensEstados', [
-            'foreignKey' => 'usuario_id',
-            'targetForeignKey' => 'ordens_estado_id',
-            'joinTable' => 'ordens_estados_usuarios'
+        $this->hasMany('UsuariosEnEstadosOrden', [
+            'foreignKey' => 'usuario_id'
         ]);
     }
 

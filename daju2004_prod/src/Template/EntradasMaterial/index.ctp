@@ -25,8 +25,9 @@
                 <th scope="col"><?= $this->Paginator->sort('referencia') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('observaciones') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('albaran') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('fecha') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('fecha_envio') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('centro_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('fecha_recepcion') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -38,8 +39,9 @@
                 <td><?= h($entradasMaterial->referencia) ?></td>
                 <td><?= h($entradasMaterial->observaciones) ?></td>
                 <td><?= h($entradasMaterial->albaran) ?></td>
-                <td><?= h($entradasMaterial->fecha) ?></td>
+                <td><?= h($entradasMaterial->fecha_envio) ?></td>
                 <td><?= $entradasMaterial->has('centro') ? $this->Html->link($entradasMaterial->centro->id, ['controller' => 'Centros', 'action' => 'view', $entradasMaterial->centro->id]) : '' ?></td>
+                <td><?= h($entradasMaterial->fecha_recepcion) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $entradasMaterial->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $entradasMaterial->id]) ?>

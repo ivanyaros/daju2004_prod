@@ -21,7 +21,7 @@ class OrdensController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Centros', 'Proceso']
+            'contain' => ['Estados', 'Centros', 'Proceso', 'Prioridades']
         ];
         $ordens = $this->paginate($this->Ordens);
 
@@ -39,7 +39,7 @@ class OrdensController extends AppController
     public function view($id = null)
     {
         $orden = $this->Ordens->get($id, [
-            'contain' => ['Centros', 'Proceso', 'Estados', 'Objetos']
+            'contain' => ['Estados', 'Centros', 'Proceso', 'Prioridades', 'EstadosDeOrdens', 'Objetos', 'OrdensEstados']
         ]);
 
         $this->set('orden', $orden);
@@ -63,10 +63,11 @@ class OrdensController extends AppController
             }
             $this->Flash->error(__('The orden could not be saved. Please, try again.'));
         }
+        $estados = $this->Ordens->Estados->find('list', ['limit' => 200]);
         $centros = $this->Ordens->Centros->find('list', ['limit' => 200]);
         $proceso = $this->Ordens->Proceso->find('list', ['limit' => 200]);
-        $estados = $this->Ordens->Estados->find('list', ['limit' => 200]);
-        $this->set(compact('orden', 'centros', 'proceso', 'estados'));
+        $prioridades = $this->Ordens->Prioridades->find('list', ['limit' => 200]);
+        $this->set(compact('orden', 'estados', 'centros', 'proceso', 'prioridades'));
         $this->set('_serialize', ['orden']);
     }
 
@@ -80,7 +81,7 @@ class OrdensController extends AppController
     public function edit($id = null)
     {
         $orden = $this->Ordens->get($id, [
-            'contain' => ['Estados']
+            'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $orden = $this->Ordens->patchEntity($orden, $this->request->getData());
@@ -91,10 +92,11 @@ class OrdensController extends AppController
             }
             $this->Flash->error(__('The orden could not be saved. Please, try again.'));
         }
+        $estados = $this->Ordens->Estados->find('list', ['limit' => 200]);
         $centros = $this->Ordens->Centros->find('list', ['limit' => 200]);
         $proceso = $this->Ordens->Proceso->find('list', ['limit' => 200]);
-        $estados = $this->Ordens->Estados->find('list', ['limit' => 200]);
-        $this->set(compact('orden', 'centros', 'proceso', 'estados'));
+        $prioridades = $this->Ordens->Prioridades->find('list', ['limit' => 200]);
+        $this->set(compact('orden', 'estados', 'centros', 'proceso', 'prioridades'));
         $this->set('_serialize', ['orden']);
     }
 

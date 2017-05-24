@@ -9,7 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Maquinas Model
  *
- * @property \Cake\ORM\Association\BelongsToMany $OrdensEstados
+ * @property \Cake\ORM\Association\HasMany $MaquinasUsadas
  *
  * @method \App\Model\Entity\Maquina get($primaryKey, $options = [])
  * @method \App\Model\Entity\Maquina newEntity($data = null, array $options = [])
@@ -36,10 +36,8 @@ class MaquinasTable extends Table
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
-        $this->belongsToMany('OrdensEstados', [
-            'foreignKey' => 'maquina_id',
-            'targetForeignKey' => 'ordens_estado_id',
-            'joinTable' => 'ordens_estados_maquinas'
+        $this->hasMany('MaquinasUsadas', [
+            'foreignKey' => 'maquina_id'
         ]);
     }
 

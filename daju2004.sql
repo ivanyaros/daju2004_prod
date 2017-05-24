@@ -115,8 +115,9 @@ CREATE TABLE IF NOT EXISTS `daju_2004`.`entradas_material` (
   `referencia` VARCHAR(255) NULL,
   `observaciones` VARCHAR(255) NULL,
   `albaran` VARCHAR(255) NULL,
-  `fecha` DATETIME NULL,
+  `fecha_envio` DATETIME NULL,
   `centro_id` INT UNSIGNED NULL,
+  `fecha_recepcion` DATETIME NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_entradas_material_proveedores_clientes1_idx` (`proveedores_cliente_id` ASC),
   INDEX `fk_entradas_material_centros1_idx` (`centro_id` ASC),
@@ -257,24 +258,24 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `daju_2004`.`proveedores_clientes_material`
+-- Table `daju_2004`.`proveedores_material`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `daju_2004`.`proveedores_clientes_material` ;
+DROP TABLE IF EXISTS `daju_2004`.`proveedores_material` ;
 
-CREATE TABLE IF NOT EXISTS `daju_2004`.`proveedores_clientes_material` (
+CREATE TABLE IF NOT EXISTS `daju_2004`.`proveedores_material` (
   `id` INT UNSIGNED NOT NULL,
   `proveedores_cliente_id` INT UNSIGNED NULL,
   `material_id` INT UNSIGNED NULL,
   `observaciones` VARCHAR(255) NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_proveedores_clientes_has_material_material1_idx` (`material_id` ASC),
-  INDEX `fk_proveedores_clientes_has_material_proveedores_clientes1_idx` (`proveedores_cliente_id` ASC),
-  CONSTRAINT `fk_proveedores_clientes_has_material_proveedores_clientes1`
+  INDEX `fk_proveedores_material_proveedores_clientes1_idx` (`proveedores_cliente_id` ASC),
+  INDEX `fk_proveedores_material_material1_idx` (`material_id` ASC),
+  CONSTRAINT `fk_proveedores_material_proveedores_clientes1`
     FOREIGN KEY (`proveedores_cliente_id`)
     REFERENCES `daju_2004`.`proveedores_clientes` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_proveedores_clientes_has_material_material1`
+  CONSTRAINT `fk_proveedores_material_material1`
     FOREIGN KEY (`material_id`)
     REFERENCES `daju_2004`.`material` (`id`)
     ON DELETE NO ACTION
@@ -444,6 +445,18 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `daju_2004`.`prioridades`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `daju_2004`.`prioridades` ;
+
+CREATE TABLE IF NOT EXISTS `daju_2004`.`prioridades` (
+  `id` INT NOT NULL,
+  `nombre` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `daju_2004`.`ordens`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `daju_2004`.`ordens` ;
@@ -461,10 +474,12 @@ CREATE TABLE IF NOT EXISTS `daju_2004`.`ordens` (
   `scrap` FLOAT NULL,
   `coste` FLOAT NULL,
   `observaciones` VARCHAR(255) NULL,
+  `prioridade_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_ordenes_produccion_centros1_idx` (`centro_id` ASC),
   INDEX `fk_ordenes_produccion_estados1_idx` (`estado_id` ASC),
   INDEX `fk_ordenes_produccion_proceso1_idx` (`proceso_id` ASC),
+  INDEX `fk_ordens_prioridades1_idx` (`prioridade_id` ASC),
   CONSTRAINT `fk_ordenes_produccion_centros1`
     FOREIGN KEY (`centro_id`)
     REFERENCES `daju_2004`.`centros` (`id`)
@@ -478,6 +493,11 @@ CREATE TABLE IF NOT EXISTS `daju_2004`.`ordens` (
   CONSTRAINT `fk_ordenes_produccion_proceso1`
     FOREIGN KEY (`proceso_id`)
     REFERENCES `daju_2004`.`proceso` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_ordens_prioridades1`
+    FOREIGN KEY (`prioridade_id`)
+    REFERENCES `daju_2004`.`prioridades` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -564,6 +584,7 @@ CREATE TABLE IF NOT EXISTS `daju_2004`.`pedidos_empresas` (
   `fecha` DATETIME NULL,
   `albaran` VARCHAR(255) NULL,
   `observaciones` VARCHAR(255) NULL,
+  `terminado` TINYINT(1) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_pedidos_empresa_proveedores_clientes1_idx` (`proveedores_cliente_id` ASC),
   CONSTRAINT `fk_pedidos_empresa_proveedores_clientes1`
@@ -583,10 +604,11 @@ CREATE TABLE IF NOT EXISTS `daju_2004`.`salidas_objetos` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `proveedores_cliente_id` INT UNSIGNED NULL,
   `fecha_pedido` DATETIME NULL,
-  `fecha_entrega` DATETIME NULL,
+  `fecha_envio` DATETIME NULL,
   `albaran` VARCHAR(255) NULL,
   `pedidos_empresa_id` INT UNSIGNED NULL,
   `centro_id` INT UNSIGNED NULL,
+  `fecha_entrega` DATETIME NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_salidas_productos_proveedores_clientes1_idx` (`proveedores_cliente_id` ASC),
   INDEX `fk_salidas_productos_pedidos_empresa1_idx` (`pedidos_empresa_id` ASC),
@@ -610,26 +632,34 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `daju_2004`.`pedidos_empresas_producto`
+-- Table `daju_2004`.`pedidos_productos_detalle`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `daju_2004`.`pedidos_empresas_producto` ;
+DROP TABLE IF EXISTS `daju_2004`.`pedidos_productos_detalle` ;
 
-CREATE TABLE IF NOT EXISTS `daju_2004`.`pedidos_empresas_producto` (
+CREATE TABLE IF NOT EXISTS `daju_2004`.`pedidos_productos_detalle` (
   `id` INT UNSIGNED NOT NULL,
   `pedidos_empresa_id` INT UNSIGNED NULL,
   `producto_id` INT UNSIGNED NULL,
   `cantidad` INT NULL,
   `fecha` DATETIME NULL,
   `observaciones` VARCHAR(255) NULL,
+  `prioridade_id` INT NOT NULL,
+  `terminado` TINYINT(1) NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_pedidos_empresa_has_producto_producto1_idx` (`producto_id` ASC),
-  INDEX `fk_pedidos_empresa_has_producto_pedidos_empresa1_idx` (`pedidos_empresa_id` ASC),
-  CONSTRAINT `fk_pedidos_empresa_has_producto_pedidos_empresa1`
+  INDEX `fk_pedidos_empresas_producto_prioridades1_idx` (`prioridade_id` ASC),
+  INDEX `fk_pedidos_productos_detalle_pedidos_empresas1_idx` (`pedidos_empresa_id` ASC),
+  INDEX `fk_pedidos_productos_detalle_producto1_idx` (`producto_id` ASC),
+  CONSTRAINT `fk_pedidos_empresas_producto_prioridades1`
+    FOREIGN KEY (`prioridade_id`)
+    REFERENCES `daju_2004`.`prioridades` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_pedidos_productos_detalle_pedidos_empresas1`
     FOREIGN KEY (`pedidos_empresa_id`)
     REFERENCES `daju_2004`.`pedidos_empresas` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_pedidos_empresa_has_producto_producto1`
+  CONSTRAINT `fk_pedidos_productos_detalle_producto1`
     FOREIGN KEY (`producto_id`)
     REFERENCES `daju_2004`.`producto` (`id`)
     ON DELETE NO ACTION

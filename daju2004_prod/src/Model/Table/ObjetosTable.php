@@ -53,10 +53,6 @@ class ObjetosTable extends Table
         $this->hasMany('MaterialesEntrada', [
             'foreignKey' => 'objeto_id'
         ]);
-        $this->hasMany('ObjetosEntrada', [
-            'foreignKey' => 'salida_id'
-        ]);
-        
     }
 
     /**

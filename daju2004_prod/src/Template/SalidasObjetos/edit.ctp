@@ -28,10 +28,11 @@
         <?php
             echo $this->Form->control('proveedores_cliente_id', ['options' => $proveedoresClientes, 'empty' => true]);
             echo $this->Form->control('fecha_pedido', ['empty' => true]);
-            echo $this->Form->control('fecha_entrega', ['empty' => true]);
+            echo $this->Form->control('fecha_envio', ['empty' => true]);
             echo $this->Form->control('albaran');
             echo $this->Form->control('pedidos_empresa_id', ['options' => $pedidosEmpresas, 'empty' => true]);
             echo $this->Form->control('centro_id', ['options' => $centros, 'empty' => true]);
+            echo $this->Form->control('fecha_entrega', ['empty' => true]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

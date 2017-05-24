@@ -37,12 +37,11 @@ class ObjetosEntradaTable extends Table
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
-        $this->belongsTo('Entradas', [
-            'foreignKey' => 'entrada_id',
-            'className' => 'Objetos']);
-        $this->belongsTo('Salidas', [
-            'foreignKey' => 'salida_id',
-            'className' =>'Objetos'
+        $this->belongsTo('Objetos', [
+            'foreignKey' => 'entrada_id'
+        ]);
+        $this->belongsTo('Objetos', [
+            'foreignKey' => 'salida_id'
         ]);
     }
 
@@ -79,11 +78,11 @@ class ObjetosEntradaTable extends Table
      * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
      * @return \Cake\ORM\RulesChecker
      */
-    /*public function buildRules(RulesChecker $rules)
+    public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['entrada_id'], 'Objetos'));
         $rules->add($rules->existsIn(['salida_id'], 'Objetos'));
 
         return $rules;
-    }*/
+    }
 }

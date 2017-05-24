@@ -10,8 +10,8 @@ use Cake\Validation\Validator;
  * PedidosEmpresas Model
  *
  * @property \Cake\ORM\Association\BelongsTo $ProveedoresClientes
+ * @property \Cake\ORM\Association\HasMany $PedidosProductosDetalle
  * @property \Cake\ORM\Association\HasMany $SalidasObjetos
- * @property \Cake\ORM\Association\BelongsToMany $Producto
  *
  * @method \App\Model\Entity\PedidosEmpresa get($primaryKey, $options = [])
  * @method \App\Model\Entity\PedidosEmpresa newEntity($data = null, array $options = [])
@@ -41,13 +41,11 @@ class PedidosEmpresasTable extends Table
         $this->belongsTo('ProveedoresClientes', [
             'foreignKey' => 'proveedores_cliente_id'
         ]);
-        $this->hasMany('SalidasObjetos', [
+        $this->hasMany('PedidosProductosDetalle', [
             'foreignKey' => 'pedidos_empresa_id'
         ]);
-        $this->belongsToMany('Producto', [
-            'foreignKey' => 'pedidos_empresa_id',
-            'targetForeignKey' => 'producto_id',
-            'joinTable' => 'pedidos_empresas_producto'
+        $this->hasMany('SalidasObjetos', [
+            'foreignKey' => 'pedidos_empresa_id'
         ]);
     }
 
@@ -78,6 +76,10 @@ class PedidosEmpresasTable extends Table
 
         $validator
             ->allowEmpty('observaciones');
+
+        $validator
+            ->boolean('terminado')
+            ->allowEmpty('terminado');
 
         return $validator;
     }

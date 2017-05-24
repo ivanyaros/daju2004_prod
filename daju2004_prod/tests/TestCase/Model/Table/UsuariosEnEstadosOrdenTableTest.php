@@ -29,12 +29,6 @@ class UsuariosEnEstadosOrdenTableTest extends TestCase
         'app.ordens',
         'app.estados',
         'app.ordens_estados',
-        'app.maquinas',
-        'app.ordens_estados_maquinas',
-        'app.usuarios',
-        'app.ordens_estados_usuarios',
-        'app.utensilios',
-        'app.ordens_estados_utensilios',
         'app.centros',
         'app.entradas_material',
         'app.proveedores_clientes',
@@ -59,8 +53,15 @@ class UsuariosEnEstadosOrdenTableTest extends TestCase
         'app.salidas',
         'app.proveedores_clientes_material',
         'app.pedidos_empresas_producto',
+        'app.prioridades',
         'app.maquinas_usadas',
-        'app.utensilios_usados'
+        'app.maquinas',
+        'app.ordens_estados_maquinas',
+        'app.utensilios_usados',
+        'app.utensilios',
+        'app.ordens_estados_utensilios',
+        'app.usuarios',
+        'app.ordens_estados_usuarios'
     ];
 
     /**

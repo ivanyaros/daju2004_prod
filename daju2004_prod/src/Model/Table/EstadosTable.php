@@ -9,8 +9,8 @@ use Cake\Validation\Validator;
 /**
  * Estados Model
  *
+ * @property \Cake\ORM\Association\HasMany $EstadosDeOrdens
  * @property \Cake\ORM\Association\HasMany $Ordens
- * @property \Cake\ORM\Association\BelongsToMany $Ordens
  *
  * @method \App\Model\Entity\Estado get($primaryKey, $options = [])
  * @method \App\Model\Entity\Estado newEntity($data = null, array $options = [])
@@ -37,13 +37,11 @@ class EstadosTable extends Table
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
-        $this->hasMany('Ordens', [
+        $this->hasMany('EstadosDeOrdens', [
             'foreignKey' => 'estado_id'
         ]);
-        $this->belongsToMany('Ordens', [
-            'foreignKey' => 'estado_id',
-            'targetForeignKey' => 'orden_id',
-            'joinTable' => 'ordens_estados'
+        $this->hasMany('Ordens', [
+            'foreignKey' => 'estado_id'
         ]);
     }
 

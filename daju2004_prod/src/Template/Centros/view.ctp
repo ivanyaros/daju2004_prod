@@ -56,8 +56,9 @@
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col"><?= __('Albaran') ?></th>
-                <th scope="col"><?= __('Fecha') ?></th>
+                <th scope="col"><?= __('Fecha Envio') ?></th>
                 <th scope="col"><?= __('Centro Id') ?></th>
+                <th scope="col"><?= __('Fecha Recepcion') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($centro->entradas_material as $entradasMaterial): ?>
@@ -67,8 +68,9 @@
                 <td><?= h($entradasMaterial->referencia) ?></td>
                 <td><?= h($entradasMaterial->observaciones) ?></td>
                 <td><?= h($entradasMaterial->albaran) ?></td>
-                <td><?= h($entradasMaterial->fecha) ?></td>
+                <td><?= h($entradasMaterial->fecha_envio) ?></td>
                 <td><?= h($entradasMaterial->centro_id) ?></td>
+                <td><?= h($entradasMaterial->fecha_recepcion) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'EntradasMaterial', 'action' => 'view', $entradasMaterial->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'EntradasMaterial', 'action' => 'edit', $entradasMaterial->id]) ?>
@@ -121,6 +123,7 @@
                 <th scope="col"><?= __('Scrap') ?></th>
                 <th scope="col"><?= __('Coste') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
+                <th scope="col"><?= __('Prioridade Id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($centro->ordens as $ordens): ?>
@@ -137,6 +140,7 @@
                 <td><?= h($ordens->scrap) ?></td>
                 <td><?= h($ordens->coste) ?></td>
                 <td><?= h($ordens->observaciones) ?></td>
+                <td><?= h($ordens->prioridade_id) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Ordens', 'action' => 'view', $ordens->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Ordens', 'action' => 'edit', $ordens->id]) ?>
@@ -198,10 +202,11 @@
                 <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Proveedores Cliente Id') ?></th>
                 <th scope="col"><?= __('Fecha Pedido') ?></th>
-                <th scope="col"><?= __('Fecha Entrega') ?></th>
+                <th scope="col"><?= __('Fecha Envio') ?></th>
                 <th scope="col"><?= __('Albaran') ?></th>
                 <th scope="col"><?= __('Pedidos Empresa Id') ?></th>
                 <th scope="col"><?= __('Centro Id') ?></th>
+                <th scope="col"><?= __('Fecha Entrega') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($centro->salidas_objetos as $salidasObjetos): ?>
@@ -209,10 +214,11 @@
                 <td><?= h($salidasObjetos->id) ?></td>
                 <td><?= h($salidasObjetos->proveedores_cliente_id) ?></td>
                 <td><?= h($salidasObjetos->fecha_pedido) ?></td>
-                <td><?= h($salidasObjetos->fecha_entrega) ?></td>
+                <td><?= h($salidasObjetos->fecha_envio) ?></td>
                 <td><?= h($salidasObjetos->albaran) ?></td>
                 <td><?= h($salidasObjetos->pedidos_empresa_id) ?></td>
                 <td><?= h($salidasObjetos->centro_id) ?></td>
+                <td><?= h($salidasObjetos->fecha_entrega) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'SalidasObjetos', 'action' => 'view', $salidasObjetos->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'SalidasObjetos', 'action' => 'edit', $salidasObjetos->id]) ?>

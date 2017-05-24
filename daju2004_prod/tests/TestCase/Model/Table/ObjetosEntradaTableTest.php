@@ -25,7 +25,7 @@ class ObjetosEntradaTableTest extends TestCase
      */
     public $fixtures = [
         'app.objetos_entrada',
-        'app.objetos',
+        'app.entradas',
         'app.producto',
         'app.familias',
         'app.material',
@@ -42,19 +42,26 @@ class ObjetosEntradaTableTest extends TestCase
         'app.proveedores_clientes_material',
         'app.materiales',
         'app.localizaciones',
-        'app.materiales_entrada',
+        'app.objetos',
         'app.ordens',
         'app.estados',
         'app.ordens_estados',
+        'app.prioridades',
+        'app.estados_de_ordens',
+        'app.maquinas_usadas',
         'app.maquinas',
         'app.ordens_estados_maquinas',
+        'app.usuarios_en_estados_orden',
         'app.usuarios',
         'app.ordens_estados_usuarios',
+        'app.utensilios_usados',
         'app.utensilios',
         'app.ordens_estados_utensilios',
+        'app.materiales_entrada',
         'app.proceso_material_entrada',
         'app.proceso_producto_entrada',
-        'app.proceso_producto_salida'
+        'app.proceso_producto_salida',
+        'app.salidas'
     ];
 
     /**
@@ -97,16 +104,6 @@ class ObjetosEntradaTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test buildRules method
-     *
-     * @return void
-     */
-    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }
