@@ -3,27 +3,7 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Material'), ['action' => 'edit', $material->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Material'), ['action' => 'delete', $material->id], ['confirm' => __('Are you sure you want to delete # {0}?', $material->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Material'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Material'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Familias'), ['controller' => 'Familias', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Familia'), ['controller' => 'Familias', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Monedas'), ['controller' => 'Monedas', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Moneda'), ['controller' => 'Monedas', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Ivas'), ['controller' => 'Ivas', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Iva'), ['controller' => 'Ivas', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Materiales'), ['controller' => 'Materiales', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Materiale'), ['controller' => 'Materiales', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Proceso Material Entrada'), ['controller' => 'ProcesoMaterialEntrada', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Proceso Material Entrada'), ['controller' => 'ProcesoMaterialEntrada', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Proveedores Material'), ['controller' => 'ProveedoresMaterial', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Proveedores Material'), ['controller' => 'ProveedoresMaterial', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
+
 <div class="material view large-9 medium-8 columns content">
     <h3><?= h($material->id) ?></h3>
     <table class="vertical-table">
@@ -108,9 +88,12 @@
                 <th scope="col"><?= __('Entradas Material Id') ?></th>
                 <th scope="col"><?= __('Bobina Lote') ?></th>
                 <th scope="col"><?= __('Bobinas') ?></th>
+                <th scope="col"><?= __('Bobinas Actual') ?></th>
                 <th scope="col"><?= __('Lote') ?></th>
                 <th scope="col"><?= __('Numero Bobina') ?></th>
                 <th scope="col"><?= __('Taras') ?></th>
+                <th scope="col"><?= __('Taras Reales') ?></th>
+                <th scope="col"><?= __('Taras Mediciones') ?></th>
                 <th scope="col"><?= __('Metros Brutos') ?></th>
                 <th scope="col"><?= __('Metros Netos') ?></th>
                 <th scope="col"><?= __('Metros Actuales') ?></th>
@@ -130,9 +113,12 @@
                 <td><?= h($materiales->entradas_material_id) ?></td>
                 <td><?= h($materiales->bobina_lote) ?></td>
                 <td><?= h($materiales->bobinas) ?></td>
+                <td><?= h($materiales->bobinas_actual) ?></td>
                 <td><?= h($materiales->lote) ?></td>
                 <td><?= h($materiales->numero_bobina) ?></td>
                 <td><?= h($materiales->taras) ?></td>
+                <td><?= h($materiales->taras_reales) ?></td>
+                <td><?= h($materiales->taras_mediciones) ?></td>
                 <td><?= h($materiales->metros_brutos) ?></td>
                 <td><?= h($materiales->metros_netos) ?></td>
                 <td><?= h($materiales->metros_actuales) ?></td>

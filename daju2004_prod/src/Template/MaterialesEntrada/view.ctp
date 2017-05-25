@@ -3,19 +3,7 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Materiales Entrada'), ['action' => 'edit', $materialesEntrada->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Materiales Entrada'), ['action' => 'delete', $materialesEntrada->id], ['confirm' => __('Are you sure you want to delete # {0}?', $materialesEntrada->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Materiales Entrada'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Materiales Entrada'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Objetos'), ['controller' => 'Objetos', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Objeto'), ['controller' => 'Objetos', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Materiales'), ['controller' => 'Materiales', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Materiale'), ['controller' => 'Materiales', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
+
 <div class="materialesEntrada view large-9 medium-8 columns content">
     <h3><?= h($materialesEntrada->id) ?></h3>
     <table class="vertical-table">

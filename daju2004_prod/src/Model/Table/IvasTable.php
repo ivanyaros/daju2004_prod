@@ -35,7 +35,7 @@ class IvasTable extends Table
         parent::initialize($config);
 
         $this->setTable('ivas');
-        $this->setDisplayField('nombre');
+        $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
         $this->hasMany('Material', [

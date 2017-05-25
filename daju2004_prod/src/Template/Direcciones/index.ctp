@@ -9,6 +9,8 @@
         <li><?= $this->Html->link(__('New Direccione'), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Proveedores Clientes'), ['controller' => 'ProveedoresClientes', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Proveedores Cliente'), ['controller' => 'ProveedoresClientes', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Envios'), ['controller' => 'Envios', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Envio'), ['controller' => 'Envios', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="direcciones index large-9 medium-8 columns content">

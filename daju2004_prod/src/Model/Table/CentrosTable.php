@@ -9,11 +9,11 @@ use Cake\Validation\Validator;
 /**
  * Centros Model
  *
- * @property \Cake\ORM\Association\HasMany $EntradasMaterial
+ * @property \Cake\ORM\Association\HasMany $EntradasDeMateriales
+ * @property \Cake\ORM\Association\HasMany $Envios
  * @property \Cake\ORM\Association\HasMany $Localizaciones
  * @property \Cake\ORM\Association\HasMany $Ordens
  * @property \Cake\ORM\Association\HasMany $Proceso
- * @property \Cake\ORM\Association\HasMany $SalidasObjetos
  *
  * @method \App\Model\Entity\Centro get($primaryKey, $options = [])
  * @method \App\Model\Entity\Centro newEntity($data = null, array $options = [])
@@ -37,10 +37,13 @@ class CentrosTable extends Table
         parent::initialize($config);
 
         $this->setTable('centros');
-        $this->setDisplayField('nombre');
+        $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
-        $this->hasMany('EntradasMaterial', [
+        $this->hasMany('EntradasDeMateriales', [
+            'foreignKey' => 'centro_id'
+        ]);
+        $this->hasMany('Envios', [
             'foreignKey' => 'centro_id'
         ]);
         $this->hasMany('Localizaciones', [
@@ -50,9 +53,6 @@ class CentrosTable extends Table
             'foreignKey' => 'centro_id'
         ]);
         $this->hasMany('Proceso', [
-            'foreignKey' => 'centro_id'
-        ]);
-        $this->hasMany('SalidasObjetos', [
             'foreignKey' => 'centro_id'
         ]);
     }

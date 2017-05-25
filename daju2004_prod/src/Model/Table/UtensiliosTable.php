@@ -33,7 +33,7 @@ class UtensiliosTable extends Table
         parent::initialize($config);
 
         $this->setTable('utensilios');
-        $this->setDisplayField('label');
+        $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
         $this->hasMany('UtensiliosUsados', [

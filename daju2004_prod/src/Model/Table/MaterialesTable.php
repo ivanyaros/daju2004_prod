@@ -11,7 +11,7 @@ use Cake\Validation\Validator;
  *
  * @property \Cake\ORM\Association\BelongsTo $Material
  * @property \Cake\ORM\Association\BelongsTo $Localizaciones
- * @property \Cake\ORM\Association\BelongsTo $EntradasMaterial
+ * @property \Cake\ORM\Association\BelongsTo $EntradasDeMateriales
  * @property \Cake\ORM\Association\HasMany $MaterialesEntrada
  *
  * @method \App\Model\Entity\Materiale get($primaryKey, $options = [])
@@ -45,7 +45,7 @@ class MaterialesTable extends Table
         $this->belongsTo('Localizaciones', [
             'foreignKey' => 'localizacione_id'
         ]);
-        $this->belongsTo('EntradasMaterial', [
+        $this->belongsTo('EntradasDeMateriales', [
             'foreignKey' => 'entradas_material_id'
         ]);
         $this->hasMany('MaterialesEntrada', [
@@ -78,6 +78,10 @@ class MaterialesTable extends Table
             ->allowEmpty('bobinas');
 
         $validator
+            ->integer('bobinas_actual')
+            ->allowEmpty('bobinas_actual');
+
+        $validator
             ->allowEmpty('lote');
 
         $validator
@@ -87,6 +91,13 @@ class MaterialesTable extends Table
         $validator
             ->integer('taras')
             ->allowEmpty('taras');
+
+        $validator
+            ->integer('taras_reales')
+            ->allowEmpty('taras_reales');
+
+        $validator
+            ->allowEmpty('taras_mediciones');
 
         $validator
             ->numeric('metros_brutos')
@@ -134,7 +145,7 @@ class MaterialesTable extends Table
     {
         $rules->add($rules->existsIn(['material_id'], 'Material'));
         $rules->add($rules->existsIn(['localizacione_id'], 'Localizaciones'));
-        $rules->add($rules->existsIn(['entradas_material_id'], 'EntradasMaterial'));
+        $rules->add($rules->existsIn(['entradas_material_id'], 'EntradasDeMateriales'));
 
         return $rules;
     }

@@ -17,7 +17,10 @@ use Cake\ORM\Entity;
  * @property bool $visible
  * @property string $enlaces
  * @property int $centro_id
- * @property string $procesocol
+ * @property float $coste_tiempo
+ * @property string $coste_operaciones
+ * @property string $descripcion
+ * @property string $larga
  *
  * @property \App\Model\Entity\Familia $familia
  * @property \App\Model\Entity\Moneda $moneda

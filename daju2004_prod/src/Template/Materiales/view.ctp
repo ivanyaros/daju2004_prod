@@ -3,23 +3,7 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Materiale'), ['action' => 'edit', $materiale->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Materiale'), ['action' => 'delete', $materiale->id], ['confirm' => __('Are you sure you want to delete # {0}?', $materiale->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Materiales'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Materiale'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Material'), ['controller' => 'Material', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Material'), ['controller' => 'Material', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Localizaciones'), ['controller' => 'Localizaciones', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Localizacione'), ['controller' => 'Localizaciones', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Entradas Material'), ['controller' => 'EntradasMaterial', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Entradas Material'), ['controller' => 'EntradasMaterial', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Materiales Entrada'), ['controller' => 'MaterialesEntrada', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Materiales Entrada'), ['controller' => 'MaterialesEntrada', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
+
 <div class="materiales view large-9 medium-8 columns content">
     <h3><?= h($materiale->id) ?></h3>
     <table class="vertical-table">
@@ -32,12 +16,16 @@
             <td><?= $materiale->has('localizacione') ? $this->Html->link($materiale->localizacione->id, ['controller' => 'Localizaciones', 'action' => 'view', $materiale->localizacione->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Entradas Material') ?></th>
-            <td><?= $materiale->has('entradas_material') ? $this->Html->link($materiale->entradas_material->id, ['controller' => 'EntradasMaterial', 'action' => 'view', $materiale->entradas_material->id]) : '' ?></td>
+            <th scope="row"><?= __('Entradas De Materiale') ?></th>
+            <td><?= $materiale->has('entradas_de_materiale') ? $this->Html->link($materiale->entradas_de_materiale->id, ['controller' => 'EntradasDeMateriales', 'action' => 'view', $materiale->entradas_de_materiale->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Lote') ?></th>
             <td><?= h($materiale->lote) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Taras Mediciones') ?></th>
+            <td><?= h($materiale->taras_mediciones) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>
@@ -48,12 +36,20 @@
             <td><?= $this->Number->format($materiale->bobinas) ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Bobinas Actual') ?></th>
+            <td><?= $this->Number->format($materiale->bobinas_actual) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Numero Bobina') ?></th>
             <td><?= $this->Number->format($materiale->numero_bobina) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Taras') ?></th>
             <td><?= $this->Number->format($materiale->taras) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Taras Reales') ?></th>
+            <td><?= $this->Number->format($materiale->taras_reales) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Metros Brutos') ?></th>

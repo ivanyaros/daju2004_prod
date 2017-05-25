@@ -16,6 +16,7 @@ use Cake\ORM\Entity;
  * @property string $observaciones
  *
  * @property \App\Model\Entity\ProveedoresCliente $proveedores_cliente
+ * @property \App\Model\Entity\Envio[] $envios
  */
 class Direccione extends Entity
 {
@@ -31,7 +32,6 @@ class Direccione extends Entity
      */
     protected $_accessible = [
         '*' => true,
-        'id' => false,
-        'proveedores_cliente_id' => false
+        'id' => false
     ];
 }

@@ -41,7 +41,10 @@
                 <th scope="col"><?= $this->Paginator->sort('visible') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('enlaces') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('centro_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('procesocol') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('coste_tiempo') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('coste_operaciones') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('descripcion') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('larga') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -59,7 +62,10 @@
                 <td><?= h($proceso->visible) ?></td>
                 <td><?= h($proceso->enlaces) ?></td>
                 <td><?= $proceso->has('centro') ? $this->Html->link($proceso->centro->id, ['controller' => 'Centros', 'action' => 'view', $proceso->centro->id]) : '' ?></td>
-                <td><?= h($proceso->procesocol) ?></td>
+                <td><?= $this->Number->format($proceso->coste_tiempo) ?></td>
+                <td><?= h($proceso->coste_operaciones) ?></td>
+                <td><?= h($proceso->descripcion) ?></td>
+                <td><?= h($proceso->larga) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $proceso->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $proceso->id]) ?>

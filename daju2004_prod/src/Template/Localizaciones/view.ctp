@@ -3,21 +3,7 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Localizacione'), ['action' => 'edit', $localizacione->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Localizacione'), ['action' => 'delete', $localizacione->id], ['confirm' => __('Are you sure you want to delete # {0}?', $localizacione->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Localizaciones'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Localizacione'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Centros'), ['controller' => 'Centros', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Centro'), ['controller' => 'Centros', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Materiales'), ['controller' => 'Materiales', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Materiale'), ['controller' => 'Materiales', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Objetos'), ['controller' => 'Objetos', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Objeto'), ['controller' => 'Objetos', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
+
 <div class="localizaciones view large-9 medium-8 columns content">
     <h3><?= h($localizacione->id) ?></h3>
     <table class="vertical-table">
@@ -46,9 +32,12 @@
                 <th scope="col"><?= __('Entradas Material Id') ?></th>
                 <th scope="col"><?= __('Bobina Lote') ?></th>
                 <th scope="col"><?= __('Bobinas') ?></th>
+                <th scope="col"><?= __('Bobinas Actual') ?></th>
                 <th scope="col"><?= __('Lote') ?></th>
                 <th scope="col"><?= __('Numero Bobina') ?></th>
                 <th scope="col"><?= __('Taras') ?></th>
+                <th scope="col"><?= __('Taras Reales') ?></th>
+                <th scope="col"><?= __('Taras Mediciones') ?></th>
                 <th scope="col"><?= __('Metros Brutos') ?></th>
                 <th scope="col"><?= __('Metros Netos') ?></th>
                 <th scope="col"><?= __('Metros Actuales') ?></th>
@@ -68,9 +57,12 @@
                 <td><?= h($materiales->entradas_material_id) ?></td>
                 <td><?= h($materiales->bobina_lote) ?></td>
                 <td><?= h($materiales->bobinas) ?></td>
+                <td><?= h($materiales->bobinas_actual) ?></td>
                 <td><?= h($materiales->lote) ?></td>
                 <td><?= h($materiales->numero_bobina) ?></td>
                 <td><?= h($materiales->taras) ?></td>
+                <td><?= h($materiales->taras_reales) ?></td>
+                <td><?= h($materiales->taras_mediciones) ?></td>
                 <td><?= h($materiales->metros_brutos) ?></td>
                 <td><?= h($materiales->metros_netos) ?></td>
                 <td><?= h($materiales->metros_actuales) ?></td>
@@ -103,6 +95,8 @@
                 <th scope="col"><?= __('Localizacione Id') ?></th>
                 <th scope="col"><?= __('Coste') ?></th>
                 <th scope="col"><?= __('Defectuosos') ?></th>
+                <th scope="col"><?= __('Peso') ?></th>
+                <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($localizacione->objetos as $objetos): ?>
@@ -116,6 +110,8 @@
                 <td><?= h($objetos->localizacione_id) ?></td>
                 <td><?= h($objetos->coste) ?></td>
                 <td><?= h($objetos->defectuosos) ?></td>
+                <td><?= h($objetos->peso) ?></td>
+                <td><?= h($objetos->observaciones) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Objetos', 'action' => 'view', $objetos->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Objetos', 'action' => 'edit', $objetos->id]) ?>

@@ -37,10 +37,13 @@ class MaterialesEntradaTableTest extends TestCase
         'app.proveedores_material',
         'app.localizaciones',
         'app.centros',
-        'app.entradas_material',
+        'app.entradas_de_materiales',
         'app.proveedores_clientes',
-        'app.ordens',
-        'app.salidas_objetos'
+        'app.envios',
+        'app.pedidos_empresas',
+        'app.direcciones',
+        'app.envios_objetos',
+        'app.ordens'
     ];
 
     /**

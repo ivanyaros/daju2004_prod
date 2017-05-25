@@ -20,10 +20,10 @@ use Cake\ORM\Entity;
  * @property string $persona_contacto
  *
  * @property \App\Model\Entity\Direccione[] $direcciones
- * @property \App\Model\Entity\EntradasMaterial[] $entradas_material
+ * @property \App\Model\Entity\EntradasDeMateriale[] $entradas_de_materiales
+ * @property \App\Model\Entity\Envio[] $envios
  * @property \App\Model\Entity\PedidosEmpresa[] $pedidos_empresas
  * @property \App\Model\Entity\ProveedoresMaterial[] $proveedores_material
- * @property \App\Model\Entity\SalidasObjeto[] $salidas_objetos
  */
 class ProveedoresCliente extends Entity
 {

@@ -35,7 +35,10 @@ class ProcesoFixture extends TestFixture
         'visible' => ['type' => 'boolean', 'length' => null, 'null' => true, 'default' => '1', 'comment' => '', 'precision' => null],
         'enlaces' => ['type' => 'string', 'length' => 255, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'centro_id' => ['type' => 'integer', 'length' => 10, 'unsigned' => true, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'procesocol' => ['type' => 'string', 'length' => 45, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
+        'coste_tiempo' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => ''],
+        'coste_operaciones' => ['type' => 'string', 'length' => 45, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
+        'descripcion' => ['type' => 'string', 'length' => 255, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
+        'larga' => ['type' => 'string', 'length' => 2500, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         '_indexes' => [
             'fk_proceso_ivas1_idx' => ['type' => 'index', 'columns' => ['iva_id'], 'length' => []],
             'fk_proceso_monedas1_idx' => ['type' => 'index', 'columns' => ['moneda_id'], 'length' => []],
@@ -74,7 +77,10 @@ class ProcesoFixture extends TestFixture
             'visible' => 1,
             'enlaces' => 'Lorem ipsum dolor sit amet',
             'centro_id' => 1,
-            'procesocol' => 'Lorem ipsum dolor sit amet'
+            'coste_tiempo' => 1,
+            'coste_operaciones' => 'Lorem ipsum dolor sit amet',
+            'descripcion' => 'Lorem ipsum dolor sit amet',
+            'larga' => 'Lorem ipsum dolor sit amet'
         ],
     ];
 }

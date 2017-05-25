@@ -21,6 +21,8 @@
         <li><?= $this->Html->link(__('New Localizacione'), ['controller' => 'Localizaciones', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Materiales Entrada'), ['controller' => 'MaterialesEntrada', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Materiales Entrada'), ['controller' => 'MaterialesEntrada', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Envios'), ['controller' => 'Envios', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Envio'), ['controller' => 'Envios', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="objetos form large-9 medium-8 columns content">
@@ -36,6 +38,9 @@
             echo $this->Form->control('localizacione_id', ['options' => $localizaciones]);
             echo $this->Form->control('coste');
             echo $this->Form->control('defectuosos');
+            echo $this->Form->control('peso');
+            echo $this->Form->control('observaciones');
+            echo $this->Form->control('envios._ids', ['options' => $envios]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

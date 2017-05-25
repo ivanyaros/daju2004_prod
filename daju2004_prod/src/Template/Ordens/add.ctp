@@ -35,7 +35,7 @@
             echo $this->Form->control('centro_id', ['options' => $centros, 'empty' => true]);
             echo $this->Form->control('proceso_id', ['options' => $proceso]);
             echo $this->Form->control('scrap');
-            echo $this->Form->control('coste');
+            echo $this->Form->control('coste_operario');
             echo $this->Form->control('observaciones');
             echo $this->Form->control('prioridade_id', ['options' => $prioridades]);
         ?>

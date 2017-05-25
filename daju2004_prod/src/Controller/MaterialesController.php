@@ -21,7 +21,7 @@ class MaterialesController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Material', 'Localizaciones', 'EntradasMaterial']
+            'contain' => ['Material', 'Localizaciones', 'EntradasDeMateriales']
         ];
         $materiales = $this->paginate($this->Materiales);
 
@@ -39,7 +39,7 @@ class MaterialesController extends AppController
     public function view($id = null)
     {
         $materiale = $this->Materiales->get($id, [
-            'contain' => ['Material', 'Localizaciones', 'EntradasMaterial', 'MaterialesEntrada']
+            'contain' => ['Material', 'Localizaciones', 'EntradasDeMateriales', 'MaterialesEntrada']
         ]);
 
         $this->set('materiale', $materiale);
@@ -51,10 +51,9 @@ class MaterialesController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add($entradaM=null)
+    public function add()
     {
         $materiale = $this->Materiales->newEntity();
-        $materiale->entradas_material_id=$entradaM;
         if ($this->request->is('post')) {
             $materiale = $this->Materiales->patchEntity($materiale, $this->request->getData());
             if ($this->Materiales->save($materiale)) {
@@ -66,8 +65,8 @@ class MaterialesController extends AppController
         }
         $material = $this->Materiales->Material->find('list', ['limit' => 200]);
         $localizaciones = $this->Materiales->Localizaciones->find('list', ['limit' => 200]);
-        $entradasMaterial = $this->Materiales->EntradasMaterial->find('list', ['limit' => 200]);
-        $this->set(compact('materiale', 'material', 'localizaciones', 'entradasMaterial'));
+        $entradasDeMateriales = $this->Materiales->EntradasDeMateriales->find('list', ['limit' => 200]);
+        $this->set(compact('materiale', 'material', 'localizaciones', 'entradasDeMateriales'));
         $this->set('_serialize', ['materiale']);
     }
 
@@ -94,8 +93,8 @@ class MaterialesController extends AppController
         }
         $material = $this->Materiales->Material->find('list', ['limit' => 200]);
         $localizaciones = $this->Materiales->Localizaciones->find('list', ['limit' => 200]);
-        $entradasMaterial = $this->Materiales->EntradasMaterial->find('list', ['limit' => 200]);
-        $this->set(compact('materiale', 'material', 'localizaciones', 'entradasMaterial'));
+        $entradasDeMateriales = $this->Materiales->EntradasDeMateriales->find('list', ['limit' => 200]);
+        $this->set(compact('materiale', 'material', 'localizaciones', 'entradasDeMateriales'));
         $this->set('_serialize', ['materiale']);
     }
 

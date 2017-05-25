@@ -3,31 +3,7 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Proceso'), ['action' => 'edit', $proceso->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Proceso'), ['action' => 'delete', $proceso->id], ['confirm' => __('Are you sure you want to delete # {0}?', $proceso->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Proceso'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Proceso'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Familias'), ['controller' => 'Familias', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Familia'), ['controller' => 'Familias', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Monedas'), ['controller' => 'Monedas', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Moneda'), ['controller' => 'Monedas', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Ivas'), ['controller' => 'Ivas', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Iva'), ['controller' => 'Ivas', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Centros'), ['controller' => 'Centros', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Centro'), ['controller' => 'Centros', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Ordens'), ['controller' => 'Ordens', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Orden'), ['controller' => 'Ordens', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Proceso Material Entrada'), ['controller' => 'ProcesoMaterialEntrada', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Proceso Material Entrada'), ['controller' => 'ProcesoMaterialEntrada', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Proceso Producto Entrada'), ['controller' => 'ProcesoProductoEntrada', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Proceso Producto Entrada'), ['controller' => 'ProcesoProductoEntrada', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Proceso Producto Salida'), ['controller' => 'ProcesoProductoSalida', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Proceso Producto Salida'), ['controller' => 'ProcesoProductoSalida', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
+
 <div class="proceso view large-9 medium-8 columns content">
     <h3><?= h($proceso->id) ?></h3>
     <table class="vertical-table">
@@ -64,8 +40,16 @@
             <td><?= $proceso->has('centro') ? $this->Html->link($proceso->centro->id, ['controller' => 'Centros', 'action' => 'view', $proceso->centro->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Procesocol') ?></th>
-            <td><?= h($proceso->procesocol) ?></td>
+            <th scope="row"><?= __('Coste Operaciones') ?></th>
+            <td><?= h($proceso->coste_operaciones) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Descripcion') ?></th>
+            <td><?= h($proceso->descripcion) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Larga') ?></th>
+            <td><?= h($proceso->larga) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>
@@ -74,6 +58,10 @@
         <tr>
             <th scope="row"><?= __('Precio') ?></th>
             <td><?= $this->Number->format($proceso->precio) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Coste Tiempo') ?></th>
+            <td><?= $this->Number->format($proceso->coste_tiempo) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Visible') ?></th>
@@ -95,7 +83,7 @@
                 <th scope="col"><?= __('Centro Id') ?></th>
                 <th scope="col"><?= __('Proceso Id') ?></th>
                 <th scope="col"><?= __('Scrap') ?></th>
-                <th scope="col"><?= __('Coste') ?></th>
+                <th scope="col"><?= __('Coste Operario') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col"><?= __('Prioridade Id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -112,7 +100,7 @@
                 <td><?= h($ordens->centro_id) ?></td>
                 <td><?= h($ordens->proceso_id) ?></td>
                 <td><?= h($ordens->scrap) ?></td>
-                <td><?= h($ordens->coste) ?></td>
+                <td><?= h($ordens->coste_operario) ?></td>
                 <td><?= h($ordens->observaciones) ?></td>
                 <td><?= h($ordens->prioridade_id) ?></td>
                 <td class="actions">

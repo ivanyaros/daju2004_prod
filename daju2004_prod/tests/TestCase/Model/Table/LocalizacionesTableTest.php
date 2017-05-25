@@ -26,13 +26,16 @@ class LocalizacionesTableTest extends TestCase
     public $fixtures = [
         'app.localizaciones',
         'app.centros',
-        'app.entradas_material',
+        'app.entradas_de_materiales',
         'app.proveedores_clientes',
-        'app.materiales',
+        'app.envios',
+        'app.pedidos_empresas',
+        'app.direcciones',
+        'app.objetos',
+        'app.envios_objetos',
         'app.ordens',
         'app.proceso',
-        'app.salidas_objetos',
-        'app.objetos'
+        'app.materiales'
     ];
 
     /**

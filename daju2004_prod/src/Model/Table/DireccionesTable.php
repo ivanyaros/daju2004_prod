@@ -10,6 +10,7 @@ use Cake\Validation\Validator;
  * Direcciones Model
  *
  * @property \Cake\ORM\Association\BelongsTo $ProveedoresClientes
+ * @property \Cake\ORM\Association\HasMany $Envios
  *
  * @method \App\Model\Entity\Direccione get($primaryKey, $options = [])
  * @method \App\Model\Entity\Direccione newEntity($data = null, array $options = [])
@@ -34,11 +35,13 @@ class DireccionesTable extends Table
 
         $this->setTable('direcciones');
         $this->setDisplayField('id');
-        $this->setPrimaryKey(['id', 'proveedores_cliente_id']);
+        $this->setPrimaryKey('id');
 
         $this->belongsTo('ProveedoresClientes', [
-            'foreignKey' => 'proveedores_cliente_id',
-            'joinType' => 'INNER'
+            'foreignKey' => 'proveedores_cliente_id'
+        ]);
+        $this->hasMany('Envios', [
+            'foreignKey' => 'direccione_id'
         ]);
     }
 

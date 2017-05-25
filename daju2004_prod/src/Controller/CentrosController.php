@@ -36,7 +36,7 @@ class CentrosController extends AppController
     public function view($id = null)
     {
         $centro = $this->Centros->get($id, [
-            'contain' => ['EntradasMaterial', 'Localizaciones', 'Ordens', 'Proceso', 'SalidasObjetos']
+            'contain' => ['EntradasDeMateriales', 'Envios', 'Localizaciones', 'Ordens', 'Proceso']
         ]);
 
         $this->set('centro', $centro);

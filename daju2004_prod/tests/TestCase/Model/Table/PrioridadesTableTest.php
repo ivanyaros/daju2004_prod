@@ -33,23 +33,25 @@ class PrioridadesTableTest extends TestCase
         'app.usuarios_en_estados_orden',
         'app.utensilios_usados',
         'app.centros',
-        'app.entradas_material',
+        'app.entradas_de_materiales',
         'app.proveedores_clientes',
+        'app.envios',
+        'app.pedidos_empresas',
+        'app.pedidos_productos_detalle',
+        'app.producto',
+        'app.direcciones',
+        'app.objetos',
+        'app.localizaciones',
         'app.materiales',
         'app.material',
         'app.familias',
         'app.proceso',
-        'app.producto',
         'app.monedas',
         'app.ivas',
         'app.proceso_material_entrada',
         'app.proveedores_material',
-        'app.localizaciones',
-        'app.objetos',
         'app.materiales_entrada',
-        'app.salidas_objetos',
-        'app.pedidos_productos_detalle',
-        'app.pedidos_empresas'
+        'app.envios_objetos'
     ];
 
     /**

@@ -3,19 +3,7 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Estado'), ['action' => 'edit', $estado->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Estado'), ['action' => 'delete', $estado->id], ['confirm' => __('Are you sure you want to delete # {0}?', $estado->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Estados'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Estado'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Estados De Ordens'), ['controller' => 'EstadosDeOrdens', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Estados De Orden'), ['controller' => 'EstadosDeOrdens', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Ordens'), ['controller' => 'Ordens', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Orden'), ['controller' => 'Ordens', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
+
 <div class="estados view large-9 medium-8 columns content">
     <h3><?= h($estado->id) ?></h3>
     <table class="vertical-table">
@@ -78,7 +66,7 @@
                 <th scope="col"><?= __('Centro Id') ?></th>
                 <th scope="col"><?= __('Proceso Id') ?></th>
                 <th scope="col"><?= __('Scrap') ?></th>
-                <th scope="col"><?= __('Coste') ?></th>
+                <th scope="col"><?= __('Coste Operario') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col"><?= __('Prioridade Id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -95,7 +83,7 @@
                 <td><?= h($ordens->centro_id) ?></td>
                 <td><?= h($ordens->proceso_id) ?></td>
                 <td><?= h($ordens->scrap) ?></td>
-                <td><?= h($ordens->coste) ?></td>
+                <td><?= h($ordens->coste_operario) ?></td>
                 <td><?= h($ordens->observaciones) ?></td>
                 <td><?= h($ordens->prioridade_id) ?></td>
                 <td class="actions">

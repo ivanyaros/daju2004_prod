@@ -98,8 +98,8 @@ class OrdensTable extends Table
             ->allowEmpty('scrap');
 
         $validator
-            ->numeric('coste')
-            ->allowEmpty('coste');
+            ->numeric('coste_operario')
+            ->allowEmpty('coste_operario');
 
         $validator
             ->allowEmpty('observaciones');

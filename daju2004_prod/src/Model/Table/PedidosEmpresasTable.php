@@ -10,8 +10,8 @@ use Cake\Validation\Validator;
  * PedidosEmpresas Model
  *
  * @property \Cake\ORM\Association\BelongsTo $ProveedoresClientes
+ * @property \Cake\ORM\Association\HasMany $Envios
  * @property \Cake\ORM\Association\HasMany $PedidosProductosDetalle
- * @property \Cake\ORM\Association\HasMany $SalidasObjetos
  *
  * @method \App\Model\Entity\PedidosEmpresa get($primaryKey, $options = [])
  * @method \App\Model\Entity\PedidosEmpresa newEntity($data = null, array $options = [])
@@ -41,10 +41,10 @@ class PedidosEmpresasTable extends Table
         $this->belongsTo('ProveedoresClientes', [
             'foreignKey' => 'proveedores_cliente_id'
         ]);
-        $this->hasMany('PedidosProductosDetalle', [
+        $this->hasMany('Envios', [
             'foreignKey' => 'pedidos_empresa_id'
         ]);
-        $this->hasMany('SalidasObjetos', [
+        $this->hasMany('PedidosProductosDetalle', [
             'foreignKey' => 'pedidos_empresa_id'
         ]);
     }

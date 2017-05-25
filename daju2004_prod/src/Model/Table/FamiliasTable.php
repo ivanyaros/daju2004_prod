@@ -35,7 +35,7 @@ class FamiliasTable extends Table
         parent::initialize($config);
 
         $this->setTable('familias');
-        $this->setDisplayField('nombre');
+        $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
         $this->hasMany('Material', [

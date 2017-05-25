@@ -20,8 +20,9 @@ class PedidosProductosDetalleControllerTest extends IntegrationTestCase
         'app.pedidos_empresas',
         'app.proveedores_clientes',
         'app.direcciones',
-        'app.entradas_material',
+        'app.envios',
         'app.centros',
+        'app.entradas_de_materiales',
         'app.localizaciones',
         'app.materiales',
         'app.material',
@@ -42,11 +43,11 @@ class PedidosProductosDetalleControllerTest extends IntegrationTestCase
         'app.utensilios',
         'app.prioridades',
         'app.materiales_entrada',
+        'app.envios_objetos',
         'app.proceso_producto_entrada',
         'app.proceso_producto_salida',
         'app.proceso_material_entrada',
-        'app.proveedores_material',
-        'app.salidas_objetos'
+        'app.proveedores_material'
     ];
 
     /**

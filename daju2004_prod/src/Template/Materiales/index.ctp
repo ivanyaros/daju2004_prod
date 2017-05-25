@@ -11,8 +11,8 @@
         <li><?= $this->Html->link(__('New Material'), ['controller' => 'Material', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Localizaciones'), ['controller' => 'Localizaciones', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Localizacione'), ['controller' => 'Localizaciones', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Entradas Material'), ['controller' => 'EntradasMaterial', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Entradas Material'), ['controller' => 'EntradasMaterial', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Entradas De Materiales'), ['controller' => 'EntradasDeMateriales', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Entradas De Materiale'), ['controller' => 'EntradasDeMateriales', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Materiales Entrada'), ['controller' => 'MaterialesEntrada', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Materiales Entrada'), ['controller' => 'MaterialesEntrada', 'action' => 'add']) ?></li>
     </ul>
@@ -29,9 +29,12 @@
                 <th scope="col"><?= $this->Paginator->sort('entradas_material_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('bobina_lote') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('bobinas') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('bobinas_actual') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('lote') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('numero_bobina') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('taras') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('taras_reales') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('taras_mediciones') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('metros_brutos') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('metros_netos') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('metros_actuales') ?></th>
@@ -50,12 +53,15 @@
                 <td><?= $materiale->has('material') ? $this->Html->link($materiale->material->id, ['controller' => 'Material', 'action' => 'view', $materiale->material->id]) : '' ?></td>
                 <td><?= h($materiale->fecha_entega) ?></td>
                 <td><?= $materiale->has('localizacione') ? $this->Html->link($materiale->localizacione->id, ['controller' => 'Localizaciones', 'action' => 'view', $materiale->localizacione->id]) : '' ?></td>
-                <td><?= $materiale->has('entradas_material') ? $this->Html->link($materiale->entradas_material->id, ['controller' => 'EntradasMaterial', 'action' => 'view', $materiale->entradas_material->id]) : '' ?></td>
+                <td><?= $materiale->has('entradas_de_materiale') ? $this->Html->link($materiale->entradas_de_materiale->id, ['controller' => 'EntradasDeMateriales', 'action' => 'view', $materiale->entradas_de_materiale->id]) : '' ?></td>
                 <td><?= h($materiale->bobina_lote) ?></td>
                 <td><?= $this->Number->format($materiale->bobinas) ?></td>
+                <td><?= $this->Number->format($materiale->bobinas_actual) ?></td>
                 <td><?= h($materiale->lote) ?></td>
                 <td><?= $this->Number->format($materiale->numero_bobina) ?></td>
                 <td><?= $this->Number->format($materiale->taras) ?></td>
+                <td><?= $this->Number->format($materiale->taras_reales) ?></td>
+                <td><?= h($materiale->taras_mediciones) ?></td>
                 <td><?= $this->Number->format($materiale->metros_brutos) ?></td>
                 <td><?= $this->Number->format($materiale->metros_netos) ?></td>
                 <td><?= $this->Number->format($materiale->metros_actuales) ?></td>

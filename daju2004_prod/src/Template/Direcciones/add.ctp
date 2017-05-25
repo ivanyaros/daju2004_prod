@@ -9,6 +9,8 @@
         <li><?= $this->Html->link(__('List Direcciones'), ['action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('List Proveedores Clientes'), ['controller' => 'ProveedoresClientes', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Proveedores Cliente'), ['controller' => 'ProveedoresClientes', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Envios'), ['controller' => 'Envios', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Envio'), ['controller' => 'Envios', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="direcciones form large-9 medium-8 columns content">
@@ -16,6 +18,7 @@
     <fieldset>
         <legend><?= __('Add Direccione') ?></legend>
         <?php
+            echo $this->Form->control('proveedores_cliente_id', ['options' => $proveedoresClientes, 'empty' => true]);
             echo $this->Form->control('direccion');
             echo $this->Form->control('telefono');
             echo $this->Form->control('fax');

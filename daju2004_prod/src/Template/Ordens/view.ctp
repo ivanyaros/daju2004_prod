@@ -3,27 +3,7 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Orden'), ['action' => 'edit', $orden->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Orden'), ['action' => 'delete', $orden->id], ['confirm' => __('Are you sure you want to delete # {0}?', $orden->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Ordens'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Orden'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Estados'), ['controller' => 'Estados', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Estado'), ['controller' => 'Estados', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Centros'), ['controller' => 'Centros', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Centro'), ['controller' => 'Centros', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Proceso'), ['controller' => 'Proceso', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Proceso'), ['controller' => 'Proceso', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Prioridades'), ['controller' => 'Prioridades', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Prioridade'), ['controller' => 'Prioridades', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Estados De Ordens'), ['controller' => 'EstadosDeOrdens', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Estados De Orden'), ['controller' => 'EstadosDeOrdens', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Objetos'), ['controller' => 'Objetos', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Objeto'), ['controller' => 'Objetos', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
+
 <div class="ordens view large-9 medium-8 columns content">
     <h3><?= h($orden->id) ?></h3>
     <table class="vertical-table">
@@ -68,8 +48,8 @@
             <td><?= $this->Number->format($orden->scrap) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Coste') ?></th>
-            <td><?= $this->Number->format($orden->coste) ?></td>
+            <th scope="row"><?= __('Coste Operario') ?></th>
+            <td><?= $this->Number->format($orden->coste_operario) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Fecha Creacion') ?></th>
@@ -125,6 +105,8 @@
                 <th scope="col"><?= __('Localizacione Id') ?></th>
                 <th scope="col"><?= __('Coste') ?></th>
                 <th scope="col"><?= __('Defectuosos') ?></th>
+                <th scope="col"><?= __('Peso') ?></th>
+                <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($orden->objetos as $objetos): ?>
@@ -138,6 +120,8 @@
                 <td><?= h($objetos->localizacione_id) ?></td>
                 <td><?= h($objetos->coste) ?></td>
                 <td><?= h($objetos->defectuosos) ?></td>
+                <td><?= h($objetos->peso) ?></td>
+                <td><?= h($objetos->observaciones) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Objetos', 'action' => 'view', $objetos->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Objetos', 'action' => 'edit', $objetos->id]) ?>

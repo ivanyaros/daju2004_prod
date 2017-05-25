@@ -25,7 +25,8 @@ class DireccionesTableTest extends TestCase
      */
     public $fixtures = [
         'app.direcciones',
-        'app.proveedores_clientes'
+        'app.proveedores_clientes',
+        'app.envios'
     ];
 
     /**

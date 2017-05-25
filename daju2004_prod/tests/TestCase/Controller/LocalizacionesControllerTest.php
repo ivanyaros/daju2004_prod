@@ -18,9 +18,10 @@ class LocalizacionesControllerTest extends IntegrationTestCase
     public $fixtures = [
         'app.localizaciones',
         'app.centros',
-        'app.entradas_material',
+        'app.entradas_de_materiales',
         'app.proveedores_clientes',
         'app.direcciones',
+        'app.envios',
         'app.pedidos_empresas',
         'app.pedidos_productos_detalle',
         'app.producto',
@@ -42,11 +43,11 @@ class LocalizacionesControllerTest extends IntegrationTestCase
         'app.objetos',
         'app.materiales_entrada',
         'app.materiales',
+        'app.envios_objetos',
         'app.proceso_material_entrada',
         'app.proceso_producto_entrada',
         'app.proceso_producto_salida',
-        'app.proveedores_material',
-        'app.salidas_objetos'
+        'app.proveedores_material'
     ];
 
     /**

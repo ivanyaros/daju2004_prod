@@ -46,7 +46,10 @@
             echo $this->Form->control('visible');
             echo $this->Form->control('enlaces');
             echo $this->Form->control('centro_id', ['options' => $centros, 'empty' => true]);
-            echo $this->Form->control('procesocol');
+            echo $this->Form->control('coste_tiempo');
+            echo $this->Form->control('coste_operaciones');
+            echo $this->Form->control('descripcion');
+            echo $this->Form->control('larga');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

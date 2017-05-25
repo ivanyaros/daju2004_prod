@@ -29,18 +29,21 @@ class ObjetosTableTest extends TestCase
         'app.ordens',
         'app.localizaciones',
         'app.centros',
-        'app.entradas_material',
+        'app.entradas_de_materiales',
         'app.proveedores_clientes',
+        'app.envios',
+        'app.pedidos_empresas',
+        'app.direcciones',
+        'app.envios_objetos',
+        'app.proceso',
         'app.materiales',
         'app.material',
         'app.familias',
-        'app.proceso',
         'app.monedas',
         'app.ivas',
         'app.proceso_material_entrada',
         'app.proveedores_material',
-        'app.materiales_entrada',
-        'app.salidas_objetos'
+        'app.materiales_entrada'
     ];
 
     /**

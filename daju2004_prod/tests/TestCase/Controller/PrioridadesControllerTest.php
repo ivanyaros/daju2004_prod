@@ -27,9 +27,10 @@ class PrioridadesControllerTest extends IntegrationTestCase
         'app.utensilios_usados',
         'app.utensilios',
         'app.centros',
-        'app.entradas_material',
+        'app.entradas_de_materiales',
         'app.proveedores_clientes',
         'app.direcciones',
+        'app.envios',
         'app.pedidos_empresas',
         'app.pedidos_productos_detalle',
         'app.producto',
@@ -45,8 +46,8 @@ class PrioridadesControllerTest extends IntegrationTestCase
         'app.localizaciones',
         'app.objetos',
         'app.materiales_entrada',
-        'app.proveedores_material',
-        'app.salidas_objetos'
+        'app.envios_objetos',
+        'app.proveedores_material'
     ];
 
     /**

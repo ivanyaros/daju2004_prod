@@ -102,7 +102,17 @@ class ProcesoTable extends Table
             ->allowEmpty('enlaces');
 
         $validator
-            ->allowEmpty('procesocol');
+            ->numeric('coste_tiempo')
+            ->allowEmpty('coste_tiempo');
+
+        $validator
+            ->allowEmpty('coste_operaciones');
+
+        $validator
+            ->allowEmpty('descripcion');
+
+        $validator
+            ->allowEmpty('larga');
 
         return $validator;
     }

@@ -26,8 +26,32 @@ class PedidosEmpresasTableTest extends TestCase
     public $fixtures = [
         'app.pedidos_empresas',
         'app.proveedores_clientes',
-        'app.pedidos_productos_detalle',
-        'app.salidas_objetos'
+        'app.envios',
+        'app.centros',
+        'app.entradas_de_materiales',
+        'app.localizaciones',
+        'app.materiales',
+        'app.material',
+        'app.familias',
+        'app.proceso',
+        'app.producto',
+        'app.monedas',
+        'app.ivas',
+        'app.proceso_material_entrada',
+        'app.proveedores_material',
+        'app.materiales_entrada',
+        'app.objetos',
+        'app.ordens',
+        'app.estados',
+        'app.estados_de_ordens',
+        'app.maquinas_usadas',
+        'app.maquinas',
+        'app.usuarios_en_estados_orden',
+        'app.utensilios_usados',
+        'app.prioridades',
+        'app.envios_objetos',
+        'app.direcciones',
+        'app.pedidos_productos_detalle'
     ];
 
     /**

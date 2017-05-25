@@ -39,7 +39,7 @@ class DireccionesController extends AppController
     public function view($id = null)
     {
         $direccione = $this->Direcciones->get($id, [
-            'contain' => ['ProveedoresClientes']
+            'contain' => ['ProveedoresClientes', 'Envios']
         ]);
 
         $this->set('direccione', $direccione);

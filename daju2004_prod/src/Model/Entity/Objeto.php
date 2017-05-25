@@ -15,7 +15,11 @@ use Cake\ORM\Entity;
  * @property int $localizacione_id
  * @property float $coste
  * @property int $defectuosos
+ * @property float $peso
+ * @property string $observaciones
  *
+ * @property \App\Model\Entity\EnviosObjeto[] $envios_objetos
+ * @property \App\Model\Entity\Envio[] $envios
  * @property \App\Model\Entity\Producto $producto
  * @property \App\Model\Entity\Orden $orden
  * @property \App\Model\Entity\Localizacione $localizacione

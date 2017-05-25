@@ -26,6 +26,8 @@ class ObjetosFixture extends TestFixture
         'localizacione_id' => ['type' => 'integer', 'length' => 10, 'unsigned' => true, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'coste' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => ''],
         'defectuosos' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'peso' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => ''],
+        'observaciones' => ['type' => 'string', 'length' => 255, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         '_indexes' => [
             'fk_productos_producto1_idx' => ['type' => 'index', 'columns' => ['producto_id'], 'length' => []],
             'fk_objetos_ordens1_idx' => ['type' => 'index', 'columns' => ['orden_id'], 'length' => []],
@@ -59,7 +61,9 @@ class ObjetosFixture extends TestFixture
             'lote' => 'Lorem ipsum dolor sit amet',
             'localizacione_id' => 1,
             'coste' => 1,
-            'defectuosos' => 1
+            'defectuosos' => 1,
+            'peso' => 1,
+            'observaciones' => 'Lorem ipsum dolor sit amet'
         ],
     ];
 }

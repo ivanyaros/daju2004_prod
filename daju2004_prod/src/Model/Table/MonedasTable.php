@@ -35,7 +35,7 @@ class MonedasTable extends Table
         parent::initialize($config);
 
         $this->setTable('monedas');
-        $this->setDisplayField('nombre');
+        $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
         $this->hasMany('Material', [

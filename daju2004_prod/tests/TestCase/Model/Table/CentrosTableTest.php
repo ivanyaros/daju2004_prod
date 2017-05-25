@@ -25,11 +25,11 @@ class CentrosTableTest extends TestCase
      */
     public $fixtures = [
         'app.centros',
-        'app.entradas_material',
+        'app.entradas_de_materiales',
+        'app.envios',
         'app.localizaciones',
         'app.ordens',
-        'app.proceso',
-        'app.salidas_objetos'
+        'app.proceso'
     ];
 
     /**

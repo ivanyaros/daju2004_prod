@@ -3,21 +3,7 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Moneda'), ['action' => 'edit', $moneda->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Moneda'), ['action' => 'delete', $moneda->id], ['confirm' => __('Are you sure you want to delete # {0}?', $moneda->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Monedas'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Moneda'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Material'), ['controller' => 'Material', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Material'), ['controller' => 'Material', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Proceso'), ['controller' => 'Proceso', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Proceso'), ['controller' => 'Proceso', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Producto'), ['controller' => 'Producto', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Producto'), ['controller' => 'Producto', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
+
 <div class="monedas view large-9 medium-8 columns content">
     <h3><?= h($moneda->id) ?></h3>
     <table class="vertical-table">
@@ -107,7 +93,10 @@
                 <th scope="col"><?= __('Visible') ?></th>
                 <th scope="col"><?= __('Enlaces') ?></th>
                 <th scope="col"><?= __('Centro Id') ?></th>
-                <th scope="col"><?= __('Procesocol') ?></th>
+                <th scope="col"><?= __('Coste Tiempo') ?></th>
+                <th scope="col"><?= __('Coste Operaciones') ?></th>
+                <th scope="col"><?= __('Descripcion') ?></th>
+                <th scope="col"><?= __('Larga') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($moneda->proceso as $proceso): ?>
@@ -123,7 +112,10 @@
                 <td><?= h($proceso->visible) ?></td>
                 <td><?= h($proceso->enlaces) ?></td>
                 <td><?= h($proceso->centro_id) ?></td>
-                <td><?= h($proceso->procesocol) ?></td>
+                <td><?= h($proceso->coste_tiempo) ?></td>
+                <td><?= h($proceso->coste_operaciones) ?></td>
+                <td><?= h($proceso->descripcion) ?></td>
+                <td><?= h($proceso->larga) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Proceso', 'action' => 'view', $proceso->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Proceso', 'action' => 'edit', $proceso->id]) ?>

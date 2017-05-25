@@ -39,7 +39,7 @@ class ObjetosController extends AppController
     public function view($id = null)
     {
         $objeto = $this->Objetos->get($id, [
-            'contain' => ['Producto', 'Ordens', 'Localizaciones', 'MaterialesEntrada']
+            'contain' => ['Producto', 'Ordens', 'Localizaciones', 'Envios', 'MaterialesEntrada']
         ]);
 
         $this->set('objeto', $objeto);
@@ -66,7 +66,8 @@ class ObjetosController extends AppController
         $producto = $this->Objetos->Producto->find('list', ['limit' => 200]);
         $ordens = $this->Objetos->Ordens->find('list', ['limit' => 200]);
         $localizaciones = $this->Objetos->Localizaciones->find('list', ['limit' => 200]);
-        $this->set(compact('objeto', 'producto', 'ordens', 'localizaciones'));
+        $envios = $this->Objetos->Envios->find('list', ['limit' => 200]);
+        $this->set(compact('objeto', 'producto', 'ordens', 'localizaciones', 'envios'));
         $this->set('_serialize', ['objeto']);
     }
 
@@ -80,7 +81,7 @@ class ObjetosController extends AppController
     public function edit($id = null)
     {
         $objeto = $this->Objetos->get($id, [
-            'contain' => []
+            'contain' => ['Envios']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $objeto = $this->Objetos->patchEntity($objeto, $this->request->getData());
@@ -94,7 +95,8 @@ class ObjetosController extends AppController
         $producto = $this->Objetos->Producto->find('list', ['limit' => 200]);
         $ordens = $this->Objetos->Ordens->find('list', ['limit' => 200]);
         $localizaciones = $this->Objetos->Localizaciones->find('list', ['limit' => 200]);
-        $this->set(compact('objeto', 'producto', 'ordens', 'localizaciones'));
+        $envios = $this->Objetos->Envios->find('list', ['limit' => 200]);
+        $this->set(compact('objeto', 'producto', 'ordens', 'localizaciones', 'envios'));
         $this->set('_serialize', ['objeto']);
     }
 

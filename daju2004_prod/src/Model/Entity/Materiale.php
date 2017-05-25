@@ -13,9 +13,12 @@ use Cake\ORM\Entity;
  * @property int $entradas_material_id
  * @property bool $bobina_lote
  * @property int $bobinas
+ * @property int $bobinas_actual
  * @property string $lote
  * @property int $numero_bobina
  * @property int $taras
+ * @property int $taras_reales
+ * @property string $taras_mediciones
  * @property float $metros_brutos
  * @property float $metros_netos
  * @property float $metros_actuales
@@ -27,7 +30,7 @@ use Cake\ORM\Entity;
  *
  * @property \App\Model\Entity\Material $material
  * @property \App\Model\Entity\Localizacione $localizacione
- * @property \App\Model\Entity\EntradasMaterial $entradas_material
+ * @property \App\Model\Entity\EntradasDeMateriale $entradas_de_materiale
  * @property \App\Model\Entity\MaterialesEntrada[] $materiales_entrada
  */
 class Materiale extends Entity

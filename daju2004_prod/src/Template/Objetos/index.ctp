@@ -15,6 +15,8 @@
         <li><?= $this->Html->link(__('New Localizacione'), ['controller' => 'Localizaciones', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Materiales Entrada'), ['controller' => 'MaterialesEntrada', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Materiales Entrada'), ['controller' => 'MaterialesEntrada', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Envios'), ['controller' => 'Envios', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Envio'), ['controller' => 'Envios', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="objetos index large-9 medium-8 columns content">
@@ -31,6 +33,8 @@
                 <th scope="col"><?= $this->Paginator->sort('localizacione_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('coste') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('defectuosos') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('peso') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('observaciones') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -46,6 +50,8 @@
                 <td><?= $objeto->has('localizacione') ? $this->Html->link($objeto->localizacione->id, ['controller' => 'Localizaciones', 'action' => 'view', $objeto->localizacione->id]) : '' ?></td>
                 <td><?= $this->Number->format($objeto->coste) ?></td>
                 <td><?= $this->Number->format($objeto->defectuosos) ?></td>
+                <td><?= $this->Number->format($objeto->peso) ?></td>
+                <td><?= h($objeto->observaciones) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $objeto->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $objeto->id]) ?>

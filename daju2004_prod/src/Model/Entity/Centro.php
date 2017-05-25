@@ -12,11 +12,11 @@ use Cake\ORM\Entity;
  * @property string $direccion
  * @property string $observaciones
  *
- * @property \App\Model\Entity\EntradasMaterial[] $entradas_material
+ * @property \App\Model\Entity\EntradasDeMateriale[] $entradas_de_materiales
+ * @property \App\Model\Entity\Envio[] $envios
  * @property \App\Model\Entity\Localizacione[] $localizaciones
  * @property \App\Model\Entity\Orden[] $ordens
  * @property \App\Model\Entity\Proceso[] $proceso
- * @property \App\Model\Entity\SalidasObjeto[] $salidas_objetos
  */
 class Centro extends Entity
 {

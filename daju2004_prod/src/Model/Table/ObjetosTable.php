@@ -13,6 +13,7 @@ use Cake\Validation\Validator;
  * @property \Cake\ORM\Association\BelongsTo $Ordens
  * @property \Cake\ORM\Association\BelongsTo $Localizaciones
  * @property \Cake\ORM\Association\HasMany $MaterialesEntrada
+ * @property \Cake\ORM\Association\BelongsToMany $Envios
  *
  * @method \App\Model\Entity\Objeto get($primaryKey, $options = [])
  * @method \App\Model\Entity\Objeto newEntity($data = null, array $options = [])
@@ -36,7 +37,7 @@ class ObjetosTable extends Table
         parent::initialize($config);
 
         $this->setTable('objetos');
-        $this->setDisplayField('numero_serie');
+        $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
         $this->belongsTo('Producto', [
@@ -52,6 +53,11 @@ class ObjetosTable extends Table
         ]);
         $this->hasMany('MaterialesEntrada', [
             'foreignKey' => 'objeto_id'
+        ]);
+        $this->belongsToMany('Envios', [
+            'foreignKey' => 'objeto_id',
+            'targetForeignKey' => 'envio_id',
+            'joinTable' => 'envios_objetos'
         ]);
     }
 
@@ -84,6 +90,13 @@ class ObjetosTable extends Table
         $validator
             ->integer('defectuosos')
             ->allowEmpty('defectuosos');
+
+        $validator
+            ->numeric('peso')
+            ->allowEmpty('peso');
+
+        $validator
+            ->allowEmpty('observaciones');
 
         return $validator;
     }

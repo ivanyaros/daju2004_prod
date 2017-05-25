@@ -33,7 +33,7 @@ class MaquinasTable extends Table
         parent::initialize($config);
 
         $this->setTable('maquinas');
-        $this->setDisplayField('nombre');
+        $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
         $this->hasMany('MaquinasUsadas', [
