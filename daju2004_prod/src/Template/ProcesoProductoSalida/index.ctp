@@ -30,8 +30,8 @@
             <?php foreach ($procesoProductoSalida as $procesoProductoSalida): ?>
             <tr>
                 <td><?= $this->Number->format($procesoProductoSalida->id) ?></td>
-                <td><?= $procesoProductoSalida->has('proceso') ? $this->Html->link($procesoProductoSalida->proceso->id, ['controller' => 'Proceso', 'action' => 'view', $procesoProductoSalida->proceso->id]) : '' ?></td>
-                <td><?= $procesoProductoSalida->has('producto') ? $this->Html->link($procesoProductoSalida->producto->id, ['controller' => 'Producto', 'action' => 'view', $procesoProductoSalida->producto->id]) : '' ?></td>
+                <td><?= $procesoProductoSalida->has('proceso') ? $this->Html->link($procesoProductoSalida->proceso->name, ['controller' => 'Proceso', 'action' => 'view', $procesoProductoSalida->proceso->id]) : '' ?></td>
+                <td><?= $procesoProductoSalida->has('producto') ? $this->Html->link($procesoProductoSalida->producto->label, ['controller' => 'Producto', 'action' => 'view', $procesoProductoSalida->producto->id]) : '' ?></td>
                 <td><?= $this->Number->format($procesoProductoSalida->cantidad) ?></td>
                 <td><?= h($procesoProductoSalida->observaciones) ?></td>
                 <td class="actions">

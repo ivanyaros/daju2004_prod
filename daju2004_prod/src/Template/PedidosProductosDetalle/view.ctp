@@ -13,7 +13,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Producto') ?></th>
-            <td><?= $pedidosProductosDetalle->has('producto') ? $this->Html->link($pedidosProductosDetalle->producto->id, ['controller' => 'Producto', 'action' => 'view', $pedidosProductosDetalle->producto->id]) : '' ?></td>
+            <td><?= $pedidosProductosDetalle->has('producto') ? $this->Html->link($pedidosProductosDetalle->producto->label, ['controller' => 'Producto', 'action' => 'view', $pedidosProductosDetalle->producto->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Observaciones') ?></th>

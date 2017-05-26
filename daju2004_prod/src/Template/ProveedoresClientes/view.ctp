@@ -63,8 +63,6 @@
         <?php if (!empty($proveedoresCliente->direcciones)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Proveedores Cliente Id') ?></th>
                 <th scope="col"><?= __('Direccion') ?></th>
                 <th scope="col"><?= __('Telefono') ?></th>
                 <th scope="col"><?= __('Fax') ?></th>
@@ -75,8 +73,6 @@
             </tr>
             <?php foreach ($proveedoresCliente->direcciones as $direcciones): ?>
             <tr>
-                <td><?= h($direcciones->id) ?></td>
-                <td><?= h($direcciones->proveedores_cliente_id) ?></td>
                 <td><?= h($direcciones->direccion) ?></td>
                 <td><?= h($direcciones->telefono) ?></td>
                 <td><?= h($direcciones->fax) ?></td>
@@ -100,8 +96,6 @@
         <?php if (!empty($proveedoresCliente->entradas_de_materiales)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Proveedores Cliente Id') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col"><?= __('Albaran') ?></th>
@@ -112,8 +106,6 @@
             </tr>
             <?php foreach ($proveedoresCliente->entradas_de_materiales as $entradasDeMateriales): ?>
             <tr>
-                <td><?= h($entradasDeMateriales->id) ?></td>
-                <td><?= h($entradasDeMateriales->proveedores_cliente_id) ?></td>
                 <td><?= h($entradasDeMateriales->referencia) ?></td>
                 <td><?= h($entradasDeMateriales->observaciones) ?></td>
                 <td><?= h($entradasDeMateriales->albaran) ?></td>
@@ -137,8 +129,6 @@
         <?php if (!empty($proveedoresCliente->envios)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Proveedores Cliente Id') ?></th>
                 <th scope="col"><?= __('Fecha Pedido') ?></th>
                 <th scope="col"><?= __('Fecha Envio') ?></th>
                 <th scope="col"><?= __('Albaran') ?></th>
@@ -151,8 +141,6 @@
             </tr>
             <?php foreach ($proveedoresCliente->envios as $envios): ?>
             <tr>
-                <td><?= h($envios->id) ?></td>
-                <td><?= h($envios->proveedores_cliente_id) ?></td>
                 <td><?= h($envios->fecha_pedido) ?></td>
                 <td><?= h($envios->fecha_envio) ?></td>
                 <td><?= h($envios->albaran) ?></td>
@@ -178,10 +166,8 @@
         <?php if (!empty($proveedoresCliente->pedidos_empresas)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
-                <th scope="col"><?= __('Proveedores Cliente Id') ?></th>
                 <th scope="col"><?= __('Fecha') ?></th>
                 <th scope="col"><?= __('Albaran') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
@@ -190,10 +176,8 @@
             </tr>
             <?php foreach ($proveedoresCliente->pedidos_empresas as $pedidosEmpresas): ?>
             <tr>
-                <td><?= h($pedidosEmpresas->id) ?></td>
                 <td><?= h($pedidosEmpresas->name) ?></td>
                 <td><?= h($pedidosEmpresas->referencia) ?></td>
-                <td><?= h($pedidosEmpresas->proveedores_cliente_id) ?></td>
                 <td><?= h($pedidosEmpresas->fecha) ?></td>
                 <td><?= h($pedidosEmpresas->albaran) ?></td>
                 <td><?= h($pedidosEmpresas->observaciones) ?></td>
@@ -215,16 +199,12 @@
         <?php if (!empty($proveedoresCliente->proveedores_material)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Proveedores Cliente Id') ?></th>
                 <th scope="col"><?= __('Material Id') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($proveedoresCliente->proveedores_material as $proveedoresMaterial): ?>
             <tr>
-                <td><?= h($proveedoresMaterial->id) ?></td>
-                <td><?= h($proveedoresMaterial->proveedores_cliente_id) ?></td>
                 <td><?= h($proveedoresMaterial->material_id) ?></td>
                 <td><?= h($proveedoresMaterial->observaciones) ?></td>
                 <td class="actions">

@@ -21,11 +21,11 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Centro') ?></th>
-            <td><?= $orden->has('centro') ? $this->Html->link($orden->centro->name, ['controller' => 'Centros', 'action' => 'view', $orden->centro->id]) : '' ?></td>
+            <td><?= $orden->has('centro') ? $this->Html->link($orden->centro->label, ['controller' => 'Centros', 'action' => 'view', $orden->centro->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Proceso') ?></th>
-            <td><?= $orden->has('proceso') ? $this->Html->link($orden->proceso->id, ['controller' => 'Proceso', 'action' => 'view', $orden->proceso->id]) : '' ?></td>
+            <td><?= $orden->has('proceso') ? $this->Html->link($orden->proceso->name, ['controller' => 'Proceso', 'action' => 'view', $orden->proceso->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Observaciones') ?></th>
@@ -67,8 +67,6 @@
         <?php if (!empty($orden->estados_de_ordens)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Orden Id') ?></th>
                 <th scope="col"><?= __('Estado Id') ?></th>
                 <th scope="col"><?= __('Fecha Inicio') ?></th>
                 <th scope="col"><?= __('Fecha Fin') ?></th>
@@ -77,8 +75,6 @@
             </tr>
             <?php foreach ($orden->estados_de_ordens as $estadosDeOrdens): ?>
             <tr>
-                <td><?= h($estadosDeOrdens->id) ?></td>
-                <td><?= h($estadosDeOrdens->orden_id) ?></td>
                 <td><?= h($estadosDeOrdens->estado_id) ?></td>
                 <td><?= h($estadosDeOrdens->fecha_inicio) ?></td>
                 <td><?= h($estadosDeOrdens->fecha_fin) ?></td>
@@ -100,12 +96,10 @@
         <?php if (!empty($orden->objetos)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Producto Id') ?></th>
                 <th scope="col"><?= __('Numero Serie') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
-                <th scope="col"><?= __('Orden Id') ?></th>
                 <th scope="col"><?= __('Lote') ?></th>
                 <th scope="col"><?= __('Localizacione Id') ?></th>
                 <th scope="col"><?= __('Coste') ?></th>
@@ -116,12 +110,10 @@
             </tr>
             <?php foreach ($orden->objetos as $objetos): ?>
             <tr>
-                <td><?= h($objetos->id) ?></td>
                 <td><?= h($objetos->name) ?></td>
                 <td><?= h($objetos->producto_id) ?></td>
                 <td><?= h($objetos->numero_serie) ?></td>
                 <td><?= h($objetos->referencia) ?></td>
-                <td><?= h($objetos->orden_id) ?></td>
                 <td><?= h($objetos->lote) ?></td>
                 <td><?= h($objetos->localizacione_id) ?></td>
                 <td><?= h($objetos->coste) ?></td>

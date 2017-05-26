@@ -47,7 +47,6 @@
         <?php if (!empty($direccione->envios)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Proveedores Cliente Id') ?></th>
                 <th scope="col"><?= __('Fecha Pedido') ?></th>
                 <th scope="col"><?= __('Fecha Envio') ?></th>
@@ -56,12 +55,10 @@
                 <th scope="col"><?= __('Centro Id') ?></th>
                 <th scope="col"><?= __('Fecha Entrega') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
-                <th scope="col"><?= __('Direccione Id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($direccione->envios as $envios): ?>
             <tr>
-                <td><?= h($envios->id) ?></td>
                 <td><?= h($envios->proveedores_cliente_id) ?></td>
                 <td><?= h($envios->fecha_pedido) ?></td>
                 <td><?= h($envios->fecha_envio) ?></td>
@@ -70,7 +67,6 @@
                 <td><?= h($envios->centro_id) ?></td>
                 <td><?= h($envios->fecha_entrega) ?></td>
                 <td><?= h($envios->observaciones) ?></td>
-                <td><?= h($envios->direccione_id) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Envios', 'action' => 'view', $envios->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Envios', 'action' => 'edit', $envios->id]) ?>

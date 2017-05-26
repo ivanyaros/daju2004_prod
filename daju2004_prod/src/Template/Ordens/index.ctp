@@ -52,8 +52,8 @@
                 <td><?= h($orden->fecha_creacion) ?></td>
                 <td><?= h($orden->fecha_terminacion) ?></td>
                 <td><?= $orden->has('estado') ? $this->Html->link($orden->estado->id, ['controller' => 'Estados', 'action' => 'view', $orden->estado->id]) : '' ?></td>
-                <td><?= $orden->has('centro') ? $this->Html->link($orden->centro->name, ['controller' => 'Centros', 'action' => 'view', $orden->centro->id]) : '' ?></td>
-                <td><?= $orden->has('proceso') ? $this->Html->link($orden->proceso->id, ['controller' => 'Proceso', 'action' => 'view', $orden->proceso->id]) : '' ?></td>
+                <td><?= $orden->has('centro') ? $this->Html->link($orden->centro->label, ['controller' => 'Centros', 'action' => 'view', $orden->centro->id]) : '' ?></td>
+                <td><?= $orden->has('proceso') ? $this->Html->link($orden->proceso->name, ['controller' => 'Proceso', 'action' => 'view', $orden->proceso->id]) : '' ?></td>
                 <td><?= $this->Number->format($orden->scrap) ?></td>
                 <td><?= $this->Number->format($orden->coste_operario) ?></td>
                 <td><?= h($orden->observaciones) ?></td>

@@ -25,7 +25,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Centro') ?></th>
-            <td><?= $entradasDeMateriale->has('centro') ? $this->Html->link($entradasDeMateriale->centro->name, ['controller' => 'Centros', 'action' => 'view', $entradasDeMateriale->centro->id]) : '' ?></td>
+            <td><?= $entradasDeMateriale->has('centro') ? $this->Html->link($entradasDeMateriale->centro->label, ['controller' => 'Centros', 'action' => 'view', $entradasDeMateriale->centro->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>
@@ -47,11 +47,9 @@
         <?php if (!empty($entradasDeMateriale->materiales)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Material Id') ?></th>
                 <th scope="col"><?= __('Fecha Entega') ?></th>
                 <th scope="col"><?= __('Localizacione Id') ?></th>
-                <th scope="col"><?= __('Entradas De Materiale Id') ?></th>
                 <th scope="col"><?= __('Bobina Lote') ?></th>
                 <th scope="col"><?= __('Bobinas') ?></th>
                 <th scope="col"><?= __('Bobinas Actual') ?></th>
@@ -72,11 +70,9 @@
             </tr>
             <?php foreach ($entradasDeMateriale->materiales as $materiales): ?>
             <tr>
-                <td><?= h($materiales->id) ?></td>
                 <td><?= h($materiales->material_id) ?></td>
                 <td><?= h($materiales->fecha_entega) ?></td>
                 <td><?= h($materiales->localizacione_id) ?></td>
-                <td><?= h($materiales->entradas_de_materiale_id) ?></td>
                 <td><?= h($materiales->bobina_lote) ?></td>
                 <td><?= h($materiales->bobinas) ?></td>
                 <td><?= h($materiales->bobinas_actual) ?></td>

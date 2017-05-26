@@ -16,6 +16,10 @@
             <td><?= $materiale->has('localizacione') ? $this->Html->link($materiale->localizacione->id, ['controller' => 'Localizaciones', 'action' => 'view', $materiale->localizacione->id]) : '' ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Entradas De Materiale') ?></th>
+            <td><?= $materiale->has('entradas_de_materiale') ? $this->Html->link($materiale->entradas_de_materiale->id, ['controller' => 'EntradasDeMateriales', 'action' => 'view', $materiale->entradas_de_materiale->id]) : '' ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Lote') ?></th>
             <td><?= h($materiale->lote) ?></td>
         </tr>
@@ -26,10 +30,6 @@
         <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($materiale->id) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Entradas De Materiale Id') ?></th>
-            <td><?= $this->Number->format($materiale->entradas_de_materiale_id) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Bobinas') ?></th>
@@ -99,9 +99,7 @@
         <?php if (!empty($materiale->materiales_entrada)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Objeto Id') ?></th>
-                <th scope="col"><?= __('Materiale Id') ?></th>
                 <th scope="col"><?= __('Cantidad Producida') ?></th>
                 <th scope="col"><?= __('Metros Gastados') ?></th>
                 <th scope="col"><?= __('Metros Utiles') ?></th>
@@ -111,9 +109,7 @@
             </tr>
             <?php foreach ($materiale->materiales_entrada as $materialesEntrada): ?>
             <tr>
-                <td><?= h($materialesEntrada->id) ?></td>
                 <td><?= h($materialesEntrada->objeto_id) ?></td>
-                <td><?= h($materialesEntrada->materiale_id) ?></td>
                 <td><?= h($materialesEntrada->cantidad_producida) ?></td>
                 <td><?= h($materialesEntrada->metros_gastados) ?></td>
                 <td><?= h($materialesEntrada->metros_utiles) ?></td>

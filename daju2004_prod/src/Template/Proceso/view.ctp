@@ -5,7 +5,7 @@
 ?>
 
 <div class="proceso view large-9 medium-8 columns content">
-    <h3><?= h($proceso->id) ?></h3>
+    <h3><?= h($proceso->name) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Name') ?></th>
@@ -37,7 +37,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Centro') ?></th>
-            <td><?= $proceso->has('centro') ? $this->Html->link($proceso->centro->name, ['controller' => 'Centros', 'action' => 'view', $proceso->centro->id]) : '' ?></td>
+            <td><?= $proceso->has('centro') ? $this->Html->link($proceso->centro->label, ['controller' => 'Centros', 'action' => 'view', $proceso->centro->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Coste Operaciones') ?></th>
@@ -75,7 +75,6 @@
         <?php if (!empty($proceso->ordens)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Cantidad') ?></th>
@@ -83,7 +82,6 @@
                 <th scope="col"><?= __('Fecha Terminacion') ?></th>
                 <th scope="col"><?= __('Estado Id') ?></th>
                 <th scope="col"><?= __('Centro Id') ?></th>
-                <th scope="col"><?= __('Proceso Id') ?></th>
                 <th scope="col"><?= __('Scrap') ?></th>
                 <th scope="col"><?= __('Coste Operario') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
@@ -92,7 +90,6 @@
             </tr>
             <?php foreach ($proceso->ordens as $ordens): ?>
             <tr>
-                <td><?= h($ordens->id) ?></td>
                 <td><?= h($ordens->name) ?></td>
                 <td><?= h($ordens->referencia) ?></td>
                 <td><?= h($ordens->cantidad) ?></td>
@@ -100,7 +97,6 @@
                 <td><?= h($ordens->fecha_terminacion) ?></td>
                 <td><?= h($ordens->estado_id) ?></td>
                 <td><?= h($ordens->centro_id) ?></td>
-                <td><?= h($ordens->proceso_id) ?></td>
                 <td><?= h($ordens->scrap) ?></td>
                 <td><?= h($ordens->coste_operario) ?></td>
                 <td><?= h($ordens->observaciones) ?></td>
@@ -122,8 +118,6 @@
         <?php if (!empty($proceso->proceso_material_entrada)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Proceso Id') ?></th>
                 <th scope="col"><?= __('Material Id') ?></th>
                 <th scope="col"><?= __('Metros Lineales') ?></th>
                 <th scope="col"><?= __('Metros Cuadrados') ?></th>
@@ -132,8 +126,6 @@
             </tr>
             <?php foreach ($proceso->proceso_material_entrada as $procesoMaterialEntrada): ?>
             <tr>
-                <td><?= h($procesoMaterialEntrada->id) ?></td>
-                <td><?= h($procesoMaterialEntrada->proceso_id) ?></td>
                 <td><?= h($procesoMaterialEntrada->material_id) ?></td>
                 <td><?= h($procesoMaterialEntrada->metros_lineales) ?></td>
                 <td><?= h($procesoMaterialEntrada->metros_cuadrados) ?></td>
@@ -155,8 +147,6 @@
         <?php if (!empty($proceso->proceso_producto_entrada)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Proceso Id') ?></th>
                 <th scope="col"><?= __('Producto Id') ?></th>
                 <th scope="col"><?= __('Cantidad') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
@@ -164,8 +154,6 @@
             </tr>
             <?php foreach ($proceso->proceso_producto_entrada as $procesoProductoEntrada): ?>
             <tr>
-                <td><?= h($procesoProductoEntrada->id) ?></td>
-                <td><?= h($procesoProductoEntrada->proceso_id) ?></td>
                 <td><?= h($procesoProductoEntrada->producto_id) ?></td>
                 <td><?= h($procesoProductoEntrada->cantidad) ?></td>
                 <td><?= h($procesoProductoEntrada->observaciones) ?></td>
@@ -186,8 +174,6 @@
         <?php if (!empty($proceso->proceso_producto_salida)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Proceso Id') ?></th>
                 <th scope="col"><?= __('Producto Id') ?></th>
                 <th scope="col"><?= __('Cantidad') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
@@ -195,8 +181,6 @@
             </tr>
             <?php foreach ($proceso->proceso_producto_salida as $procesoProductoSalida): ?>
             <tr>
-                <td><?= h($procesoProductoSalida->id) ?></td>
-                <td><?= h($procesoProductoSalida->proceso_id) ?></td>
                 <td><?= h($procesoProductoSalida->producto_id) ?></td>
                 <td><?= h($procesoProductoSalida->cantidad) ?></td>
                 <td><?= h($procesoProductoSalida->observaciones) ?></td>

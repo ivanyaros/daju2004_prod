@@ -21,7 +21,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Centro') ?></th>
-            <td><?= $envio->has('centro') ? $this->Html->link($envio->centro->name, ['controller' => 'Centros', 'action' => 'view', $envio->centro->id]) : '' ?></td>
+            <td><?= $envio->has('centro') ? $this->Html->link($envio->centro->label, ['controller' => 'Centros', 'action' => 'view', $envio->centro->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Observaciones') ?></th>
@@ -55,7 +55,6 @@
         <?php if (!empty($envio->objetos)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Producto Id') ?></th>
                 <th scope="col"><?= __('Numero Serie') ?></th>
@@ -71,7 +70,6 @@
             </tr>
             <?php foreach ($envio->objetos as $objetos): ?>
             <tr>
-                <td><?= h($objetos->id) ?></td>
                 <td><?= h($objetos->name) ?></td>
                 <td><?= h($objetos->producto_id) ?></td>
                 <td><?= h($objetos->numero_serie) ?></td>

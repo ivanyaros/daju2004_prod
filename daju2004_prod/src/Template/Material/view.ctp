@@ -83,8 +83,6 @@
         <?php if (!empty($material->materiales)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Material Id') ?></th>
                 <th scope="col"><?= __('Fecha Entega') ?></th>
                 <th scope="col"><?= __('Localizacione Id') ?></th>
                 <th scope="col"><?= __('Entradas De Materiale Id') ?></th>
@@ -108,8 +106,6 @@
             </tr>
             <?php foreach ($material->materiales as $materiales): ?>
             <tr>
-                <td><?= h($materiales->id) ?></td>
-                <td><?= h($materiales->material_id) ?></td>
                 <td><?= h($materiales->fecha_entega) ?></td>
                 <td><?= h($materiales->localizacione_id) ?></td>
                 <td><?= h($materiales->entradas_de_materiale_id) ?></td>
@@ -146,9 +142,7 @@
         <?php if (!empty($material->proceso_material_entrada)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Proceso Id') ?></th>
-                <th scope="col"><?= __('Material Id') ?></th>
                 <th scope="col"><?= __('Metros Lineales') ?></th>
                 <th scope="col"><?= __('Metros Cuadrados') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
@@ -156,9 +150,7 @@
             </tr>
             <?php foreach ($material->proceso_material_entrada as $procesoMaterialEntrada): ?>
             <tr>
-                <td><?= h($procesoMaterialEntrada->id) ?></td>
                 <td><?= h($procesoMaterialEntrada->proceso_id) ?></td>
-                <td><?= h($procesoMaterialEntrada->material_id) ?></td>
                 <td><?= h($procesoMaterialEntrada->metros_lineales) ?></td>
                 <td><?= h($procesoMaterialEntrada->metros_cuadrados) ?></td>
                 <td><?= h($procesoMaterialEntrada->observaciones) ?></td>
@@ -179,17 +171,13 @@
         <?php if (!empty($material->proveedores_material)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Proveedores Cliente Id') ?></th>
-                <th scope="col"><?= __('Material Id') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($material->proveedores_material as $proveedoresMaterial): ?>
             <tr>
-                <td><?= h($proveedoresMaterial->id) ?></td>
                 <td><?= h($proveedoresMaterial->proveedores_cliente_id) ?></td>
-                <td><?= h($proveedoresMaterial->material_id) ?></td>
                 <td><?= h($proveedoresMaterial->observaciones) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'ProveedoresMaterial', 'action' => 'view', $proveedoresMaterial->id]) ?>

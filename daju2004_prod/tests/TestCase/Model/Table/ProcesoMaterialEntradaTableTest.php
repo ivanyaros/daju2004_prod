@@ -51,8 +51,8 @@ class ProcesoMaterialEntradaTableTest extends TestCase
         'app.prioridades',
         'app.envios_objetos',
         'app.proveedores_material',
-        'app.localizaciones',
         'app.materiales',
+        'app.localizaciones',
         'app.materiales_entrada',
         'app.proceso_producto_entrada',
         'app.proceso_producto_salida'

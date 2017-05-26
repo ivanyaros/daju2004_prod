@@ -39,9 +39,7 @@
         <?php if (!empty($maquina->maquinas_usadas)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Estados De Orden Id') ?></th>
-                <th scope="col"><?= __('Maquina Id') ?></th>
                 <th scope="col"><?= __('Operaciones') ?></th>
                 <th scope="col"><?= __('Uso') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
@@ -49,9 +47,7 @@
             </tr>
             <?php foreach ($maquina->maquinas_usadas as $maquinasUsadas): ?>
             <tr>
-                <td><?= h($maquinasUsadas->id) ?></td>
                 <td><?= h($maquinasUsadas->estados_de_orden_id) ?></td>
-                <td><?= h($maquinasUsadas->maquina_id) ?></td>
                 <td><?= h($maquinasUsadas->operaciones) ?></td>
                 <td><?= h($maquinasUsadas->uso) ?></td>
                 <td><?= h($maquinasUsadas->observaciones) ?></td>

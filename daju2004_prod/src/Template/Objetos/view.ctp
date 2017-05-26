@@ -13,7 +13,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Producto') ?></th>
-            <td><?= $objeto->has('producto') ? $this->Html->link($objeto->producto->id, ['controller' => 'Producto', 'action' => 'view', $objeto->producto->id]) : '' ?></td>
+            <td><?= $objeto->has('producto') ? $this->Html->link($objeto->producto->label, ['controller' => 'Producto', 'action' => 'view', $objeto->producto->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Referencia') ?></th>
@@ -63,8 +63,6 @@
         <?php if (!empty($objeto->materiales_entrada)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Objeto Id') ?></th>
                 <th scope="col"><?= __('Materiale Id') ?></th>
                 <th scope="col"><?= __('Cantidad Producida') ?></th>
                 <th scope="col"><?= __('Metros Gastados') ?></th>
@@ -75,8 +73,6 @@
             </tr>
             <?php foreach ($objeto->materiales_entrada as $materialesEntrada): ?>
             <tr>
-                <td><?= h($materialesEntrada->id) ?></td>
-                <td><?= h($materialesEntrada->objeto_id) ?></td>
                 <td><?= h($materialesEntrada->materiale_id) ?></td>
                 <td><?= h($materialesEntrada->cantidad_producida) ?></td>
                 <td><?= h($materialesEntrada->metros_gastados) ?></td>
@@ -100,7 +96,6 @@
         <?php if (!empty($objeto->envios)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Proveedores Cliente Id') ?></th>
                 <th scope="col"><?= __('Fecha Pedido') ?></th>
                 <th scope="col"><?= __('Fecha Envio') ?></th>
@@ -114,7 +109,6 @@
             </tr>
             <?php foreach ($objeto->envios as $envios): ?>
             <tr>
-                <td><?= h($envios->id) ?></td>
                 <td><?= h($envios->proveedores_cliente_id) ?></td>
                 <td><?= h($envios->fecha_pedido) ?></td>
                 <td><?= h($envios->fecha_envio) ?></td>

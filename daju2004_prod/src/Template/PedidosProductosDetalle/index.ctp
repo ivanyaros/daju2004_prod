@@ -36,7 +36,7 @@
             <tr>
                 <td><?= $this->Number->format($pedidosProductosDetalle->id) ?></td>
                 <td><?= $pedidosProductosDetalle->has('pedidos_empresa') ? $this->Html->link($pedidosProductosDetalle->pedidos_empresa->id, ['controller' => 'PedidosEmpresas', 'action' => 'view', $pedidosProductosDetalle->pedidos_empresa->id]) : '' ?></td>
-                <td><?= $pedidosProductosDetalle->has('producto') ? $this->Html->link($pedidosProductosDetalle->producto->id, ['controller' => 'Producto', 'action' => 'view', $pedidosProductosDetalle->producto->id]) : '' ?></td>
+                <td><?= $pedidosProductosDetalle->has('producto') ? $this->Html->link($pedidosProductosDetalle->producto->label, ['controller' => 'Producto', 'action' => 'view', $pedidosProductosDetalle->producto->id]) : '' ?></td>
                 <td><?= $this->Number->format($pedidosProductosDetalle->cantidad) ?></td>
                 <td><?= h($pedidosProductosDetalle->fecha) ?></td>
                 <td><?= h($pedidosProductosDetalle->observaciones) ?></td>

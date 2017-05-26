@@ -9,7 +9,7 @@
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Proceso') ?></th>
-            <td><?= $procesoMaterialEntrada->has('proceso') ? $this->Html->link($procesoMaterialEntrada->proceso->id, ['controller' => 'Proceso', 'action' => 'view', $procesoMaterialEntrada->proceso->id]) : '' ?></td>
+            <td><?= $procesoMaterialEntrada->has('proceso') ? $this->Html->link($procesoMaterialEntrada->proceso->name, ['controller' => 'Proceso', 'action' => 'view', $procesoMaterialEntrada->proceso->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Material') ?></th>

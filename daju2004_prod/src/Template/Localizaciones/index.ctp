@@ -31,7 +31,7 @@
             <tr>
                 <td><?= $this->Number->format($localizacione->id) ?></td>
                 <td><?= h($localizacione->name) ?></td>
-                <td><?= $localizacione->has('centro') ? $this->Html->link($localizacione->centro->name, ['controller' => 'Centros', 'action' => 'view', $localizacione->centro->id]) : '' ?></td>
+                <td><?= $localizacione->has('centro') ? $this->Html->link($localizacione->centro->label, ['controller' => 'Centros', 'action' => 'view', $localizacione->centro->id]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $localizacione->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $localizacione->id]) ?>

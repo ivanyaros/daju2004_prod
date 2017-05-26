@@ -31,7 +31,6 @@
         <?php if (!empty($iva->material)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Referencia Proveedor') ?></th>
@@ -45,14 +44,12 @@
                 <th scope="col"><?= __('Unidades Embalaje') ?></th>
                 <th scope="col"><?= __('Precio') ?></th>
                 <th scope="col"><?= __('Moneda Id') ?></th>
-                <th scope="col"><?= __('Iva Id') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col"><?= __('Visible') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($iva->material as $material): ?>
             <tr>
-                <td><?= h($material->id) ?></td>
                 <td><?= h($material->name) ?></td>
                 <td><?= h($material->referencia) ?></td>
                 <td><?= h($material->referencia_proveedor) ?></td>
@@ -66,7 +63,6 @@
                 <td><?= h($material->unidades_embalaje) ?></td>
                 <td><?= h($material->precio) ?></td>
                 <td><?= h($material->moneda_id) ?></td>
-                <td><?= h($material->iva_id) ?></td>
                 <td><?= h($material->observaciones) ?></td>
                 <td><?= h($material->visible) ?></td>
                 <td class="actions">
@@ -86,13 +82,11 @@
         <?php if (!empty($iva->proceso)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Familia Id') ?></th>
                 <th scope="col"><?= __('Precio') ?></th>
                 <th scope="col"><?= __('Moneda Id') ?></th>
-                <th scope="col"><?= __('Iva Id') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col"><?= __('Visible') ?></th>
                 <th scope="col"><?= __('Enlaces') ?></th>
@@ -105,13 +99,11 @@
             </tr>
             <?php foreach ($iva->proceso as $proceso): ?>
             <tr>
-                <td><?= h($proceso->id) ?></td>
                 <td><?= h($proceso->name) ?></td>
                 <td><?= h($proceso->referencia) ?></td>
                 <td><?= h($proceso->familia_id) ?></td>
                 <td><?= h($proceso->precio) ?></td>
                 <td><?= h($proceso->moneda_id) ?></td>
-                <td><?= h($proceso->iva_id) ?></td>
                 <td><?= h($proceso->observaciones) ?></td>
                 <td><?= h($proceso->visible) ?></td>
                 <td><?= h($proceso->enlaces) ?></td>
@@ -137,14 +129,12 @@
         <?php if (!empty($iva->producto)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Referencia Proveedor') ?></th>
                 <th scope="col"><?= __('Familia Id') ?></th>
                 <th scope="col"><?= __('Precio') ?></th>
                 <th scope="col"><?= __('Moneda Id') ?></th>
-                <th scope="col"><?= __('Iva Id') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col"><?= __('Visible') ?></th>
                 <th scope="col"><?= __('Peso') ?></th>
@@ -159,14 +149,12 @@
             </tr>
             <?php foreach ($iva->producto as $producto): ?>
             <tr>
-                <td><?= h($producto->id) ?></td>
                 <td><?= h($producto->name) ?></td>
                 <td><?= h($producto->referencia) ?></td>
                 <td><?= h($producto->referencia_proveedor) ?></td>
                 <td><?= h($producto->familia_id) ?></td>
                 <td><?= h($producto->precio) ?></td>
                 <td><?= h($producto->moneda_id) ?></td>
-                <td><?= h($producto->iva_id) ?></td>
                 <td><?= h($producto->observaciones) ?></td>
                 <td><?= h($producto->visible) ?></td>
                 <td><?= h($producto->peso) ?></td>

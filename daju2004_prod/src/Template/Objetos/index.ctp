@@ -44,7 +44,7 @@
             <tr>
                 <td><?= $this->Number->format($objeto->id) ?></td>
                 <td><?= h($objeto->name) ?></td>
-                <td><?= $objeto->has('producto') ? $this->Html->link($objeto->producto->id, ['controller' => 'Producto', 'action' => 'view', $objeto->producto->id]) : '' ?></td>
+                <td><?= $objeto->has('producto') ? $this->Html->link($objeto->producto->label, ['controller' => 'Producto', 'action' => 'view', $objeto->producto->id]) : '' ?></td>
                 <td><?= $this->Number->format($objeto->numero_serie) ?></td>
                 <td><?= h($objeto->referencia) ?></td>
                 <td><?= $objeto->has('orden') ? $this->Html->link($objeto->orden->id, ['controller' => 'Ordens', 'action' => 'view', $objeto->orden->id]) : '' ?></td>

@@ -46,7 +46,7 @@
                 <td><?= h($envio->fecha_envio) ?></td>
                 <td><?= h($envio->albaran) ?></td>
                 <td><?= $envio->has('pedidos_empresa') ? $this->Html->link($envio->pedidos_empresa->id, ['controller' => 'PedidosEmpresas', 'action' => 'view', $envio->pedidos_empresa->id]) : '' ?></td>
-                <td><?= $envio->has('centro') ? $this->Html->link($envio->centro->name, ['controller' => 'Centros', 'action' => 'view', $envio->centro->id]) : '' ?></td>
+                <td><?= $envio->has('centro') ? $this->Html->link($envio->centro->label, ['controller' => 'Centros', 'action' => 'view', $envio->centro->id]) : '' ?></td>
                 <td><?= h($envio->fecha_entrega) ?></td>
                 <td><?= h($envio->observaciones) ?></td>
                 <td><?= $envio->has('direccione') ? $this->Html->link($envio->direccione->id, ['controller' => 'Direcciones', 'action' => 'view', $envio->direccione->id]) : '' ?></td>

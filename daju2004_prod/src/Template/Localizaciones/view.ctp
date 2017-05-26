@@ -13,7 +13,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Centro') ?></th>
-            <td><?= $localizacione->has('centro') ? $this->Html->link($localizacione->centro->name, ['controller' => 'Centros', 'action' => 'view', $localizacione->centro->id]) : '' ?></td>
+            <td><?= $localizacione->has('centro') ? $this->Html->link($localizacione->centro->label, ['controller' => 'Centros', 'action' => 'view', $localizacione->centro->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>
@@ -27,10 +27,8 @@
         <?php if (!empty($localizacione->materiales)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Material Id') ?></th>
                 <th scope="col"><?= __('Fecha Entega') ?></th>
-                <th scope="col"><?= __('Localizacione Id') ?></th>
                 <th scope="col"><?= __('Entradas De Materiale Id') ?></th>
                 <th scope="col"><?= __('Bobina Lote') ?></th>
                 <th scope="col"><?= __('Bobinas') ?></th>
@@ -52,10 +50,8 @@
             </tr>
             <?php foreach ($localizacione->materiales as $materiales): ?>
             <tr>
-                <td><?= h($materiales->id) ?></td>
                 <td><?= h($materiales->material_id) ?></td>
                 <td><?= h($materiales->fecha_entega) ?></td>
-                <td><?= h($materiales->localizacione_id) ?></td>
                 <td><?= h($materiales->entradas_de_materiale_id) ?></td>
                 <td><?= h($materiales->bobina_lote) ?></td>
                 <td><?= h($materiales->bobinas) ?></td>
@@ -90,14 +86,12 @@
         <?php if (!empty($localizacione->objetos)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Producto Id') ?></th>
                 <th scope="col"><?= __('Numero Serie') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Orden Id') ?></th>
                 <th scope="col"><?= __('Lote') ?></th>
-                <th scope="col"><?= __('Localizacione Id') ?></th>
                 <th scope="col"><?= __('Coste') ?></th>
                 <th scope="col"><?= __('Defectuosos') ?></th>
                 <th scope="col"><?= __('Peso') ?></th>
@@ -106,14 +100,12 @@
             </tr>
             <?php foreach ($localizacione->objetos as $objetos): ?>
             <tr>
-                <td><?= h($objetos->id) ?></td>
                 <td><?= h($objetos->name) ?></td>
                 <td><?= h($objetos->producto_id) ?></td>
                 <td><?= h($objetos->numero_serie) ?></td>
                 <td><?= h($objetos->referencia) ?></td>
                 <td><?= h($objetos->orden_id) ?></td>
                 <td><?= h($objetos->lote) ?></td>
-                <td><?= h($objetos->localizacione_id) ?></td>
                 <td><?= h($objetos->coste) ?></td>
                 <td><?= h($objetos->defectuosos) ?></td>
                 <td><?= h($objetos->peso) ?></td>

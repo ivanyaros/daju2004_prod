@@ -5,7 +5,7 @@
 ?>
 
 <div class="centros view large-9 medium-8 columns content">
-    <h3><?= h($centro->name) ?></h3>
+    <h3><?= h($centro->label) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Name') ?></th>
@@ -35,25 +35,21 @@
         <?php if (!empty($centro->entradas_de_materiales)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Proveedores Cliente Id') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col"><?= __('Albaran') ?></th>
                 <th scope="col"><?= __('Fecha Envio') ?></th>
-                <th scope="col"><?= __('Centro Id') ?></th>
                 <th scope="col"><?= __('Fecha Recepcion') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($centro->entradas_de_materiales as $entradasDeMateriales): ?>
             <tr>
-                <td><?= h($entradasDeMateriales->id) ?></td>
                 <td><?= h($entradasDeMateriales->proveedores_cliente_id) ?></td>
                 <td><?= h($entradasDeMateriales->referencia) ?></td>
                 <td><?= h($entradasDeMateriales->observaciones) ?></td>
                 <td><?= h($entradasDeMateriales->albaran) ?></td>
                 <td><?= h($entradasDeMateriales->fecha_envio) ?></td>
-                <td><?= h($entradasDeMateriales->centro_id) ?></td>
                 <td><?= h($entradasDeMateriales->fecha_recepcion) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'EntradasDeMateriales', 'action' => 'view', $entradasDeMateriales->id]) ?>
@@ -72,13 +68,11 @@
         <?php if (!empty($centro->envios)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Proveedores Cliente Id') ?></th>
                 <th scope="col"><?= __('Fecha Pedido') ?></th>
                 <th scope="col"><?= __('Fecha Envio') ?></th>
                 <th scope="col"><?= __('Albaran') ?></th>
                 <th scope="col"><?= __('Pedidos Empresa Id') ?></th>
-                <th scope="col"><?= __('Centro Id') ?></th>
                 <th scope="col"><?= __('Fecha Entrega') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col"><?= __('Direccione Id') ?></th>
@@ -86,13 +80,11 @@
             </tr>
             <?php foreach ($centro->envios as $envios): ?>
             <tr>
-                <td><?= h($envios->id) ?></td>
                 <td><?= h($envios->proveedores_cliente_id) ?></td>
                 <td><?= h($envios->fecha_pedido) ?></td>
                 <td><?= h($envios->fecha_envio) ?></td>
                 <td><?= h($envios->albaran) ?></td>
                 <td><?= h($envios->pedidos_empresa_id) ?></td>
-                <td><?= h($envios->centro_id) ?></td>
                 <td><?= h($envios->fecha_entrega) ?></td>
                 <td><?= h($envios->observaciones) ?></td>
                 <td><?= h($envios->direccione_id) ?></td>
@@ -113,16 +105,12 @@
         <?php if (!empty($centro->localizaciones)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
-                <th scope="col"><?= __('Centro Id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($centro->localizaciones as $localizaciones): ?>
             <tr>
-                <td><?= h($localizaciones->id) ?></td>
                 <td><?= h($localizaciones->name) ?></td>
-                <td><?= h($localizaciones->centro_id) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Localizaciones', 'action' => 'view', $localizaciones->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Localizaciones', 'action' => 'edit', $localizaciones->id]) ?>
@@ -140,14 +128,12 @@
         <?php if (!empty($centro->ordens)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Cantidad') ?></th>
                 <th scope="col"><?= __('Fecha Creacion') ?></th>
                 <th scope="col"><?= __('Fecha Terminacion') ?></th>
                 <th scope="col"><?= __('Estado Id') ?></th>
-                <th scope="col"><?= __('Centro Id') ?></th>
                 <th scope="col"><?= __('Proceso Id') ?></th>
                 <th scope="col"><?= __('Scrap') ?></th>
                 <th scope="col"><?= __('Coste Operario') ?></th>
@@ -157,14 +143,12 @@
             </tr>
             <?php foreach ($centro->ordens as $ordens): ?>
             <tr>
-                <td><?= h($ordens->id) ?></td>
                 <td><?= h($ordens->name) ?></td>
                 <td><?= h($ordens->referencia) ?></td>
                 <td><?= h($ordens->cantidad) ?></td>
                 <td><?= h($ordens->fecha_creacion) ?></td>
                 <td><?= h($ordens->fecha_terminacion) ?></td>
                 <td><?= h($ordens->estado_id) ?></td>
-                <td><?= h($ordens->centro_id) ?></td>
                 <td><?= h($ordens->proceso_id) ?></td>
                 <td><?= h($ordens->scrap) ?></td>
                 <td><?= h($ordens->coste_operario) ?></td>
@@ -187,7 +171,6 @@
         <?php if (!empty($centro->proceso)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Familia Id') ?></th>
@@ -197,7 +180,6 @@
                 <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col"><?= __('Visible') ?></th>
                 <th scope="col"><?= __('Enlaces') ?></th>
-                <th scope="col"><?= __('Centro Id') ?></th>
                 <th scope="col"><?= __('Coste Tiempo') ?></th>
                 <th scope="col"><?= __('Coste Operaciones') ?></th>
                 <th scope="col"><?= __('Descripcion') ?></th>
@@ -206,7 +188,6 @@
             </tr>
             <?php foreach ($centro->proceso as $proceso): ?>
             <tr>
-                <td><?= h($proceso->id) ?></td>
                 <td><?= h($proceso->name) ?></td>
                 <td><?= h($proceso->referencia) ?></td>
                 <td><?= h($proceso->familia_id) ?></td>
@@ -216,7 +197,6 @@
                 <td><?= h($proceso->observaciones) ?></td>
                 <td><?= h($proceso->visible) ?></td>
                 <td><?= h($proceso->enlaces) ?></td>
-                <td><?= h($proceso->centro_id) ?></td>
                 <td><?= h($proceso->coste_tiempo) ?></td>
                 <td><?= h($proceso->coste_operaciones) ?></td>
                 <td><?= h($proceso->descripcion) ?></td>

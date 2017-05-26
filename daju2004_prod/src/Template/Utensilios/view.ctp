@@ -31,17 +31,13 @@
         <?php if (!empty($utensilio->utensilios_usados)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Estados De Orden Id') ?></th>
-                <th scope="col"><?= __('Utensilio Id') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($utensilio->utensilios_usados as $utensiliosUsados): ?>
             <tr>
-                <td><?= h($utensiliosUsados->id) ?></td>
                 <td><?= h($utensiliosUsados->estados_de_orden_id) ?></td>
-                <td><?= h($utensiliosUsados->utensilio_id) ?></td>
                 <td><?= h($utensiliosUsados->observaciones) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'UtensiliosUsados', 'action' => 'view', $utensiliosUsados->id]) ?>

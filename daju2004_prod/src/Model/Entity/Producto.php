@@ -45,10 +45,6 @@ class Producto extends Entity
      *
      * @var array
      */
-    protected function _getLabel()
-    {
-    return '('.$this->_properties['id'].')'.$this->_properties['name'];
-    }
     protected $_accessible = [
         '*' => true,
         'id' => false

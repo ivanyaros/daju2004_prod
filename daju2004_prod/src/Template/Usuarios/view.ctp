@@ -55,18 +55,14 @@
         <?php if (!empty($usuario->usuarios_en_estados_orden)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Estados De Orden Id') ?></th>
-                <th scope="col"><?= __('Usuario Id') ?></th>
                 <th scope="col"><?= __('Parte') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($usuario->usuarios_en_estados_orden as $usuariosEnEstadosOrden): ?>
             <tr>
-                <td><?= h($usuariosEnEstadosOrden->id) ?></td>
                 <td><?= h($usuariosEnEstadosOrden->estados_de_orden_id) ?></td>
-                <td><?= h($usuariosEnEstadosOrden->usuario_id) ?></td>
                 <td><?= h($usuariosEnEstadosOrden->parte) ?></td>
                 <td><?= h($usuariosEnEstadosOrden->observaciones) ?></td>
                 <td class="actions">

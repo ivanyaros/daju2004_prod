@@ -61,7 +61,7 @@
                 <td><?= h($proceso->observaciones) ?></td>
                 <td><?= h($proceso->visible) ?></td>
                 <td><?= h($proceso->enlaces) ?></td>
-                <td><?= $proceso->has('centro') ? $this->Html->link($proceso->centro->name, ['controller' => 'Centros', 'action' => 'view', $proceso->centro->id]) : '' ?></td>
+                <td><?= $proceso->has('centro') ? $this->Html->link($proceso->centro->label, ['controller' => 'Centros', 'action' => 'view', $proceso->centro->id]) : '' ?></td>
                 <td><?= $this->Number->format($proceso->coste_tiempo) ?></td>
                 <td><?= h($proceso->coste_operaciones) ?></td>
                 <td><?= h($proceso->descripcion) ?></td>

@@ -27,9 +27,7 @@
         <?php if (!empty($estado->estados_de_ordens)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Orden Id') ?></th>
-                <th scope="col"><?= __('Estado Id') ?></th>
                 <th scope="col"><?= __('Fecha Inicio') ?></th>
                 <th scope="col"><?= __('Fecha Fin') ?></th>
                 <th scope="col"><?= __('Descripcion') ?></th>
@@ -37,9 +35,7 @@
             </tr>
             <?php foreach ($estado->estados_de_ordens as $estadosDeOrdens): ?>
             <tr>
-                <td><?= h($estadosDeOrdens->id) ?></td>
                 <td><?= h($estadosDeOrdens->orden_id) ?></td>
-                <td><?= h($estadosDeOrdens->estado_id) ?></td>
                 <td><?= h($estadosDeOrdens->fecha_inicio) ?></td>
                 <td><?= h($estadosDeOrdens->fecha_fin) ?></td>
                 <td><?= h($estadosDeOrdens->descripcion) ?></td>
@@ -60,13 +56,11 @@
         <?php if (!empty($estado->ordens)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Cantidad') ?></th>
                 <th scope="col"><?= __('Fecha Creacion') ?></th>
                 <th scope="col"><?= __('Fecha Terminacion') ?></th>
-                <th scope="col"><?= __('Estado Id') ?></th>
                 <th scope="col"><?= __('Centro Id') ?></th>
                 <th scope="col"><?= __('Proceso Id') ?></th>
                 <th scope="col"><?= __('Scrap') ?></th>
@@ -77,13 +71,11 @@
             </tr>
             <?php foreach ($estado->ordens as $ordens): ?>
             <tr>
-                <td><?= h($ordens->id) ?></td>
                 <td><?= h($ordens->name) ?></td>
                 <td><?= h($ordens->referencia) ?></td>
                 <td><?= h($ordens->cantidad) ?></td>
                 <td><?= h($ordens->fecha_creacion) ?></td>
                 <td><?= h($ordens->fecha_terminacion) ?></td>
-                <td><?= h($ordens->estado_id) ?></td>
                 <td><?= h($ordens->centro_id) ?></td>
                 <td><?= h($ordens->proceso_id) ?></td>
                 <td><?= h($ordens->scrap) ?></td>

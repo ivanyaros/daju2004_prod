@@ -40,7 +40,7 @@
                 <td><?= h($entradasDeMateriale->observaciones) ?></td>
                 <td><?= h($entradasDeMateriale->albaran) ?></td>
                 <td><?= h($entradasDeMateriale->fecha_envio) ?></td>
-                <td><?= $entradasDeMateriale->has('centro') ? $this->Html->link($entradasDeMateriale->centro->name, ['controller' => 'Centros', 'action' => 'view', $entradasDeMateriale->centro->id]) : '' ?></td>
+                <td><?= $entradasDeMateriale->has('centro') ? $this->Html->link($entradasDeMateriale->centro->label, ['controller' => 'Centros', 'action' => 'view', $entradasDeMateriale->centro->id]) : '' ?></td>
                 <td><?= h($entradasDeMateriale->fecha_recepcion) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $entradasDeMateriale->id]) ?>

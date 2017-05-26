@@ -5,7 +5,7 @@
 ?>
 
 <div class="producto view large-9 medium-8 columns content">
-    <h3><?= h($producto->id) ?></h3>
+    <h3><?= h($producto->label) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Name') ?></th>
@@ -87,9 +87,7 @@
         <?php if (!empty($producto->objetos)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
-                <th scope="col"><?= __('Producto Id') ?></th>
                 <th scope="col"><?= __('Numero Serie') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Orden Id') ?></th>
@@ -103,9 +101,7 @@
             </tr>
             <?php foreach ($producto->objetos as $objetos): ?>
             <tr>
-                <td><?= h($objetos->id) ?></td>
                 <td><?= h($objetos->name) ?></td>
-                <td><?= h($objetos->producto_id) ?></td>
                 <td><?= h($objetos->numero_serie) ?></td>
                 <td><?= h($objetos->referencia) ?></td>
                 <td><?= h($objetos->orden_id) ?></td>
@@ -132,9 +128,7 @@
         <?php if (!empty($producto->pedidos_productos_detalle)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Pedidos Empresa Id') ?></th>
-                <th scope="col"><?= __('Producto Id') ?></th>
                 <th scope="col"><?= __('Cantidad') ?></th>
                 <th scope="col"><?= __('Fecha') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
@@ -144,9 +138,7 @@
             </tr>
             <?php foreach ($producto->pedidos_productos_detalle as $pedidosProductosDetalle): ?>
             <tr>
-                <td><?= h($pedidosProductosDetalle->id) ?></td>
                 <td><?= h($pedidosProductosDetalle->pedidos_empresa_id) ?></td>
-                <td><?= h($pedidosProductosDetalle->producto_id) ?></td>
                 <td><?= h($pedidosProductosDetalle->cantidad) ?></td>
                 <td><?= h($pedidosProductosDetalle->fecha) ?></td>
                 <td><?= h($pedidosProductosDetalle->observaciones) ?></td>
@@ -169,18 +161,14 @@
         <?php if (!empty($producto->proceso_producto_entrada)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Proceso Id') ?></th>
-                <th scope="col"><?= __('Producto Id') ?></th>
                 <th scope="col"><?= __('Cantidad') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($producto->proceso_producto_entrada as $procesoProductoEntrada): ?>
             <tr>
-                <td><?= h($procesoProductoEntrada->id) ?></td>
                 <td><?= h($procesoProductoEntrada->proceso_id) ?></td>
-                <td><?= h($procesoProductoEntrada->producto_id) ?></td>
                 <td><?= h($procesoProductoEntrada->cantidad) ?></td>
                 <td><?= h($procesoProductoEntrada->observaciones) ?></td>
                 <td class="actions">
@@ -200,18 +188,14 @@
         <?php if (!empty($producto->proceso_producto_salida)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Proceso Id') ?></th>
-                <th scope="col"><?= __('Producto Id') ?></th>
                 <th scope="col"><?= __('Cantidad') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($producto->proceso_producto_salida as $procesoProductoSalida): ?>
             <tr>
-                <td><?= h($procesoProductoSalida->id) ?></td>
                 <td><?= h($procesoProductoSalida->proceso_id) ?></td>
-                <td><?= h($procesoProductoSalida->producto_id) ?></td>
                 <td><?= h($procesoProductoSalida->cantidad) ?></td>
                 <td><?= h($procesoProductoSalida->observaciones) ?></td>
                 <td class="actions">

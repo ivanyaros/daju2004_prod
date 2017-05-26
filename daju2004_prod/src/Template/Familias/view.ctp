@@ -27,7 +27,6 @@
         <?php if (!empty($familia->material)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Referencia Proveedor') ?></th>
@@ -48,7 +47,6 @@
             </tr>
             <?php foreach ($familia->material as $material): ?>
             <tr>
-                <td><?= h($material->id) ?></td>
                 <td><?= h($material->name) ?></td>
                 <td><?= h($material->referencia) ?></td>
                 <td><?= h($material->referencia_proveedor) ?></td>
@@ -82,7 +80,6 @@
         <?php if (!empty($familia->proceso)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Familia Id') ?></th>
@@ -101,7 +98,6 @@
             </tr>
             <?php foreach ($familia->proceso as $proceso): ?>
             <tr>
-                <td><?= h($proceso->id) ?></td>
                 <td><?= h($proceso->name) ?></td>
                 <td><?= h($proceso->referencia) ?></td>
                 <td><?= h($proceso->familia_id) ?></td>
@@ -133,7 +129,6 @@
         <?php if (!empty($familia->producto)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Referencia Proveedor') ?></th>
@@ -155,7 +150,6 @@
             </tr>
             <?php foreach ($familia->producto as $producto): ?>
             <tr>
-                <td><?= h($producto->id) ?></td>
                 <td><?= h($producto->name) ?></td>
                 <td><?= h($producto->referencia) ?></td>
                 <td><?= h($producto->referencia_proveedor) ?></td>

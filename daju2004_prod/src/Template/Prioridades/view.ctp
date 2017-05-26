@@ -23,7 +23,6 @@
         <?php if (!empty($prioridade->ordens)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Cantidad') ?></th>
@@ -35,12 +34,10 @@
                 <th scope="col"><?= __('Scrap') ?></th>
                 <th scope="col"><?= __('Coste Operario') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
-                <th scope="col"><?= __('Prioridade Id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($prioridade->ordens as $ordens): ?>
             <tr>
-                <td><?= h($ordens->id) ?></td>
                 <td><?= h($ordens->name) ?></td>
                 <td><?= h($ordens->referencia) ?></td>
                 <td><?= h($ordens->cantidad) ?></td>
@@ -52,7 +49,6 @@
                 <td><?= h($ordens->scrap) ?></td>
                 <td><?= h($ordens->coste_operario) ?></td>
                 <td><?= h($ordens->observaciones) ?></td>
-                <td><?= h($ordens->prioridade_id) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Ordens', 'action' => 'view', $ordens->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Ordens', 'action' => 'edit', $ordens->id]) ?>
@@ -70,25 +66,21 @@
         <?php if (!empty($prioridade->pedidos_productos_detalle)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Pedidos Empresa Id') ?></th>
                 <th scope="col"><?= __('Producto Id') ?></th>
                 <th scope="col"><?= __('Cantidad') ?></th>
                 <th scope="col"><?= __('Fecha') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
-                <th scope="col"><?= __('Prioridade Id') ?></th>
                 <th scope="col"><?= __('Terminado') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($prioridade->pedidos_productos_detalle as $pedidosProductosDetalle): ?>
             <tr>
-                <td><?= h($pedidosProductosDetalle->id) ?></td>
                 <td><?= h($pedidosProductosDetalle->pedidos_empresa_id) ?></td>
                 <td><?= h($pedidosProductosDetalle->producto_id) ?></td>
                 <td><?= h($pedidosProductosDetalle->cantidad) ?></td>
                 <td><?= h($pedidosProductosDetalle->fecha) ?></td>
                 <td><?= h($pedidosProductosDetalle->observaciones) ?></td>
-                <td><?= h($pedidosProductosDetalle->prioridade_id) ?></td>
                 <td><?= h($pedidosProductosDetalle->terminado) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'PedidosProductosDetalle', 'action' => 'view', $pedidosProductosDetalle->id]) ?>

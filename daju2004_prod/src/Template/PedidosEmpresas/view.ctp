@@ -47,12 +47,10 @@
         <?php if (!empty($pedidosEmpresa->envios)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Proveedores Cliente Id') ?></th>
                 <th scope="col"><?= __('Fecha Pedido') ?></th>
                 <th scope="col"><?= __('Fecha Envio') ?></th>
                 <th scope="col"><?= __('Albaran') ?></th>
-                <th scope="col"><?= __('Pedidos Empresa Id') ?></th>
                 <th scope="col"><?= __('Centro Id') ?></th>
                 <th scope="col"><?= __('Fecha Entrega') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
@@ -61,12 +59,10 @@
             </tr>
             <?php foreach ($pedidosEmpresa->envios as $envios): ?>
             <tr>
-                <td><?= h($envios->id) ?></td>
                 <td><?= h($envios->proveedores_cliente_id) ?></td>
                 <td><?= h($envios->fecha_pedido) ?></td>
                 <td><?= h($envios->fecha_envio) ?></td>
                 <td><?= h($envios->albaran) ?></td>
-                <td><?= h($envios->pedidos_empresa_id) ?></td>
                 <td><?= h($envios->centro_id) ?></td>
                 <td><?= h($envios->fecha_entrega) ?></td>
                 <td><?= h($envios->observaciones) ?></td>
@@ -88,8 +84,6 @@
         <?php if (!empty($pedidosEmpresa->pedidos_productos_detalle)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Pedidos Empresa Id') ?></th>
                 <th scope="col"><?= __('Producto Id') ?></th>
                 <th scope="col"><?= __('Cantidad') ?></th>
                 <th scope="col"><?= __('Fecha') ?></th>
@@ -100,8 +94,6 @@
             </tr>
             <?php foreach ($pedidosEmpresa->pedidos_productos_detalle as $pedidosProductosDetalle): ?>
             <tr>
-                <td><?= h($pedidosProductosDetalle->id) ?></td>
-                <td><?= h($pedidosProductosDetalle->pedidos_empresa_id) ?></td>
                 <td><?= h($pedidosProductosDetalle->producto_id) ?></td>
                 <td><?= h($pedidosProductosDetalle->cantidad) ?></td>
                 <td><?= h($pedidosProductosDetalle->fecha) ?></td>

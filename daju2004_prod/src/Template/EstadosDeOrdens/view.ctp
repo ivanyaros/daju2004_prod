@@ -39,8 +39,6 @@
         <?php if (!empty($estadosDeOrden->maquinas_usadas)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Estados De Orden Id') ?></th>
                 <th scope="col"><?= __('Maquina Id') ?></th>
                 <th scope="col"><?= __('Operaciones') ?></th>
                 <th scope="col"><?= __('Uso') ?></th>
@@ -49,8 +47,6 @@
             </tr>
             <?php foreach ($estadosDeOrden->maquinas_usadas as $maquinasUsadas): ?>
             <tr>
-                <td><?= h($maquinasUsadas->id) ?></td>
-                <td><?= h($maquinasUsadas->estados_de_orden_id) ?></td>
                 <td><?= h($maquinasUsadas->maquina_id) ?></td>
                 <td><?= h($maquinasUsadas->operaciones) ?></td>
                 <td><?= h($maquinasUsadas->uso) ?></td>
@@ -72,8 +68,6 @@
         <?php if (!empty($estadosDeOrden->usuarios_en_estados_orden)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Estados De Orden Id') ?></th>
                 <th scope="col"><?= __('Usuario Id') ?></th>
                 <th scope="col"><?= __('Parte') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
@@ -81,8 +75,6 @@
             </tr>
             <?php foreach ($estadosDeOrden->usuarios_en_estados_orden as $usuariosEnEstadosOrden): ?>
             <tr>
-                <td><?= h($usuariosEnEstadosOrden->id) ?></td>
-                <td><?= h($usuariosEnEstadosOrden->estados_de_orden_id) ?></td>
                 <td><?= h($usuariosEnEstadosOrden->usuario_id) ?></td>
                 <td><?= h($usuariosEnEstadosOrden->parte) ?></td>
                 <td><?= h($usuariosEnEstadosOrden->observaciones) ?></td>
@@ -103,16 +95,12 @@
         <?php if (!empty($estadosDeOrden->utensilios_usados)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Estados De Orden Id') ?></th>
                 <th scope="col"><?= __('Utensilio Id') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($estadosDeOrden->utensilios_usados as $utensiliosUsados): ?>
             <tr>
-                <td><?= h($utensiliosUsados->id) ?></td>
-                <td><?= h($utensiliosUsados->estados_de_orden_id) ?></td>
                 <td><?= h($utensiliosUsados->utensilio_id) ?></td>
                 <td><?= h($utensiliosUsados->observaciones) ?></td>
                 <td class="actions">

@@ -9,11 +9,11 @@
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Proceso') ?></th>
-            <td><?= $procesoProductoSalida->has('proceso') ? $this->Html->link($procesoProductoSalida->proceso->id, ['controller' => 'Proceso', 'action' => 'view', $procesoProductoSalida->proceso->id]) : '' ?></td>
+            <td><?= $procesoProductoSalida->has('proceso') ? $this->Html->link($procesoProductoSalida->proceso->name, ['controller' => 'Proceso', 'action' => 'view', $procesoProductoSalida->proceso->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Producto') ?></th>
-            <td><?= $procesoProductoSalida->has('producto') ? $this->Html->link($procesoProductoSalida->producto->id, ['controller' => 'Producto', 'action' => 'view', $procesoProductoSalida->producto->id]) : '' ?></td>
+            <td><?= $procesoProductoSalida->has('producto') ? $this->Html->link($procesoProductoSalida->producto->label, ['controller' => 'Producto', 'action' => 'view', $procesoProductoSalida->producto->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Observaciones') ?></th>
