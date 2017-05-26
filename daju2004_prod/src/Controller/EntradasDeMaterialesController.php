@@ -39,7 +39,7 @@ class EntradasDeMaterialesController extends AppController
     public function view($id = null)
     {
         $entradasDeMateriale = $this->EntradasDeMateriales->get($id, [
-            'contain' => ['ProveedoresClientes', 'Centros']
+            'contain' => ['ProveedoresClientes', 'Centros', 'Materiales']
         ]);
 
         $this->set('entradasDeMateriale', $entradasDeMateriale);

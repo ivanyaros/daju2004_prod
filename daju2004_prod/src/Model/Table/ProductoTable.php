@@ -39,7 +39,7 @@ class ProductoTable extends Table
         parent::initialize($config);
 
         $this->setTable('producto');
-        $this->setDisplayField('id');
+        $this->setDisplayField('label');
         $this->setPrimaryKey('id');
 
         $this->belongsTo('Familias', [

@@ -17,6 +17,7 @@ use Cake\ORM\Entity;
  *
  * @property \App\Model\Entity\ProveedoresCliente $proveedores_cliente
  * @property \App\Model\Entity\Centro $centro
+ * @property \App\Model\Entity\Materiale[] $materiales
  */
 class EntradasDeMateriale extends Entity
 {

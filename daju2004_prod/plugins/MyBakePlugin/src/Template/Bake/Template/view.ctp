@@ -134,14 +134,18 @@ foreach ($relations as $alias => $details):
         <table cellpadding="0" cellspacing="0">
             <tr>
 <% foreach ($details['fields'] as $field): %>
+                <%if ($field!='id'):%>
                 <th scope="col"><?= __('<%= Inflector::humanize($field) %>') ?></th>
+                <%endif;%>
 <% endforeach; %>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($<%= $singularVar %>-><%= $details['property'] %> as $<%= $otherSingularVar %>): ?>
             <tr>
             <%- foreach ($details['fields'] as $field): %>
+                <%if ($field!='id'):%>
                 <td><?= h($<%= $otherSingularVar %>-><%= $field %>) ?></td>
+                <%endif;%>
             <%- endforeach; %>
             <%- $otherPk = "\${$otherSingularVar}->{$details['primaryKey'][0]}"; %>
                 <td class="actions">

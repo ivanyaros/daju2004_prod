@@ -10,7 +10,7 @@ use Cake\ORM\Entity;
  * @property int $material_id
  * @property \Cake\I18n\FrozenTime $fecha_entega
  * @property int $localizacione_id
- * @property int $entradas_materiale_id
+ * @property int $entradas_de_materiale_id
  * @property bool $bobina_lote
  * @property int $bobinas
  * @property int $bobinas_actual

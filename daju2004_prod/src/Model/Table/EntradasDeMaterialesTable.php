@@ -11,6 +11,7 @@ use Cake\Validation\Validator;
  *
  * @property \Cake\ORM\Association\BelongsTo $ProveedoresClientes
  * @property \Cake\ORM\Association\BelongsTo $Centros
+ * @property \Cake\ORM\Association\HasMany $Materiales
  *
  * @method \App\Model\Entity\EntradasDeMateriale get($primaryKey, $options = [])
  * @method \App\Model\Entity\EntradasDeMateriale newEntity($data = null, array $options = [])
@@ -42,6 +43,9 @@ class EntradasDeMaterialesTable extends Table
         ]);
         $this->belongsTo('Centros', [
             'foreignKey' => 'centro_id'
+        ]);
+        $this->hasMany('Materiales', [
+            'foreignKey' => 'entradas_de_materiale_id'
         ]);
     }
 

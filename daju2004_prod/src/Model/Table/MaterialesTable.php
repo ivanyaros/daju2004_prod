@@ -46,7 +46,7 @@ class MaterialesTable extends Table
             'foreignKey' => 'localizacione_id'
         ]);
         $this->belongsTo('EntradasDeMateriales', [
-            'foreignKey' => 'entradas_materiale_id'
+            'foreignKey' => 'entradas_de_materiale_id'
         ]);
         $this->hasMany('MaterialesEntrada', [
             'foreignKey' => 'materiale_id'
@@ -145,7 +145,7 @@ class MaterialesTable extends Table
     {
         $rules->add($rules->existsIn(['material_id'], 'Material'));
         $rules->add($rules->existsIn(['localizacione_id'], 'Localizaciones'));
-        $rules->add($rules->existsIn(['entradas_materiale_id'], 'EntradasDeMateriales'));
+        $rules->add($rules->existsIn(['entradas_de_materiale_id'], 'EntradasDeMateriales'));
 
         return $rules;
     }

@@ -30,6 +30,15 @@ class Centro extends Entity
      *
      * @var array
      */
+    protected function _getLabel()
+    {
+    return '('.$this->_properties['id'].')'.$this->_properties['name'];
+    }
+    /*protected function _getLabel()
+    {
+    return $this->_properties['first_name'] . ' ' . $this->_properties['last_name']
+      . ' / ' . __('User ID %s', $this->_properties['user_id']);
+    }*/
     protected $_accessible = [
         '*' => true,
         'id' => false

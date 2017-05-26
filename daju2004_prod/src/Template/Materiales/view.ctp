@@ -28,8 +28,8 @@
             <td><?= $this->Number->format($materiale->id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Entradas Materiale Id') ?></th>
-            <td><?= $this->Number->format($materiale->entradas_materiale_id) ?></td>
+            <th scope="row"><?= __('Entradas De Materiale Id') ?></th>
+            <td><?= $this->Number->format($materiale->entradas_de_materiale_id) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Bobinas') ?></th>
