@@ -37,7 +37,7 @@ class CentrosTable extends Table
         parent::initialize($config);
 
         $this->setTable('centros');
-        $this->setDisplayField('id');
+        $this->setDisplayField('name');
         $this->setPrimaryKey('id');
 
         $this->hasMany('EntradasDeMateriales', [
@@ -70,7 +70,7 @@ class CentrosTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->allowEmpty('nombre');
+            ->allowEmpty('name');
 
         $validator
             ->allowEmpty('referencia');

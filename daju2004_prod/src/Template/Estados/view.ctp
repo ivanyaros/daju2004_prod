@@ -21,7 +21,9 @@
         </tr>
     </table>
     <div class="related">
-        <h4><?= __('Related Estados De Ordens') ?></h4>
+        <h4><?= __('Related Estados De Ordens') ?>
+        	<li><?= $this->Html->link(__('New Estados De Orden'), ['controller' => 'EstadosDeOrdens', 'action' => 'add',$estado->id]) ?> </li>
+        </h4>
         <?php if (!empty($estado->estados_de_ordens)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
@@ -52,7 +54,9 @@
         <?php endif; ?>
     </div>
     <div class="related">
-        <h4><?= __('Related Ordens') ?></h4>
+        <h4><?= __('Related Ordens') ?>
+        	<li><?= $this->Html->link(__('New Orden'), ['controller' => 'Ordens', 'action' => 'add',$estado->id]) ?> </li>
+        </h4>
         <?php if (!empty($estado->ordens)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>

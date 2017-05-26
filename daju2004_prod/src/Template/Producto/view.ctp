@@ -81,7 +81,9 @@
         </tr>
     </table>
     <div class="related">
-        <h4><?= __('Related Objetos') ?></h4>
+        <h4><?= __('Related Objetos') ?>
+        	<li><?= $this->Html->link(__('New Objeto'), ['controller' => 'Objetos', 'action' => 'add',$producto->id]) ?> </li>
+        </h4>
         <?php if (!empty($producto->objetos)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
@@ -122,7 +124,9 @@
         <?php endif; ?>
     </div>
     <div class="related">
-        <h4><?= __('Related Pedidos Productos Detalle') ?></h4>
+        <h4><?= __('Related Pedidos Productos Detalle') ?>
+        	<li><?= $this->Html->link(__('New Pedidos Productos Detalle'), ['controller' => 'PedidosProductosDetalle', 'action' => 'add',$producto->id]) ?> </li>
+        </h4>
         <?php if (!empty($producto->pedidos_productos_detalle)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
@@ -157,7 +161,9 @@
         <?php endif; ?>
     </div>
     <div class="related">
-        <h4><?= __('Related Proceso Producto Entrada') ?></h4>
+        <h4><?= __('Related Proceso Producto Entrada') ?>
+        	<li><?= $this->Html->link(__('New Proceso Producto Entrada'), ['controller' => 'ProcesoProductoEntrada', 'action' => 'add',$producto->id]) ?> </li>
+        </h4>
         <?php if (!empty($producto->proceso_producto_entrada)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
@@ -186,7 +192,9 @@
         <?php endif; ?>
     </div>
     <div class="related">
-        <h4><?= __('Related Proceso Producto Salida') ?></h4>
+        <h4><?= __('Related Proceso Producto Salida') ?>
+        	<li><?= $this->Html->link(__('New Proceso Producto Salida'), ['controller' => 'ProcesoProductoSalida', 'action' => 'add',$producto->id]) ?> </li>
+        </h4>
         <?php if (!empty($producto->proceso_producto_salida)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>

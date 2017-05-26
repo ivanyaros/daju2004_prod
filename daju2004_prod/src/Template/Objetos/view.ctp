@@ -53,7 +53,9 @@
         </tr>
     </table>
     <div class="related">
-        <h4><?= __('Related Materiales Entrada') ?></h4>
+        <h4><?= __('Related Materiales Entrada') ?>
+        	<li><?= $this->Html->link(__('New Materiales Entrada'), ['controller' => 'MaterialesEntrada', 'action' => 'add',$objeto->id]) ?> </li>
+        </h4>
         <?php if (!empty($objeto->materiales_entrada)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
@@ -88,7 +90,9 @@
         <?php endif; ?>
     </div>
     <div class="related">
-        <h4><?= __('Related Envios') ?></h4>
+        <h4><?= __('Related Envios') ?>
+        	<li><?= $this->Html->link(__('New Envio'), ['controller' => 'Envios', 'action' => 'add',$objeto->id]) ?> </li>
+        </h4>
         <?php if (!empty($objeto->envios)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>

@@ -30,7 +30,7 @@
             <?php foreach ($localizaciones as $localizacione): ?>
             <tr>
                 <td><?= $this->Number->format($localizacione->id) ?></td>
-                <td><?= $localizacione->has('centro') ? $this->Html->link($localizacione->centro->id, ['controller' => 'Centros', 'action' => 'view', $localizacione->centro->id]) : '' ?></td>
+                <td><?= $localizacione->has('centro') ? $this->Html->link($localizacione->centro->name, ['controller' => 'Centros', 'action' => 'view', $localizacione->centro->id]) : '' ?></td>
                 <td><?= h($localizacione->nombre) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $localizacione->id]) ?>

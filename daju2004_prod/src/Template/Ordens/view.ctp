@@ -21,7 +21,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Centro') ?></th>
-            <td><?= $orden->has('centro') ? $this->Html->link($orden->centro->id, ['controller' => 'Centros', 'action' => 'view', $orden->centro->id]) : '' ?></td>
+            <td><?= $orden->has('centro') ? $this->Html->link($orden->centro->name, ['controller' => 'Centros', 'action' => 'view', $orden->centro->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Proceso') ?></th>
@@ -61,7 +61,9 @@
         </tr>
     </table>
     <div class="related">
-        <h4><?= __('Related Estados De Ordens') ?></h4>
+        <h4><?= __('Related Estados De Ordens') ?>
+        	<li><?= $this->Html->link(__('New Estados De Orden'), ['controller' => 'EstadosDeOrdens', 'action' => 'add',$orden->id]) ?> </li>
+        </h4>
         <?php if (!empty($orden->estados_de_ordens)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
@@ -92,7 +94,9 @@
         <?php endif; ?>
     </div>
     <div class="related">
-        <h4><?= __('Related Objetos') ?></h4>
+        <h4><?= __('Related Objetos') ?>
+        	<li><?= $this->Html->link(__('New Objeto'), ['controller' => 'Objetos', 'action' => 'add',$orden->id]) ?> </li>
+        </h4>
         <?php if (!empty($orden->objetos)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>

@@ -3,28 +3,7 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $proveedoresCliente->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $proveedoresCliente->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Proveedores Clientes'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Direcciones'), ['controller' => 'Direcciones', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Direccione'), ['controller' => 'Direcciones', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Entradas De Materiales'), ['controller' => 'EntradasDeMateriales', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Entradas De Materiale'), ['controller' => 'EntradasDeMateriales', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Envios'), ['controller' => 'Envios', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Envio'), ['controller' => 'Envios', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Pedidos Empresas'), ['controller' => 'PedidosEmpresas', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Pedidos Empresa'), ['controller' => 'PedidosEmpresas', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Proveedores Material'), ['controller' => 'ProveedoresMaterial', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Proveedores Material'), ['controller' => 'ProveedoresMaterial', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
+
 <div class="proveedoresClientes form large-9 medium-8 columns content">
     <?= $this->Form->create($proveedoresCliente) ?>
     <fieldset>

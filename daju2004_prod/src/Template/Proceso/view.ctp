@@ -37,7 +37,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Centro') ?></th>
-            <td><?= $proceso->has('centro') ? $this->Html->link($proceso->centro->id, ['controller' => 'Centros', 'action' => 'view', $proceso->centro->id]) : '' ?></td>
+            <td><?= $proceso->has('centro') ? $this->Html->link($proceso->centro->name, ['controller' => 'Centros', 'action' => 'view', $proceso->centro->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Coste Operaciones') ?></th>
@@ -69,7 +69,9 @@
         </tr>
     </table>
     <div class="related">
-        <h4><?= __('Related Ordens') ?></h4>
+        <h4><?= __('Related Ordens') ?>
+        	<li><?= $this->Html->link(__('New Orden'), ['controller' => 'Ordens', 'action' => 'add',$proceso->id]) ?> </li>
+        </h4>
         <?php if (!empty($proceso->ordens)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
@@ -114,7 +116,9 @@
         <?php endif; ?>
     </div>
     <div class="related">
-        <h4><?= __('Related Proceso Material Entrada') ?></h4>
+        <h4><?= __('Related Proceso Material Entrada') ?>
+        	<li><?= $this->Html->link(__('New Proceso Material Entrada'), ['controller' => 'ProcesoMaterialEntrada', 'action' => 'add',$proceso->id]) ?> </li>
+        </h4>
         <?php if (!empty($proceso->proceso_material_entrada)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
@@ -145,7 +149,9 @@
         <?php endif; ?>
     </div>
     <div class="related">
-        <h4><?= __('Related Proceso Producto Entrada') ?></h4>
+        <h4><?= __('Related Proceso Producto Entrada') ?>
+        	<li><?= $this->Html->link(__('New Proceso Producto Entrada'), ['controller' => 'ProcesoProductoEntrada', 'action' => 'add',$proceso->id]) ?> </li>
+        </h4>
         <?php if (!empty($proceso->proceso_producto_entrada)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
@@ -174,7 +180,9 @@
         <?php endif; ?>
     </div>
     <div class="related">
-        <h4><?= __('Related Proceso Producto Salida') ?></h4>
+        <h4><?= __('Related Proceso Producto Salida') ?>
+        	<li><?= $this->Html->link(__('New Proceso Producto Salida'), ['controller' => 'ProcesoProductoSalida', 'action' => 'add',$proceso->id]) ?> </li>
+        </h4>
         <?php if (!empty($proceso->proceso_producto_salida)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>

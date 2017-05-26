@@ -10,8 +10,8 @@ use Cake\ORM\Entity;
  * @property int $envio_id
  * @property int $objeto_id
  *
- * @property \App\Model\Entity\Objeto $objeto
  * @property \App\Model\Entity\Envio $envio
+ * @property \App\Model\Entity\Objeto $objeto
  */
 class EnviosObjeto extends Entity
 {

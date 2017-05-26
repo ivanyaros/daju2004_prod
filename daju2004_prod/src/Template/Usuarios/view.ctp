@@ -49,7 +49,9 @@
         </tr>
     </table>
     <div class="related">
-        <h4><?= __('Related Usuarios En Estados Orden') ?></h4>
+        <h4><?= __('Related Usuarios En Estados Orden') ?>
+        	<li><?= $this->Html->link(__('New Usuarios En Estados Orden'), ['controller' => 'UsuariosEnEstadosOrden', 'action' => 'add',$usuario->id]) ?> </li>
+        </h4>
         <?php if (!empty($usuario->usuarios_en_estados_orden)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>

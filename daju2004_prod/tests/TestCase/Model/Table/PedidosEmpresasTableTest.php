@@ -26,6 +26,7 @@ class PedidosEmpresasTableTest extends TestCase
     public $fixtures = [
         'app.pedidos_empresas',
         'app.proveedores_clientes',
+        'app.direcciones',
         'app.envios',
         'app.centros',
         'app.entradas_de_materiales',
@@ -34,12 +35,9 @@ class PedidosEmpresasTableTest extends TestCase
         'app.material',
         'app.familias',
         'app.proceso',
-        'app.producto',
         'app.monedas',
+        'app.producto',
         'app.ivas',
-        'app.proceso_material_entrada',
-        'app.proveedores_material',
-        'app.materiales_entrada',
         'app.objetos',
         'app.ordens',
         'app.estados',
@@ -47,11 +45,17 @@ class PedidosEmpresasTableTest extends TestCase
         'app.maquinas_usadas',
         'app.maquinas',
         'app.usuarios_en_estados_orden',
+        'app.usuarios',
         'app.utensilios_usados',
+        'app.utensilios',
         'app.prioridades',
+        'app.pedidos_productos_detalle',
+        'app.materiales_entrada',
         'app.envios_objetos',
-        'app.direcciones',
-        'app.pedidos_productos_detalle'
+        'app.proceso_producto_entrada',
+        'app.proceso_producto_salida',
+        'app.proceso_material_entrada',
+        'app.proveedores_material'
     ];
 
     /**

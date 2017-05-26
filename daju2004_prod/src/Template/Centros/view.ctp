@@ -5,11 +5,11 @@
 ?>
 
 <div class="centros view large-9 medium-8 columns content">
-    <h3><?= h($centro->id) ?></h3>
+    <h3><?= h($centro->name) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Nombre') ?></th>
-            <td><?= h($centro->nombre) ?></td>
+            <th scope="row"><?= __('Name') ?></th>
+            <td><?= h($centro->name) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Referencia') ?></th>
@@ -29,7 +29,9 @@
         </tr>
     </table>
     <div class="related">
-        <h4><?= __('Related Entradas De Materiales') ?></h4>
+        <h4><?= __('Related Entradas De Materiales') ?>
+        	<li><?= $this->Html->link(__('New Entradas De Materiale'), ['controller' => 'EntradasDeMateriales', 'action' => 'add',$centro->id]) ?> </li>
+        </h4>
         <?php if (!empty($centro->entradas_de_materiales)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
@@ -64,7 +66,9 @@
         <?php endif; ?>
     </div>
     <div class="related">
-        <h4><?= __('Related Envios') ?></h4>
+        <h4><?= __('Related Envios') ?>
+        	<li><?= $this->Html->link(__('New Envio'), ['controller' => 'Envios', 'action' => 'add',$centro->id]) ?> </li>
+        </h4>
         <?php if (!empty($centro->envios)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
@@ -103,7 +107,9 @@
         <?php endif; ?>
     </div>
     <div class="related">
-        <h4><?= __('Related Localizaciones') ?></h4>
+        <h4><?= __('Related Localizaciones') ?>
+        	<li><?= $this->Html->link(__('New Localizacione'), ['controller' => 'Localizaciones', 'action' => 'add',$centro->id]) ?> </li>
+        </h4>
         <?php if (!empty($centro->localizaciones)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
@@ -128,7 +134,9 @@
         <?php endif; ?>
     </div>
     <div class="related">
-        <h4><?= __('Related Ordens') ?></h4>
+        <h4><?= __('Related Ordens') ?>
+        	<li><?= $this->Html->link(__('New Orden'), ['controller' => 'Ordens', 'action' => 'add',$centro->id]) ?> </li>
+        </h4>
         <?php if (!empty($centro->ordens)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
@@ -173,7 +181,9 @@
         <?php endif; ?>
     </div>
     <div class="related">
-        <h4><?= __('Related Proceso') ?></h4>
+        <h4><?= __('Related Proceso') ?>
+        	<li><?= $this->Html->link(__('New Proceso'), ['controller' => 'Proceso', 'action' => 'add',$centro->id]) ?> </li>
+        </h4>
         <?php if (!empty($centro->proceso)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>

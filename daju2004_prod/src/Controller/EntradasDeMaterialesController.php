@@ -51,7 +51,7 @@ class EntradasDeMaterialesController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($external_id=null)
     {
         $entradasDeMateriale = $this->EntradasDeMateriales->newEntity();
         if ($this->request->is('post')) {

@@ -41,7 +41,9 @@
         </tr>
     </table>
     <div class="related">
-        <h4><?= __('Related Envios') ?></h4>
+        <h4><?= __('Related Envios') ?>
+        	<li><?= $this->Html->link(__('New Envio'), ['controller' => 'Envios', 'action' => 'add',$direccione->id]) ?> </li>
+        </h4>
         <?php if (!empty($direccione->envios)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>

@@ -21,7 +21,9 @@
         </tr>
     </table>
     <div class="related">
-        <h4><?= __('Related Material') ?></h4>
+        <h4><?= __('Related Material') ?>
+        	<li><?= $this->Html->link(__('New Material'), ['controller' => 'Material', 'action' => 'add',$familia->id]) ?> </li>
+        </h4>
         <?php if (!empty($familia->material)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
@@ -74,7 +76,9 @@
         <?php endif; ?>
     </div>
     <div class="related">
-        <h4><?= __('Related Proceso') ?></h4>
+        <h4><?= __('Related Proceso') ?>
+        	<li><?= $this->Html->link(__('New Proceso'), ['controller' => 'Proceso', 'action' => 'add',$familia->id]) ?> </li>
+        </h4>
         <?php if (!empty($familia->proceso)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
@@ -123,7 +127,9 @@
         <?php endif; ?>
     </div>
     <div class="related">
-        <h4><?= __('Related Producto') ?></h4>
+        <h4><?= __('Related Producto') ?>
+        	<li><?= $this->Html->link(__('New Producto'), ['controller' => 'Producto', 'action' => 'add',$familia->id]) ?> </li>
+        </h4>
         <?php if (!empty($familia->producto)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>

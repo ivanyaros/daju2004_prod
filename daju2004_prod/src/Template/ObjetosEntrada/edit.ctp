@@ -3,20 +3,7 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $objetosEntrada->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $objetosEntrada->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Objetos Entrada'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Objetos'), ['controller' => 'Objetos', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Objeto'), ['controller' => 'Objetos', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
+
 <div class="objetosEntrada form large-9 medium-8 columns content">
     <?= $this->Form->create($objetosEntrada) ?>
     <fieldset>

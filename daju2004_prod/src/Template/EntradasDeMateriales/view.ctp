@@ -25,7 +25,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Centro') ?></th>
-            <td><?= $entradasDeMateriale->has('centro') ? $this->Html->link($entradasDeMateriale->centro->id, ['controller' => 'Centros', 'action' => 'view', $entradasDeMateriale->centro->id]) : '' ?></td>
+            <td><?= $entradasDeMateriale->has('centro') ? $this->Html->link($entradasDeMateriale->centro->name, ['controller' => 'Centros', 'action' => 'view', $entradasDeMateriale->centro->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>

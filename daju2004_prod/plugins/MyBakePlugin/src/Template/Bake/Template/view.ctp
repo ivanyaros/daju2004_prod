@@ -127,7 +127,9 @@ foreach ($relations as $alias => $details):
     $otherPluralHumanName = Inflector::humanize(Inflector::underscore($details['controller']));
     %>
     <div class="related">
-        <h4><?= __('Related <%= $otherPluralHumanName %>') ?></h4>
+        <h4><?= __('Related <%= $otherPluralHumanName %>') ?>
+        	<li><?= $this->Html->link(__('New <%= Inflector::humanize(Inflector::singularize(Inflector::underscore($alias))) %>'), ['controller' => '<%= $details['controller'] %>', 'action' => 'add',<%= $pk %>]) ?> </li>
+        </h4>
         <?php if (!empty($<%= $singularVar %>-><%= $details['property'] %>)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>

@@ -22,6 +22,7 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Centro $centro
  * @property \App\Model\Entity\Direccione $direccione
  * @property \App\Model\Entity\Objeto[] $objetos
+ * @property \App\Model\Entity\EnviosObjeto[] $envios_objetos
  */
 class Envio extends Entity
 {

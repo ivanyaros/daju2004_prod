@@ -9,7 +9,7 @@
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Centro') ?></th>
-            <td><?= $localizacione->has('centro') ? $this->Html->link($localizacione->centro->id, ['controller' => 'Centros', 'action' => 'view', $localizacione->centro->id]) : '' ?></td>
+            <td><?= $localizacione->has('centro') ? $this->Html->link($localizacione->centro->name, ['controller' => 'Centros', 'action' => 'view', $localizacione->centro->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Nombre') ?></th>
@@ -21,7 +21,9 @@
         </tr>
     </table>
     <div class="related">
-        <h4><?= __('Related Materiales') ?></h4>
+        <h4><?= __('Related Materiales') ?>
+        	<li><?= $this->Html->link(__('New Materiale'), ['controller' => 'Materiales', 'action' => 'add',$localizacione->id]) ?> </li>
+        </h4>
         <?php if (!empty($localizacione->materiales)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
@@ -82,7 +84,9 @@
         <?php endif; ?>
     </div>
     <div class="related">
-        <h4><?= __('Related Objetos') ?></h4>
+        <h4><?= __('Related Objetos') ?>
+        	<li><?= $this->Html->link(__('New Objeto'), ['controller' => 'Objetos', 'action' => 'add',$localizacione->id]) ?> </li>
+        </h4>
         <?php if (!empty($localizacione->objetos)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>

@@ -54,6 +54,7 @@ class UsuariosEnEstadosOrdenTableTest extends TestCase
         'app.maquinas_usadas',
         'app.maquinas',
         'app.utensilios_usados',
+        'app.utensilios',
         'app.usuarios'
     ];
 

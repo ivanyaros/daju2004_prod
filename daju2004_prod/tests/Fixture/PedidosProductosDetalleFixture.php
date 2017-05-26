@@ -61,7 +61,7 @@ class PedidosProductosDetalleFixture extends TestFixture
             'pedidos_empresa_id' => 1,
             'producto_id' => 1,
             'cantidad' => 1,
-            'fecha' => '2017-05-25 10:23:06',
+            'fecha' => '2017-05-25 13:38:22',
             'observaciones' => 'Lorem ipsum dolor sit amet',
             'prioridade_id' => 1,
             'terminado' => 1

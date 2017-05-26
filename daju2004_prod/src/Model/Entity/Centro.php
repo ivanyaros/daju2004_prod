@@ -7,7 +7,7 @@ use Cake\ORM\Entity;
  * Centro Entity
  *
  * @property int $id
- * @property string $nombre
+ * @property string $name
  * @property string $referencia
  * @property string $direccion
  * @property string $observaciones

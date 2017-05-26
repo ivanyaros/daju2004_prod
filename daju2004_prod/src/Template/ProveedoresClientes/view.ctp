@@ -57,7 +57,9 @@
         </tr>
     </table>
     <div class="related">
-        <h4><?= __('Related Direcciones') ?></h4>
+        <h4><?= __('Related Direcciones') ?>
+        	<li><?= $this->Html->link(__('New Direccione'), ['controller' => 'Direcciones', 'action' => 'add',$proveedoresCliente->id]) ?> </li>
+        </h4>
         <?php if (!empty($proveedoresCliente->direcciones)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
@@ -92,7 +94,9 @@
         <?php endif; ?>
     </div>
     <div class="related">
-        <h4><?= __('Related Entradas De Materiales') ?></h4>
+        <h4><?= __('Related Entradas De Materiales') ?>
+        	<li><?= $this->Html->link(__('New Entradas De Materiale'), ['controller' => 'EntradasDeMateriales', 'action' => 'add',$proveedoresCliente->id]) ?> </li>
+        </h4>
         <?php if (!empty($proveedoresCliente->entradas_de_materiales)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
@@ -127,7 +131,9 @@
         <?php endif; ?>
     </div>
     <div class="related">
-        <h4><?= __('Related Envios') ?></h4>
+        <h4><?= __('Related Envios') ?>
+        	<li><?= $this->Html->link(__('New Envio'), ['controller' => 'Envios', 'action' => 'add',$proveedoresCliente->id]) ?> </li>
+        </h4>
         <?php if (!empty($proveedoresCliente->envios)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
@@ -166,7 +172,9 @@
         <?php endif; ?>
     </div>
     <div class="related">
-        <h4><?= __('Related Pedidos Empresas') ?></h4>
+        <h4><?= __('Related Pedidos Empresas') ?>
+        	<li><?= $this->Html->link(__('New Pedidos Empresa'), ['controller' => 'PedidosEmpresas', 'action' => 'add',$proveedoresCliente->id]) ?> </li>
+        </h4>
         <?php if (!empty($proveedoresCliente->pedidos_empresas)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
@@ -201,7 +209,9 @@
         <?php endif; ?>
     </div>
     <div class="related">
-        <h4><?= __('Related Proveedores Material') ?></h4>
+        <h4><?= __('Related Proveedores Material') ?>
+        	<li><?= $this->Html->link(__('New Proveedores Material'), ['controller' => 'ProveedoresMaterial', 'action' => 'add',$proveedoresCliente->id]) ?> </li>
+        </h4>
         <?php if (!empty($proveedoresCliente->proveedores_material)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>

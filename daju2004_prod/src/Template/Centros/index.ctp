@@ -25,7 +25,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('nombre') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('referencia') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('direccion') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('observaciones') ?></th>
@@ -36,7 +36,7 @@
             <?php foreach ($centros as $centro): ?>
             <tr>
                 <td><?= $this->Number->format($centro->id) ?></td>
-                <td><?= h($centro->nombre) ?></td>
+                <td><?= h($centro->name) ?></td>
                 <td><?= h($centro->referencia) ?></td>
                 <td><?= h($centro->direccion) ?></td>
                 <td><?= h($centro->observaciones) ?></td>

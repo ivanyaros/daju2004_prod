@@ -51,9 +51,10 @@ class LocalizacionesController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($external_id=null)
     {
         $localizacione = $this->Localizaciones->newEntity();
+        $localizacione->centro_id=$external_id;
         if ($this->request->is('post')) {
             $localizacione = $this->Localizaciones->patchEntity($localizacione, $this->request->getData());
             if ($this->Localizaciones->save($localizacione)) {

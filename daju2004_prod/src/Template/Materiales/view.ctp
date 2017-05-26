@@ -93,7 +93,9 @@
         </tr>
     </table>
     <div class="related">
-        <h4><?= __('Related Materiales Entrada') ?></h4>
+        <h4><?= __('Related Materiales Entrada') ?>
+        	<li><?= $this->Html->link(__('New Materiales Entrada'), ['controller' => 'MaterialesEntrada', 'action' => 'add',$materiale->id]) ?> </li>
+        </h4>
         <?php if (!empty($materiale->materiales_entrada)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>

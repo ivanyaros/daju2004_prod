@@ -26,7 +26,36 @@ class DireccionesTableTest extends TestCase
     public $fixtures = [
         'app.direcciones',
         'app.proveedores_clientes',
-        'app.envios'
+        'app.entradas_de_materiales',
+        'app.centros',
+        'app.envios',
+        'app.pedidos_empresas',
+        'app.pedidos_productos_detalle',
+        'app.producto',
+        'app.familias',
+        'app.material',
+        'app.monedas',
+        'app.proceso',
+        'app.ivas',
+        'app.ordens',
+        'app.estados',
+        'app.estados_de_ordens',
+        'app.maquinas_usadas',
+        'app.maquinas',
+        'app.usuarios_en_estados_orden',
+        'app.usuarios',
+        'app.utensilios_usados',
+        'app.utensilios',
+        'app.prioridades',
+        'app.objetos',
+        'app.localizaciones',
+        'app.materiales',
+        'app.materiales_entrada',
+        'app.envios_objetos',
+        'app.proceso_material_entrada',
+        'app.proceso_producto_entrada',
+        'app.proceso_producto_salida',
+        'app.proveedores_material'
     ];
 
     /**

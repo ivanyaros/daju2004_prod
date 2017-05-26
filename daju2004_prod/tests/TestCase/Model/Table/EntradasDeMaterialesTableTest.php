@@ -26,11 +26,36 @@ class EntradasDeMaterialesTableTest extends TestCase
     public $fixtures = [
         'app.entradas_de_materiales',
         'app.proveedores_clientes',
-        'app.centros',
+        'app.direcciones',
         'app.envios',
+        'app.pedidos_empresas',
+        'app.pedidos_productos_detalle',
+        'app.producto',
+        'app.familias',
+        'app.material',
+        'app.monedas',
+        'app.proceso',
+        'app.ivas',
+        'app.centros',
         'app.localizaciones',
+        'app.materiales',
+        'app.materiales_entrada',
+        'app.objetos',
         'app.ordens',
-        'app.proceso'
+        'app.estados',
+        'app.estados_de_ordens',
+        'app.maquinas_usadas',
+        'app.maquinas',
+        'app.usuarios_en_estados_orden',
+        'app.usuarios',
+        'app.utensilios_usados',
+        'app.utensilios',
+        'app.prioridades',
+        'app.envios_objetos',
+        'app.proceso_material_entrada',
+        'app.proceso_producto_entrada',
+        'app.proceso_producto_salida',
+        'app.proveedores_material'
     ];
 
     /**

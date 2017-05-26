@@ -41,7 +41,9 @@
         </tr>
     </table>
     <div class="related">
-        <h4><?= __('Related Envios') ?></h4>
+        <h4><?= __('Related Envios') ?>
+        	<li><?= $this->Html->link(__('New Envio'), ['controller' => 'Envios', 'action' => 'add',$pedidosEmpresa->id]) ?> </li>
+        </h4>
         <?php if (!empty($pedidosEmpresa->envios)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
@@ -80,7 +82,9 @@
         <?php endif; ?>
     </div>
     <div class="related">
-        <h4><?= __('Related Pedidos Productos Detalle') ?></h4>
+        <h4><?= __('Related Pedidos Productos Detalle') ?>
+        	<li><?= $this->Html->link(__('New Pedidos Productos Detalle'), ['controller' => 'PedidosProductosDetalle', 'action' => 'add',$pedidosEmpresa->id]) ?> </li>
+        </h4>
         <?php if (!empty($pedidosEmpresa->pedidos_productos_detalle)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>

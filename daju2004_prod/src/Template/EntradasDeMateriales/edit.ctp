@@ -3,22 +3,7 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $entradasDeMateriale->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $entradasDeMateriale->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Entradas De Materiales'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Proveedores Clientes'), ['controller' => 'ProveedoresClientes', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Proveedores Cliente'), ['controller' => 'ProveedoresClientes', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Centros'), ['controller' => 'Centros', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Centro'), ['controller' => 'Centros', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
+
 <div class="entradasDeMateriales form large-9 medium-8 columns content">
     <?= $this->Form->create($entradasDeMateriale) ?>
     <fieldset>

@@ -21,7 +21,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Centro') ?></th>
-            <td><?= $envio->has('centro') ? $this->Html->link($envio->centro->id, ['controller' => 'Centros', 'action' => 'view', $envio->centro->id]) : '' ?></td>
+            <td><?= $envio->has('centro') ? $this->Html->link($envio->centro->name, ['controller' => 'Centros', 'action' => 'view', $envio->centro->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Observaciones') ?></th>
@@ -49,7 +49,9 @@
         </tr>
     </table>
     <div class="related">
-        <h4><?= __('Related Objetos') ?></h4>
+        <h4><?= __('Related Objetos') ?>
+        	<li><?= $this->Html->link(__('New Objeto'), ['controller' => 'Objetos', 'action' => 'add',$envio->id]) ?> </li>
+        </h4>
         <?php if (!empty($envio->objetos)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
