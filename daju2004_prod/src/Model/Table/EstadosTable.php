@@ -34,7 +34,8 @@ class EstadosTable extends Table
         parent::initialize($config);
 
         $this->setTable('estados');
-        $this->setDisplayField('id');
+        $this->setDisplayField('label');
+
         $this->setPrimaryKey('id');
 
         $this->hasMany('EstadosDeOrdens', [

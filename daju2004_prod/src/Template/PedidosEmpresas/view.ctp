@@ -5,7 +5,7 @@
 ?>
 
 <div class="pedidosEmpresas view large-9 medium-8 columns content">
-    <h3><?= h($pedidosEmpresa->id) ?></h3>
+    <h3><?= h($pedidosEmpresa->label) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Name') ?></th>
@@ -17,7 +17,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Proveedores Cliente') ?></th>
-            <td><?= $pedidosEmpresa->has('proveedores_cliente') ? $this->Html->link($pedidosEmpresa->proveedores_cliente->id, ['controller' => 'ProveedoresClientes', 'action' => 'view', $pedidosEmpresa->proveedores_cliente->id]) : '' ?></td>
+            <td><?= $pedidosEmpresa->has('proveedores_cliente') ? $this->Html->link($pedidosEmpresa->proveedores_cliente->label, ['controller' => 'ProveedoresClientes', 'action' => 'view', $pedidosEmpresa->proveedores_cliente->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Albaran') ?></th>

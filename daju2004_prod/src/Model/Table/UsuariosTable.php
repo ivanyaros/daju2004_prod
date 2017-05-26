@@ -33,7 +33,8 @@ class UsuariosTable extends Table
         parent::initialize($config);
 
         $this->setTable('usuarios');
-        $this->setDisplayField('id');
+        $this->setDisplayField('label');
+
         $this->setPrimaryKey('id');
 
         $this->hasMany('UsuariosEnEstadosOrden', [

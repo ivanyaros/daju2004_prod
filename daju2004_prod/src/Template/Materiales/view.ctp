@@ -5,19 +5,19 @@
 ?>
 
 <div class="materiales view large-9 medium-8 columns content">
-    <h3><?= h($materiale->id) ?></h3>
+    <h3><?= h($materiale->label) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Material') ?></th>
-            <td><?= $materiale->has('material') ? $this->Html->link($materiale->material->id, ['controller' => 'Material', 'action' => 'view', $materiale->material->id]) : '' ?></td>
+            <td><?= $materiale->has('material') ? $this->Html->link($materiale->material->label, ['controller' => 'Material', 'action' => 'view', $materiale->material->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Localizacione') ?></th>
-            <td><?= $materiale->has('localizacione') ? $this->Html->link($materiale->localizacione->id, ['controller' => 'Localizaciones', 'action' => 'view', $materiale->localizacione->id]) : '' ?></td>
+            <td><?= $materiale->has('localizacione') ? $this->Html->link($materiale->localizacione->label, ['controller' => 'Localizaciones', 'action' => 'view', $materiale->localizacione->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Entradas De Materiale') ?></th>
-            <td><?= $materiale->has('entradas_de_materiale') ? $this->Html->link($materiale->entradas_de_materiale->id, ['controller' => 'EntradasDeMateriales', 'action' => 'view', $materiale->entradas_de_materiale->id]) : '' ?></td>
+            <td><?= $materiale->has('entradas_de_materiale') ? $this->Html->link($materiale->entradas_de_materiale->label, ['controller' => 'EntradasDeMateriales', 'action' => 'view', $materiale->entradas_de_materiale->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Lote') ?></th>

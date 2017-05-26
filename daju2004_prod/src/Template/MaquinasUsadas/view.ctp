@@ -5,15 +5,15 @@
 ?>
 
 <div class="maquinasUsadas view large-9 medium-8 columns content">
-    <h3><?= h($maquinasUsada->id) ?></h3>
+    <h3><?= h($maquinasUsada->label) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Estados De Orden') ?></th>
-            <td><?= $maquinasUsada->has('estados_de_orden') ? $this->Html->link($maquinasUsada->estados_de_orden->id, ['controller' => 'EstadosDeOrdens', 'action' => 'view', $maquinasUsada->estados_de_orden->id]) : '' ?></td>
+            <td><?= $maquinasUsada->has('estados_de_orden') ? $this->Html->link($maquinasUsada->estados_de_orden->label, ['controller' => 'EstadosDeOrdens', 'action' => 'view', $maquinasUsada->estados_de_orden->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Maquina') ?></th>
-            <td><?= $maquinasUsada->has('maquina') ? $this->Html->link($maquinasUsada->maquina->id, ['controller' => 'Maquinas', 'action' => 'view', $maquinasUsada->maquina->id]) : '' ?></td>
+            <td><?= $maquinasUsada->has('maquina') ? $this->Html->link($maquinasUsada->maquina->label, ['controller' => 'Maquinas', 'action' => 'view', $maquinasUsada->maquina->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Observaciones') ?></th>

@@ -37,7 +37,8 @@ class ObjetosTable extends Table
         parent::initialize($config);
 
         $this->setTable('objetos');
-        $this->setDisplayField('id');
+        $this->setDisplayField('label');
+
         $this->setPrimaryKey('id');
 
         $this->belongsTo('Producto', [

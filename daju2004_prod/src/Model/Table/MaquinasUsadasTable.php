@@ -34,7 +34,8 @@ class MaquinasUsadasTable extends Table
         parent::initialize($config);
 
         $this->setTable('maquinas_usadas');
-        $this->setDisplayField('id');
+        $this->setDisplayField('label');
+
         $this->setPrimaryKey('id');
 
         $this->belongsTo('EstadosDeOrdens', [

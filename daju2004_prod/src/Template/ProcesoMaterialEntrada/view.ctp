@@ -5,15 +5,15 @@
 ?>
 
 <div class="procesoMaterialEntrada view large-9 medium-8 columns content">
-    <h3><?= h($procesoMaterialEntrada->id) ?></h3>
+    <h3><?= h($procesoMaterialEntrada->label) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Proceso') ?></th>
-            <td><?= $procesoMaterialEntrada->has('proceso') ? $this->Html->link($procesoMaterialEntrada->proceso->name, ['controller' => 'Proceso', 'action' => 'view', $procesoMaterialEntrada->proceso->id]) : '' ?></td>
+            <td><?= $procesoMaterialEntrada->has('proceso') ? $this->Html->link($procesoMaterialEntrada->proceso->label, ['controller' => 'Proceso', 'action' => 'view', $procesoMaterialEntrada->proceso->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Material') ?></th>
-            <td><?= $procesoMaterialEntrada->has('material') ? $this->Html->link($procesoMaterialEntrada->material->id, ['controller' => 'Material', 'action' => 'view', $procesoMaterialEntrada->material->id]) : '' ?></td>
+            <td><?= $procesoMaterialEntrada->has('material') ? $this->Html->link($procesoMaterialEntrada->material->label, ['controller' => 'Material', 'action' => 'view', $procesoMaterialEntrada->material->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Observaciones') ?></th>

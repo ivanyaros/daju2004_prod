@@ -37,7 +37,8 @@ class EstadosDeOrdensTable extends Table
         parent::initialize($config);
 
         $this->setTable('estados_de_ordens');
-        $this->setDisplayField('id');
+        $this->setDisplayField('label');
+
         $this->setPrimaryKey('id');
 
         $this->belongsTo('Ordens', [

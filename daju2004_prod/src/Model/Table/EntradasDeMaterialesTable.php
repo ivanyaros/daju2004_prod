@@ -35,7 +35,8 @@ class EntradasDeMaterialesTable extends Table
         parent::initialize($config);
 
         $this->setTable('entradas_de_materiales');
-        $this->setDisplayField('id');
+        $this->setDisplayField('label');
+
         $this->setPrimaryKey('id');
 
         $this->belongsTo('ProveedoresClientes', [

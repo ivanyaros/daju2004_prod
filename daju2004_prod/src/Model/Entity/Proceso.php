@@ -35,7 +35,7 @@ class Proceso extends Entity
 {
 
     /**
-     * Fields that can be mass assigned using newEntity() or patchEntity().
+     * Fields that can be mass sasigned using newEntity() or patchEntity().
      *
      * Note that when '*' is set to true, this allows all unspecified fields to
      * be mass assigned. For security purposes, it is advised to set '*' to false
@@ -43,6 +43,16 @@ class Proceso extends Entity
      *
      * @var array
      */
+    
+    protected function _getLabel()
+    {
+
+            if (!empty($this->_properties['name'])){
+                return '('.$this->_properties['id'].')'.$this->_properties['name'];
+            }
+            return '('.$this->_properties['id'].')';
+    }
+    
     protected $_accessible = [
         '*' => true,
         'id' => false

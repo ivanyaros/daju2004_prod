@@ -40,6 +40,7 @@ class ProductoTable extends Table
 
         $this->setTable('producto');
         $this->setDisplayField('label');
+
         $this->setPrimaryKey('id');
 
         $this->belongsTo('Familias', [

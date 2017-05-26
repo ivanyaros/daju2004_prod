@@ -5,15 +5,15 @@
 ?>
 
 <div class="estadosDeOrdens view large-9 medium-8 columns content">
-    <h3><?= h($estadosDeOrden->id) ?></h3>
+    <h3><?= h($estadosDeOrden->label) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Orden') ?></th>
-            <td><?= $estadosDeOrden->has('orden') ? $this->Html->link($estadosDeOrden->orden->id, ['controller' => 'Ordens', 'action' => 'view', $estadosDeOrden->orden->id]) : '' ?></td>
+            <td><?= $estadosDeOrden->has('orden') ? $this->Html->link($estadosDeOrden->orden->label, ['controller' => 'Ordens', 'action' => 'view', $estadosDeOrden->orden->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Estado') ?></th>
-            <td><?= $estadosDeOrden->has('estado') ? $this->Html->link($estadosDeOrden->estado->id, ['controller' => 'Estados', 'action' => 'view', $estadosDeOrden->estado->id]) : '' ?></td>
+            <td><?= $estadosDeOrden->has('estado') ? $this->Html->link($estadosDeOrden->estado->label, ['controller' => 'Estados', 'action' => 'view', $estadosDeOrden->estado->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Descripcion') ?></th>

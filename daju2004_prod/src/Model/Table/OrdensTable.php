@@ -38,7 +38,8 @@ class OrdensTable extends Table
         parent::initialize($config);
 
         $this->setTable('ordens');
-        $this->setDisplayField('id');
+        $this->setDisplayField('label');
+
         $this->setPrimaryKey('id');
 
         $this->belongsTo('Estados', [

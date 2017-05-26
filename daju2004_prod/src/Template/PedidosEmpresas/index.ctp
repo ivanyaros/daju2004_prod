@@ -37,7 +37,7 @@
                 <td><?= $this->Number->format($pedidosEmpresa->id) ?></td>
                 <td><?= h($pedidosEmpresa->name) ?></td>
                 <td><?= h($pedidosEmpresa->referencia) ?></td>
-                <td><?= $pedidosEmpresa->has('proveedores_cliente') ? $this->Html->link($pedidosEmpresa->proveedores_cliente->id, ['controller' => 'ProveedoresClientes', 'action' => 'view', $pedidosEmpresa->proveedores_cliente->id]) : '' ?></td>
+                <td><?= $pedidosEmpresa->has('proveedores_cliente') ? $this->Html->link($pedidosEmpresa->proveedores_cliente->label, ['controller' => 'ProveedoresClientes', 'action' => 'view', $pedidosEmpresa->proveedores_cliente->id]) : '' ?></td>
                 <td><?= h($pedidosEmpresa->fecha) ?></td>
                 <td><?= h($pedidosEmpresa->albaran) ?></td>
                 <td><?= h($pedidosEmpresa->observaciones) ?></td>

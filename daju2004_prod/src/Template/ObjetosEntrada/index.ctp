@@ -30,7 +30,7 @@
             <tr>
                 <td><?= $this->Number->format($objetosEntrada->id) ?></td>
                 <td><?= $this->Number->format($objetosEntrada->entrada_id) ?></td>
-                <td><?= $objetosEntrada->has('objeto') ? $this->Html->link($objetosEntrada->objeto->id, ['controller' => 'Objetos', 'action' => 'view', $objetosEntrada->objeto->id]) : '' ?></td>
+                <td><?= $objetosEntrada->has('objeto') ? $this->Html->link($objetosEntrada->objeto->label, ['controller' => 'Objetos', 'action' => 'view', $objetosEntrada->objeto->id]) : '' ?></td>
                 <td><?= $this->Number->format($objetosEntrada->cantidad_entrada) ?></td>
                 <td><?= $this->Number->format($objetosEntrada->cantidad_producida) ?></td>
                 <td><?= h($objetosEntrada->observaciones) ?></td>

@@ -34,7 +34,8 @@ class DireccionesTable extends Table
         parent::initialize($config);
 
         $this->setTable('direcciones');
-        $this->setDisplayField('id');
+        $this->setDisplayField('label');
+
         $this->setPrimaryKey('id');
 
         $this->belongsTo('ProveedoresClientes', [

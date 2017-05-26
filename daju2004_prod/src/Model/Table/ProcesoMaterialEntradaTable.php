@@ -34,7 +34,8 @@ class ProcesoMaterialEntradaTable extends Table
         parent::initialize($config);
 
         $this->setTable('proceso_material_entrada');
-        $this->setDisplayField('id');
+        $this->setDisplayField('label');
+
         $this->setPrimaryKey('id');
 
         $this->belongsTo('Proceso', [

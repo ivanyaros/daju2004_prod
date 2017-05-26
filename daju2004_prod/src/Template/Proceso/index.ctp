@@ -54,10 +54,10 @@
                 <td><?= $this->Number->format($proceso->id) ?></td>
                 <td><?= h($proceso->name) ?></td>
                 <td><?= h($proceso->referencia) ?></td>
-                <td><?= $proceso->has('familia') ? $this->Html->link($proceso->familia->id, ['controller' => 'Familias', 'action' => 'view', $proceso->familia->id]) : '' ?></td>
+                <td><?= $proceso->has('familia') ? $this->Html->link($proceso->familia->label, ['controller' => 'Familias', 'action' => 'view', $proceso->familia->id]) : '' ?></td>
                 <td><?= $this->Number->format($proceso->precio) ?></td>
-                <td><?= $proceso->has('moneda') ? $this->Html->link($proceso->moneda->id, ['controller' => 'Monedas', 'action' => 'view', $proceso->moneda->id]) : '' ?></td>
-                <td><?= $proceso->has('iva') ? $this->Html->link($proceso->iva->id, ['controller' => 'Ivas', 'action' => 'view', $proceso->iva->id]) : '' ?></td>
+                <td><?= $proceso->has('moneda') ? $this->Html->link($proceso->moneda->label, ['controller' => 'Monedas', 'action' => 'view', $proceso->moneda->id]) : '' ?></td>
+                <td><?= $proceso->has('iva') ? $this->Html->link($proceso->iva->label, ['controller' => 'Ivas', 'action' => 'view', $proceso->iva->id]) : '' ?></td>
                 <td><?= h($proceso->observaciones) ?></td>
                 <td><?= h($proceso->visible) ?></td>
                 <td><?= h($proceso->enlaces) ?></td>

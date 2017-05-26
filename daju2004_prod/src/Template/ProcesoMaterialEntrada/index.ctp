@@ -31,8 +31,8 @@
             <?php foreach ($procesoMaterialEntrada as $procesoMaterialEntrada): ?>
             <tr>
                 <td><?= $this->Number->format($procesoMaterialEntrada->id) ?></td>
-                <td><?= $procesoMaterialEntrada->has('proceso') ? $this->Html->link($procesoMaterialEntrada->proceso->name, ['controller' => 'Proceso', 'action' => 'view', $procesoMaterialEntrada->proceso->id]) : '' ?></td>
-                <td><?= $procesoMaterialEntrada->has('material') ? $this->Html->link($procesoMaterialEntrada->material->id, ['controller' => 'Material', 'action' => 'view', $procesoMaterialEntrada->material->id]) : '' ?></td>
+                <td><?= $procesoMaterialEntrada->has('proceso') ? $this->Html->link($procesoMaterialEntrada->proceso->label, ['controller' => 'Proceso', 'action' => 'view', $procesoMaterialEntrada->proceso->id]) : '' ?></td>
+                <td><?= $procesoMaterialEntrada->has('material') ? $this->Html->link($procesoMaterialEntrada->material->label, ['controller' => 'Material', 'action' => 'view', $procesoMaterialEntrada->material->id]) : '' ?></td>
                 <td><?= $this->Number->format($procesoMaterialEntrada->metros_lineales) ?></td>
                 <td><?= $this->Number->format($procesoMaterialEntrada->metros_cuadrados) ?></td>
                 <td><?= h($procesoMaterialEntrada->observaciones) ?></td>

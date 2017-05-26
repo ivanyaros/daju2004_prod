@@ -5,11 +5,11 @@
 ?>
 
 <div class="entradasDeMateriales view large-9 medium-8 columns content">
-    <h3><?= h($entradasDeMateriale->id) ?></h3>
+    <h3><?= h($entradasDeMateriale->label) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Proveedores Cliente') ?></th>
-            <td><?= $entradasDeMateriale->has('proveedores_cliente') ? $this->Html->link($entradasDeMateriale->proveedores_cliente->id, ['controller' => 'ProveedoresClientes', 'action' => 'view', $entradasDeMateriale->proveedores_cliente->id]) : '' ?></td>
+            <td><?= $entradasDeMateriale->has('proveedores_cliente') ? $this->Html->link($entradasDeMateriale->proveedores_cliente->label, ['controller' => 'ProveedoresClientes', 'action' => 'view', $entradasDeMateriale->proveedores_cliente->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Referencia') ?></th>

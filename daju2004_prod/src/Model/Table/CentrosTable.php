@@ -38,6 +38,7 @@ class CentrosTable extends Table
 
         $this->setTable('centros');
         $this->setDisplayField('label');
+
         $this->setPrimaryKey('id');
 
         $this->hasMany('EntradasDeMateriales', [

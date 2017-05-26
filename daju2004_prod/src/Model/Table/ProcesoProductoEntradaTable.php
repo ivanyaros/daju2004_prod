@@ -34,7 +34,8 @@ class ProcesoProductoEntradaTable extends Table
         parent::initialize($config);
 
         $this->setTable('proceso_producto_entrada');
-        $this->setDisplayField('id');
+        $this->setDisplayField('label');
+
         $this->setPrimaryKey('id');
 
         $this->belongsTo('Proceso', [

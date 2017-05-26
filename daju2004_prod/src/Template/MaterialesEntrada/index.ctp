@@ -33,8 +33,8 @@
             <?php foreach ($materialesEntrada as $materialesEntrada): ?>
             <tr>
                 <td><?= $this->Number->format($materialesEntrada->id) ?></td>
-                <td><?= $materialesEntrada->has('objeto') ? $this->Html->link($materialesEntrada->objeto->id, ['controller' => 'Objetos', 'action' => 'view', $materialesEntrada->objeto->id]) : '' ?></td>
-                <td><?= $materialesEntrada->has('materiale') ? $this->Html->link($materialesEntrada->materiale->id, ['controller' => 'Materiales', 'action' => 'view', $materialesEntrada->materiale->id]) : '' ?></td>
+                <td><?= $materialesEntrada->has('objeto') ? $this->Html->link($materialesEntrada->objeto->label, ['controller' => 'Objetos', 'action' => 'view', $materialesEntrada->objeto->id]) : '' ?></td>
+                <td><?= $materialesEntrada->has('materiale') ? $this->Html->link($materialesEntrada->materiale->label, ['controller' => 'Materiales', 'action' => 'view', $materialesEntrada->materiale->id]) : '' ?></td>
                 <td><?= $this->Number->format($materialesEntrada->cantidad_producida) ?></td>
                 <td><?= $this->Number->format($materialesEntrada->metros_gastados) ?></td>
                 <td><?= $this->Number->format($materialesEntrada->metros_utiles) ?></td>

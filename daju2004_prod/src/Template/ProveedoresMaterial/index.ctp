@@ -29,8 +29,8 @@
             <?php foreach ($proveedoresMaterial as $proveedoresMaterial): ?>
             <tr>
                 <td><?= $this->Number->format($proveedoresMaterial->id) ?></td>
-                <td><?= $proveedoresMaterial->has('proveedores_cliente') ? $this->Html->link($proveedoresMaterial->proveedores_cliente->id, ['controller' => 'ProveedoresClientes', 'action' => 'view', $proveedoresMaterial->proveedores_cliente->id]) : '' ?></td>
-                <td><?= $proveedoresMaterial->has('material') ? $this->Html->link($proveedoresMaterial->material->id, ['controller' => 'Material', 'action' => 'view', $proveedoresMaterial->material->id]) : '' ?></td>
+                <td><?= $proveedoresMaterial->has('proveedores_cliente') ? $this->Html->link($proveedoresMaterial->proveedores_cliente->label, ['controller' => 'ProveedoresClientes', 'action' => 'view', $proveedoresMaterial->proveedores_cliente->id]) : '' ?></td>
+                <td><?= $proveedoresMaterial->has('material') ? $this->Html->link($proveedoresMaterial->material->label, ['controller' => 'Material', 'action' => 'view', $proveedoresMaterial->material->id]) : '' ?></td>
                 <td><?= h($proveedoresMaterial->observaciones) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $proveedoresMaterial->id]) ?>

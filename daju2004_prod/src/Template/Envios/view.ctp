@@ -5,11 +5,11 @@
 ?>
 
 <div class="envios view large-9 medium-8 columns content">
-    <h3><?= h($envio->id) ?></h3>
+    <h3><?= h($envio->label) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Proveedores Cliente') ?></th>
-            <td><?= $envio->has('proveedores_cliente') ? $this->Html->link($envio->proveedores_cliente->id, ['controller' => 'ProveedoresClientes', 'action' => 'view', $envio->proveedores_cliente->id]) : '' ?></td>
+            <td><?= $envio->has('proveedores_cliente') ? $this->Html->link($envio->proveedores_cliente->label, ['controller' => 'ProveedoresClientes', 'action' => 'view', $envio->proveedores_cliente->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Albaran') ?></th>
@@ -17,7 +17,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Pedidos Empresa') ?></th>
-            <td><?= $envio->has('pedidos_empresa') ? $this->Html->link($envio->pedidos_empresa->id, ['controller' => 'PedidosEmpresas', 'action' => 'view', $envio->pedidos_empresa->id]) : '' ?></td>
+            <td><?= $envio->has('pedidos_empresa') ? $this->Html->link($envio->pedidos_empresa->label, ['controller' => 'PedidosEmpresas', 'action' => 'view', $envio->pedidos_empresa->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Centro') ?></th>
@@ -29,7 +29,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Direccione') ?></th>
-            <td><?= $envio->has('direccione') ? $this->Html->link($envio->direccione->id, ['controller' => 'Direcciones', 'action' => 'view', $envio->direccione->id]) : '' ?></td>
+            <td><?= $envio->has('direccione') ? $this->Html->link($envio->direccione->label, ['controller' => 'Direcciones', 'action' => 'view', $envio->direccione->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>

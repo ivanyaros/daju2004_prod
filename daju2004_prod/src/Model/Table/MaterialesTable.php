@@ -36,7 +36,8 @@ class MaterialesTable extends Table
         parent::initialize($config);
 
         $this->setTable('materiales');
-        $this->setDisplayField('id');
+        $this->setDisplayField('label');
+
         $this->setPrimaryKey('id');
 
         $this->belongsTo('Material', [

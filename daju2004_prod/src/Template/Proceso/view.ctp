@@ -5,7 +5,7 @@
 ?>
 
 <div class="proceso view large-9 medium-8 columns content">
-    <h3><?= h($proceso->name) ?></h3>
+    <h3><?= h($proceso->label) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Name') ?></th>
@@ -17,15 +17,15 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Familia') ?></th>
-            <td><?= $proceso->has('familia') ? $this->Html->link($proceso->familia->id, ['controller' => 'Familias', 'action' => 'view', $proceso->familia->id]) : '' ?></td>
+            <td><?= $proceso->has('familia') ? $this->Html->link($proceso->familia->label, ['controller' => 'Familias', 'action' => 'view', $proceso->familia->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Moneda') ?></th>
-            <td><?= $proceso->has('moneda') ? $this->Html->link($proceso->moneda->id, ['controller' => 'Monedas', 'action' => 'view', $proceso->moneda->id]) : '' ?></td>
+            <td><?= $proceso->has('moneda') ? $this->Html->link($proceso->moneda->label, ['controller' => 'Monedas', 'action' => 'view', $proceso->moneda->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Iva') ?></th>
-            <td><?= $proceso->has('iva') ? $this->Html->link($proceso->iva->id, ['controller' => 'Ivas', 'action' => 'view', $proceso->iva->id]) : '' ?></td>
+            <td><?= $proceso->has('iva') ? $this->Html->link($proceso->iva->label, ['controller' => 'Ivas', 'action' => 'view', $proceso->iva->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Observaciones') ?></th>

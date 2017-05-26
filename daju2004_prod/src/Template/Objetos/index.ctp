@@ -47,9 +47,9 @@
                 <td><?= $objeto->has('producto') ? $this->Html->link($objeto->producto->label, ['controller' => 'Producto', 'action' => 'view', $objeto->producto->id]) : '' ?></td>
                 <td><?= $this->Number->format($objeto->numero_serie) ?></td>
                 <td><?= h($objeto->referencia) ?></td>
-                <td><?= $objeto->has('orden') ? $this->Html->link($objeto->orden->id, ['controller' => 'Ordens', 'action' => 'view', $objeto->orden->id]) : '' ?></td>
+                <td><?= $objeto->has('orden') ? $this->Html->link($objeto->orden->label, ['controller' => 'Ordens', 'action' => 'view', $objeto->orden->id]) : '' ?></td>
                 <td><?= h($objeto->lote) ?></td>
-                <td><?= $objeto->has('localizacione') ? $this->Html->link($objeto->localizacione->id, ['controller' => 'Localizaciones', 'action' => 'view', $objeto->localizacione->id]) : '' ?></td>
+                <td><?= $objeto->has('localizacione') ? $this->Html->link($objeto->localizacione->label, ['controller' => 'Localizaciones', 'action' => 'view', $objeto->localizacione->id]) : '' ?></td>
                 <td><?= $this->Number->format($objeto->coste) ?></td>
                 <td><?= $this->Number->format($objeto->defectuosos) ?></td>
                 <td><?= $this->Number->format($objeto->peso) ?></td>

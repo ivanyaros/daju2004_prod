@@ -37,8 +37,8 @@
             <?php foreach ($estadosDeOrdens as $estadosDeOrden): ?>
             <tr>
                 <td><?= $this->Number->format($estadosDeOrden->id) ?></td>
-                <td><?= $estadosDeOrden->has('orden') ? $this->Html->link($estadosDeOrden->orden->id, ['controller' => 'Ordens', 'action' => 'view', $estadosDeOrden->orden->id]) : '' ?></td>
-                <td><?= $estadosDeOrden->has('estado') ? $this->Html->link($estadosDeOrden->estado->id, ['controller' => 'Estados', 'action' => 'view', $estadosDeOrden->estado->id]) : '' ?></td>
+                <td><?= $estadosDeOrden->has('orden') ? $this->Html->link($estadosDeOrden->orden->label, ['controller' => 'Ordens', 'action' => 'view', $estadosDeOrden->orden->id]) : '' ?></td>
+                <td><?= $estadosDeOrden->has('estado') ? $this->Html->link($estadosDeOrden->estado->label, ['controller' => 'Estados', 'action' => 'view', $estadosDeOrden->estado->id]) : '' ?></td>
                 <td><?= h($estadosDeOrden->fecha_inicio) ?></td>
                 <td><?= h($estadosDeOrden->fecha_fin) ?></td>
                 <td><?= h($estadosDeOrden->descripcion) ?></td>

@@ -5,11 +5,11 @@
 ?>
 
 <div class="pedidosProductosDetalle view large-9 medium-8 columns content">
-    <h3><?= h($pedidosProductosDetalle->id) ?></h3>
+    <h3><?= h($pedidosProductosDetalle->label) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Pedidos Empresa') ?></th>
-            <td><?= $pedidosProductosDetalle->has('pedidos_empresa') ? $this->Html->link($pedidosProductosDetalle->pedidos_empresa->id, ['controller' => 'PedidosEmpresas', 'action' => 'view', $pedidosProductosDetalle->pedidos_empresa->id]) : '' ?></td>
+            <td><?= $pedidosProductosDetalle->has('pedidos_empresa') ? $this->Html->link($pedidosProductosDetalle->pedidos_empresa->label, ['controller' => 'PedidosEmpresas', 'action' => 'view', $pedidosProductosDetalle->pedidos_empresa->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Producto') ?></th>
@@ -21,7 +21,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Prioridade') ?></th>
-            <td><?= $pedidosProductosDetalle->has('prioridade') ? $this->Html->link($pedidosProductosDetalle->prioridade->id, ['controller' => 'Prioridades', 'action' => 'view', $pedidosProductosDetalle->prioridade->id]) : '' ?></td>
+            <td><?= $pedidosProductosDetalle->has('prioridade') ? $this->Html->link($pedidosProductosDetalle->prioridade->label, ['controller' => 'Prioridades', 'action' => 'view', $pedidosProductosDetalle->prioridade->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>

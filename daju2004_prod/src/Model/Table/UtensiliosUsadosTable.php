@@ -34,7 +34,8 @@ class UtensiliosUsadosTable extends Table
         parent::initialize($config);
 
         $this->setTable('utensilios_usados');
-        $this->setDisplayField('id');
+        $this->setDisplayField('label');
+
         $this->setPrimaryKey('id');
 
         $this->belongsTo('EstadosDeOrdens', [

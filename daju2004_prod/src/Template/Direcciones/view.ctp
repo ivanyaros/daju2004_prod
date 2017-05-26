@@ -5,11 +5,11 @@
 ?>
 
 <div class="direcciones view large-9 medium-8 columns content">
-    <h3><?= h($direccione->id) ?></h3>
+    <h3><?= h($direccione->label) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Proveedores Cliente') ?></th>
-            <td><?= $direccione->has('proveedores_cliente') ? $this->Html->link($direccione->proveedores_cliente->id, ['controller' => 'ProveedoresClientes', 'action' => 'view', $direccione->proveedores_cliente->id]) : '' ?></td>
+            <td><?= $direccione->has('proveedores_cliente') ? $this->Html->link($direccione->proveedores_cliente->label, ['controller' => 'ProveedoresClientes', 'action' => 'view', $direccione->proveedores_cliente->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Direccion') ?></th>

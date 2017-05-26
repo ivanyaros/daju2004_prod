@@ -35,7 +35,8 @@ class PedidosEmpresasTable extends Table
         parent::initialize($config);
 
         $this->setTable('pedidos_empresas');
-        $this->setDisplayField('id');
+        $this->setDisplayField('label');
+
         $this->setPrimaryKey('id');
 
         $this->belongsTo('ProveedoresClientes', [

@@ -5,7 +5,7 @@
 ?>
 
 <div class="prioridades view large-9 medium-8 columns content">
-    <h3><?= h($prioridade->id) ?></h3>
+    <h3><?= h($prioridade->label) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Name') ?></th>

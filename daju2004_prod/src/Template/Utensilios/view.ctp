@@ -5,7 +5,7 @@
 ?>
 
 <div class="utensilios view large-9 medium-8 columns content">
-    <h3><?= h($utensilio->id) ?></h3>
+    <h3><?= h($utensilio->label) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Name') ?></th>

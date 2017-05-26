@@ -34,7 +34,8 @@ class UsuariosEnEstadosOrdenTable extends Table
         parent::initialize($config);
 
         $this->setTable('usuarios_en_estados_orden');
-        $this->setDisplayField('id');
+        $this->setDisplayField('label');
+
         $this->setPrimaryKey('id');
 
         $this->belongsTo('EstadosDeOrdens', [

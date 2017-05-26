@@ -53,7 +53,7 @@
                 <td><?= h($material->name) ?></td>
                 <td><?= h($material->referencia) ?></td>
                 <td><?= h($material->referencia_proveedor) ?></td>
-                <td><?= $material->has('familia') ? $this->Html->link($material->familia->id, ['controller' => 'Familias', 'action' => 'view', $material->familia->id]) : '' ?></td>
+                <td><?= $material->has('familia') ? $this->Html->link($material->familia->label, ['controller' => 'Familias', 'action' => 'view', $material->familia->id]) : '' ?></td>
                 <td><?= $this->Number->format($material->longitud) ?></td>
                 <td><?= $this->Number->format($material->anchura) ?></td>
                 <td><?= $this->Number->format($material->profundidad) ?></td>
@@ -62,8 +62,8 @@
                 <td><?= $this->Number->format($material->peso_ud) ?></td>
                 <td><?= $this->Number->format($material->unidades_embalaje) ?></td>
                 <td><?= $this->Number->format($material->precio) ?></td>
-                <td><?= $material->has('moneda') ? $this->Html->link($material->moneda->id, ['controller' => 'Monedas', 'action' => 'view', $material->moneda->id]) : '' ?></td>
-                <td><?= $material->has('iva') ? $this->Html->link($material->iva->id, ['controller' => 'Ivas', 'action' => 'view', $material->iva->id]) : '' ?></td>
+                <td><?= $material->has('moneda') ? $this->Html->link($material->moneda->label, ['controller' => 'Monedas', 'action' => 'view', $material->moneda->id]) : '' ?></td>
+                <td><?= $material->has('iva') ? $this->Html->link($material->iva->label, ['controller' => 'Ivas', 'action' => 'view', $material->iva->id]) : '' ?></td>
                 <td><?= h($material->observaciones) ?></td>
                 <td><?= h($material->visible) ?></td>
                 <td class="actions">

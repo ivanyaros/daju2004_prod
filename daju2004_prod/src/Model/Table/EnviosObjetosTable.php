@@ -34,7 +34,8 @@ class EnviosObjetosTable extends Table
         parent::initialize($config);
 
         $this->setTable('envios_objetos');
-        $this->setDisplayField('id');
+        $this->setDisplayField('label');
+
         $this->setPrimaryKey('id');
 
         $this->belongsTo('Envios', [

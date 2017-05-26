@@ -34,7 +34,8 @@ class PrioridadesTable extends Table
         parent::initialize($config);
 
         $this->setTable('prioridades');
-        $this->setDisplayField('id');
+        $this->setDisplayField('label');
+
         $this->setPrimaryKey('id');
 
         $this->hasMany('Ordens', [

@@ -5,15 +5,15 @@
 ?>
 
 <div class="materialesEntrada view large-9 medium-8 columns content">
-    <h3><?= h($materialesEntrada->id) ?></h3>
+    <h3><?= h($materialesEntrada->label) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Objeto') ?></th>
-            <td><?= $materialesEntrada->has('objeto') ? $this->Html->link($materialesEntrada->objeto->id, ['controller' => 'Objetos', 'action' => 'view', $materialesEntrada->objeto->id]) : '' ?></td>
+            <td><?= $materialesEntrada->has('objeto') ? $this->Html->link($materialesEntrada->objeto->label, ['controller' => 'Objetos', 'action' => 'view', $materialesEntrada->objeto->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Materiale') ?></th>
-            <td><?= $materialesEntrada->has('materiale') ? $this->Html->link($materialesEntrada->materiale->id, ['controller' => 'Materiales', 'action' => 'view', $materialesEntrada->materiale->id]) : '' ?></td>
+            <td><?= $materialesEntrada->has('materiale') ? $this->Html->link($materialesEntrada->materiale->label, ['controller' => 'Materiales', 'action' => 'view', $materialesEntrada->materiale->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Observaciones') ?></th>

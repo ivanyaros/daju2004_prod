@@ -5,7 +5,7 @@
 ?>
 
 <div class="ordens view large-9 medium-8 columns content">
-    <h3><?= h($orden->id) ?></h3>
+    <h3><?= h($orden->label) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Name') ?></th>
@@ -17,7 +17,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Estado') ?></th>
-            <td><?= $orden->has('estado') ? $this->Html->link($orden->estado->id, ['controller' => 'Estados', 'action' => 'view', $orden->estado->id]) : '' ?></td>
+            <td><?= $orden->has('estado') ? $this->Html->link($orden->estado->label, ['controller' => 'Estados', 'action' => 'view', $orden->estado->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Centro') ?></th>
@@ -25,7 +25,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Proceso') ?></th>
-            <td><?= $orden->has('proceso') ? $this->Html->link($orden->proceso->name, ['controller' => 'Proceso', 'action' => 'view', $orden->proceso->id]) : '' ?></td>
+            <td><?= $orden->has('proceso') ? $this->Html->link($orden->proceso->label, ['controller' => 'Proceso', 'action' => 'view', $orden->proceso->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Observaciones') ?></th>
@@ -33,7 +33,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Prioridade') ?></th>
-            <td><?= $orden->has('prioridade') ? $this->Html->link($orden->prioridade->id, ['controller' => 'Prioridades', 'action' => 'view', $orden->prioridade->id]) : '' ?></td>
+            <td><?= $orden->has('prioridade') ? $this->Html->link($orden->prioridade->label, ['controller' => 'Prioridades', 'action' => 'view', $orden->prioridade->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>

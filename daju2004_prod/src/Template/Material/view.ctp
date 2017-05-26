@@ -5,7 +5,7 @@
 ?>
 
 <div class="material view large-9 medium-8 columns content">
-    <h3><?= h($material->id) ?></h3>
+    <h3><?= h($material->label) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Name') ?></th>
@@ -21,7 +21,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Familia') ?></th>
-            <td><?= $material->has('familia') ? $this->Html->link($material->familia->id, ['controller' => 'Familias', 'action' => 'view', $material->familia->id]) : '' ?></td>
+            <td><?= $material->has('familia') ? $this->Html->link($material->familia->label, ['controller' => 'Familias', 'action' => 'view', $material->familia->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Color') ?></th>
@@ -29,11 +29,11 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Moneda') ?></th>
-            <td><?= $material->has('moneda') ? $this->Html->link($material->moneda->id, ['controller' => 'Monedas', 'action' => 'view', $material->moneda->id]) : '' ?></td>
+            <td><?= $material->has('moneda') ? $this->Html->link($material->moneda->label, ['controller' => 'Monedas', 'action' => 'view', $material->moneda->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Iva') ?></th>
-            <td><?= $material->has('iva') ? $this->Html->link($material->iva->id, ['controller' => 'Ivas', 'action' => 'view', $material->iva->id]) : '' ?></td>
+            <td><?= $material->has('iva') ? $this->Html->link($material->iva->label, ['controller' => 'Ivas', 'action' => 'view', $material->iva->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Observaciones') ?></th>

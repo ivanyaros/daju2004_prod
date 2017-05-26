@@ -31,8 +31,8 @@
             <?php foreach ($maquinasUsadas as $maquinasUsada): ?>
             <tr>
                 <td><?= $this->Number->format($maquinasUsada->id) ?></td>
-                <td><?= $maquinasUsada->has('estados_de_orden') ? $this->Html->link($maquinasUsada->estados_de_orden->id, ['controller' => 'EstadosDeOrdens', 'action' => 'view', $maquinasUsada->estados_de_orden->id]) : '' ?></td>
-                <td><?= $maquinasUsada->has('maquina') ? $this->Html->link($maquinasUsada->maquina->id, ['controller' => 'Maquinas', 'action' => 'view', $maquinasUsada->maquina->id]) : '' ?></td>
+                <td><?= $maquinasUsada->has('estados_de_orden') ? $this->Html->link($maquinasUsada->estados_de_orden->label, ['controller' => 'EstadosDeOrdens', 'action' => 'view', $maquinasUsada->estados_de_orden->id]) : '' ?></td>
+                <td><?= $maquinasUsada->has('maquina') ? $this->Html->link($maquinasUsada->maquina->label, ['controller' => 'Maquinas', 'action' => 'view', $maquinasUsada->maquina->id]) : '' ?></td>
                 <td><?= $this->Number->format($maquinasUsada->operaciones) ?></td>
                 <td><?= $this->Number->format($maquinasUsada->uso) ?></td>
                 <td><?= h($maquinasUsada->observaciones) ?></td>

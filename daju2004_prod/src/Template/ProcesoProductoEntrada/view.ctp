@@ -5,11 +5,11 @@
 ?>
 
 <div class="procesoProductoEntrada view large-9 medium-8 columns content">
-    <h3><?= h($procesoProductoEntrada->id) ?></h3>
+    <h3><?= h($procesoProductoEntrada->label) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Proceso') ?></th>
-            <td><?= $procesoProductoEntrada->has('proceso') ? $this->Html->link($procesoProductoEntrada->proceso->name, ['controller' => 'Proceso', 'action' => 'view', $procesoProductoEntrada->proceso->id]) : '' ?></td>
+            <td><?= $procesoProductoEntrada->has('proceso') ? $this->Html->link($procesoProductoEntrada->proceso->label, ['controller' => 'Proceso', 'action' => 'view', $procesoProductoEntrada->proceso->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Producto') ?></th>

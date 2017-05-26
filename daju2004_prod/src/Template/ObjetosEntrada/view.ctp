@@ -5,11 +5,11 @@
 ?>
 
 <div class="objetosEntrada view large-9 medium-8 columns content">
-    <h3><?= h($objetosEntrada->id) ?></h3>
+    <h3><?= h($objetosEntrada->label) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Objeto') ?></th>
-            <td><?= $objetosEntrada->has('objeto') ? $this->Html->link($objetosEntrada->objeto->id, ['controller' => 'Objetos', 'action' => 'view', $objetosEntrada->objeto->id]) : '' ?></td>
+            <td><?= $objetosEntrada->has('objeto') ? $this->Html->link($objetosEntrada->objeto->label, ['controller' => 'Objetos', 'action' => 'view', $objetosEntrada->objeto->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Observaciones') ?></th>

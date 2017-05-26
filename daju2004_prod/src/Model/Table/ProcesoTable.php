@@ -40,7 +40,8 @@ class ProcesoTable extends Table
         parent::initialize($config);
 
         $this->setTable('proceso');
-        $this->setDisplayField('name');
+        $this->setDisplayField('label');
+
         $this->setPrimaryKey('id');
 
         $this->belongsTo('Familias', [

@@ -28,8 +28,8 @@
             <?php foreach ($enviosObjetos as $enviosObjeto): ?>
             <tr>
                 <td><?= $this->Number->format($enviosObjeto->id) ?></td>
-                <td><?= $enviosObjeto->has('envio') ? $this->Html->link($enviosObjeto->envio->id, ['controller' => 'Envios', 'action' => 'view', $enviosObjeto->envio->id]) : '' ?></td>
-                <td><?= $enviosObjeto->has('objeto') ? $this->Html->link($enviosObjeto->objeto->id, ['controller' => 'Objetos', 'action' => 'view', $enviosObjeto->objeto->id]) : '' ?></td>
+                <td><?= $enviosObjeto->has('envio') ? $this->Html->link($enviosObjeto->envio->label, ['controller' => 'Envios', 'action' => 'view', $enviosObjeto->envio->id]) : '' ?></td>
+                <td><?= $enviosObjeto->has('objeto') ? $this->Html->link($enviosObjeto->objeto->label, ['controller' => 'Objetos', 'action' => 'view', $enviosObjeto->objeto->id]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $enviosObjeto->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $enviosObjeto->id]) ?>

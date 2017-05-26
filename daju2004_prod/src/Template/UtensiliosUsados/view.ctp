@@ -5,15 +5,15 @@
 ?>
 
 <div class="utensiliosUsados view large-9 medium-8 columns content">
-    <h3><?= h($utensiliosUsado->id) ?></h3>
+    <h3><?= h($utensiliosUsado->label) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Estados De Orden') ?></th>
-            <td><?= $utensiliosUsado->has('estados_de_orden') ? $this->Html->link($utensiliosUsado->estados_de_orden->id, ['controller' => 'EstadosDeOrdens', 'action' => 'view', $utensiliosUsado->estados_de_orden->id]) : '' ?></td>
+            <td><?= $utensiliosUsado->has('estados_de_orden') ? $this->Html->link($utensiliosUsado->estados_de_orden->label, ['controller' => 'EstadosDeOrdens', 'action' => 'view', $utensiliosUsado->estados_de_orden->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Utensilio') ?></th>
-            <td><?= $utensiliosUsado->has('utensilio') ? $this->Html->link($utensiliosUsado->utensilio->id, ['controller' => 'Utensilios', 'action' => 'view', $utensiliosUsado->utensilio->id]) : '' ?></td>
+            <td><?= $utensiliosUsado->has('utensilio') ? $this->Html->link($utensiliosUsado->utensilio->label, ['controller' => 'Utensilios', 'action' => 'view', $utensiliosUsado->utensilio->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Observaciones') ?></th>

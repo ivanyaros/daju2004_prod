@@ -33,7 +33,7 @@
             <?php foreach ($direcciones as $direccione): ?>
             <tr>
                 <td><?= $this->Number->format($direccione->id) ?></td>
-                <td><?= $direccione->has('proveedores_cliente') ? $this->Html->link($direccione->proveedores_cliente->id, ['controller' => 'ProveedoresClientes', 'action' => 'view', $direccione->proveedores_cliente->id]) : '' ?></td>
+                <td><?= $direccione->has('proveedores_cliente') ? $this->Html->link($direccione->proveedores_cliente->label, ['controller' => 'ProveedoresClientes', 'action' => 'view', $direccione->proveedores_cliente->id]) : '' ?></td>
                 <td><?= h($direccione->direccion) ?></td>
                 <td><?= h($direccione->telefono) ?></td>
                 <td><?= h($direccione->fax) ?></td>

@@ -37,7 +37,8 @@ class ProveedoresClientesTable extends Table
         parent::initialize($config);
 
         $this->setTable('proveedores_clientes');
-        $this->setDisplayField('id');
+        $this->setDisplayField('label');
+
         $this->setPrimaryKey('id');
 
         $this->hasMany('Direcciones', [

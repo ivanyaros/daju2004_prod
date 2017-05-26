@@ -51,13 +51,13 @@
                 <td><?= $this->Number->format($orden->cantidad) ?></td>
                 <td><?= h($orden->fecha_creacion) ?></td>
                 <td><?= h($orden->fecha_terminacion) ?></td>
-                <td><?= $orden->has('estado') ? $this->Html->link($orden->estado->id, ['controller' => 'Estados', 'action' => 'view', $orden->estado->id]) : '' ?></td>
+                <td><?= $orden->has('estado') ? $this->Html->link($orden->estado->label, ['controller' => 'Estados', 'action' => 'view', $orden->estado->id]) : '' ?></td>
                 <td><?= $orden->has('centro') ? $this->Html->link($orden->centro->label, ['controller' => 'Centros', 'action' => 'view', $orden->centro->id]) : '' ?></td>
-                <td><?= $orden->has('proceso') ? $this->Html->link($orden->proceso->name, ['controller' => 'Proceso', 'action' => 'view', $orden->proceso->id]) : '' ?></td>
+                <td><?= $orden->has('proceso') ? $this->Html->link($orden->proceso->label, ['controller' => 'Proceso', 'action' => 'view', $orden->proceso->id]) : '' ?></td>
                 <td><?= $this->Number->format($orden->scrap) ?></td>
                 <td><?= $this->Number->format($orden->coste_operario) ?></td>
                 <td><?= h($orden->observaciones) ?></td>
-                <td><?= $orden->has('prioridade') ? $this->Html->link($orden->prioridade->id, ['controller' => 'Prioridades', 'action' => 'view', $orden->prioridade->id]) : '' ?></td>
+                <td><?= $orden->has('prioridade') ? $this->Html->link($orden->prioridade->label, ['controller' => 'Prioridades', 'action' => 'view', $orden->prioridade->id]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $orden->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $orden->id]) ?>

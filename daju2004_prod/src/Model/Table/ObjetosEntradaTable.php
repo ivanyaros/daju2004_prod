@@ -34,7 +34,8 @@ class ObjetosEntradaTable extends Table
         parent::initialize($config);
 
         $this->setTable('objetos_entrada');
-        $this->setDisplayField('id');
+        $this->setDisplayField('label');
+
         $this->setPrimaryKey('id');
 
         $this->belongsTo('Objetos', [

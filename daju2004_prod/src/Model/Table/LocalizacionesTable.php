@@ -35,7 +35,8 @@ class LocalizacionesTable extends Table
         parent::initialize($config);
 
         $this->setTable('localizaciones');
-        $this->setDisplayField('id');
+        $this->setDisplayField('label');
+
         $this->setPrimaryKey('id');
 
         $this->belongsTo('Centros', [

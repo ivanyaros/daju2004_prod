@@ -5,7 +5,7 @@
 ?>
 
 <div class="objetos view large-9 medium-8 columns content">
-    <h3><?= h($objeto->id) ?></h3>
+    <h3><?= h($objeto->label) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Name') ?></th>
@@ -21,7 +21,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Orden') ?></th>
-            <td><?= $objeto->has('orden') ? $this->Html->link($objeto->orden->id, ['controller' => 'Ordens', 'action' => 'view', $objeto->orden->id]) : '' ?></td>
+            <td><?= $objeto->has('orden') ? $this->Html->link($objeto->orden->label, ['controller' => 'Ordens', 'action' => 'view', $objeto->orden->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Lote') ?></th>
@@ -29,7 +29,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Localizacione') ?></th>
-            <td><?= $objeto->has('localizacione') ? $this->Html->link($objeto->localizacione->id, ['controller' => 'Localizaciones', 'action' => 'view', $objeto->localizacione->id]) : '' ?></td>
+            <td><?= $objeto->has('localizacione') ? $this->Html->link($objeto->localizacione->label, ['controller' => 'Localizaciones', 'action' => 'view', $objeto->localizacione->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Observaciones') ?></th>
