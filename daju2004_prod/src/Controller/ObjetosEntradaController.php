@@ -51,9 +51,12 @@ class ObjetosEntradaController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add($external_id=null)
+    public function add($external_id=null,$external_name=null)
     {
         $objetosEntrada = $this->ObjetosEntrada->newEntity();
+        if($external_name!=null){
+            $objetosEntrada->$external_name=$external_id;
+        }
         if ($this->request->is('post')) {
             $objetosEntrada = $this->ObjetosEntrada->patchEntity($objetosEntrada, $this->request->getData());
             if ($this->ObjetosEntrada->save($objetosEntrada)) {

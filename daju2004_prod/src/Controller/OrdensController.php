@@ -51,9 +51,12 @@ class OrdensController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add($external_id=null)
+    public function add($external_id=null,$external_name=null)
     {
         $orden = $this->Ordens->newEntity();
+        if($external_name!=null){
+            $orden->$external_name=$external_id;
+        }
         if ($this->request->is('post')) {
             $orden = $this->Ordens->patchEntity($orden, $this->request->getData());
             if ($this->Ordens->save($orden)) {

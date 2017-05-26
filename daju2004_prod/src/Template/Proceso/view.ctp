@@ -70,7 +70,7 @@
     </table>
     <div class="related">
         <h4><?= __('Related Ordens') ?>
-        	<li><?= $this->Html->link(__('New Orden'), ['controller' => 'Ordens', 'action' => 'add',$proceso->id]) ?> </li>
+        	<li><?= $this->Html->link(__('New Orden'), ['controller' => 'Ordens', 'action' => 'add',$proceso->id,'proceso_id']) ?> </li>
         </h4>
         <?php if (!empty($proceso->ordens)): ?>
         <table cellpadding="0" cellspacing="0">
@@ -117,7 +117,7 @@
     </div>
     <div class="related">
         <h4><?= __('Related Proceso Material Entrada') ?>
-        	<li><?= $this->Html->link(__('New Proceso Material Entrada'), ['controller' => 'ProcesoMaterialEntrada', 'action' => 'add',$proceso->id]) ?> </li>
+        	<li><?= $this->Html->link(__('New Proceso Material Entrada'), ['controller' => 'ProcesoMaterialEntrada', 'action' => 'add',$proceso->id,'proceso_id']) ?> </li>
         </h4>
         <?php if (!empty($proceso->proceso_material_entrada)): ?>
         <table cellpadding="0" cellspacing="0">
@@ -150,7 +150,7 @@
     </div>
     <div class="related">
         <h4><?= __('Related Proceso Producto Entrada') ?>
-        	<li><?= $this->Html->link(__('New Proceso Producto Entrada'), ['controller' => 'ProcesoProductoEntrada', 'action' => 'add',$proceso->id]) ?> </li>
+        	<li><?= $this->Html->link(__('New Proceso Producto Entrada'), ['controller' => 'ProcesoProductoEntrada', 'action' => 'add',$proceso->id,'proceso_id']) ?> </li>
         </h4>
         <?php if (!empty($proceso->proceso_producto_entrada)): ?>
         <table cellpadding="0" cellspacing="0">
@@ -181,7 +181,7 @@
     </div>
     <div class="related">
         <h4><?= __('Related Proceso Producto Salida') ?>
-        	<li><?= $this->Html->link(__('New Proceso Producto Salida'), ['controller' => 'ProcesoProductoSalida', 'action' => 'add',$proceso->id]) ?> </li>
+        	<li><?= $this->Html->link(__('New Proceso Producto Salida'), ['controller' => 'ProcesoProductoSalida', 'action' => 'add',$proceso->id,'proceso_id']) ?> </li>
         </h4>
         <?php if (!empty($proceso->proceso_producto_salida)): ?>
         <table cellpadding="0" cellspacing="0">

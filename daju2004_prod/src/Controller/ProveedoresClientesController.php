@@ -48,9 +48,12 @@ class ProveedoresClientesController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add($external_id=null)
+    public function add($external_id=null,$external_name=null)
     {
         $proveedoresCliente = $this->ProveedoresClientes->newEntity();
+        if($external_name!=null){
+            $proveedoresCliente->$external_name=$external_id;
+        }
         if ($this->request->is('post')) {
             $proveedoresCliente = $this->ProveedoresClientes->patchEntity($proveedoresCliente, $this->request->getData());
             if ($this->ProveedoresClientes->save($proveedoresCliente)) {

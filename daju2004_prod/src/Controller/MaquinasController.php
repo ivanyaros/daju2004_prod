@@ -48,9 +48,12 @@ class MaquinasController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add($external_id=null)
+    public function add($external_id=null,$external_name=null)
     {
         $maquina = $this->Maquinas->newEntity();
+        if($external_name!=null){
+            $maquina->$external_name=$external_id;
+        }
         if ($this->request->is('post')) {
             $maquina = $this->Maquinas->patchEntity($maquina, $this->request->getData());
             if ($this->Maquinas->save($maquina)) {

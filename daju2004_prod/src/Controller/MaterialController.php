@@ -51,9 +51,12 @@ class MaterialController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add($external_id=null)
+    public function add($external_id=null,$external_name=null)
     {
         $material = $this->Material->newEntity();
+        if($external_name!=null){
+            $material->$external_name=$external_id;
+        }
         if ($this->request->is('post')) {
             $material = $this->Material->patchEntity($material, $this->request->getData());
             if ($this->Material->save($material)) {

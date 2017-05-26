@@ -62,7 +62,7 @@
     </table>
     <div class="related">
         <h4><?= __('Related Estados De Ordens') ?>
-        	<li><?= $this->Html->link(__('New Estados De Orden'), ['controller' => 'EstadosDeOrdens', 'action' => 'add',$orden->id]) ?> </li>
+        	<li><?= $this->Html->link(__('New Estados De Orden'), ['controller' => 'EstadosDeOrdens', 'action' => 'add',$orden->id,'orden_id']) ?> </li>
         </h4>
         <?php if (!empty($orden->estados_de_ordens)): ?>
         <table cellpadding="0" cellspacing="0">
@@ -95,7 +95,7 @@
     </div>
     <div class="related">
         <h4><?= __('Related Objetos') ?>
-        	<li><?= $this->Html->link(__('New Objeto'), ['controller' => 'Objetos', 'action' => 'add',$orden->id]) ?> </li>
+        	<li><?= $this->Html->link(__('New Objeto'), ['controller' => 'Objetos', 'action' => 'add',$orden->id,'orden_id']) ?> </li>
         </h4>
         <?php if (!empty($orden->objetos)): ?>
         <table cellpadding="0" cellspacing="0">

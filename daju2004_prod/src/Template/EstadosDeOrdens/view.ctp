@@ -34,7 +34,7 @@
     </table>
     <div class="related">
         <h4><?= __('Related Maquinas Usadas') ?>
-        	<li><?= $this->Html->link(__('New Maquinas Usada'), ['controller' => 'MaquinasUsadas', 'action' => 'add',$estadosDeOrden->id]) ?> </li>
+        	<li><?= $this->Html->link(__('New Maquinas Usada'), ['controller' => 'MaquinasUsadas', 'action' => 'add',$estadosDeOrden->id,'estados_de_orden_id']) ?> </li>
         </h4>
         <?php if (!empty($estadosDeOrden->maquinas_usadas)): ?>
         <table cellpadding="0" cellspacing="0">
@@ -67,7 +67,7 @@
     </div>
     <div class="related">
         <h4><?= __('Related Usuarios En Estados Orden') ?>
-        	<li><?= $this->Html->link(__('New Usuarios En Estados Orden'), ['controller' => 'UsuariosEnEstadosOrden', 'action' => 'add',$estadosDeOrden->id]) ?> </li>
+        	<li><?= $this->Html->link(__('New Usuarios En Estados Orden'), ['controller' => 'UsuariosEnEstadosOrden', 'action' => 'add',$estadosDeOrden->id,'estados_de_orden_id']) ?> </li>
         </h4>
         <?php if (!empty($estadosDeOrden->usuarios_en_estados_orden)): ?>
         <table cellpadding="0" cellspacing="0">
@@ -98,7 +98,7 @@
     </div>
     <div class="related">
         <h4><?= __('Related Utensilios Usados') ?>
-        	<li><?= $this->Html->link(__('New Utensilios Usado'), ['controller' => 'UtensiliosUsados', 'action' => 'add',$estadosDeOrden->id]) ?> </li>
+        	<li><?= $this->Html->link(__('New Utensilios Usado'), ['controller' => 'UtensiliosUsados', 'action' => 'add',$estadosDeOrden->id,'estados_de_orden_id']) ?> </li>
         </h4>
         <?php if (!empty($estadosDeOrden->utensilios_usados)): ?>
         <table cellpadding="0" cellspacing="0">

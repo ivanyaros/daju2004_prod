@@ -51,9 +51,12 @@ class UsuariosEnEstadosOrdenController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add($external_id=null)
+    public function add($external_id=null,$external_name=null)
     {
         $usuariosEnEstadosOrden = $this->UsuariosEnEstadosOrden->newEntity();
+        if($external_name!=null){
+            $usuariosEnEstadosOrden->$external_name=$external_id;
+        }
         if ($this->request->is('post')) {
             $usuariosEnEstadosOrden = $this->UsuariosEnEstadosOrden->patchEntity($usuariosEnEstadosOrden, $this->request->getData());
             if ($this->UsuariosEnEstadosOrden->save($usuariosEnEstadosOrden)) {

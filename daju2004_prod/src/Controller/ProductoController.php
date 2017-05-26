@@ -51,9 +51,12 @@ class ProductoController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add($external_id=null)
+    public function add($external_id=null,$external_name=null)
     {
         $producto = $this->Producto->newEntity();
+        if($external_name!=null){
+            $producto->$external_name=$external_id;
+        }
         if ($this->request->is('post')) {
             $producto = $this->Producto->patchEntity($producto, $this->request->getData());
             if ($this->Producto->save($producto)) {

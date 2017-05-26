@@ -26,7 +26,7 @@
     </table>
     <div class="related">
         <h4><?= __('Related Material') ?>
-        	<li><?= $this->Html->link(__('New Material'), ['controller' => 'Material', 'action' => 'add',$moneda->id]) ?> </li>
+        	<li><?= $this->Html->link(__('New Material'), ['controller' => 'Material', 'action' => 'add',$moneda->id,'moneda_id']) ?> </li>
         </h4>
         <?php if (!empty($moneda->material)): ?>
         <table cellpadding="0" cellspacing="0">
@@ -81,7 +81,7 @@
     </div>
     <div class="related">
         <h4><?= __('Related Proceso') ?>
-        	<li><?= $this->Html->link(__('New Proceso'), ['controller' => 'Proceso', 'action' => 'add',$moneda->id]) ?> </li>
+        	<li><?= $this->Html->link(__('New Proceso'), ['controller' => 'Proceso', 'action' => 'add',$moneda->id,'moneda_id']) ?> </li>
         </h4>
         <?php if (!empty($moneda->proceso)): ?>
         <table cellpadding="0" cellspacing="0">
@@ -132,7 +132,7 @@
     </div>
     <div class="related">
         <h4><?= __('Related Producto') ?>
-        	<li><?= $this->Html->link(__('New Producto'), ['controller' => 'Producto', 'action' => 'add',$moneda->id]) ?> </li>
+        	<li><?= $this->Html->link(__('New Producto'), ['controller' => 'Producto', 'action' => 'add',$moneda->id,'moneda_id']) ?> </li>
         </h4>
         <?php if (!empty($moneda->producto)): ?>
         <table cellpadding="0" cellspacing="0">

@@ -78,7 +78,7 @@
     </table>
     <div class="related">
         <h4><?= __('Related Materiales') ?>
-        	<li><?= $this->Html->link(__('New Materiale'), ['controller' => 'Materiales', 'action' => 'add',$material->id]) ?> </li>
+        	<li><?= $this->Html->link(__('New Materiale'), ['controller' => 'Materiales', 'action' => 'add',$material->id,'material_id']) ?> </li>
         </h4>
         <?php if (!empty($material->materiales)): ?>
         <table cellpadding="0" cellspacing="0">
@@ -141,7 +141,7 @@
     </div>
     <div class="related">
         <h4><?= __('Related Proceso Material Entrada') ?>
-        	<li><?= $this->Html->link(__('New Proceso Material Entrada'), ['controller' => 'ProcesoMaterialEntrada', 'action' => 'add',$material->id]) ?> </li>
+        	<li><?= $this->Html->link(__('New Proceso Material Entrada'), ['controller' => 'ProcesoMaterialEntrada', 'action' => 'add',$material->id,'material_id']) ?> </li>
         </h4>
         <?php if (!empty($material->proceso_material_entrada)): ?>
         <table cellpadding="0" cellspacing="0">
@@ -174,7 +174,7 @@
     </div>
     <div class="related">
         <h4><?= __('Related Proveedores Material') ?>
-        	<li><?= $this->Html->link(__('New Proveedores Material'), ['controller' => 'ProveedoresMaterial', 'action' => 'add',$material->id]) ?> </li>
+        	<li><?= $this->Html->link(__('New Proveedores Material'), ['controller' => 'ProveedoresMaterial', 'action' => 'add',$material->id,'material_id']) ?> </li>
         </h4>
         <?php if (!empty($material->proveedores_material)): ?>
         <table cellpadding="0" cellspacing="0">

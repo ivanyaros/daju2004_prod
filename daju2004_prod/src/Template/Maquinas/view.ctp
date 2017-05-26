@@ -34,7 +34,7 @@
     </table>
     <div class="related">
         <h4><?= __('Related Maquinas Usadas') ?>
-        	<li><?= $this->Html->link(__('New Maquinas Usada'), ['controller' => 'MaquinasUsadas', 'action' => 'add',$maquina->id]) ?> </li>
+        	<li><?= $this->Html->link(__('New Maquinas Usada'), ['controller' => 'MaquinasUsadas', 'action' => 'add',$maquina->id,'maquina_id']) ?> </li>
         </h4>
         <?php if (!empty($maquina->maquinas_usadas)): ?>
         <table cellpadding="0" cellspacing="0">

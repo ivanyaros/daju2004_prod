@@ -128,7 +128,7 @@ foreach ($relations as $alias => $details):
     %>
     <div class="related">
         <h4><?= __('Related <%= $otherPluralHumanName %>') ?>
-        	<li><?= $this->Html->link(__('New <%= Inflector::humanize(Inflector::singularize(Inflector::underscore($alias))) %>'), ['controller' => '<%= $details['controller'] %>', 'action' => 'add',<%= $pk %>]) ?> </li>
+        	<li><?= $this->Html->link(__('New <%= Inflector::humanize(Inflector::singularize(Inflector::underscore($alias))) %>'), ['controller' => '<%= $details['controller'] %>', 'action' => 'add',<%= $pk %>,'<%=Inflector::underscore(Inflector::classify($singularVar))%>_id']) ?> </li>
         </h4>
         <?php if (!empty($<%= $singularVar %>-><%= $details['property'] %>)): ?>
         <table cellpadding="0" cellspacing="0">

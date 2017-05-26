@@ -48,9 +48,12 @@ class EstadosController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add($external_id=null)
+    public function add($external_id=null,$external_name=null)
     {
         $estado = $this->Estados->newEntity();
+        if($external_name!=null){
+            $estado->$external_name=$external_id;
+        }
         if ($this->request->is('post')) {
             $estado = $this->Estados->patchEntity($estado, $this->request->getData());
             if ($this->Estados->save($estado)) {

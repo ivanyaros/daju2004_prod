@@ -48,9 +48,12 @@ class UsuariosController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add($external_id=null)
+    public function add($external_id=null,$external_name=null)
     {
         $usuario = $this->Usuarios->newEntity();
+        if($external_name!=null){
+            $usuario->$external_name=$external_id;
+        }
         if ($this->request->is('post')) {
             $usuario = $this->Usuarios->patchEntity($usuario, $this->request->getData());
             if ($this->Usuarios->save($usuario)) {

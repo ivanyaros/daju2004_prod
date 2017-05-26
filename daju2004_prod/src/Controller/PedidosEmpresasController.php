@@ -51,9 +51,12 @@ class PedidosEmpresasController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add($external_id=null)
+    public function add($external_id=null,$external_name=null)
     {
         $pedidosEmpresa = $this->PedidosEmpresas->newEntity();
+        if($external_name!=null){
+            $pedidosEmpresa->$external_name=$external_id;
+        }
         if ($this->request->is('post')) {
             $pedidosEmpresa = $this->PedidosEmpresas->patchEntity($pedidosEmpresa, $this->request->getData());
             if ($this->PedidosEmpresas->save($pedidosEmpresa)) {

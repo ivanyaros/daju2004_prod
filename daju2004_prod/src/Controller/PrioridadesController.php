@@ -48,9 +48,12 @@ class PrioridadesController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add($external_id=null)
+    public function add($external_id=null,$external_name=null)
     {
         $prioridade = $this->Prioridades->newEntity();
+        if($external_name!=null){
+            $prioridade->$external_name=$external_id;
+        }
         if ($this->request->is('post')) {
             $prioridade = $this->Prioridades->patchEntity($prioridade, $this->request->getData());
             if ($this->Prioridades->save($prioridade)) {

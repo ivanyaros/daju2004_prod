@@ -48,9 +48,12 @@ class FamiliasController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add($external_id=null)
+    public function add($external_id=null,$external_name=null)
     {
         $familia = $this->Familias->newEntity();
+        if($external_name!=null){
+            $familia->$external_name=$external_id;
+        }
         if ($this->request->is('post')) {
             $familia = $this->Familias->patchEntity($familia, $this->request->getData());
             if ($this->Familias->save($familia)) {

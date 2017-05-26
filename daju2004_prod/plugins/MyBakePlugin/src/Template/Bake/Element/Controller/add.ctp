@@ -20,9 +20,12 @@ $compact = ["'" . $singularName . "'"];
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add($external_id=null)
+    public function add($external_id=null,$external_name=null)
     {
         $<%= $singularName %> = $this-><%= $currentModelName %>->newEntity();
+        if($external_name!=null){
+            $<%= $singularName %>->$external_name=$external_id;
+        }
         if ($this->request->is('post')) {
             $<%= $singularName %> = $this-><%= $currentModelName %>->patchEntity($<%= $singularName %>, $this->request->getData());
             if ($this-><%= $currentModelName; %>->save($<%= $singularName %>)) {

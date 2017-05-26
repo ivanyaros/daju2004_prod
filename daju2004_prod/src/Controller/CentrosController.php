@@ -48,9 +48,12 @@ class CentrosController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add($external_id=null)
+    public function add($external_id=null,$external_name=null)
     {
         $centro = $this->Centros->newEntity();
+        if($external_name!=null){
+            $centro->$external_name=$external_id;
+        }
         if ($this->request->is('post')) {
             $centro = $this->Centros->patchEntity($centro, $this->request->getData());
             if ($this->Centros->save($centro)) {

@@ -26,7 +26,7 @@
     </table>
     <div class="related">
         <h4><?= __('Related Utensilios Usados') ?>
-        	<li><?= $this->Html->link(__('New Utensilios Usado'), ['controller' => 'UtensiliosUsados', 'action' => 'add',$utensilio->id]) ?> </li>
+        	<li><?= $this->Html->link(__('New Utensilios Usado'), ['controller' => 'UtensiliosUsados', 'action' => 'add',$utensilio->id,'utensilio_id']) ?> </li>
         </h4>
         <?php if (!empty($utensilio->utensilios_usados)): ?>
         <table cellpadding="0" cellspacing="0">

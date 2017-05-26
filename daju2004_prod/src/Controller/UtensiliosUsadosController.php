@@ -51,9 +51,12 @@ class UtensiliosUsadosController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add($external_id=null)
+    public function add($external_id=null,$external_name=null)
     {
         $utensiliosUsado = $this->UtensiliosUsados->newEntity();
+        if($external_name!=null){
+            $utensiliosUsado->$external_name=$external_id;
+        }
         if ($this->request->is('post')) {
             $utensiliosUsado = $this->UtensiliosUsados->patchEntity($utensiliosUsado, $this->request->getData());
             if ($this->UtensiliosUsados->save($utensiliosUsado)) {

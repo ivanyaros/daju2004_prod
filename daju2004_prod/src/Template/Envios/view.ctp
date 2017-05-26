@@ -50,7 +50,7 @@
     </table>
     <div class="related">
         <h4><?= __('Related Objetos') ?>
-        	<li><?= $this->Html->link(__('New Objeto'), ['controller' => 'Objetos', 'action' => 'add',$envio->id]) ?> </li>
+        	<li><?= $this->Html->link(__('New Objeto'), ['controller' => 'Objetos', 'action' => 'add',$envio->id,'envio_id']) ?> </li>
         </h4>
         <?php if (!empty($envio->objetos)): ?>
         <table cellpadding="0" cellspacing="0">

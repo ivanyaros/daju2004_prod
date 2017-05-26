@@ -51,9 +51,12 @@ class ProcesoController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add($external_id=null)
+    public function add($external_id=null,$external_name=null)
     {
         $proceso = $this->Proceso->newEntity();
+        if($external_name!=null){
+            $proceso->$external_name=$external_id;
+        }
         if ($this->request->is('post')) {
             $proceso = $this->Proceso->patchEntity($proceso, $this->request->getData());
             if ($this->Proceso->save($proceso)) {

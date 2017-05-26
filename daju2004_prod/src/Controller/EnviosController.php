@@ -51,9 +51,12 @@ class EnviosController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add($external_id=null)
+    public function add($external_id=null,$external_name=null)
     {
         $envio = $this->Envios->newEntity();
+        if($external_name!=null){
+            $envio->$external_name=$external_id;
+        }
         if ($this->request->is('post')) {
             $envio = $this->Envios->patchEntity($envio, $this->request->getData());
             if ($this->Envios->save($envio)) {

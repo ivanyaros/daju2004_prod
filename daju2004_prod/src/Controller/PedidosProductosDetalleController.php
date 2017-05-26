@@ -51,9 +51,12 @@ class PedidosProductosDetalleController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add($external_id=null)
+    public function add($external_id=null,$external_name=null)
     {
         $pedidosProductosDetalle = $this->PedidosProductosDetalle->newEntity();
+        if($external_name!=null){
+            $pedidosProductosDetalle->$external_name=$external_id;
+        }
         if ($this->request->is('post')) {
             $pedidosProductosDetalle = $this->PedidosProductosDetalle->patchEntity($pedidosProductosDetalle, $this->request->getData());
             if ($this->PedidosProductosDetalle->save($pedidosProductosDetalle)) {

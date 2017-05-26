@@ -22,7 +22,7 @@
     </table>
     <div class="related">
         <h4><?= __('Related Materiales') ?>
-        	<li><?= $this->Html->link(__('New Materiale'), ['controller' => 'Materiales', 'action' => 'add',$localizacione->id]) ?> </li>
+        	<li><?= $this->Html->link(__('New Materiale'), ['controller' => 'Materiales', 'action' => 'add',$localizacione->id,'localizacione_id']) ?> </li>
         </h4>
         <?php if (!empty($localizacione->materiales)): ?>
         <table cellpadding="0" cellspacing="0">
@@ -85,7 +85,7 @@
     </div>
     <div class="related">
         <h4><?= __('Related Objetos') ?>
-        	<li><?= $this->Html->link(__('New Objeto'), ['controller' => 'Objetos', 'action' => 'add',$localizacione->id]) ?> </li>
+        	<li><?= $this->Html->link(__('New Objeto'), ['controller' => 'Objetos', 'action' => 'add',$localizacione->id,'localizacione_id']) ?> </li>
         </h4>
         <?php if (!empty($localizacione->objetos)): ?>
         <table cellpadding="0" cellspacing="0">

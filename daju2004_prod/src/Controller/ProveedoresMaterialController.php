@@ -51,9 +51,12 @@ class ProveedoresMaterialController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add($external_id=null)
+    public function add($external_id=null,$external_name=null)
     {
         $proveedoresMaterial = $this->ProveedoresMaterial->newEntity();
+        if($external_name!=null){
+            $proveedoresMaterial->$external_name=$external_id;
+        }
         if ($this->request->is('post')) {
             $proveedoresMaterial = $this->ProveedoresMaterial->patchEntity($proveedoresMaterial, $this->request->getData());
             if ($this->ProveedoresMaterial->save($proveedoresMaterial)) {

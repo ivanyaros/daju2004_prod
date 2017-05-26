@@ -51,9 +51,12 @@ class ProcesoMaterialEntradaController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add($external_id=null)
+    public function add($external_id=null,$external_name=null)
     {
         $procesoMaterialEntrada = $this->ProcesoMaterialEntrada->newEntity();
+        if($external_name!=null){
+            $procesoMaterialEntrada->$external_name=$external_id;
+        }
         if ($this->request->is('post')) {
             $procesoMaterialEntrada = $this->ProcesoMaterialEntrada->patchEntity($procesoMaterialEntrada, $this->request->getData());
             if ($this->ProcesoMaterialEntrada->save($procesoMaterialEntrada)) {

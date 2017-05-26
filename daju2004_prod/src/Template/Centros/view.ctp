@@ -30,7 +30,7 @@
     </table>
     <div class="related">
         <h4><?= __('Related Entradas De Materiales') ?>
-        	<li><?= $this->Html->link(__('New Entradas De Materiale'), ['controller' => 'EntradasDeMateriales', 'action' => 'add',$centro->id]) ?> </li>
+        	<li><?= $this->Html->link(__('New Entradas De Materiale'), ['controller' => 'EntradasDeMateriales', 'action' => 'add',$centro->id,'centro_id']) ?> </li>
         </h4>
         <?php if (!empty($centro->entradas_de_materiales)): ?>
         <table cellpadding="0" cellspacing="0">
@@ -67,7 +67,7 @@
     </div>
     <div class="related">
         <h4><?= __('Related Envios') ?>
-        	<li><?= $this->Html->link(__('New Envio'), ['controller' => 'Envios', 'action' => 'add',$centro->id]) ?> </li>
+        	<li><?= $this->Html->link(__('New Envio'), ['controller' => 'Envios', 'action' => 'add',$centro->id,'centro_id']) ?> </li>
         </h4>
         <?php if (!empty($centro->envios)): ?>
         <table cellpadding="0" cellspacing="0">
@@ -108,7 +108,7 @@
     </div>
     <div class="related">
         <h4><?= __('Related Localizaciones') ?>
-        	<li><?= $this->Html->link(__('New Localizacione'), ['controller' => 'Localizaciones', 'action' => 'add',$centro->id]) ?> </li>
+        	<li><?= $this->Html->link(__('New Localizacione'), ['controller' => 'Localizaciones', 'action' => 'add',$centro->id,'centro_id']) ?> </li>
         </h4>
         <?php if (!empty($centro->localizaciones)): ?>
         <table cellpadding="0" cellspacing="0">
@@ -135,7 +135,7 @@
     </div>
     <div class="related">
         <h4><?= __('Related Ordens') ?>
-        	<li><?= $this->Html->link(__('New Orden'), ['controller' => 'Ordens', 'action' => 'add',$centro->id]) ?> </li>
+        	<li><?= $this->Html->link(__('New Orden'), ['controller' => 'Ordens', 'action' => 'add',$centro->id,'centro_id']) ?> </li>
         </h4>
         <?php if (!empty($centro->ordens)): ?>
         <table cellpadding="0" cellspacing="0">
@@ -182,7 +182,7 @@
     </div>
     <div class="related">
         <h4><?= __('Related Proceso') ?>
-        	<li><?= $this->Html->link(__('New Proceso'), ['controller' => 'Proceso', 'action' => 'add',$centro->id]) ?> </li>
+        	<li><?= $this->Html->link(__('New Proceso'), ['controller' => 'Proceso', 'action' => 'add',$centro->id,'centro_id']) ?> </li>
         </h4>
         <?php if (!empty($centro->proceso)): ?>
         <table cellpadding="0" cellspacing="0">

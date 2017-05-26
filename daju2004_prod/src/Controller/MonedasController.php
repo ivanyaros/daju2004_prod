@@ -48,9 +48,12 @@ class MonedasController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add($external_id=null)
+    public function add($external_id=null,$external_name=null)
     {
         $moneda = $this->Monedas->newEntity();
+        if($external_name!=null){
+            $moneda->$external_name=$external_id;
+        }
         if ($this->request->is('post')) {
             $moneda = $this->Monedas->patchEntity($moneda, $this->request->getData());
             if ($this->Monedas->save($moneda)) {
