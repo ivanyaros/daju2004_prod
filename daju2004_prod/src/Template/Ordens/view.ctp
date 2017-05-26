@@ -8,8 +8,8 @@
     <h3><?= h($orden->id) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Nombre') ?></th>
-            <td><?= h($orden->nombre) ?></td>
+            <th scope="row"><?= __('Name') ?></th>
+            <td><?= h($orden->name) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Referencia') ?></th>
@@ -101,6 +101,7 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Producto Id') ?></th>
                 <th scope="col"><?= __('Numero Serie') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
@@ -116,6 +117,7 @@
             <?php foreach ($orden->objetos as $objetos): ?>
             <tr>
                 <td><?= h($objetos->id) ?></td>
+                <td><?= h($objetos->name) ?></td>
                 <td><?= h($objetos->producto_id) ?></td>
                 <td><?= h($objetos->numero_serie) ?></td>
                 <td><?= h($objetos->referencia) ?></td>

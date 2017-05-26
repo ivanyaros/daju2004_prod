@@ -7,6 +7,7 @@ use Cake\ORM\Entity;
  * Objeto Entity
  *
  * @property int $id
+ * @property string $name
  * @property int $producto_id
  * @property int $numero_serie
  * @property string $referencia

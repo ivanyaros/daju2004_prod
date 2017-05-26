@@ -7,7 +7,7 @@ use Cake\ORM\Entity;
  * ProveedoresCliente Entity
  *
  * @property int $id
- * @property string $nombre
+ * @property string $name
  * @property string $direccion_fiscal
  * @property string $telefono
  * @property string $fax

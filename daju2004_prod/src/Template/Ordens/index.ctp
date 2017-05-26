@@ -27,7 +27,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('nombre') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('referencia') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('cantidad') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('fecha_creacion') ?></th>
@@ -46,7 +46,7 @@
             <?php foreach ($ordens as $orden): ?>
             <tr>
                 <td><?= $this->Number->format($orden->id) ?></td>
-                <td><?= h($orden->nombre) ?></td>
+                <td><?= h($orden->name) ?></td>
                 <td><?= h($orden->referencia) ?></td>
                 <td><?= $this->Number->format($orden->cantidad) ?></td>
                 <td><?= h($orden->fecha_creacion) ?></td>

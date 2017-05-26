@@ -8,12 +8,12 @@
     <h3><?= h($localizacione->id) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Centro') ?></th>
-            <td><?= $localizacione->has('centro') ? $this->Html->link($localizacione->centro->name, ['controller' => 'Centros', 'action' => 'view', $localizacione->centro->id]) : '' ?></td>
+            <th scope="row"><?= __('Name') ?></th>
+            <td><?= h($localizacione->name) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Nombre') ?></th>
-            <td><?= h($localizacione->nombre) ?></td>
+            <th scope="row"><?= __('Centro') ?></th>
+            <td><?= $localizacione->has('centro') ? $this->Html->link($localizacione->centro->name, ['controller' => 'Centros', 'action' => 'view', $localizacione->centro->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>
@@ -31,7 +31,7 @@
                 <th scope="col"><?= __('Material Id') ?></th>
                 <th scope="col"><?= __('Fecha Entega') ?></th>
                 <th scope="col"><?= __('Localizacione Id') ?></th>
-                <th scope="col"><?= __('Entradas Material Id') ?></th>
+                <th scope="col"><?= __('Entradas Materiale Id') ?></th>
                 <th scope="col"><?= __('Bobina Lote') ?></th>
                 <th scope="col"><?= __('Bobinas') ?></th>
                 <th scope="col"><?= __('Bobinas Actual') ?></th>
@@ -56,7 +56,7 @@
                 <td><?= h($materiales->material_id) ?></td>
                 <td><?= h($materiales->fecha_entega) ?></td>
                 <td><?= h($materiales->localizacione_id) ?></td>
-                <td><?= h($materiales->entradas_material_id) ?></td>
+                <td><?= h($materiales->entradas_materiale_id) ?></td>
                 <td><?= h($materiales->bobina_lote) ?></td>
                 <td><?= h($materiales->bobinas) ?></td>
                 <td><?= h($materiales->bobinas_actual) ?></td>
@@ -91,6 +91,7 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Producto Id') ?></th>
                 <th scope="col"><?= __('Numero Serie') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
@@ -106,6 +107,7 @@
             <?php foreach ($localizacione->objetos as $objetos): ?>
             <tr>
                 <td><?= h($objetos->id) ?></td>
+                <td><?= h($objetos->name) ?></td>
                 <td><?= h($objetos->producto_id) ?></td>
                 <td><?= h($objetos->numero_serie) ?></td>
                 <td><?= h($objetos->referencia) ?></td>

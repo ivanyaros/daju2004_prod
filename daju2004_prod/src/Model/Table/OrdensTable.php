@@ -52,8 +52,7 @@ class OrdensTable extends Table
             'joinType' => 'INNER'
         ]);
         $this->belongsTo('Prioridades', [
-            'foreignKey' => 'prioridade_id',
-            'joinType' => 'INNER'
+            'foreignKey' => 'prioridade_id'
         ]);
         $this->hasMany('EstadosDeOrdens', [
             'foreignKey' => 'orden_id'
@@ -76,7 +75,7 @@ class OrdensTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->allowEmpty('nombre');
+            ->allowEmpty('name');
 
         $validator
             ->allowEmpty('referencia');

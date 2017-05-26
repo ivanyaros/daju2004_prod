@@ -9,7 +9,7 @@
     <fieldset>
         <legend><?= __('Add Proceso') ?></legend>
         <?php
-            echo $this->Form->control('nombre');
+            echo $this->Form->control('name');
             echo $this->Form->control('referencia');
             echo $this->Form->control('familia_id', ['options' => $familias, 'empty' => true]);
             echo $this->Form->control('precio');

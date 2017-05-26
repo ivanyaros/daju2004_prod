@@ -62,7 +62,7 @@ class PedidosEmpresasTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->allowEmpty('nombre');
+            ->allowEmpty('name');
 
         $validator
             ->allowEmpty('referencia');

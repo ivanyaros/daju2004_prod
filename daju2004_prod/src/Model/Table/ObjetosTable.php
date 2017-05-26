@@ -74,6 +74,9 @@ class ObjetosTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
+            ->allowEmpty('name');
+
+        $validator
             ->integer('numero_serie')
             ->allowEmpty('numero_serie');
 

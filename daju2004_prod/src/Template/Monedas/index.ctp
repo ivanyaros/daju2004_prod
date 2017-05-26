@@ -21,7 +21,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('nombre') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('valor') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('observaciones') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -31,7 +31,7 @@
             <?php foreach ($monedas as $moneda): ?>
             <tr>
                 <td><?= $this->Number->format($moneda->id) ?></td>
-                <td><?= h($moneda->nombre) ?></td>
+                <td><?= h($moneda->name) ?></td>
                 <td><?= $this->Number->format($moneda->valor) ?></td>
                 <td><?= h($moneda->observaciones) ?></td>
                 <td class="actions">

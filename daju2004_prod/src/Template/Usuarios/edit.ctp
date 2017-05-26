@@ -9,7 +9,7 @@
     <fieldset>
         <legend><?= __('Edit Usuario') ?></legend>
         <?php
-            echo $this->Form->control('nombre');
+            echo $this->Form->control('name');
             echo $this->Form->control('apellidos');
             echo $this->Form->control('login');
             echo $this->Form->control('pass');

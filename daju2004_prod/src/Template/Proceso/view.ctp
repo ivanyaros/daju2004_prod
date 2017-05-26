@@ -8,8 +8,8 @@
     <h3><?= h($proceso->id) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Nombre') ?></th>
-            <td><?= h($proceso->nombre) ?></td>
+            <th scope="row"><?= __('Name') ?></th>
+            <td><?= h($proceso->name) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Referencia') ?></th>
@@ -76,7 +76,7 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Nombre') ?></th>
+                <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Cantidad') ?></th>
                 <th scope="col"><?= __('Fecha Creacion') ?></th>
@@ -93,7 +93,7 @@
             <?php foreach ($proceso->ordens as $ordens): ?>
             <tr>
                 <td><?= h($ordens->id) ?></td>
-                <td><?= h($ordens->nombre) ?></td>
+                <td><?= h($ordens->name) ?></td>
                 <td><?= h($ordens->referencia) ?></td>
                 <td><?= h($ordens->cantidad) ?></td>
                 <td><?= h($ordens->fecha_creacion) ?></td>

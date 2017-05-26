@@ -9,7 +9,7 @@
     <fieldset>
         <legend><?= __('Add Prioridade') ?></legend>
         <?php
-            echo $this->Form->control('nombre');
+            echo $this->Form->control('name');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

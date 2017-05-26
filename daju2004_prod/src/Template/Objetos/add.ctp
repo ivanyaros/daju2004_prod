@@ -9,6 +9,7 @@
     <fieldset>
         <legend><?= __('Add Objeto') ?></legend>
         <?php
+            echo $this->Form->control('name');
             echo $this->Form->control('producto_id', ['options' => $producto, 'empty' => true]);
             echo $this->Form->control('numero_serie');
             echo $this->Form->control('referencia');

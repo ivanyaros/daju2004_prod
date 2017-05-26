@@ -9,8 +9,8 @@
     <fieldset>
         <legend><?= __('Add Localizacione') ?></legend>
         <?php
+            echo $this->Form->control('name');
             echo $this->Form->control('centro_id', ['options' => $centros, 'empty' => true]);
-            echo $this->Form->control('nombre');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

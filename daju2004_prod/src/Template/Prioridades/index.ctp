@@ -19,7 +19,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('nombre') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -27,7 +27,7 @@
             <?php foreach ($prioridades as $prioridade): ?>
             <tr>
                 <td><?= $this->Number->format($prioridade->id) ?></td>
-                <td><?= h($prioridade->nombre) ?></td>
+                <td><?= h($prioridade->name) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $prioridade->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $prioridade->id]) ?>

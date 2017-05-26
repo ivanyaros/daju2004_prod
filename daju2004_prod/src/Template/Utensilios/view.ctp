@@ -8,8 +8,8 @@
     <h3><?= h($utensilio->id) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Nombre') ?></th>
-            <td><?= h($utensilio->nombre) ?></td>
+            <th scope="row"><?= __('Name') ?></th>
+            <td><?= h($utensilio->name) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Referencia') ?></th>

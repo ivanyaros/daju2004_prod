@@ -21,7 +21,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('nombre') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('referencia') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('proveedores_cliente_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('fecha') ?></th>
@@ -35,7 +35,7 @@
             <?php foreach ($pedidosEmpresas as $pedidosEmpresa): ?>
             <tr>
                 <td><?= $this->Number->format($pedidosEmpresa->id) ?></td>
-                <td><?= h($pedidosEmpresa->nombre) ?></td>
+                <td><?= h($pedidosEmpresa->name) ?></td>
                 <td><?= h($pedidosEmpresa->referencia) ?></td>
                 <td><?= $pedidosEmpresa->has('proveedores_cliente') ? $this->Html->link($pedidosEmpresa->proveedores_cliente->id, ['controller' => 'ProveedoresClientes', 'action' => 'view', $pedidosEmpresa->proveedores_cliente->id]) : '' ?></td>
                 <td><?= h($pedidosEmpresa->fecha) ?></td>

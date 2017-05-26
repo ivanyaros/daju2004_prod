@@ -9,7 +9,7 @@
     <fieldset>
         <legend><?= __('Add Utensilio') ?></legend>
         <?php
-            echo $this->Form->control('nombre');
+            echo $this->Form->control('name');
             echo $this->Form->control('referencia');
             echo $this->Form->control('observaciones');
         ?>

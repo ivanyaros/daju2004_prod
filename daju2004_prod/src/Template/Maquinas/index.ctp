@@ -17,7 +17,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('nombre') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('referencia') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('observaciones') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('coste_operacion') ?></th>
@@ -29,7 +29,7 @@
             <?php foreach ($maquinas as $maquina): ?>
             <tr>
                 <td><?= $this->Number->format($maquina->id) ?></td>
-                <td><?= h($maquina->nombre) ?></td>
+                <td><?= h($maquina->name) ?></td>
                 <td><?= h($maquina->referencia) ?></td>
                 <td><?= h($maquina->observaciones) ?></td>
                 <td><?= $this->Number->format($maquina->coste_operacion) ?></td>

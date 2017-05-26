@@ -9,7 +9,7 @@
     <fieldset>
         <legend><?= __('Edit Material') ?></legend>
         <?php
-            echo $this->Form->control('nombre');
+            echo $this->Form->control('name');
             echo $this->Form->control('referencia');
             echo $this->Form->control('referencia_proveedor');
             echo $this->Form->control('familia_id', ['options' => $familias, 'empty' => true]);

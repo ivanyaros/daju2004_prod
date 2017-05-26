@@ -21,7 +21,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('nombre') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('valor') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('observaciones') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -31,7 +31,7 @@
             <?php foreach ($ivas as $iva): ?>
             <tr>
                 <td><?= $this->Number->format($iva->id) ?></td>
-                <td><?= h($iva->nombre) ?></td>
+                <td><?= h($iva->name) ?></td>
                 <td><?= $this->Number->format($iva->valor) ?></td>
                 <td><?= h($iva->observaciones) ?></td>
                 <td class="actions">

@@ -30,7 +30,7 @@ class PedidosProductosDetalleFixture extends TestFixture
         'cantidad' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'fecha' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
         'observaciones' => ['type' => 'string', 'length' => 255, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
-        'prioridade_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'prioridade_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'terminado' => ['type' => 'boolean', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
         '_indexes' => [
             'fk_pedidos_empresas_producto_prioridades1_idx' => ['type' => 'index', 'columns' => ['prioridade_id'], 'length' => []],
@@ -61,7 +61,7 @@ class PedidosProductosDetalleFixture extends TestFixture
             'pedidos_empresa_id' => 1,
             'producto_id' => 1,
             'cantidad' => 1,
-            'fecha' => '2017-05-26 07:14:06',
+            'fecha' => '2017-05-26 08:01:26',
             'observaciones' => 'Lorem ipsum dolor sit amet',
             'prioridade_id' => 1,
             'terminado' => 1

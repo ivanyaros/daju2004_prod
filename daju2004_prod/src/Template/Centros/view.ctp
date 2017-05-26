@@ -114,15 +114,15 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Centro Id') ?></th>
-                <th scope="col"><?= __('Nombre') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($centro->localizaciones as $localizaciones): ?>
             <tr>
                 <td><?= h($localizaciones->id) ?></td>
+                <td><?= h($localizaciones->name) ?></td>
                 <td><?= h($localizaciones->centro_id) ?></td>
-                <td><?= h($localizaciones->nombre) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Localizaciones', 'action' => 'view', $localizaciones->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Localizaciones', 'action' => 'edit', $localizaciones->id]) ?>
@@ -141,7 +141,7 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Nombre') ?></th>
+                <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Cantidad') ?></th>
                 <th scope="col"><?= __('Fecha Creacion') ?></th>
@@ -158,7 +158,7 @@
             <?php foreach ($centro->ordens as $ordens): ?>
             <tr>
                 <td><?= h($ordens->id) ?></td>
-                <td><?= h($ordens->nombre) ?></td>
+                <td><?= h($ordens->name) ?></td>
                 <td><?= h($ordens->referencia) ?></td>
                 <td><?= h($ordens->cantidad) ?></td>
                 <td><?= h($ordens->fecha_creacion) ?></td>
@@ -188,7 +188,7 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Nombre') ?></th>
+                <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Familia Id') ?></th>
                 <th scope="col"><?= __('Precio') ?></th>
@@ -207,7 +207,7 @@
             <?php foreach ($centro->proceso as $proceso): ?>
             <tr>
                 <td><?= h($proceso->id) ?></td>
-                <td><?= h($proceso->nombre) ?></td>
+                <td><?= h($proceso->name) ?></td>
                 <td><?= h($proceso->referencia) ?></td>
                 <td><?= h($proceso->familia_id) ?></td>
                 <td><?= h($proceso->precio) ?></td>

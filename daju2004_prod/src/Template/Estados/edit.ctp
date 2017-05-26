@@ -9,7 +9,7 @@
     <fieldset>
         <legend><?= __('Edit Estado') ?></legend>
         <?php
-            echo $this->Form->control('nombre');
+            echo $this->Form->control('name');
             echo $this->Form->control('descripcion');
         ?>
     </fieldset>

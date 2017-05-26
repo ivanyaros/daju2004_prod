@@ -45,8 +45,7 @@ class PedidosProductosDetalleTable extends Table
             'foreignKey' => 'producto_id'
         ]);
         $this->belongsTo('Prioridades', [
-            'foreignKey' => 'prioridade_id',
-            'joinType' => 'INNER'
+            'foreignKey' => 'prioridade_id'
         ]);
     }
 

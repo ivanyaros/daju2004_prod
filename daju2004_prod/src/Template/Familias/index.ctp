@@ -21,7 +21,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('nombre') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('observaciones') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
@@ -30,7 +30,7 @@
             <?php foreach ($familias as $familia): ?>
             <tr>
                 <td><?= $this->Number->format($familia->id) ?></td>
-                <td><?= h($familia->nombre) ?></td>
+                <td><?= h($familia->name) ?></td>
                 <td><?= h($familia->observaciones) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $familia->id]) ?>

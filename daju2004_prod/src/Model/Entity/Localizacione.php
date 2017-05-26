@@ -7,8 +7,8 @@ use Cake\ORM\Entity;
  * Localizacione Entity
  *
  * @property int $id
+ * @property string $name
  * @property int $centro_id
- * @property string $nombre
  *
  * @property \App\Model\Entity\Centro $centro
  * @property \App\Model\Entity\Materiale[] $materiales

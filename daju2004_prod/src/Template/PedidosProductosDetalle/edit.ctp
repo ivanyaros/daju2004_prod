@@ -14,7 +14,7 @@
             echo $this->Form->control('cantidad');
             echo $this->Form->control('fecha', ['empty' => true]);
             echo $this->Form->control('observaciones');
-            echo $this->Form->control('prioridade_id', ['options' => $prioridades]);
+            echo $this->Form->control('prioridade_id', ['options' => $prioridades, 'empty' => true]);
             echo $this->Form->control('terminado');
         ?>
     </fieldset>

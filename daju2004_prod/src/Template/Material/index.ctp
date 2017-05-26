@@ -27,7 +27,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('nombre') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('referencia') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('referencia_proveedor') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('familia_id') ?></th>
@@ -50,7 +50,7 @@
             <?php foreach ($material as $material): ?>
             <tr>
                 <td><?= $this->Number->format($material->id) ?></td>
-                <td><?= h($material->nombre) ?></td>
+                <td><?= h($material->name) ?></td>
                 <td><?= h($material->referencia) ?></td>
                 <td><?= h($material->referencia_proveedor) ?></td>
                 <td><?= $material->has('familia') ? $this->Html->link($material->familia->id, ['controller' => 'Familias', 'action' => 'view', $material->familia->id]) : '' ?></td>

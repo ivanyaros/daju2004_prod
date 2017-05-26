@@ -82,7 +82,7 @@ class ProcesoTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->allowEmpty('nombre');
+            ->allowEmpty('name');
 
         $validator
             ->allowEmpty('referencia');

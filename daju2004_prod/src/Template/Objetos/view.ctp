@@ -8,6 +8,10 @@
     <h3><?= h($objeto->id) ?></h3>
     <table class="vertical-table">
         <tr>
+            <th scope="row"><?= __('Name') ?></th>
+            <td><?= h($objeto->name) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Producto') ?></th>
             <td><?= $objeto->has('producto') ? $this->Html->link($objeto->producto->id, ['controller' => 'Producto', 'action' => 'view', $objeto->producto->id]) : '' ?></td>
         </tr>

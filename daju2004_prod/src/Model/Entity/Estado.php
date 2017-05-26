@@ -7,7 +7,7 @@ use Cake\ORM\Entity;
  * Estado Entity
  *
  * @property int $id
- * @property string $nombre
+ * @property string $name
  * @property string $descripcion
  *
  * @property \App\Model\Entity\EstadosDeOrden[] $estados_de_ordens

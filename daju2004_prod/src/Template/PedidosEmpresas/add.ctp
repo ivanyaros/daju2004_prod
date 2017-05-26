@@ -9,7 +9,7 @@
     <fieldset>
         <legend><?= __('Add Pedidos Empresa') ?></legend>
         <?php
-            echo $this->Form->control('nombre');
+            echo $this->Form->control('name');
             echo $this->Form->control('referencia');
             echo $this->Form->control('proveedores_cliente_id', ['options' => $proveedoresClientes, 'empty' => true]);
             echo $this->Form->control('fecha', ['empty' => true]);

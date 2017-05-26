@@ -7,7 +7,7 @@ use Cake\ORM\Entity;
  * Moneda Entity
  *
  * @property int $id
- * @property string $nombre
+ * @property string $name
  * @property float $valor
  * @property string $observaciones
  *

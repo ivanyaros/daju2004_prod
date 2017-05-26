@@ -7,7 +7,7 @@ use Cake\ORM\Entity;
  * Orden Entity
  *
  * @property int $id
- * @property string $nombre
+ * @property string $name
  * @property string $referencia
  * @property int $cantidad
  * @property \Cake\I18n\FrozenTime $fecha_creacion

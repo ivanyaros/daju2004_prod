@@ -8,8 +8,8 @@
     <h3><?= h($moneda->id) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Nombre') ?></th>
-            <td><?= h($moneda->nombre) ?></td>
+            <th scope="row"><?= __('Name') ?></th>
+            <td><?= h($moneda->name) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Observaciones') ?></th>
@@ -32,7 +32,7 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Nombre') ?></th>
+                <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Referencia Proveedor') ?></th>
                 <th scope="col"><?= __('Familia Id') ?></th>
@@ -53,7 +53,7 @@
             <?php foreach ($moneda->material as $material): ?>
             <tr>
                 <td><?= h($material->id) ?></td>
-                <td><?= h($material->nombre) ?></td>
+                <td><?= h($material->name) ?></td>
                 <td><?= h($material->referencia) ?></td>
                 <td><?= h($material->referencia_proveedor) ?></td>
                 <td><?= h($material->familia_id) ?></td>
@@ -87,7 +87,7 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Nombre') ?></th>
+                <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Familia Id') ?></th>
                 <th scope="col"><?= __('Precio') ?></th>
@@ -106,7 +106,7 @@
             <?php foreach ($moneda->proceso as $proceso): ?>
             <tr>
                 <td><?= h($proceso->id) ?></td>
-                <td><?= h($proceso->nombre) ?></td>
+                <td><?= h($proceso->name) ?></td>
                 <td><?= h($proceso->referencia) ?></td>
                 <td><?= h($proceso->familia_id) ?></td>
                 <td><?= h($proceso->precio) ?></td>
@@ -138,7 +138,7 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Nombre') ?></th>
+                <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Referencia Proveedor') ?></th>
                 <th scope="col"><?= __('Familia Id') ?></th>
@@ -160,7 +160,7 @@
             <?php foreach ($moneda->producto as $producto): ?>
             <tr>
                 <td><?= h($producto->id) ?></td>
-                <td><?= h($producto->nombre) ?></td>
+                <td><?= h($producto->name) ?></td>
                 <td><?= h($producto->referencia) ?></td>
                 <td><?= h($producto->referencia_proveedor) ?></td>
                 <td><?= h($producto->familia_id) ?></td>

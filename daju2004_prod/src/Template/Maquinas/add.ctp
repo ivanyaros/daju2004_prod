@@ -9,7 +9,7 @@
     <fieldset>
         <legend><?= __('Add Maquina') ?></legend>
         <?php
-            echo $this->Form->control('nombre');
+            echo $this->Form->control('name');
             echo $this->Form->control('referencia');
             echo $this->Form->control('observaciones');
             echo $this->Form->control('coste_operacion');

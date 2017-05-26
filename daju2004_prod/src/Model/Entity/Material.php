@@ -7,7 +7,7 @@ use Cake\ORM\Entity;
  * Material Entity
  *
  * @property int $id
- * @property string $nombre
+ * @property string $name
  * @property string $referencia
  * @property string $referencia_proveedor
  * @property int $familia_id

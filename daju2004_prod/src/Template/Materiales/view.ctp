@@ -16,10 +16,6 @@
             <td><?= $materiale->has('localizacione') ? $this->Html->link($materiale->localizacione->id, ['controller' => 'Localizaciones', 'action' => 'view', $materiale->localizacione->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Entradas De Materiale') ?></th>
-            <td><?= $materiale->has('entradas_de_materiale') ? $this->Html->link($materiale->entradas_de_materiale->id, ['controller' => 'EntradasDeMateriales', 'action' => 'view', $materiale->entradas_de_materiale->id]) : '' ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Lote') ?></th>
             <td><?= h($materiale->lote) ?></td>
         </tr>
@@ -30,6 +26,10 @@
         <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($materiale->id) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Entradas Materiale Id') ?></th>
+            <td><?= $this->Number->format($materiale->entradas_materiale_id) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Bobinas') ?></th>

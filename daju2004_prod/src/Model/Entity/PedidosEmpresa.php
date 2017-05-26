@@ -7,7 +7,7 @@ use Cake\ORM\Entity;
  * PedidosEmpresa Entity
  *
  * @property int $id
- * @property string $nombre
+ * @property string $name
  * @property string $referencia
  * @property int $proveedores_cliente_id
  * @property \Cake\I18n\FrozenTime $fecha

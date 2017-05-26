@@ -7,7 +7,7 @@ use Cake\ORM\Entity;
  * Proceso Entity
  *
  * @property int $id
- * @property string $nombre
+ * @property string $name
  * @property string $referencia
  * @property int $familia_id
  * @property float $precio

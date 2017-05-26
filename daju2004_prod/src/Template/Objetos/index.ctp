@@ -25,6 +25,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('producto_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('numero_serie') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('referencia') ?></th>
@@ -42,6 +43,7 @@
             <?php foreach ($objetos as $objeto): ?>
             <tr>
                 <td><?= $this->Number->format($objeto->id) ?></td>
+                <td><?= h($objeto->name) ?></td>
                 <td><?= $objeto->has('producto') ? $this->Html->link($objeto->producto->id, ['controller' => 'Producto', 'action' => 'view', $objeto->producto->id]) : '' ?></td>
                 <td><?= $this->Number->format($objeto->numero_serie) ?></td>
                 <td><?= h($objeto->referencia) ?></td>

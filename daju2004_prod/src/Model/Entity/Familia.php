@@ -7,7 +7,7 @@ use Cake\ORM\Entity;
  * Familia Entity
  *
  * @property int $id
- * @property string $nombre
+ * @property string $name
  * @property string $observaciones
  *
  * @property \App\Model\Entity\Material[] $material

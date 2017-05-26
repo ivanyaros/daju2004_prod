@@ -17,7 +17,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('nombre') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('referencia') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('observaciones') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -27,7 +27,7 @@
             <?php foreach ($utensilios as $utensilio): ?>
             <tr>
                 <td><?= $this->Number->format($utensilio->id) ?></td>
-                <td><?= h($utensilio->nombre) ?></td>
+                <td><?= h($utensilio->name) ?></td>
                 <td><?= h($utensilio->referencia) ?></td>
                 <td><?= h($utensilio->observaciones) ?></td>
                 <td class="actions">

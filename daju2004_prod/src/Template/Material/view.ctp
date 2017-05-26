@@ -8,8 +8,8 @@
     <h3><?= h($material->id) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Nombre') ?></th>
-            <td><?= h($material->nombre) ?></td>
+            <th scope="row"><?= __('Name') ?></th>
+            <td><?= h($material->name) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Referencia') ?></th>
@@ -87,7 +87,7 @@
                 <th scope="col"><?= __('Material Id') ?></th>
                 <th scope="col"><?= __('Fecha Entega') ?></th>
                 <th scope="col"><?= __('Localizacione Id') ?></th>
-                <th scope="col"><?= __('Entradas Material Id') ?></th>
+                <th scope="col"><?= __('Entradas Materiale Id') ?></th>
                 <th scope="col"><?= __('Bobina Lote') ?></th>
                 <th scope="col"><?= __('Bobinas') ?></th>
                 <th scope="col"><?= __('Bobinas Actual') ?></th>
@@ -112,7 +112,7 @@
                 <td><?= h($materiales->material_id) ?></td>
                 <td><?= h($materiales->fecha_entega) ?></td>
                 <td><?= h($materiales->localizacione_id) ?></td>
-                <td><?= h($materiales->entradas_material_id) ?></td>
+                <td><?= h($materiales->entradas_materiale_id) ?></td>
                 <td><?= h($materiales->bobina_lote) ?></td>
                 <td><?= h($materiales->bobinas) ?></td>
                 <td><?= h($materiales->bobinas_actual) ?></td>

@@ -25,7 +25,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('nombre') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('direccion_fiscal') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('telefono') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('fax') ?></th>
@@ -43,7 +43,7 @@
             <?php foreach ($proveedoresClientes as $proveedoresCliente): ?>
             <tr>
                 <td><?= $this->Number->format($proveedoresCliente->id) ?></td>
-                <td><?= h($proveedoresCliente->nombre) ?></td>
+                <td><?= h($proveedoresCliente->name) ?></td>
                 <td><?= h($proveedoresCliente->direccion_fiscal) ?></td>
                 <td><?= h($proveedoresCliente->telefono) ?></td>
                 <td><?= h($proveedoresCliente->fax) ?></td>

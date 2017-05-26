@@ -7,7 +7,7 @@ use Cake\ORM\Entity;
  * Maquina Entity
  *
  * @property int $id
- * @property string $nombre
+ * @property string $name
  * @property string $referencia
  * @property string $observaciones
  * @property float $coste_operacion

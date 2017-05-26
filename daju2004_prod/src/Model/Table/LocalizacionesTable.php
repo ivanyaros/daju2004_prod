@@ -62,7 +62,7 @@ class LocalizacionesTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->allowEmpty('nombre');
+            ->allowEmpty('name');
 
         return $validator;
     }

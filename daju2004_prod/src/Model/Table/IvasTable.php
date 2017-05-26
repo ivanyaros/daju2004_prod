@@ -62,7 +62,7 @@ class IvasTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->allowEmpty('nombre');
+            ->allowEmpty('name');
 
         $validator
             ->numeric('valor')

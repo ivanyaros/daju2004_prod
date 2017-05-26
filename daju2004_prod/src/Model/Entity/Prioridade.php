@@ -7,7 +7,7 @@ use Cake\ORM\Entity;
  * Prioridade Entity
  *
  * @property int $id
- * @property string $nombre
+ * @property string $name
  *
  * @property \App\Model\Entity\Orden[] $ordens
  * @property \App\Model\Entity\PedidosProductosDetalle[] $pedidos_productos_detalle

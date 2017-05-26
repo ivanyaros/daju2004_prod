@@ -31,7 +31,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('nombre') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('referencia') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('familia_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('precio') ?></th>
@@ -52,7 +52,7 @@
             <?php foreach ($proceso as $proceso): ?>
             <tr>
                 <td><?= $this->Number->format($proceso->id) ?></td>
-                <td><?= h($proceso->nombre) ?></td>
+                <td><?= h($proceso->name) ?></td>
                 <td><?= h($proceso->referencia) ?></td>
                 <td><?= $proceso->has('familia') ? $this->Html->link($proceso->familia->id, ['controller' => 'Familias', 'action' => 'view', $proceso->familia->id]) : '' ?></td>
                 <td><?= $this->Number->format($proceso->precio) ?></td>

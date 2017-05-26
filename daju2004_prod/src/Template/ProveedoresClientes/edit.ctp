@@ -9,7 +9,7 @@
     <fieldset>
         <legend><?= __('Edit Proveedores Cliente') ?></legend>
         <?php
-            echo $this->Form->control('nombre');
+            echo $this->Form->control('name');
             echo $this->Form->control('direccion_fiscal');
             echo $this->Form->control('telefono');
             echo $this->Form->control('fax');

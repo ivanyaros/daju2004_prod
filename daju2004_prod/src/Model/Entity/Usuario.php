@@ -7,7 +7,7 @@ use Cake\ORM\Entity;
  * Usuario Entity
  *
  * @property int $id
- * @property string $nombre
+ * @property string $name
  * @property string $apellidos
  * @property string $login
  * @property string $pass
