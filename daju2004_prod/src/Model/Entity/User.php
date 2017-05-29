@@ -4,18 +4,22 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * UsuariosEnEstadosOrden Entity
+ * User Entity
  *
  * @property int $id
- * @property int $estados_de_orden_id
- * @property int $user_id
- * @property float $parte
- * @property string $observaciones
+ * @property string $name
+ * @property string $apellidos
+ * @property string $username
+ * @property string $pass
+ * @property string $email
+ * @property string $direccion
+ * @property string $tipo
+ * @property float $coste_operacion
+ * @property float $coste_tiempo
  *
- * @property \App\Model\Entity\EstadosDeOrden $estados_de_orden
- * @property \App\Model\Entity\Usuario $usuario
+ * @property \App\Model\Entity\UsuariosEnEstadosOrden[] $usuarios_en_estados_orden
  */
-class UsuariosEnEstadosOrden extends Entity
+class User extends Entity
 {
 
     /**

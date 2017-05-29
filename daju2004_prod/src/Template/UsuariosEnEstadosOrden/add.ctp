@@ -10,7 +10,7 @@
         <legend><?= __('Add Usuarios En Estados Orden') ?></legend>
         <?php
             echo $this->Form->control('estados_de_orden_id', ['options' => $estadosDeOrdens, 'empty' => true]);
-            echo $this->Form->control('usuario_id', ['options' => $usuarios, 'empty' => true]);
+            echo $this->Form->control('user_id');
             echo $this->Form->control('parte');
             echo $this->Form->control('observaciones');
         ?>

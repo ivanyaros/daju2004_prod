@@ -36,5 +36,9 @@ class AppView extends View
      */
     public function initialize()
     {
+        $this->loadHelper('NiceAdmin.StatusLights');
+        $this->loadHelper('NiceAdmin.Actions');
+        $this->loadHelper('NiceAdmin.Gravatar');
+        $this->loadHelper('NiceAdmin.Boolean');
     }
 }

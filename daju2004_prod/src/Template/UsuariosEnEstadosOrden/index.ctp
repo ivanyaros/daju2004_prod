@@ -9,8 +9,6 @@
         <li><?= $this->Html->link(__('New Usuarios En Estados Orden'), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Estados De Ordens'), ['controller' => 'EstadosDeOrdens', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Estados De Orden'), ['controller' => 'EstadosDeOrdens', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Usuarios'), ['controller' => 'Usuarios', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Usuario'), ['controller' => 'Usuarios', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="usuariosEnEstadosOrden index large-9 medium-8 columns content">
@@ -20,7 +18,7 @@
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('estados_de_orden_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('usuario_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('parte') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('observaciones') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -31,7 +29,7 @@
             <tr>
                 <td><?= $this->Number->format($usuariosEnEstadosOrden->id) ?></td>
                 <td><?= $usuariosEnEstadosOrden->has('estados_de_orden') ? $this->Html->link($usuariosEnEstadosOrden->estados_de_orden->label, ['controller' => 'EstadosDeOrdens', 'action' => 'view', $usuariosEnEstadosOrden->estados_de_orden->id]) : '' ?></td>
-                <td><?= $usuariosEnEstadosOrden->has('usuario') ? $this->Html->link($usuariosEnEstadosOrden->usuario->label, ['controller' => 'Usuarios', 'action' => 'view', $usuariosEnEstadosOrden->usuario->id]) : '' ?></td>
+                <td><?= $this->Number->format($usuariosEnEstadosOrden->user_id) ?></td>
                 <td><?= $this->Number->format($usuariosEnEstadosOrden->parte) ?></td>
                 <td><?= h($usuariosEnEstadosOrden->observaciones) ?></td>
                 <td class="actions">

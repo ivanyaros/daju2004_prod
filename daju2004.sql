@@ -713,16 +713,16 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `daju_2004`.`usuarios`
+-- Table `daju_2004`.`users`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `daju_2004`.`usuarios` ;
+DROP TABLE IF EXISTS `daju_2004`.`users` ;
 
-CREATE TABLE IF NOT EXISTS `daju_2004`.`usuarios` (
+CREATE TABLE IF NOT EXISTS `daju_2004`.`users` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NULL,
   `apellidos` VARCHAR(255) NULL,
-  `login` VARCHAR(45) NULL,
-  `pass` VARCHAR(45) NULL,
+  `username` VARCHAR(45) NOT NULL,
+  `pass` VARCHAR(255) NOT NULL,
   `email` VARCHAR(45) NULL,
   `direccion` VARCHAR(45) NULL,
   `tipo` VARCHAR(45) NULL,
@@ -740,20 +740,20 @@ DROP TABLE IF EXISTS `daju_2004`.`usuarios_en_estados_orden` ;
 CREATE TABLE IF NOT EXISTS `daju_2004`.`usuarios_en_estados_orden` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `estados_de_orden_id` INT UNSIGNED NULL,
-  `usuario_id` INT UNSIGNED NULL,
+  `user_id` INT UNSIGNED NULL,
   `parte` FLOAT NULL,
   `observaciones` VARCHAR(255) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_usuarios_en_estados_orden_estados_de_ordens1_idx` (`estados_de_orden_id` ASC),
-  INDEX `fk_usuarios_en_estados_orden_usuarios1_idx` (`usuario_id` ASC),
+  INDEX `fk_usuarios_en_estados_orden_usuarios1_idx` (`user_id` ASC),
   CONSTRAINT `fk_usuarios_en_estados_orden_estados_de_ordens1`
     FOREIGN KEY (`estados_de_orden_id`)
     REFERENCES `daju_2004`.`estados_de_ordens` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_usuarios_en_estados_orden_usuarios1`
-    FOREIGN KEY (`usuario_id`)
-    REFERENCES `daju_2004`.`usuarios` (`id`)
+    FOREIGN KEY (`user_id`)
+    REFERENCES `daju_2004`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

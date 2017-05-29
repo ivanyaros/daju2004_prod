@@ -220,5 +220,5 @@ Type::build('timestamp')
 if (Configure::read('debug')) {
     Plugin::load('DebugKit', ['bootstrap' => true]);
 }
-
+Plugin::load('NiceAdmin');
 Plugin::load('MyBakePlugin', ['bootstrap' => false, 'routes' => true]);

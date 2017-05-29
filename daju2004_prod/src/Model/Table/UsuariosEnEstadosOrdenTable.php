@@ -10,7 +10,7 @@ use Cake\Validation\Validator;
  * UsuariosEnEstadosOrden Model
  *
  * @property \Cake\ORM\Association\BelongsTo $EstadosDeOrdens
- * @property \Cake\ORM\Association\BelongsTo $Usuarios
+ * @property \Cake\ORM\Association\BelongsTo $Users
  *
  * @method \App\Model\Entity\UsuariosEnEstadosOrden get($primaryKey, $options = [])
  * @method \App\Model\Entity\UsuariosEnEstadosOrden newEntity($data = null, array $options = [])
@@ -41,8 +41,8 @@ class UsuariosEnEstadosOrdenTable extends Table
         $this->belongsTo('EstadosDeOrdens', [
             'foreignKey' => 'estados_de_orden_id'
         ]);
-        $this->belongsTo('Usuarios', [
-            'foreignKey' => 'usuario_id'
+        $this->belongsTo('Users', [
+            'foreignKey' => 'user_id'
         ]);
     }
 
@@ -78,7 +78,7 @@ class UsuariosEnEstadosOrdenTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['estados_de_orden_id'], 'EstadosDeOrdens'));
-        $rules->add($rules->existsIn(['usuario_id'], 'Usuarios'));
+        $rules->add($rules->existsIn(['user_id'], 'Users'));
 
         return $rules;
     }

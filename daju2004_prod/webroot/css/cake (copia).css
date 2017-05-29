@@ -42,8 +42,6 @@ legend {
 }
 
 .actions.columns {
-    background-color: #4CAF50; /* Green */
-    display: inline-block;
     margin-top:1rem;
     border-left: 5px solid #15848F;
     padding-left: 15px;
