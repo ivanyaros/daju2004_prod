@@ -6,61 +6,61 @@
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit User'), ['action' => 'edit', $user->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete User'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Users'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('Edit Users Controller'), ['action' => 'edit', $usersController->id]) ?> </li>
+        <li><?= $this->Form->postLink(__('Delete Users Controller'), ['action' => 'delete', $usersController->id], ['confirm' => __('Are you sure you want to delete # {0}?', $usersController->id)]) ?> </li>
+        <li><?= $this->Html->link(__('List Users Controller'), ['action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Users Controller'), ['action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Usuarios En Estados Orden'), ['controller' => 'UsuariosEnEstadosOrden', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Usuarios En Estados Orden'), ['controller' => 'UsuariosEnEstadosOrden', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
-<div class="users view large-9 medium-8 columns content">
-    <h3><?= h($user->label) ?></h3>
+<div class="usersController view large-9 medium-8 columns content">
+    <h3><?= h($usersController->label) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Name') ?></th>
-            <td><?= h($user->name) ?></td>
+            <td><?= h($usersController->name) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Apellidos') ?></th>
-            <td><?= h($user->apellidos) ?></td>
+            <td><?= h($usersController->apellidos) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Username') ?></th>
-            <td><?= h($user->username) ?></td>
+            <td><?= h($usersController->username) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Password') ?></th>
-            <td><?= h($user->password) ?></td>
+            <td><?= h($usersController->password) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Email') ?></th>
-            <td><?= h($user->email) ?></td>
+            <td><?= h($usersController->email) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Direccion') ?></th>
-            <td><?= h($user->direccion) ?></td>
+            <td><?= h($usersController->direccion) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Tipo') ?></th>
-            <td><?= h($user->tipo) ?></td>
+            <td><?= h($usersController->tipo) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($user->id) ?></td>
+            <td><?= $this->Number->format($usersController->id) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Coste Operacion') ?></th>
-            <td><?= $this->Number->format($user->coste_operacion) ?></td>
+            <td><?= $this->Number->format($usersController->coste_operacion) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Coste Tiempo') ?></th>
-            <td><?= $this->Number->format($user->coste_tiempo) ?></td>
+            <td><?= $this->Number->format($usersController->coste_tiempo) ?></td>
         </tr>
     </table>
     <div class="related">
         <h4><?= __('Related Usuarios En Estados Orden') ?></h4>
-        <?php if (!empty($user->usuarios_en_estados_orden)): ?>
+        <?php if (!empty($usersController->usuarios_en_estados_orden)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
@@ -70,7 +70,7 @@
                 <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
-            <?php foreach ($user->usuarios_en_estados_orden as $usuariosEnEstadosOrden): ?>
+            <?php foreach ($usersController->usuarios_en_estados_orden as $usuariosEnEstadosOrden): ?>
             <tr>
                 <td><?= h($usuariosEnEstadosOrden->id) ?></td>
                 <td><?= h($usuariosEnEstadosOrden->estados_de_orden_id) ?></td>

@@ -9,6 +9,8 @@
         <li><?= $this->Html->link(__('New Usuarios En Estados Orden'), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Estados De Ordens'), ['controller' => 'EstadosDeOrdens', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Estados De Orden'), ['controller' => 'EstadosDeOrdens', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="usuariosEnEstadosOrden index large-9 medium-8 columns content">
@@ -29,7 +31,7 @@
             <tr>
                 <td><?= $this->Number->format($usuariosEnEstadosOrden->id) ?></td>
                 <td><?= $usuariosEnEstadosOrden->has('estados_de_orden') ? $this->Html->link($usuariosEnEstadosOrden->estados_de_orden->label, ['controller' => 'EstadosDeOrdens', 'action' => 'view', $usuariosEnEstadosOrden->estados_de_orden->id]) : '' ?></td>
-                <td><?= $this->Number->format($usuariosEnEstadosOrden->user_id) ?></td>
+                <td><?= $usuariosEnEstadosOrden->has('user') ? $this->Html->link($usuariosEnEstadosOrden->user->label, ['controller' => 'Users', 'action' => 'view', $usuariosEnEstadosOrden->user->id]) : '' ?></td>
                 <td><?= $this->Number->format($usuariosEnEstadosOrden->parte) ?></td>
                 <td><?= h($usuariosEnEstadosOrden->observaciones) ?></td>
                 <td class="actions">

@@ -21,7 +21,7 @@ class UsuariosEnEstadosOrdenController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['EstadosDeOrdens', 'Usuarios']
+            'contain' => ['EstadosDeOrdens', 'Users']
         ];
         $usuariosEnEstadosOrden = $this->paginate($this->UsuariosEnEstadosOrden);
 
@@ -39,7 +39,7 @@ class UsuariosEnEstadosOrdenController extends AppController
     public function view($id = null)
     {
         $usuariosEnEstadosOrden = $this->UsuariosEnEstadosOrden->get($id, [
-            'contain' => ['EstadosDeOrdens', 'Usuarios']
+            'contain' => ['EstadosDeOrdens', 'Users']
         ]);
 
         $this->set('usuariosEnEstadosOrden', $usuariosEnEstadosOrden);
@@ -67,8 +67,8 @@ class UsuariosEnEstadosOrdenController extends AppController
             $this->Flash->error(__('The usuarios en estados orden could not be saved. Please, try again.'));
         }
         $estadosDeOrdens = $this->UsuariosEnEstadosOrden->EstadosDeOrdens->find('list', ['limit' => 200]);
-        $usuarios = $this->UsuariosEnEstadosOrden->Usuarios->find('list', ['limit' => 200]);
-        $this->set(compact('usuariosEnEstadosOrden', 'estadosDeOrdens', 'usuarios'));
+        $users = $this->UsuariosEnEstadosOrden->Users->find('list', ['limit' => 200]);
+        $this->set(compact('usuariosEnEstadosOrden', 'estadosDeOrdens', 'users'));
         $this->set('_serialize', ['usuariosEnEstadosOrden']);
     }
 
@@ -94,8 +94,8 @@ class UsuariosEnEstadosOrdenController extends AppController
             $this->Flash->error(__('The usuarios en estados orden could not be saved. Please, try again.'));
         }
         $estadosDeOrdens = $this->UsuariosEnEstadosOrden->EstadosDeOrdens->find('list', ['limit' => 200]);
-        $usuarios = $this->UsuariosEnEstadosOrden->Usuarios->find('list', ['limit' => 200]);
-        $this->set(compact('usuariosEnEstadosOrden', 'estadosDeOrdens', 'usuarios'));
+        $users = $this->UsuariosEnEstadosOrden->Users->find('list', ['limit' => 200]);
+        $this->set(compact('usuariosEnEstadosOrden', 'estadosDeOrdens', 'users'));
         $this->set('_serialize', ['usuariosEnEstadosOrden']);
     }
 

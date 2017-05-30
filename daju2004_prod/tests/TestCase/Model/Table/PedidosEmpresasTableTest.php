@@ -44,7 +44,7 @@ class PedidosEmpresasTableTest extends TestCase
         'app.maquinas_usadas',
         'app.maquinas',
         'app.usuarios_en_estados_orden',
-        'app.usuarios',
+        'app.users',
         'app.utensilios_usados',
         'app.utensilios',
         'app.prioridades',

@@ -2,6 +2,7 @@
 /**
   * @var \App\View\AppView $this
   */
+$this->assign('title', $nombre);
 ?>
 
 <div class="centros view large-9 medium-8 columns content">
@@ -101,6 +102,7 @@
     <div class="related">
         <h4><?= __('Related Localizaciones') ?>
         	<li><?= $this->Html->link(__('New Localizacione'), ['controller' => 'Localizaciones', 'action' => 'add',$centro->id,'centro_id']) ?> </li>
+            
         </h4>
         <?php if (!empty($centro->localizaciones)): ?>
         <table cellpadding="0" cellspacing="0">

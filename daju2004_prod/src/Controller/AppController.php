@@ -37,19 +37,42 @@ class AppController extends Controller
      *
      * @return void
      */
+    //$this->loadComponent('Auth');
     public function initialize()
     {
         parent::initialize();
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-
+        $this->loadComponent('Auth', [
+            'authorize' => ['Controller'],
+            'loginRedirect' => [
+                'controller' => 'Centros',
+                'action' => 'index'
+            ],
+            'logoutRedirect' => [
+                'controller' => 'Pages',
+                'action' => 'display',
+                'home'
+            ]
+        ]);
+        $this->Auth->allow(['index', 'view','display']);
         /*
          * Enable the following components for recommended CakePHP security settings.
          * see http://book.cakephp.org/3.0/en/controllers/components/security.html
          */
         //$this->loadComponent('Security');
         //$this->loadComponent('Csrf');
+    }
+    public function isAuthorized($user)
+    {
+        // Admin can access every action
+        if (isset($user['tipo']) && $user['tipo'] === 'admin') {
+            return true;
+        }
+
+        // Default deny
+        return false;
     }
 
     /**
@@ -60,10 +83,12 @@ class AppController extends Controller
      */
     public function beforeRender(Event $event)
     {
+        //$this->Auth->allow(['index', 'view', 'display']);
         if (!array_key_exists('_serialize', $this->viewVars) &&
             in_array($this->response->type(), ['application/json', 'application/xml'])
         ) {
             $this->set('_serialize', true);
         }
+        
     }
 }

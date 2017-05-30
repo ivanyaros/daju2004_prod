@@ -20,7 +20,7 @@
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('apellidos') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('username') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('pass') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('password') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('direccion') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('tipo') ?></th>
@@ -36,7 +36,7 @@
                 <td><?= h($user->name) ?></td>
                 <td><?= h($user->apellidos) ?></td>
                 <td><?= h($user->username) ?></td>
-                <td><?= h($user->pass) ?></td>
+                <td><?= h($user->password) ?></td>
                 <td><?= h($user->email) ?></td>
                 <td><?= h($user->direccion) ?></td>
                 <td><?= h($user->tipo) ?></td>

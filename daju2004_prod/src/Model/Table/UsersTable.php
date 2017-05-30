@@ -62,11 +62,11 @@ class UsersTable extends Table
 
         $validator
             ->requirePresence('username', 'create')
-            ->notEmpty('username');
+            ->notEmpty('username','A username is required');
 
         $validator
-            ->requirePresence('pass', 'create')
-            ->notEmpty('pass');
+            ->requirePresence('password', 'create')
+            ->notEmpty('password','A password is required');
 
         $validator
             ->email('email')
@@ -76,7 +76,12 @@ class UsersTable extends Table
             ->allowEmpty('direccion');
 
         $validator
-            ->allowEmpty('tipo');
+            ->notEmpty('tipo','A tipo is required');
+        $validator
+            ->add('tipo', 'inList', [
+                'rule' => ['inList', ['admin', 'operario']],
+                'message' => 'Please enter a valid role(admin,operario)'
+            ]);
 
         $validator
             ->numeric('coste_operacion')

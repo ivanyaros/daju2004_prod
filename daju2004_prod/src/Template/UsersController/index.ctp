@@ -6,21 +6,21 @@
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Usuario'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('New Users Controller'), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Usuarios En Estados Orden'), ['controller' => 'UsuariosEnEstadosOrden', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Usuarios En Estados Orden'), ['controller' => 'UsuariosEnEstadosOrden', 'action' => 'add']) ?></li>
     </ul>
 </nav>
-<div class="usuarios index large-9 medium-8 columns content">
-    <h3><?= __('Usuarios') ?></h3>
+<div class="usersController index large-9 medium-8 columns content">
+    <h3><?= __('Users Controller') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('apellidos') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('login') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('pass') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('username') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('password') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('direccion') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('tipo') ?></th>
@@ -30,22 +30,22 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($usuarios as $usuario): ?>
+            <?php foreach ($usersController as $usersController): ?>
             <tr>
-                <td><?= $this->Number->format($usuario->id) ?></td>
-                <td><?= h($usuario->name) ?></td>
-                <td><?= h($usuario->apellidos) ?></td>
-                <td><?= h($usuario->login) ?></td>
-                <td><?= h($usuario->pass) ?></td>
-                <td><?= h($usuario->email) ?></td>
-                <td><?= h($usuario->direccion) ?></td>
-                <td><?= h($usuario->tipo) ?></td>
-                <td><?= $this->Number->format($usuario->coste_operacion) ?></td>
-                <td><?= $this->Number->format($usuario->coste_tiempo) ?></td>
+                <td><?= $this->Number->format($usersController->id) ?></td>
+                <td><?= h($usersController->name) ?></td>
+                <td><?= h($usersController->apellidos) ?></td>
+                <td><?= h($usersController->username) ?></td>
+                <td><?= h($usersController->password) ?></td>
+                <td><?= h($usersController->email) ?></td>
+                <td><?= h($usersController->direccion) ?></td>
+                <td><?= h($usersController->tipo) ?></td>
+                <td><?= $this->Number->format($usersController->coste_operacion) ?></td>
+                <td><?= $this->Number->format($usersController->coste_tiempo) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $usuario->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $usuario->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $usuario->id], ['confirm' => __('Are you sure you want to delete # {0}?', $usuario->id)]) ?>
+                    <?= $this->Html->link(__('View'), ['action' => 'view', $usersController->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $usersController->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $usersController->id], ['confirm' => __('Are you sure you want to delete # {0}?', $usersController->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

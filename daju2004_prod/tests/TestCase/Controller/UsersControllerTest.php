@@ -47,8 +47,7 @@ class UsersControllerTest extends IntegrationTestCase
         'app.maquinas_usadas',
         'app.maquinas',
         'app.utensilios_usados',
-        'app.utensilios',
-        'app.usuarios'
+        'app.utensilios'
     ];
 
     /**

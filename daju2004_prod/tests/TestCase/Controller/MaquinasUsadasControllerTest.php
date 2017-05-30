@@ -44,7 +44,7 @@ class MaquinasUsadasControllerTest extends IntegrationTestCase
         'app.proveedores_material',
         'app.prioridades',
         'app.usuarios_en_estados_orden',
-        'app.usuarios',
+        'app.users',
         'app.utensilios_usados',
         'app.utensilios',
         'app.maquinas'

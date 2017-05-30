@@ -13,7 +13,7 @@ use Cake\ORM\Entity;
  * @property string $observaciones
  *
  * @property \App\Model\Entity\EstadosDeOrden $estados_de_orden
- * @property \App\Model\Entity\Usuario $usuario
+ * @property \App\Model\Entity\User $user
  */
 class UsuariosEnEstadosOrden extends Entity
 {

@@ -1,8 +1,7 @@
-<?php
-namespace App\Model\Entity;
+<?phpnamespace App\Model\Entity;
 
 use Cake\ORM\Entity;
-
+use Cake\Auth\DefaultPasswordHasher;
 /**
  * User Entity
  *
@@ -10,7 +9,7 @@ use Cake\ORM\Entity;
  * @property string $name
  * @property string $apellidos
  * @property string $username
- * @property string $pass
+ * @property string $password
  * @property string $email
  * @property string $direccion
  * @property string $tipo
@@ -19,6 +18,7 @@ use Cake\ORM\Entity;
  *
  * @property \App\Model\Entity\UsuariosEnEstadosOrden[] $usuarios_en_estados_orden
  */
+
 class User extends Entity
 {
 
@@ -41,8 +41,24 @@ class User extends Entity
             return '('.$this->_properties['id'].')';
     }
     
+    protected function _setPassword($password)
+    {
+        if (strlen($password) > 0) {
+            return (new DefaultPasswordHasher)->hash($password);
+        }
+    }
+    
     protected $_accessible = [
         '*' => true,
         'id' => false
+    ];
+
+    /**
+     * Fields that are excluded from JSON versions of the entity.
+     *
+     * @var array
+     */
+    protected $_hidden = [
+        'password'
     ];
 }

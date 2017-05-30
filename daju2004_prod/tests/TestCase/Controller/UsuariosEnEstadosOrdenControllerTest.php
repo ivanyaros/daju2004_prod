@@ -47,7 +47,7 @@ class UsuariosEnEstadosOrdenControllerTest extends IntegrationTestCase
         'app.maquinas',
         'app.utensilios_usados',
         'app.utensilios',
-        'app.usuarios'
+        'app.users'
     ];
 
     /**
