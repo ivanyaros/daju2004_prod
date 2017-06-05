@@ -2,34 +2,43 @@
 /**
   * @var \App\View\AppView $this
   */
-$this->assign('title', $nombre);
 ?>
+<div class="w3-container">
+    <div class="w3-responsive">
+        <h3><?= h($centro->label) ?></h3>
+        <table class="w3-table w3-bordered w3-theme">
+            <tr>
+                <th scope="row"><?= __('Name') ?></th>
+                <td><?= h($centro->name) ?></td>
+            </tr>
+            <tr>
+                <th scope="row"><?= __('Referencia') ?></th>
+                <td><?= h($centro->referencia) ?></td>
+            </tr>
+            <tr>
+                <th scope="row"><?= __('Direccion') ?></th>
+                <td><?= h($centro->direccion) ?></td>
+            </tr>
+            <tr>
+                <th scope="row"><?= __('Observaciones') ?></th>
+                <td><?= h($centro->observaciones) ?></td>
+            </tr>
+            <tr>
+                <th scope="row"><?= __('Id') ?></th>
+                <td><?= $this->Number->format($centro->id) ?></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="w3-bar w3-black">
+  <button class="w3-bar-item w3-button" onclick="openRelated('Related Entradas De Materiales')">Entradas De Materiales</button>
+  <button class="w3-bar-item w3-button" onclick="openRelated('Related Envios')">Envios</button>
+  <button class="w3-bar-item w3-button" onclick="openRelated('Related Localizaciones')">Localizaciones</button>
+  <button class="w3-bar-item w3-button" onclick="openRelated('Related Ordens')">Ordens</button>
+  <button class="w3-bar-item w3-button" onclick="openRelated('Related Proceso')">Procesos</button>
 
-<div class="centros view large-9 medium-8 columns content">
-    <h3><?= h($centro->label) ?></h3>
-    <table class="vertical-table">
-        <tr>
-            <th scope="row"><?= __('Name') ?></th>
-            <td><?= h($centro->name) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Referencia') ?></th>
-            <td><?= h($centro->referencia) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Direccion') ?></th>
-            <td><?= h($centro->direccion) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Observaciones') ?></th>
-            <td><?= h($centro->observaciones) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($centro->id) ?></td>
-        </tr>
-    </table>
-    <div class="related">
+</div>
+    <div id='Related Entradas De Materiales' class="w3-container related" style="display:none">
         <h4><?= __('Related Entradas De Materiales') ?>
         	<li><?= $this->Html->link(__('New Entradas De Materiale'), ['controller' => 'EntradasDeMateriales', 'action' => 'add',$centro->id,'centro_id']) ?> </li>
         </h4>
@@ -62,7 +71,7 @@ $this->assign('title', $nombre);
         </table>
         <?php endif; ?>
     </div>
-    <div class="related">
+    <div id='Related Envios' class="w3-container related" style="display:none">
         <h4><?= __('Related Envios') ?>
         	<li><?= $this->Html->link(__('New Envio'), ['controller' => 'Envios', 'action' => 'add',$centro->id,'centro_id']) ?> </li>
         </h4>
@@ -99,10 +108,9 @@ $this->assign('title', $nombre);
         </table>
         <?php endif; ?>
     </div>
-    <div class="related">
+    <div id='Related Localizaciones' class="w3-container related" style="display:none">
         <h4><?= __('Related Localizaciones') ?>
         	<li><?= $this->Html->link(__('New Localizacione'), ['controller' => 'Localizaciones', 'action' => 'add',$centro->id,'centro_id']) ?> </li>
-            
         </h4>
         <?php if (!empty($centro->localizaciones)): ?>
         <table cellpadding="0" cellspacing="0">
@@ -123,7 +131,7 @@ $this->assign('title', $nombre);
         </table>
         <?php endif; ?>
     </div>
-    <div class="related">
+    <div id='Related Ordens' class="w3-container related" style="display:none">
         <h4><?= __('Related Ordens') ?>
         	<li><?= $this->Html->link(__('New Orden'), ['controller' => 'Ordens', 'action' => 'add',$centro->id,'centro_id']) ?> </li>
         </h4>
@@ -166,7 +174,7 @@ $this->assign('title', $nombre);
         </table>
         <?php endif; ?>
     </div>
-    <div class="related">
+    <div id='Related Proceso' class="w3-container related" style="display:none">
         <h4><?= __('Related Proceso') ?>
         	<li><?= $this->Html->link(__('New Proceso'), ['controller' => 'Proceso', 'action' => 'add',$centro->id,'centro_id']) ?> </li>
         </h4>
@@ -214,3 +222,13 @@ $this->assign('title', $nombre);
         <?php endif; ?>
     </div>
 </div>
+<script>
+function openRelated(relatedName) {
+    var i;
+    var x = document.getElementsByClassName("related");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    document.getElementById(relatedName).style.display = "block";  
+}
+</script>

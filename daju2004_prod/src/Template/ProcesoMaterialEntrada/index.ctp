@@ -3,19 +3,21 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Proceso Material Entrada'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Proceso'), ['controller' => 'Proceso', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Proceso'), ['controller' => 'Proceso', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Material'), ['controller' => 'Material', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Material'), ['controller' => 'Material', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="procesoMaterialEntrada index large-9 medium-8 columns content">
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
+    <h3 class="w3-bar-item"><?= __('Actions') ?></h3>
+    <a class="w3-bar-item w3-button" href="<?= $this->Url->build(['action' => 'add']) ?>"
+    ><?= __('New Proceso Material Entrada') ?></a>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'Proceso', 'action' => 'index']) ?>"><?= __('List Proceso') ?></a>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'Proceso','action' => 'add']) ?>"><?= __('New Proceso') ?></a>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'Material', 'action' => 'index']) ?>"><?= __('List Material') ?></a>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'Material','action' => 'add']) ?>"><?= __('New Material') ?></a>
+    
+</div>
+<div style="margin-left:25%">
+<div class="w3 container w3-theme">
     <h3><?= __('Proceso Material Entrada') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <div class="w3-responsive">
+    <table class=" w3-table w3-bordered w3-hoverable w3-theme">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
@@ -45,6 +47,7 @@
             <?php endforeach; ?>
         </tbody>
     </table>
+    </div>
     <div class="paginator">
         <ul class="pagination">
             <?= $this->Paginator->first('<< ' . __('first')) ?>

@@ -37,29 +37,31 @@ if (!empty($indexColumns)) {
 }
 
 %>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New <%= $singularHumanName %>'), ['action' => 'add']) ?></li>
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
+    <h3 class="w3-bar-item"><?= __('Actions') ?></h3>
+    <a class="w3-bar-item w3-button" href="<?= $this->Url->build(['action' => 'add']) ?>"
+    ><?= __('New <%= $singularHumanName %>') ?></a>
 <%
     $done = [];
     foreach ($associations as $type => $data):
         foreach ($data as $alias => $details):
             if (!empty($details['navLink']) && $details['controller'] !== $this->name && !in_array($details['controller'], $done)):
 %>
-        <li><?= $this->Html->link(__('List <%= $this->_pluralHumanName($alias) %>'), ['controller' => '<%= $details['controller'] %>', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New <%= $this->_singularHumanName($alias) %>'), ['controller' => '<%= $details['controller'] %>', 'action' => 'add']) ?></li>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => '<%= $details['controller'] %>', 'action' => 'index']) ?>"><?= __('List <%= $this->_pluralHumanName($alias) %>') ?></a>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => '<%= $details['controller'] %>','action' => 'add']) ?>"><?= __('New <%= $this->_singularHumanName($alias) %>') ?></a>
 <%
                 $done[] = $details['controller'];
             endif;
         endforeach;
     endforeach;
 %>
-    </ul>
-</nav>
-<div class="<%= $pluralVar %> index large-9 medium-8 columns content">
+    
+</div>
+<div style="margin-left:25%">
+<div class="w3 container w3-theme">
     <h3><?= __('<%= $pluralHumanName %>') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <div class="w3-responsive">
+    <table class=" w3-table w3-bordered w3-hoverable w3-theme">
         <thead>
             <tr>
 <% foreach ($fields as $field): %>
@@ -108,6 +110,7 @@ if (!empty($indexColumns)) {
             <?php endforeach; ?>
         </tbody>
     </table>
+    </div>
     <div class="paginator">
         <ul class="pagination">
             <?= $this->Paginator->first('<< ' . __('first')) ?>

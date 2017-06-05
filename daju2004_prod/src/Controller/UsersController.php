@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-use Cake\Event\Event;
+
 /**
  * Users Controller
  *
@@ -12,31 +12,6 @@ use Cake\Event\Event;
  */
 class UsersController extends AppController
 {
-    public function beforeFilter(Event $event)
-    {
-        /* if (!isset($$this->Auth)) {
-            debug(get_included_files());
-            die;}*/
-        parent::beforeFilter($event);
-        $this->Auth->allow(['add', 'logout']);
-        $this->Auth->config('authError', "Woopsie, you are not authorized to access this area.");
-    }
-    public function login()
-    {
-        if ($this->request->is('post')) {
-            $user = $this->Auth->identify();
-            if ($user) {
-                $this->Auth->setUser($user);
-                return $this->redirect($this->Auth->redirectUrl());
-            }
-            $this->Flash->error(__('Invalid username or password, try again'));
-        }
-    }
-
-    public function logout()
-    {
-        return $this->redirect($this->Auth->logout());
-    }
 
     /**
      * Index method

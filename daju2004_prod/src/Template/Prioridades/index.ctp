@@ -3,19 +3,21 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Prioridade'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Ordens'), ['controller' => 'Ordens', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Orden'), ['controller' => 'Ordens', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Pedidos Productos Detalle'), ['controller' => 'PedidosProductosDetalle', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Pedidos Productos Detalle'), ['controller' => 'PedidosProductosDetalle', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="prioridades index large-9 medium-8 columns content">
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
+    <h3 class="w3-bar-item"><?= __('Actions') ?></h3>
+    <a class="w3-bar-item w3-button" href="<?= $this->Url->build(['action' => 'add']) ?>"
+    ><?= __('New Prioridade') ?></a>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'Ordens', 'action' => 'index']) ?>"><?= __('List Ordens') ?></a>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'Ordens','action' => 'add']) ?>"><?= __('New Orden') ?></a>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'PedidosProductosDetalle', 'action' => 'index']) ?>"><?= __('List Pedidos Productos Detalle') ?></a>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'PedidosProductosDetalle','action' => 'add']) ?>"><?= __('New Pedidos Productos Detalle') ?></a>
+    
+</div>
+<div style="margin-left:25%">
+<div class="w3 container w3-theme">
     <h3><?= __('Prioridades') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <div class="w3-responsive">
+    <table class=" w3-table w3-bordered w3-hoverable w3-theme">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
@@ -37,6 +39,7 @@
             <?php endforeach; ?>
         </tbody>
     </table>
+    </div>
     <div class="paginator">
         <ul class="pagination">
             <?= $this->Paginator->first('<< ' . __('first')) ?>

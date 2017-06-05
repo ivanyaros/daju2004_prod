@@ -11,7 +11,9 @@
         "cakephp/migrations": "~1.0",
         "cakephp/plugin-installer": "~1.0",
         "cakephp/debug_kit": "^3.10",
-        "davidyell/nice-admin": "dev-master"
+        "davidyell/nice-admin": "dev-master",
+        "friendsofcake/bootstrap-ui": "^1.1",
+        "twbs/bootstrap": "^3.3"
     },
     "require-dev": {
         "psy/psysh": "@stable",

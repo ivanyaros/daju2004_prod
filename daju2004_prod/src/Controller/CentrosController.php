@@ -38,10 +38,9 @@ class CentrosController extends AppController
         $centro = $this->Centros->get($id, [
             'contain' => ['EntradasDeMateriales', 'Envios', 'Localizaciones', 'Ordens', 'Proceso']
         ]);
-        
+
         $this->set('centro', $centro);
-        $this->set('nombre',$this->Auth->user()['name']);
-        $this->set('_serialize', ['centro','nombre']);
+        $this->set('_serialize', ['centro']);
     }
 
     /**

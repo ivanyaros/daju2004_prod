@@ -44,7 +44,7 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-        $this->loadComponent('Auth', [
+       /* $this->loadComponent('Auth', [
             'authorize' => ['Controller'],
             'loginRedirect' => [
                 'controller' => 'Centros',
@@ -64,7 +64,7 @@ class AppController extends Controller
         //$this->loadComponent('Security');
         //$this->loadComponent('Csrf');
     }
-    public function isAuthorized($user)
+    /*public function isAuthorized($user)
     {
         // Admin can access every action
         if (isset($user['tipo']) && $user['tipo'] === 'admin') {

@@ -3,25 +3,27 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Objeto'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Producto'), ['controller' => 'Producto', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Producto'), ['controller' => 'Producto', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Ordens'), ['controller' => 'Ordens', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Orden'), ['controller' => 'Ordens', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Localizaciones'), ['controller' => 'Localizaciones', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Localizacione'), ['controller' => 'Localizaciones', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Materiales Entrada'), ['controller' => 'MaterialesEntrada', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Materiales Entrada'), ['controller' => 'MaterialesEntrada', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Envios'), ['controller' => 'Envios', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Envio'), ['controller' => 'Envios', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="objetos index large-9 medium-8 columns content">
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
+    <h3 class="w3-bar-item"><?= __('Actions') ?></h3>
+    <a class="w3-bar-item w3-button" href="<?= $this->Url->build(['action' => 'add']) ?>"
+    ><?= __('New Objeto') ?></a>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'Producto', 'action' => 'index']) ?>"><?= __('List Producto') ?></a>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'Producto','action' => 'add']) ?>"><?= __('New Producto') ?></a>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'Ordens', 'action' => 'index']) ?>"><?= __('List Ordens') ?></a>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'Ordens','action' => 'add']) ?>"><?= __('New Orden') ?></a>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'Localizaciones', 'action' => 'index']) ?>"><?= __('List Localizaciones') ?></a>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'Localizaciones','action' => 'add']) ?>"><?= __('New Localizacione') ?></a>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'MaterialesEntrada', 'action' => 'index']) ?>"><?= __('List Materiales Entrada') ?></a>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'MaterialesEntrada','action' => 'add']) ?>"><?= __('New Materiales Entrada') ?></a>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'Envios', 'action' => 'index']) ?>"><?= __('List Envios') ?></a>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'Envios','action' => 'add']) ?>"><?= __('New Envio') ?></a>
+    
+</div>
+<div style="margin-left:25%">
+<div class="w3 container w3-theme">
     <h3><?= __('Objetos') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <div class="w3-responsive">
+    <table class=" w3-table w3-bordered w3-hoverable w3-theme">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
@@ -63,6 +65,7 @@
             <?php endforeach; ?>
         </tbody>
     </table>
+    </div>
     <div class="paginator">
         <ul class="pagination">
             <?= $this->Paginator->first('<< ' . __('first')) ?>

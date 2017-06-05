@@ -3,25 +3,27 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Estados De Orden'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Ordens'), ['controller' => 'Ordens', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Orden'), ['controller' => 'Ordens', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Estados'), ['controller' => 'Estados', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Estado'), ['controller' => 'Estados', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Maquinas Usadas'), ['controller' => 'MaquinasUsadas', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Maquinas Usada'), ['controller' => 'MaquinasUsadas', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Usuarios En Estados Orden'), ['controller' => 'UsuariosEnEstadosOrden', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Usuarios En Estados Orden'), ['controller' => 'UsuariosEnEstadosOrden', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Utensilios Usados'), ['controller' => 'UtensiliosUsados', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Utensilios Usado'), ['controller' => 'UtensiliosUsados', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="estadosDeOrdens index large-9 medium-8 columns content">
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
+    <h3 class="w3-bar-item"><?= __('Actions') ?></h3>
+    <a class="w3-bar-item w3-button" href="<?= $this->Url->build(['action' => 'add']) ?>"
+    ><?= __('New Estados De Orden') ?></a>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'Ordens', 'action' => 'index']) ?>"><?= __('List Ordens') ?></a>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'Ordens','action' => 'add']) ?>"><?= __('New Orden') ?></a>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'Estados', 'action' => 'index']) ?>"><?= __('List Estados') ?></a>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'Estados','action' => 'add']) ?>"><?= __('New Estado') ?></a>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'MaquinasUsadas', 'action' => 'index']) ?>"><?= __('List Maquinas Usadas') ?></a>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'MaquinasUsadas','action' => 'add']) ?>"><?= __('New Maquinas Usada') ?></a>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'UsuariosEnEstadosOrden', 'action' => 'index']) ?>"><?= __('List Usuarios En Estados Orden') ?></a>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'UsuariosEnEstadosOrden','action' => 'add']) ?>"><?= __('New Usuarios En Estados Orden') ?></a>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'UtensiliosUsados', 'action' => 'index']) ?>"><?= __('List Utensilios Usados') ?></a>
+	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'UtensiliosUsados','action' => 'add']) ?>"><?= __('New Utensilios Usado') ?></a>
+    
+</div>
+<div style="margin-left:25%">
+<div class="w3 container w3-theme">
     <h3><?= __('Estados De Ordens') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <div class="w3-responsive">
+    <table class=" w3-table w3-bordered w3-hoverable w3-theme">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
@@ -51,6 +53,7 @@
             <?php endforeach; ?>
         </tbody>
     </table>
+    </div>
     <div class="paginator">
         <ul class="pagination">
             <?= $this->Paginator->first('<< ' . __('first')) ?>

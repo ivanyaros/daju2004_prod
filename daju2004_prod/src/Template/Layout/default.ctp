@@ -17,41 +17,44 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 ?>
 <!DOCTYPE html>
 <html>
-<head>
+<head >
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>
         <?= $this->fetch('title') ?>
                 
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('cake.css')?>
+    
     <?= $this->Html->css('w3.css')?>
+    <?= $this->Html->css('w3-theme-green.css')?>
+    
+    
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <nav class="top-bar expanded" data-topbar role="navigation">
+    <nav class="w3-theme-d1 top-bar expanded  data-topbar role="navigation">
         <ul class="title-area large-3 medium-4 columns">
-            <li class="name">
+            <li class="name w3-theme-d1">
                 <h1><a href=""><?= $this->fetch('title') ?></a></h1>
             </li>
         </ul>
-        <div class="top-bar-section">
-            <ul class="right">
+        <div class="top-bar-section w3-theme-d1">
+            <ul class="right w3-theme-d1">
                 <li><a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a></li>
                 <li><a target="_blank" href="http://api.cakephp.org/3.0/">API</a></li>
             </ul>
         </div>
     </nav>
     <?= $this->Flash->render() ?>
-    <div class="container clearfix">
+    
         <?= $this->fetch('content') ?>
-    </div>
+    
     <footer>
     </footer>
 </body>

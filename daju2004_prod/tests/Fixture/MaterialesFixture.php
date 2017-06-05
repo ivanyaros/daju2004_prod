@@ -46,8 +46,8 @@ class MaterialesFixture extends TestFixture
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
             'fk_materiales_entradas_material1' => ['type' => 'foreign', 'columns' => ['entradas_de_materiale_id'], 'references' => ['entradas_de_materiales', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
-            'fk_materiales_material1' => ['type' => 'foreign', 'columns' => ['material_id'], 'references' => ['material', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
             'fk_materiales_localizaciones1' => ['type' => 'foreign', 'columns' => ['localizacione_id'], 'references' => ['localizaciones', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
+            'fk_materiales_material1' => ['type' => 'foreign', 'columns' => ['material_id'], 'references' => ['material', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -65,7 +65,7 @@ class MaterialesFixture extends TestFixture
         [
             'id' => 1,
             'material_id' => 1,
-            'fecha_entega' => '2017-05-29 10:27:30',
+            'fecha_entega' => '2017-06-05 09:18:52',
             'localizacione_id' => 1,
             'entradas_de_materiale_id' => 1,
             'bobina_lote' => 1,
