@@ -39,7 +39,31 @@ class FamiliasController extends AppController
         $familia = $this->Familias->get($id, [
             'contain' => ['Material', 'Proceso', 'Producto']
         ]);
+        $this->paginate =[
+            'Material' => ['scope' => 'mis_Material']
+            ,'Proceso' => ['scope' => 'mis_Proceso']
+            ,'Producto' => ['scope' => 'mis_Producto']
+        ];
 
+        $this->loadModel('Material');
+        $query=$this->Material->find('all')
+                                        ->where(['familia_id' => $id]);
+        $material=$this->paginate($query,['scope'=>'mis_Material']);
+        $this->set(compact('material'));
+
+        $this->loadModel('Proceso');
+        $query=$this->Proceso->find('all')
+                                        ->where(['familia_id' => $id]);
+        $proceso=$this->paginate($query,['scope'=>'mis_Proceso']);
+        $this->set(compact('proceso'));
+
+        $this->loadModel('Producto');
+        $query=$this->Producto->find('all')
+                                        ->where(['familia_id' => $id]);
+        $producto=$this->paginate($query,['scope'=>'mis_Producto']);
+        $this->set(compact('producto'));
+
+                                         
         $this->set('familia', $familia);
         $this->set('_serialize', ['familia']);
     }

@@ -39,7 +39,45 @@ class ProveedoresClientesController extends AppController
         $proveedoresCliente = $this->ProveedoresClientes->get($id, [
             'contain' => ['Direcciones', 'EntradasDeMateriales', 'Envios', 'PedidosEmpresas', 'ProveedoresMaterial']
         ]);
+        $this->paginate =[
+            'Direcciones' => ['scope' => 'mis_Direcciones']
+            ,'EntradasDeMateriales' => ['scope' => 'mis_EntradasDeMateriales']
+            ,'Envios' => ['scope' => 'mis_Envios']
+            ,'PedidosEmpresas' => ['scope' => 'mis_PedidosEmpresas']
+            ,'ProveedoresMaterial' => ['scope' => 'mis_ProveedoresMaterial']
+        ];
 
+        $this->loadModel('Direcciones');
+        $query=$this->Direcciones->find('all')
+                                        ->where(['proveedoresCliente_id' => $id]);
+        $direcciones=$this->paginate($query,['scope'=>'mis_Direcciones']);
+        $this->set(compact('direcciones'));
+
+        $this->loadModel('EntradasDeMateriales');
+        $query=$this->EntradasDeMateriales->find('all')
+                                        ->where(['proveedoresCliente_id' => $id]);
+        $entradasDeMateriales=$this->paginate($query,['scope'=>'mis_EntradasDeMateriales']);
+        $this->set(compact('entradasDeMateriales'));
+
+        $this->loadModel('Envios');
+        $query=$this->Envios->find('all')
+                                        ->where(['proveedoresCliente_id' => $id]);
+        $envios=$this->paginate($query,['scope'=>'mis_Envios']);
+        $this->set(compact('envios'));
+
+        $this->loadModel('PedidosEmpresas');
+        $query=$this->PedidosEmpresas->find('all')
+                                        ->where(['proveedoresCliente_id' => $id]);
+        $pedidosEmpresas=$this->paginate($query,['scope'=>'mis_PedidosEmpresas']);
+        $this->set(compact('pedidosEmpresas'));
+
+        $this->loadModel('ProveedoresMaterial');
+        $query=$this->ProveedoresMaterial->find('all')
+                                        ->where(['proveedoresCliente_id' => $id]);
+        $proveedoresMaterial=$this->paginate($query,['scope'=>'mis_ProveedoresMaterial']);
+        $this->set(compact('proveedoresMaterial'));
+
+                                         
         $this->set('proveedoresCliente', $proveedoresCliente);
         $this->set('_serialize', ['proveedoresCliente']);
     }

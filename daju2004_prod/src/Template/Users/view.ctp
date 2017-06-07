@@ -54,31 +54,37 @@
 
 <div style="display:none" id="usuariosEnEstadosOrden" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related Usuarios En Estados Orden') ?></h4>
-        <?php if (!empty($user->usuarios_en_estados_orden)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Estados De Orden Id') ?></th>
-                <th scope="col"><?= __('User Id') ?></th>
-                <th scope="col"><?= __('Parte') ?></th>
-                <th scope="col"><?= __('Observaciones') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($user->usuarios_en_estados_orden as $usuariosEnEstadosOrden): ?>
-            <tr>
-                <td><?= h($usuariosEnEstadosOrden->id) ?></td>
-                <td><?= h($usuariosEnEstadosOrden->estados_de_orden_id) ?></td>
-                <td><?= h($usuariosEnEstadosOrden->user_id) ?></td>
-                <td><?= h($usuariosEnEstadosOrden->parte) ?></td>
-                <td><?= h($usuariosEnEstadosOrden->observaciones) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'UsuariosEnEstadosOrden', 'action' => 'view', $usuariosEnEstadosOrden->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'UsuariosEnEstadosOrden', 'action' => 'edit', $usuariosEnEstadosOrden->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'UsuariosEnEstadosOrden', 'action' => 'delete', $usuariosEnEstadosOrden->id], ['confirm' => __('Are you sure you want to delete # {0}?', $usuariosEnEstadosOrden->id)]) ?>
-                </td>
-            </tr>
+        <?php if (!empty($usuariosEnEstadosOrden)): ?>
+	<div class="w3-responsive">
+		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
+        	<thead class="w3-border w3-black">  
+                <th scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'UsuariosEnEstadosOrden']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('estados_de_orden_id','estados_de_orden_id', ['model'=>'UsuariosEnEstadosOrden']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('parte','parte', ['model'=>'UsuariosEnEstadosOrden']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'UsuariosEnEstadosOrden']) ?></th>
+			</thead>
+			<tbody>
+<?php foreach ($usuariosEnEstadosOrden as $usuariosEnEstadosOrden): ?>
+				<?php $my_url= $this->Url->build(['controller' => 'usuariosEnEstadosOrden', 'action' => 'view',$usuariosEnEstadosOrden->id]) ?>
+            	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
+                	<td><?= h($usuariosEnEstadosOrden->id) ?></td>
+                	<td><?= h($usuariosEnEstadosOrden->estados_de_orden_id) ?></td>
+                	<td><?= h($usuariosEnEstadosOrden->parte) ?></td>
+                	<td><?= h($usuariosEnEstadosOrden->observaciones) ?></td>
+            	</tr>
             <?php endforeach; ?>
         </table>
+    </div>
+    <div class="paginator">
+        <ul class="pagination">
+            <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'UsuariosEnEstadosOrden']) ?>
+            <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'UsuariosEnEstadosOrden']) ?>
+            <?= $this->Paginator->numbers(['model'=>'UsuariosEnEstadosOrden']) ?>
+            <?= $this->Paginator->next(__('next') . ' >', ['model'=>'UsuariosEnEstadosOrden']) ?>
+            <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'UsuariosEnEstadosOrden']) ?>
+        </ul>
+        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')], ['model'=>'UsuariosEnEstadosOrden']) ?></p>
+    </div>
     <?php endif; ?>
 </div>
 </div>

@@ -39,7 +39,17 @@ class UsersController extends AppController
         $user = $this->Users->get($id, [
             'contain' => ['UsuariosEnEstadosOrden']
         ]);
+        $this->paginate =[
+            'UsuariosEnEstadosOrden' => ['scope' => 'mis_UsuariosEnEstadosOrden']
+        ];
 
+        $this->loadModel('UsuariosEnEstadosOrden');
+        $query=$this->UsuariosEnEstadosOrden->find('all')
+                                        ->where(['user_id' => $id]);
+        $usuariosEnEstadosOrden=$this->paginate($query,['scope'=>'mis_UsuariosEnEstadosOrden']);
+        $this->set(compact('usuariosEnEstadosOrden'));
+
+                                         
         $this->set('user', $user);
         $this->set('_serialize', ['user']);
     }

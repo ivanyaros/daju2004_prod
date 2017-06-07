@@ -42,7 +42,24 @@ class DireccionesController extends AppController
         $direccione = $this->Direcciones->get($id, [
             'contain' => ['ProveedoresClientes', 'Envios']
         ]);
+        $this->paginate =[
+            'ProveedoresClientes' => ['scope' => 'mis_ProveedoresClientes']
+            ,'Envios' => ['scope' => 'mis_Envios']
+        ];
 
+        $this->loadModel('ProveedoresClientes');
+        $query=$this->ProveedoresClientes->find('all')
+                                        ->where(['direccione_id' => $id]);
+        $proveedoresClientes=$this->paginate($query,['scope'=>'mis_ProveedoresClientes']);
+        $this->set(compact('proveedoresClientes'));
+
+        $this->loadModel('Envios');
+        $query=$this->Envios->find('all')
+                                        ->where(['direccione_id' => $id]);
+        $envios=$this->paginate($query,['scope'=>'mis_Envios']);
+        $this->set(compact('envios'));
+
+                                         
         $this->set('direccione', $direccione);
         $this->set('_serialize', ['direccione']);
     }

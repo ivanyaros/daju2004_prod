@@ -39,7 +39,31 @@ class IvasController extends AppController
         $iva = $this->Ivas->get($id, [
             'contain' => ['Material', 'Proceso', 'Producto']
         ]);
+        $this->paginate =[
+            'Material' => ['scope' => 'mis_Material']
+            ,'Proceso' => ['scope' => 'mis_Proceso']
+            ,'Producto' => ['scope' => 'mis_Producto']
+        ];
 
+        $this->loadModel('Material');
+        $query=$this->Material->find('all')
+                                        ->where(['iva_id' => $id]);
+        $material=$this->paginate($query,['scope'=>'mis_Material']);
+        $this->set(compact('material'));
+
+        $this->loadModel('Proceso');
+        $query=$this->Proceso->find('all')
+                                        ->where(['iva_id' => $id]);
+        $proceso=$this->paginate($query,['scope'=>'mis_Proceso']);
+        $this->set(compact('proceso'));
+
+        $this->loadModel('Producto');
+        $query=$this->Producto->find('all')
+                                        ->where(['iva_id' => $id]);
+        $producto=$this->paginate($query,['scope'=>'mis_Producto']);
+        $this->set(compact('producto'));
+
+                                         
         $this->set('iva', $iva);
         $this->set('_serialize', ['iva']);
     }

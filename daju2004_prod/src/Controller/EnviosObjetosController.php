@@ -42,7 +42,24 @@ class EnviosObjetosController extends AppController
         $enviosObjeto = $this->EnviosObjetos->get($id, [
             'contain' => ['Envios', 'Objetos']
         ]);
+        $this->paginate =[
+            'Envios' => ['scope' => 'mis_Envios']
+            ,'Objetos' => ['scope' => 'mis_Objetos']
+        ];
 
+        $this->loadModel('Envios');
+        $query=$this->Envios->find('all')
+                                        ->where(['enviosObjeto_id' => $id]);
+        $envios=$this->paginate($query,['scope'=>'mis_Envios']);
+        $this->set(compact('envios'));
+
+        $this->loadModel('Objetos');
+        $query=$this->Objetos->find('all')
+                                        ->where(['enviosObjeto_id' => $id]);
+        $objetos=$this->paginate($query,['scope'=>'mis_Objetos']);
+        $this->set(compact('objetos'));
+
+                                         
         $this->set('enviosObjeto', $enviosObjeto);
         $this->set('_serialize', ['enviosObjeto']);
     }

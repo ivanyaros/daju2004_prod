@@ -38,33 +38,39 @@
 
 <div style="display:none" id="maquinasUsadas" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related Maquinas Usadas') ?></h4>
-        <?php if (!empty($maquina->maquinas_usadas)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Estados De Orden Id') ?></th>
-                <th scope="col"><?= __('Maquina Id') ?></th>
-                <th scope="col"><?= __('Operaciones') ?></th>
-                <th scope="col"><?= __('Uso') ?></th>
-                <th scope="col"><?= __('Observaciones') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($maquina->maquinas_usadas as $maquinasUsadas): ?>
-            <tr>
-                <td><?= h($maquinasUsadas->id) ?></td>
-                <td><?= h($maquinasUsadas->estados_de_orden_id) ?></td>
-                <td><?= h($maquinasUsadas->maquina_id) ?></td>
-                <td><?= h($maquinasUsadas->operaciones) ?></td>
-                <td><?= h($maquinasUsadas->uso) ?></td>
-                <td><?= h($maquinasUsadas->observaciones) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'MaquinasUsadas', 'action' => 'view', $maquinasUsadas->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'MaquinasUsadas', 'action' => 'edit', $maquinasUsadas->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'MaquinasUsadas', 'action' => 'delete', $maquinasUsadas->id], ['confirm' => __('Are you sure you want to delete # {0}?', $maquinasUsadas->id)]) ?>
-                </td>
-            </tr>
+        <?php if (!empty($maquinasUsadas)): ?>
+	<div class="w3-responsive">
+		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
+        	<thead class="w3-border w3-black">  
+                <th scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'MaquinasUsadas']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('estados_de_orden_id','estados_de_orden_id', ['model'=>'MaquinasUsadas']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('operaciones','operaciones', ['model'=>'MaquinasUsadas']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('uso','uso', ['model'=>'MaquinasUsadas']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'MaquinasUsadas']) ?></th>
+			</thead>
+			<tbody>
+<?php foreach ($maquinasUsadas as $maquinasUsada): ?>
+				<?php $my_url= $this->Url->build(['controller' => 'maquinasUsadas', 'action' => 'view',$maquinasUsada->id]) ?>
+            	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
+                	<td><?= h($maquinasUsada->id) ?></td>
+                	<td><?= h($maquinasUsada->estados_de_orden_id) ?></td>
+                	<td><?= h($maquinasUsada->operaciones) ?></td>
+                	<td><?= h($maquinasUsada->uso) ?></td>
+                	<td><?= h($maquinasUsada->observaciones) ?></td>
+            	</tr>
             <?php endforeach; ?>
         </table>
+    </div>
+    <div class="paginator">
+        <ul class="pagination">
+            <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'MaquinasUsadas']) ?>
+            <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'MaquinasUsadas']) ?>
+            <?= $this->Paginator->numbers(['model'=>'MaquinasUsadas']) ?>
+            <?= $this->Paginator->next(__('next') . ' >', ['model'=>'MaquinasUsadas']) ?>
+            <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'MaquinasUsadas']) ?>
+        </ul>
+        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')], ['model'=>'MaquinasUsadas']) ?></p>
+    </div>
     <?php endif; ?>
 </div>
 </div>

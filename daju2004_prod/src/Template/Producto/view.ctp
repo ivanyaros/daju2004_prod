@@ -92,138 +92,162 @@
 
 <div style="display:none" id="objetos" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related Objetos') ?></h4>
-        <?php if (!empty($producto->objetos)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Name') ?></th>
-                <th scope="col"><?= __('Producto Id') ?></th>
-                <th scope="col"><?= __('Numero Serie') ?></th>
-                <th scope="col"><?= __('Referencia') ?></th>
-                <th scope="col"><?= __('Orden Id') ?></th>
-                <th scope="col"><?= __('Lote') ?></th>
-                <th scope="col"><?= __('Localizacione Id') ?></th>
-                <th scope="col"><?= __('Coste') ?></th>
-                <th scope="col"><?= __('Defectuosos') ?></th>
-                <th scope="col"><?= __('Peso') ?></th>
-                <th scope="col"><?= __('Observaciones') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($producto->objetos as $objetos): ?>
-            <tr>
-                <td><?= h($objetos->id) ?></td>
-                <td><?= h($objetos->name) ?></td>
-                <td><?= h($objetos->producto_id) ?></td>
-                <td><?= h($objetos->numero_serie) ?></td>
-                <td><?= h($objetos->referencia) ?></td>
-                <td><?= h($objetos->orden_id) ?></td>
-                <td><?= h($objetos->lote) ?></td>
-                <td><?= h($objetos->localizacione_id) ?></td>
-                <td><?= h($objetos->coste) ?></td>
-                <td><?= h($objetos->defectuosos) ?></td>
-                <td><?= h($objetos->peso) ?></td>
-                <td><?= h($objetos->observaciones) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Objetos', 'action' => 'view', $objetos->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Objetos', 'action' => 'edit', $objetos->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Objetos', 'action' => 'delete', $objetos->id], ['confirm' => __('Are you sure you want to delete # {0}?', $objetos->id)]) ?>
-                </td>
-            </tr>
+        <?php if (!empty($objetos)): ?>
+	<div class="w3-responsive">
+		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
+        	<thead class="w3-border w3-black">  
+                <th scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'Objetos']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('name','name', ['model'=>'Objetos']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('numero_serie','numero_serie', ['model'=>'Objetos']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('referencia','referencia', ['model'=>'Objetos']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('orden_id','orden_id', ['model'=>'Objetos']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('lote','lote', ['model'=>'Objetos']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('localizacione_id','localizacione_id', ['model'=>'Objetos']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('coste','coste', ['model'=>'Objetos']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('defectuosos','defectuosos', ['model'=>'Objetos']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('peso','peso', ['model'=>'Objetos']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'Objetos']) ?></th>
+			</thead>
+			<tbody>
+<?php foreach ($objetos as $objeto): ?>
+				<?php $my_url= $this->Url->build(['controller' => 'objetos', 'action' => 'view',$objeto->id]) ?>
+            	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
+                	<td><?= h($objeto->id) ?></td>
+                	<td><?= h($objeto->name) ?></td>
+                	<td><?= h($objeto->numero_serie) ?></td>
+                	<td><?= h($objeto->referencia) ?></td>
+                	<td><?= h($objeto->orden_id) ?></td>
+                	<td><?= h($objeto->lote) ?></td>
+                	<td><?= h($objeto->localizacione_id) ?></td>
+                	<td><?= h($objeto->coste) ?></td>
+                	<td><?= h($objeto->defectuosos) ?></td>
+                	<td><?= h($objeto->peso) ?></td>
+                	<td><?= h($objeto->observaciones) ?></td>
+            	</tr>
             <?php endforeach; ?>
         </table>
+    </div>
+    <div class="paginator">
+        <ul class="pagination">
+            <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'Objetos']) ?>
+            <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'Objetos']) ?>
+            <?= $this->Paginator->numbers(['model'=>'Objetos']) ?>
+            <?= $this->Paginator->next(__('next') . ' >', ['model'=>'Objetos']) ?>
+            <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'Objetos']) ?>
+        </ul>
+        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')], ['model'=>'Objetos']) ?></p>
+    </div>
     <?php endif; ?>
 </div>
 <div style="display:none" id="pedidosProductosDetalle" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related Pedidos Productos Detalle') ?></h4>
-        <?php if (!empty($producto->pedidos_productos_detalle)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Pedidos Empresa Id') ?></th>
-                <th scope="col"><?= __('Producto Id') ?></th>
-                <th scope="col"><?= __('Cantidad') ?></th>
-                <th scope="col"><?= __('Fecha') ?></th>
-                <th scope="col"><?= __('Observaciones') ?></th>
-                <th scope="col"><?= __('Prioridade Id') ?></th>
-                <th scope="col"><?= __('Terminado') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($producto->pedidos_productos_detalle as $pedidosProductosDetalle): ?>
-            <tr>
-                <td><?= h($pedidosProductosDetalle->id) ?></td>
-                <td><?= h($pedidosProductosDetalle->pedidos_empresa_id) ?></td>
-                <td><?= h($pedidosProductosDetalle->producto_id) ?></td>
-                <td><?= h($pedidosProductosDetalle->cantidad) ?></td>
-                <td><?= h($pedidosProductosDetalle->fecha) ?></td>
-                <td><?= h($pedidosProductosDetalle->observaciones) ?></td>
-                <td><?= h($pedidosProductosDetalle->prioridade_id) ?></td>
-                <td><?= h($pedidosProductosDetalle->terminado) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'PedidosProductosDetalle', 'action' => 'view', $pedidosProductosDetalle->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'PedidosProductosDetalle', 'action' => 'edit', $pedidosProductosDetalle->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'PedidosProductosDetalle', 'action' => 'delete', $pedidosProductosDetalle->id], ['confirm' => __('Are you sure you want to delete # {0}?', $pedidosProductosDetalle->id)]) ?>
-                </td>
-            </tr>
+        <?php if (!empty($pedidosProductosDetalle)): ?>
+	<div class="w3-responsive">
+		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
+        	<thead class="w3-border w3-black">  
+                <th scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'PedidosProductosDetalle']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('pedidos_empresa_id','pedidos_empresa_id', ['model'=>'PedidosProductosDetalle']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('cantidad','cantidad', ['model'=>'PedidosProductosDetalle']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('fecha','fecha', ['model'=>'PedidosProductosDetalle']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'PedidosProductosDetalle']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('prioridade_id','prioridade_id', ['model'=>'PedidosProductosDetalle']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('terminado','terminado', ['model'=>'PedidosProductosDetalle']) ?></th>
+			</thead>
+			<tbody>
+<?php foreach ($pedidosProductosDetalle as $pedidosProductosDetalle): ?>
+				<?php $my_url= $this->Url->build(['controller' => 'pedidosProductosDetalle', 'action' => 'view',$pedidosProductosDetalle->id]) ?>
+            	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
+                	<td><?= h($pedidosProductosDetalle->id) ?></td>
+                	<td><?= h($pedidosProductosDetalle->pedidos_empresa_id) ?></td>
+                	<td><?= h($pedidosProductosDetalle->cantidad) ?></td>
+                	<td><?= h($pedidosProductosDetalle->fecha) ?></td>
+                	<td><?= h($pedidosProductosDetalle->observaciones) ?></td>
+                	<td><?= h($pedidosProductosDetalle->prioridade_id) ?></td>
+                	<td><?= h($pedidosProductosDetalle->terminado) ?></td>
+            	</tr>
             <?php endforeach; ?>
         </table>
+    </div>
+    <div class="paginator">
+        <ul class="pagination">
+            <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'PedidosProductosDetalle']) ?>
+            <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'PedidosProductosDetalle']) ?>
+            <?= $this->Paginator->numbers(['model'=>'PedidosProductosDetalle']) ?>
+            <?= $this->Paginator->next(__('next') . ' >', ['model'=>'PedidosProductosDetalle']) ?>
+            <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'PedidosProductosDetalle']) ?>
+        </ul>
+        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')], ['model'=>'PedidosProductosDetalle']) ?></p>
+    </div>
     <?php endif; ?>
 </div>
 <div style="display:none" id="procesoProductoEntrada" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related Proceso Producto Entrada') ?></h4>
-        <?php if (!empty($producto->proceso_producto_entrada)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Proceso Id') ?></th>
-                <th scope="col"><?= __('Producto Id') ?></th>
-                <th scope="col"><?= __('Cantidad') ?></th>
-                <th scope="col"><?= __('Observaciones') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($producto->proceso_producto_entrada as $procesoProductoEntrada): ?>
-            <tr>
-                <td><?= h($procesoProductoEntrada->id) ?></td>
-                <td><?= h($procesoProductoEntrada->proceso_id) ?></td>
-                <td><?= h($procesoProductoEntrada->producto_id) ?></td>
-                <td><?= h($procesoProductoEntrada->cantidad) ?></td>
-                <td><?= h($procesoProductoEntrada->observaciones) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'ProcesoProductoEntrada', 'action' => 'view', $procesoProductoEntrada->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'ProcesoProductoEntrada', 'action' => 'edit', $procesoProductoEntrada->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'ProcesoProductoEntrada', 'action' => 'delete', $procesoProductoEntrada->id], ['confirm' => __('Are you sure you want to delete # {0}?', $procesoProductoEntrada->id)]) ?>
-                </td>
-            </tr>
+        <?php if (!empty($procesoProductoEntrada)): ?>
+	<div class="w3-responsive">
+		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
+        	<thead class="w3-border w3-black">  
+                <th scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'ProcesoProductoEntrada']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('proceso_id','proceso_id', ['model'=>'ProcesoProductoEntrada']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('cantidad','cantidad', ['model'=>'ProcesoProductoEntrada']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'ProcesoProductoEntrada']) ?></th>
+			</thead>
+			<tbody>
+<?php foreach ($procesoProductoEntrada as $procesoProductoEntrada): ?>
+				<?php $my_url= $this->Url->build(['controller' => 'procesoProductoEntrada', 'action' => 'view',$procesoProductoEntrada->id]) ?>
+            	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
+                	<td><?= h($procesoProductoEntrada->id) ?></td>
+                	<td><?= h($procesoProductoEntrada->proceso_id) ?></td>
+                	<td><?= h($procesoProductoEntrada->cantidad) ?></td>
+                	<td><?= h($procesoProductoEntrada->observaciones) ?></td>
+            	</tr>
             <?php endforeach; ?>
         </table>
+    </div>
+    <div class="paginator">
+        <ul class="pagination">
+            <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'ProcesoProductoEntrada']) ?>
+            <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'ProcesoProductoEntrada']) ?>
+            <?= $this->Paginator->numbers(['model'=>'ProcesoProductoEntrada']) ?>
+            <?= $this->Paginator->next(__('next') . ' >', ['model'=>'ProcesoProductoEntrada']) ?>
+            <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'ProcesoProductoEntrada']) ?>
+        </ul>
+        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')], ['model'=>'ProcesoProductoEntrada']) ?></p>
+    </div>
     <?php endif; ?>
 </div>
 <div style="display:none" id="procesoProductoSalida" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related Proceso Producto Salida') ?></h4>
-        <?php if (!empty($producto->proceso_producto_salida)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Proceso Id') ?></th>
-                <th scope="col"><?= __('Producto Id') ?></th>
-                <th scope="col"><?= __('Cantidad') ?></th>
-                <th scope="col"><?= __('Observaciones') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($producto->proceso_producto_salida as $procesoProductoSalida): ?>
-            <tr>
-                <td><?= h($procesoProductoSalida->id) ?></td>
-                <td><?= h($procesoProductoSalida->proceso_id) ?></td>
-                <td><?= h($procesoProductoSalida->producto_id) ?></td>
-                <td><?= h($procesoProductoSalida->cantidad) ?></td>
-                <td><?= h($procesoProductoSalida->observaciones) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'ProcesoProductoSalida', 'action' => 'view', $procesoProductoSalida->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'ProcesoProductoSalida', 'action' => 'edit', $procesoProductoSalida->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'ProcesoProductoSalida', 'action' => 'delete', $procesoProductoSalida->id], ['confirm' => __('Are you sure you want to delete # {0}?', $procesoProductoSalida->id)]) ?>
-                </td>
-            </tr>
+        <?php if (!empty($procesoProductoSalida)): ?>
+	<div class="w3-responsive">
+		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
+        	<thead class="w3-border w3-black">  
+                <th scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'ProcesoProductoSalida']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('proceso_id','proceso_id', ['model'=>'ProcesoProductoSalida']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('cantidad','cantidad', ['model'=>'ProcesoProductoSalida']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'ProcesoProductoSalida']) ?></th>
+			</thead>
+			<tbody>
+<?php foreach ($procesoProductoSalida as $procesoProductoSalida): ?>
+				<?php $my_url= $this->Url->build(['controller' => 'procesoProductoSalida', 'action' => 'view',$procesoProductoSalida->id]) ?>
+            	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
+                	<td><?= h($procesoProductoSalida->id) ?></td>
+                	<td><?= h($procesoProductoSalida->proceso_id) ?></td>
+                	<td><?= h($procesoProductoSalida->cantidad) ?></td>
+                	<td><?= h($procesoProductoSalida->observaciones) ?></td>
+            	</tr>
             <?php endforeach; ?>
         </table>
+    </div>
+    <div class="paginator">
+        <ul class="pagination">
+            <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'ProcesoProductoSalida']) ?>
+            <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'ProcesoProductoSalida']) ?>
+            <?= $this->Paginator->numbers(['model'=>'ProcesoProductoSalida']) ?>
+            <?= $this->Paginator->next(__('next') . ' >', ['model'=>'ProcesoProductoSalida']) ?>
+            <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'ProcesoProductoSalida']) ?>
+        </ul>
+        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')], ['model'=>'ProcesoProductoSalida']) ?></p>
+    </div>
     <?php endif; ?>
 </div>
 </div>

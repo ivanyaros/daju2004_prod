@@ -42,7 +42,45 @@ class ObjetosController extends AppController
         $objeto = $this->Objetos->get($id, [
             'contain' => ['Producto', 'Ordens', 'Localizaciones', 'Envios', 'MaterialesEntrada']
         ]);
+        $this->paginate =[
+            'Producto' => ['scope' => 'mis_Producto']
+            ,'Ordens' => ['scope' => 'mis_Ordens']
+            ,'Localizaciones' => ['scope' => 'mis_Localizaciones']
+            ,'Envios' => ['scope' => 'mis_Envios']
+            ,'MaterialesEntrada' => ['scope' => 'mis_MaterialesEntrada']
+        ];
 
+        $this->loadModel('Producto');
+        $query=$this->Producto->find('all')
+                                        ->where(['objeto_id' => $id]);
+        $producto=$this->paginate($query,['scope'=>'mis_Producto']);
+        $this->set(compact('producto'));
+
+        $this->loadModel('Ordens');
+        $query=$this->Ordens->find('all')
+                                        ->where(['objeto_id' => $id]);
+        $ordens=$this->paginate($query,['scope'=>'mis_Ordens']);
+        $this->set(compact('ordens'));
+
+        $this->loadModel('Localizaciones');
+        $query=$this->Localizaciones->find('all')
+                                        ->where(['objeto_id' => $id]);
+        $localizaciones=$this->paginate($query,['scope'=>'mis_Localizaciones']);
+        $this->set(compact('localizaciones'));
+
+        $this->loadModel('Envios');
+        $query=$this->Envios->find('all')
+                                        ->where(['objeto_id' => $id]);
+        $envios=$this->paginate($query,['scope'=>'mis_Envios']);
+        $this->set(compact('envios'));
+
+        $this->loadModel('MaterialesEntrada');
+        $query=$this->MaterialesEntrada->find('all')
+                                        ->where(['objeto_id' => $id]);
+        $materialesEntrada=$this->paginate($query,['scope'=>'mis_MaterialesEntrada']);
+        $this->set(compact('materialesEntrada'));
+
+                                         
         $this->set('objeto', $objeto);
         $this->set('_serialize', ['objeto']);
     }

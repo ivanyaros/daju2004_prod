@@ -42,7 +42,31 @@ class LocalizacionesController extends AppController
         $localizacione = $this->Localizaciones->get($id, [
             'contain' => ['Centros', 'Materiales', 'Objetos']
         ]);
+        $this->paginate =[
+            'Centros' => ['scope' => 'mis_Centros']
+            ,'Materiales' => ['scope' => 'mis_Materiales']
+            ,'Objetos' => ['scope' => 'mis_Objetos']
+        ];
 
+        $this->loadModel('Centros');
+        $query=$this->Centros->find('all')
+                                        ->where(['localizacione_id' => $id]);
+        $centros=$this->paginate($query,['scope'=>'mis_Centros']);
+        $this->set(compact('centros'));
+
+        $this->loadModel('Materiales');
+        $query=$this->Materiales->find('all')
+                                        ->where(['localizacione_id' => $id]);
+        $materiales=$this->paginate($query,['scope'=>'mis_Materiales']);
+        $this->set(compact('materiales'));
+
+        $this->loadModel('Objetos');
+        $query=$this->Objetos->find('all')
+                                        ->where(['localizacione_id' => $id]);
+        $objetos=$this->paginate($query,['scope'=>'mis_Objetos']);
+        $this->set(compact('objetos'));
+
+                                         
         $this->set('localizacione', $localizacione);
         $this->set('_serialize', ['localizacione']);
     }

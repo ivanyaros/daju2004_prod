@@ -42,7 +42,24 @@ class UsuariosEnEstadosOrdenController extends AppController
         $usuariosEnEstadosOrden = $this->UsuariosEnEstadosOrden->get($id, [
             'contain' => ['EstadosDeOrdens', 'Users']
         ]);
+        $this->paginate =[
+            'EstadosDeOrdens' => ['scope' => 'mis_EstadosDeOrdens']
+            ,'Users' => ['scope' => 'mis_Users']
+        ];
 
+        $this->loadModel('EstadosDeOrdens');
+        $query=$this->EstadosDeOrdens->find('all')
+                                        ->where(['usuariosEnEstadosOrden_id' => $id]);
+        $estadosDeOrdens=$this->paginate($query,['scope'=>'mis_EstadosDeOrdens']);
+        $this->set(compact('estadosDeOrdens'));
+
+        $this->loadModel('Users');
+        $query=$this->Users->find('all')
+                                        ->where(['usuariosEnEstadosOrden_id' => $id]);
+        $users=$this->paginate($query,['scope'=>'mis_Users']);
+        $this->set(compact('users'));
+
+                                         
         $this->set('usuariosEnEstadosOrden', $usuariosEnEstadosOrden);
         $this->set('_serialize', ['usuariosEnEstadosOrden']);
     }

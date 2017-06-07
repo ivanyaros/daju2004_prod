@@ -30,29 +30,35 @@
 
 <div style="display:none" id="utensiliosUsados" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related Utensilios Usados') ?></h4>
-        <?php if (!empty($utensilio->utensilios_usados)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Estados De Orden Id') ?></th>
-                <th scope="col"><?= __('Utensilio Id') ?></th>
-                <th scope="col"><?= __('Observaciones') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($utensilio->utensilios_usados as $utensiliosUsados): ?>
-            <tr>
-                <td><?= h($utensiliosUsados->id) ?></td>
-                <td><?= h($utensiliosUsados->estados_de_orden_id) ?></td>
-                <td><?= h($utensiliosUsados->utensilio_id) ?></td>
-                <td><?= h($utensiliosUsados->observaciones) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'UtensiliosUsados', 'action' => 'view', $utensiliosUsados->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'UtensiliosUsados', 'action' => 'edit', $utensiliosUsados->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'UtensiliosUsados', 'action' => 'delete', $utensiliosUsados->id], ['confirm' => __('Are you sure you want to delete # {0}?', $utensiliosUsados->id)]) ?>
-                </td>
-            </tr>
+        <?php if (!empty($utensiliosUsados)): ?>
+	<div class="w3-responsive">
+		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
+        	<thead class="w3-border w3-black">  
+                <th scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'UtensiliosUsados']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('estados_de_orden_id','estados_de_orden_id', ['model'=>'UtensiliosUsados']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'UtensiliosUsados']) ?></th>
+			</thead>
+			<tbody>
+<?php foreach ($utensiliosUsados as $utensiliosUsado): ?>
+				<?php $my_url= $this->Url->build(['controller' => 'utensiliosUsados', 'action' => 'view',$utensiliosUsado->id]) ?>
+            	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
+                	<td><?= h($utensiliosUsado->id) ?></td>
+                	<td><?= h($utensiliosUsado->estados_de_orden_id) ?></td>
+                	<td><?= h($utensiliosUsado->observaciones) ?></td>
+            	</tr>
             <?php endforeach; ?>
         </table>
+    </div>
+    <div class="paginator">
+        <ul class="pagination">
+            <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'UtensiliosUsados']) ?>
+            <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'UtensiliosUsados']) ?>
+            <?= $this->Paginator->numbers(['model'=>'UtensiliosUsados']) ?>
+            <?= $this->Paginator->next(__('next') . ' >', ['model'=>'UtensiliosUsados']) ?>
+            <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'UtensiliosUsados']) ?>
+        </ul>
+        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')], ['model'=>'UtensiliosUsados']) ?></p>
+    </div>
     <?php endif; ?>
 </div>
 </div>

@@ -39,7 +39,24 @@ class PrioridadesController extends AppController
         $prioridade = $this->Prioridades->get($id, [
             'contain' => ['Ordens', 'PedidosProductosDetalle']
         ]);
+        $this->paginate =[
+            'Ordens' => ['scope' => 'mis_Ordens']
+            ,'PedidosProductosDetalle' => ['scope' => 'mis_PedidosProductosDetalle']
+        ];
 
+        $this->loadModel('Ordens');
+        $query=$this->Ordens->find('all')
+                                        ->where(['prioridade_id' => $id]);
+        $ordens=$this->paginate($query,['scope'=>'mis_Ordens']);
+        $this->set(compact('ordens'));
+
+        $this->loadModel('PedidosProductosDetalle');
+        $query=$this->PedidosProductosDetalle->find('all')
+                                        ->where(['prioridade_id' => $id]);
+        $pedidosProductosDetalle=$this->paginate($query,['scope'=>'mis_PedidosProductosDetalle']);
+        $this->set(compact('pedidosProductosDetalle'));
+
+                                         
         $this->set('prioridade', $prioridade);
         $this->set('_serialize', ['prioridade']);
     }

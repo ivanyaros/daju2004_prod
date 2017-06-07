@@ -28,106 +28,118 @@
 
 <div style="display:none" id="materiales" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related Materiales') ?></h4>
-        <?php if (!empty($localizacione->materiales)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Material Id') ?></th>
-                <th scope="col"><?= __('Fecha Entega') ?></th>
-                <th scope="col"><?= __('Localizacione Id') ?></th>
-                <th scope="col"><?= __('Entradas De Materiale Id') ?></th>
-                <th scope="col"><?= __('Bobina Lote') ?></th>
-                <th scope="col"><?= __('Bobinas') ?></th>
-                <th scope="col"><?= __('Bobinas Actual') ?></th>
-                <th scope="col"><?= __('Lote') ?></th>
-                <th scope="col"><?= __('Numero Bobina') ?></th>
-                <th scope="col"><?= __('Taras') ?></th>
-                <th scope="col"><?= __('Taras Reales') ?></th>
-                <th scope="col"><?= __('Taras Mediciones') ?></th>
-                <th scope="col"><?= __('Metros Brutos') ?></th>
-                <th scope="col"><?= __('Metros Netos') ?></th>
-                <th scope="col"><?= __('Metros Actuales') ?></th>
-                <th scope="col"><?= __('Metros Utiles') ?></th>
-                <th scope="col"><?= __('Scrap') ?></th>
-                <th scope="col"><?= __('En Uso') ?></th>
-                <th scope="col"><?= __('Terminado') ?></th>
-                <th scope="col"><?= __('Peso Ud') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($localizacione->materiales as $materiales): ?>
-            <tr>
-                <td><?= h($materiales->id) ?></td>
-                <td><?= h($materiales->material_id) ?></td>
-                <td><?= h($materiales->fecha_entega) ?></td>
-                <td><?= h($materiales->localizacione_id) ?></td>
-                <td><?= h($materiales->entradas_de_materiale_id) ?></td>
-                <td><?= h($materiales->bobina_lote) ?></td>
-                <td><?= h($materiales->bobinas) ?></td>
-                <td><?= h($materiales->bobinas_actual) ?></td>
-                <td><?= h($materiales->lote) ?></td>
-                <td><?= h($materiales->numero_bobina) ?></td>
-                <td><?= h($materiales->taras) ?></td>
-                <td><?= h($materiales->taras_reales) ?></td>
-                <td><?= h($materiales->taras_mediciones) ?></td>
-                <td><?= h($materiales->metros_brutos) ?></td>
-                <td><?= h($materiales->metros_netos) ?></td>
-                <td><?= h($materiales->metros_actuales) ?></td>
-                <td><?= h($materiales->metros_utiles) ?></td>
-                <td><?= h($materiales->scrap) ?></td>
-                <td><?= h($materiales->en_uso) ?></td>
-                <td><?= h($materiales->terminado) ?></td>
-                <td><?= h($materiales->peso_ud) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Materiales', 'action' => 'view', $materiales->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Materiales', 'action' => 'edit', $materiales->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Materiales', 'action' => 'delete', $materiales->id], ['confirm' => __('Are you sure you want to delete # {0}?', $materiales->id)]) ?>
-                </td>
-            </tr>
+        <?php if (!empty($materiales)): ?>
+	<div class="w3-responsive">
+		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
+        	<thead class="w3-border w3-black">  
+                <th scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'Materiales']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('material_id','material_id', ['model'=>'Materiales']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('fecha_entega','fecha_entega', ['model'=>'Materiales']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('entradas_de_materiale_id','entradas_de_materiale_id', ['model'=>'Materiales']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('bobina_lote','bobina_lote', ['model'=>'Materiales']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('bobinas','bobinas', ['model'=>'Materiales']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('bobinas_actual','bobinas_actual', ['model'=>'Materiales']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('lote','lote', ['model'=>'Materiales']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('numero_bobina','numero_bobina', ['model'=>'Materiales']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('taras','taras', ['model'=>'Materiales']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('taras_reales','taras_reales', ['model'=>'Materiales']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('taras_mediciones','taras_mediciones', ['model'=>'Materiales']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('metros_brutos','metros_brutos', ['model'=>'Materiales']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('metros_netos','metros_netos', ['model'=>'Materiales']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('metros_actuales','metros_actuales', ['model'=>'Materiales']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('metros_utiles','metros_utiles', ['model'=>'Materiales']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('scrap','scrap', ['model'=>'Materiales']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('en_uso','en_uso', ['model'=>'Materiales']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('terminado','terminado', ['model'=>'Materiales']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('peso_ud','peso_ud', ['model'=>'Materiales']) ?></th>
+			</thead>
+			<tbody>
+<?php foreach ($materiales as $materiale): ?>
+				<?php $my_url= $this->Url->build(['controller' => 'materiales', 'action' => 'view',$materiale->id]) ?>
+            	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
+                	<td><?= h($materiale->id) ?></td>
+                	<td><?= h($materiale->material_id) ?></td>
+                	<td><?= h($materiale->fecha_entega) ?></td>
+                	<td><?= h($materiale->entradas_de_materiale_id) ?></td>
+                	<td><?= h($materiale->bobina_lote) ?></td>
+                	<td><?= h($materiale->bobinas) ?></td>
+                	<td><?= h($materiale->bobinas_actual) ?></td>
+                	<td><?= h($materiale->lote) ?></td>
+                	<td><?= h($materiale->numero_bobina) ?></td>
+                	<td><?= h($materiale->taras) ?></td>
+                	<td><?= h($materiale->taras_reales) ?></td>
+                	<td><?= h($materiale->taras_mediciones) ?></td>
+                	<td><?= h($materiale->metros_brutos) ?></td>
+                	<td><?= h($materiale->metros_netos) ?></td>
+                	<td><?= h($materiale->metros_actuales) ?></td>
+                	<td><?= h($materiale->metros_utiles) ?></td>
+                	<td><?= h($materiale->scrap) ?></td>
+                	<td><?= h($materiale->en_uso) ?></td>
+                	<td><?= h($materiale->terminado) ?></td>
+                	<td><?= h($materiale->peso_ud) ?></td>
+            	</tr>
             <?php endforeach; ?>
         </table>
+    </div>
+    <div class="paginator">
+        <ul class="pagination">
+            <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'Materiales']) ?>
+            <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'Materiales']) ?>
+            <?= $this->Paginator->numbers(['model'=>'Materiales']) ?>
+            <?= $this->Paginator->next(__('next') . ' >', ['model'=>'Materiales']) ?>
+            <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'Materiales']) ?>
+        </ul>
+        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')], ['model'=>'Materiales']) ?></p>
+    </div>
     <?php endif; ?>
 </div>
 <div style="display:none" id="objetos" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related Objetos') ?></h4>
-        <?php if (!empty($localizacione->objetos)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Name') ?></th>
-                <th scope="col"><?= __('Producto Id') ?></th>
-                <th scope="col"><?= __('Numero Serie') ?></th>
-                <th scope="col"><?= __('Referencia') ?></th>
-                <th scope="col"><?= __('Orden Id') ?></th>
-                <th scope="col"><?= __('Lote') ?></th>
-                <th scope="col"><?= __('Localizacione Id') ?></th>
-                <th scope="col"><?= __('Coste') ?></th>
-                <th scope="col"><?= __('Defectuosos') ?></th>
-                <th scope="col"><?= __('Peso') ?></th>
-                <th scope="col"><?= __('Observaciones') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($localizacione->objetos as $objetos): ?>
-            <tr>
-                <td><?= h($objetos->id) ?></td>
-                <td><?= h($objetos->name) ?></td>
-                <td><?= h($objetos->producto_id) ?></td>
-                <td><?= h($objetos->numero_serie) ?></td>
-                <td><?= h($objetos->referencia) ?></td>
-                <td><?= h($objetos->orden_id) ?></td>
-                <td><?= h($objetos->lote) ?></td>
-                <td><?= h($objetos->localizacione_id) ?></td>
-                <td><?= h($objetos->coste) ?></td>
-                <td><?= h($objetos->defectuosos) ?></td>
-                <td><?= h($objetos->peso) ?></td>
-                <td><?= h($objetos->observaciones) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Objetos', 'action' => 'view', $objetos->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Objetos', 'action' => 'edit', $objetos->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Objetos', 'action' => 'delete', $objetos->id], ['confirm' => __('Are you sure you want to delete # {0}?', $objetos->id)]) ?>
-                </td>
-            </tr>
+        <?php if (!empty($objetos)): ?>
+	<div class="w3-responsive">
+		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
+        	<thead class="w3-border w3-black">  
+                <th scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'Objetos']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('name','name', ['model'=>'Objetos']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('producto_id','producto_id', ['model'=>'Objetos']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('numero_serie','numero_serie', ['model'=>'Objetos']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('referencia','referencia', ['model'=>'Objetos']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('orden_id','orden_id', ['model'=>'Objetos']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('lote','lote', ['model'=>'Objetos']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('coste','coste', ['model'=>'Objetos']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('defectuosos','defectuosos', ['model'=>'Objetos']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('peso','peso', ['model'=>'Objetos']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'Objetos']) ?></th>
+			</thead>
+			<tbody>
+<?php foreach ($objetos as $objeto): ?>
+				<?php $my_url= $this->Url->build(['controller' => 'objetos', 'action' => 'view',$objeto->id]) ?>
+            	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
+                	<td><?= h($objeto->id) ?></td>
+                	<td><?= h($objeto->name) ?></td>
+                	<td><?= h($objeto->producto_id) ?></td>
+                	<td><?= h($objeto->numero_serie) ?></td>
+                	<td><?= h($objeto->referencia) ?></td>
+                	<td><?= h($objeto->orden_id) ?></td>
+                	<td><?= h($objeto->lote) ?></td>
+                	<td><?= h($objeto->coste) ?></td>
+                	<td><?= h($objeto->defectuosos) ?></td>
+                	<td><?= h($objeto->peso) ?></td>
+                	<td><?= h($objeto->observaciones) ?></td>
+            	</tr>
             <?php endforeach; ?>
         </table>
+    </div>
+    <div class="paginator">
+        <ul class="pagination">
+            <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'Objetos']) ?>
+            <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'Objetos']) ?>
+            <?= $this->Paginator->numbers(['model'=>'Objetos']) ?>
+            <?= $this->Paginator->next(__('next') . ' >', ['model'=>'Objetos']) ?>
+            <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'Objetos']) ?>
+        </ul>
+        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')], ['model'=>'Objetos']) ?></p>
+    </div>
     <?php endif; ?>
 </div>
 </div>

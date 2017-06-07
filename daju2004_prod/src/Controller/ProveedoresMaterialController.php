@@ -42,7 +42,24 @@ class ProveedoresMaterialController extends AppController
         $proveedoresMaterial = $this->ProveedoresMaterial->get($id, [
             'contain' => ['ProveedoresClientes', 'Material']
         ]);
+        $this->paginate =[
+            'ProveedoresClientes' => ['scope' => 'mis_ProveedoresClientes']
+            ,'Material' => ['scope' => 'mis_Material']
+        ];
 
+        $this->loadModel('ProveedoresClientes');
+        $query=$this->ProveedoresClientes->find('all')
+                                        ->where(['proveedoresMaterial_id' => $id]);
+        $proveedoresClientes=$this->paginate($query,['scope'=>'mis_ProveedoresClientes']);
+        $this->set(compact('proveedoresClientes'));
+
+        $this->loadModel('Material');
+        $query=$this->Material->find('all')
+                                        ->where(['proveedoresMaterial_id' => $id]);
+        $material=$this->paginate($query,['scope'=>'mis_Material']);
+        $this->set(compact('material'));
+
+                                         
         $this->set('proveedoresMaterial', $proveedoresMaterial);
         $this->set('_serialize', ['proveedoresMaterial']);
     }

@@ -42,7 +42,45 @@ class EnviosController extends AppController
         $envio = $this->Envios->get($id, [
             'contain' => ['ProveedoresClientes', 'PedidosEmpresas', 'Centros', 'Direcciones', 'Objetos']
         ]);
+        $this->paginate =[
+            'ProveedoresClientes' => ['scope' => 'mis_ProveedoresClientes']
+            ,'PedidosEmpresas' => ['scope' => 'mis_PedidosEmpresas']
+            ,'Centros' => ['scope' => 'mis_Centros']
+            ,'Direcciones' => ['scope' => 'mis_Direcciones']
+            ,'Objetos' => ['scope' => 'mis_Objetos']
+        ];
 
+        $this->loadModel('ProveedoresClientes');
+        $query=$this->ProveedoresClientes->find('all')
+                                        ->where(['envio_id' => $id]);
+        $proveedoresClientes=$this->paginate($query,['scope'=>'mis_ProveedoresClientes']);
+        $this->set(compact('proveedoresClientes'));
+
+        $this->loadModel('PedidosEmpresas');
+        $query=$this->PedidosEmpresas->find('all')
+                                        ->where(['envio_id' => $id]);
+        $pedidosEmpresas=$this->paginate($query,['scope'=>'mis_PedidosEmpresas']);
+        $this->set(compact('pedidosEmpresas'));
+
+        $this->loadModel('Centros');
+        $query=$this->Centros->find('all')
+                                        ->where(['envio_id' => $id]);
+        $centros=$this->paginate($query,['scope'=>'mis_Centros']);
+        $this->set(compact('centros'));
+
+        $this->loadModel('Direcciones');
+        $query=$this->Direcciones->find('all')
+                                        ->where(['envio_id' => $id]);
+        $direcciones=$this->paginate($query,['scope'=>'mis_Direcciones']);
+        $this->set(compact('direcciones'));
+
+        $this->loadModel('Objetos');
+        $query=$this->Objetos->find('all')
+                                        ->where(['envio_id' => $id]);
+        $objetos=$this->paginate($query,['scope'=>'mis_Objetos']);
+        $this->set(compact('objetos'));
+
+                                         
         $this->set('envio', $envio);
         $this->set('_serialize', ['envio']);
     }

@@ -42,7 +42,31 @@ class PedidosEmpresasController extends AppController
         $pedidosEmpresa = $this->PedidosEmpresas->get($id, [
             'contain' => ['ProveedoresClientes', 'Envios', 'PedidosProductosDetalle']
         ]);
+        $this->paginate =[
+            'ProveedoresClientes' => ['scope' => 'mis_ProveedoresClientes']
+            ,'Envios' => ['scope' => 'mis_Envios']
+            ,'PedidosProductosDetalle' => ['scope' => 'mis_PedidosProductosDetalle']
+        ];
 
+        $this->loadModel('ProveedoresClientes');
+        $query=$this->ProveedoresClientes->find('all')
+                                        ->where(['pedidosEmpresa_id' => $id]);
+        $proveedoresClientes=$this->paginate($query,['scope'=>'mis_ProveedoresClientes']);
+        $this->set(compact('proveedoresClientes'));
+
+        $this->loadModel('Envios');
+        $query=$this->Envios->find('all')
+                                        ->where(['pedidosEmpresa_id' => $id]);
+        $envios=$this->paginate($query,['scope'=>'mis_Envios']);
+        $this->set(compact('envios'));
+
+        $this->loadModel('PedidosProductosDetalle');
+        $query=$this->PedidosProductosDetalle->find('all')
+                                        ->where(['pedidosEmpresa_id' => $id]);
+        $pedidosProductosDetalle=$this->paginate($query,['scope'=>'mis_PedidosProductosDetalle']);
+        $this->set(compact('pedidosProductosDetalle'));
+
+                                         
         $this->set('pedidosEmpresa', $pedidosEmpresa);
         $this->set('_serialize', ['pedidosEmpresa']);
     }

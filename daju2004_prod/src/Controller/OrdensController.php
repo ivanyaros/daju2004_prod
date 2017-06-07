@@ -42,7 +42,52 @@ class OrdensController extends AppController
         $orden = $this->Ordens->get($id, [
             'contain' => ['Estados', 'Centros', 'Proceso', 'Prioridades', 'EstadosDeOrdens', 'Objetos']
         ]);
+        $this->paginate =[
+            'Estados' => ['scope' => 'mis_Estados']
+            ,'Centros' => ['scope' => 'mis_Centros']
+            ,'Proceso' => ['scope' => 'mis_Proceso']
+            ,'Prioridades' => ['scope' => 'mis_Prioridades']
+            ,'EstadosDeOrdens' => ['scope' => 'mis_EstadosDeOrdens']
+            ,'Objetos' => ['scope' => 'mis_Objetos']
+        ];
 
+        $this->loadModel('Estados');
+        $query=$this->Estados->find('all')
+                                        ->where(['orden_id' => $id]);
+        $estados=$this->paginate($query,['scope'=>'mis_Estados']);
+        $this->set(compact('estados'));
+
+        $this->loadModel('Centros');
+        $query=$this->Centros->find('all')
+                                        ->where(['orden_id' => $id]);
+        $centros=$this->paginate($query,['scope'=>'mis_Centros']);
+        $this->set(compact('centros'));
+
+        $this->loadModel('Proceso');
+        $query=$this->Proceso->find('all')
+                                        ->where(['orden_id' => $id]);
+        $proceso=$this->paginate($query,['scope'=>'mis_Proceso']);
+        $this->set(compact('proceso'));
+
+        $this->loadModel('Prioridades');
+        $query=$this->Prioridades->find('all')
+                                        ->where(['orden_id' => $id]);
+        $prioridades=$this->paginate($query,['scope'=>'mis_Prioridades']);
+        $this->set(compact('prioridades'));
+
+        $this->loadModel('EstadosDeOrdens');
+        $query=$this->EstadosDeOrdens->find('all')
+                                        ->where(['orden_id' => $id]);
+        $estadosDeOrdens=$this->paginate($query,['scope'=>'mis_EstadosDeOrdens']);
+        $this->set(compact('estadosDeOrdens'));
+
+        $this->loadModel('Objetos');
+        $query=$this->Objetos->find('all')
+                                        ->where(['orden_id' => $id]);
+        $objetos=$this->paginate($query,['scope'=>'mis_Objetos']);
+        $this->set(compact('objetos'));
+
+                                         
         $this->set('orden', $orden);
         $this->set('_serialize', ['orden']);
     }

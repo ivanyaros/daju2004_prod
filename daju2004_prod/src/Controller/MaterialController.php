@@ -42,7 +42,52 @@ class MaterialController extends AppController
         $material = $this->Material->get($id, [
             'contain' => ['Familias', 'Monedas', 'Ivas', 'Materiales', 'ProcesoMaterialEntrada', 'ProveedoresMaterial']
         ]);
+        $this->paginate =[
+            'Familias' => ['scope' => 'mis_Familias']
+            ,'Monedas' => ['scope' => 'mis_Monedas']
+            ,'Ivas' => ['scope' => 'mis_Ivas']
+            ,'Materiales' => ['scope' => 'mis_Materiales']
+            ,'ProcesoMaterialEntrada' => ['scope' => 'mis_ProcesoMaterialEntrada']
+            ,'ProveedoresMaterial' => ['scope' => 'mis_ProveedoresMaterial']
+        ];
 
+        $this->loadModel('Familias');
+        $query=$this->Familias->find('all')
+                                        ->where(['material_id' => $id]);
+        $familias=$this->paginate($query,['scope'=>'mis_Familias']);
+        $this->set(compact('familias'));
+
+        $this->loadModel('Monedas');
+        $query=$this->Monedas->find('all')
+                                        ->where(['material_id' => $id]);
+        $monedas=$this->paginate($query,['scope'=>'mis_Monedas']);
+        $this->set(compact('monedas'));
+
+        $this->loadModel('Ivas');
+        $query=$this->Ivas->find('all')
+                                        ->where(['material_id' => $id]);
+        $ivas=$this->paginate($query,['scope'=>'mis_Ivas']);
+        $this->set(compact('ivas'));
+
+        $this->loadModel('Materiales');
+        $query=$this->Materiales->find('all')
+                                        ->where(['material_id' => $id]);
+        $materiales=$this->paginate($query,['scope'=>'mis_Materiales']);
+        $this->set(compact('materiales'));
+
+        $this->loadModel('ProcesoMaterialEntrada');
+        $query=$this->ProcesoMaterialEntrada->find('all')
+                                        ->where(['material_id' => $id]);
+        $procesoMaterialEntrada=$this->paginate($query,['scope'=>'mis_ProcesoMaterialEntrada']);
+        $this->set(compact('procesoMaterialEntrada'));
+
+        $this->loadModel('ProveedoresMaterial');
+        $query=$this->ProveedoresMaterial->find('all')
+                                        ->where(['material_id' => $id]);
+        $proveedoresMaterial=$this->paginate($query,['scope'=>'mis_ProveedoresMaterial']);
+        $this->set(compact('proveedoresMaterial'));
+
+                                         
         $this->set('material', $material);
         $this->set('_serialize', ['material']);
     }

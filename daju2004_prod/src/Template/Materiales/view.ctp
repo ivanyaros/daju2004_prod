@@ -98,37 +98,43 @@
 
 <div style="display:none" id="materialesEntrada" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related Materiales Entrada') ?></h4>
-        <?php if (!empty($materiale->materiales_entrada)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Objeto Id') ?></th>
-                <th scope="col"><?= __('Materiale Id') ?></th>
-                <th scope="col"><?= __('Cantidad Producida') ?></th>
-                <th scope="col"><?= __('Metros Gastados') ?></th>
-                <th scope="col"><?= __('Metros Utiles') ?></th>
-                <th scope="col"><?= __('Scrap') ?></th>
-                <th scope="col"><?= __('Observaciones') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($materiale->materiales_entrada as $materialesEntrada): ?>
-            <tr>
-                <td><?= h($materialesEntrada->id) ?></td>
-                <td><?= h($materialesEntrada->objeto_id) ?></td>
-                <td><?= h($materialesEntrada->materiale_id) ?></td>
-                <td><?= h($materialesEntrada->cantidad_producida) ?></td>
-                <td><?= h($materialesEntrada->metros_gastados) ?></td>
-                <td><?= h($materialesEntrada->metros_utiles) ?></td>
-                <td><?= h($materialesEntrada->scrap) ?></td>
-                <td><?= h($materialesEntrada->observaciones) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'MaterialesEntrada', 'action' => 'view', $materialesEntrada->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'MaterialesEntrada', 'action' => 'edit', $materialesEntrada->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'MaterialesEntrada', 'action' => 'delete', $materialesEntrada->id], ['confirm' => __('Are you sure you want to delete # {0}?', $materialesEntrada->id)]) ?>
-                </td>
-            </tr>
+        <?php if (!empty($materialesEntrada)): ?>
+	<div class="w3-responsive">
+		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
+        	<thead class="w3-border w3-black">  
+                <th scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'MaterialesEntrada']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('objeto_id','objeto_id', ['model'=>'MaterialesEntrada']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('cantidad_producida','cantidad_producida', ['model'=>'MaterialesEntrada']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('metros_gastados','metros_gastados', ['model'=>'MaterialesEntrada']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('metros_utiles','metros_utiles', ['model'=>'MaterialesEntrada']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('scrap','scrap', ['model'=>'MaterialesEntrada']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'MaterialesEntrada']) ?></th>
+			</thead>
+			<tbody>
+<?php foreach ($materialesEntrada as $materialesEntrada): ?>
+				<?php $my_url= $this->Url->build(['controller' => 'materialesEntrada', 'action' => 'view',$materialesEntrada->id]) ?>
+            	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
+                	<td><?= h($materialesEntrada->id) ?></td>
+                	<td><?= h($materialesEntrada->objeto_id) ?></td>
+                	<td><?= h($materialesEntrada->cantidad_producida) ?></td>
+                	<td><?= h($materialesEntrada->metros_gastados) ?></td>
+                	<td><?= h($materialesEntrada->metros_utiles) ?></td>
+                	<td><?= h($materialesEntrada->scrap) ?></td>
+                	<td><?= h($materialesEntrada->observaciones) ?></td>
+            	</tr>
             <?php endforeach; ?>
         </table>
+    </div>
+    <div class="paginator">
+        <ul class="pagination">
+            <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'MaterialesEntrada']) ?>
+            <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'MaterialesEntrada']) ?>
+            <?= $this->Paginator->numbers(['model'=>'MaterialesEntrada']) ?>
+            <?= $this->Paginator->next(__('next') . ' >', ['model'=>'MaterialesEntrada']) ?>
+            <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'MaterialesEntrada']) ?>
+        </ul>
+        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')], ['model'=>'MaterialesEntrada']) ?></p>
+    </div>
     <?php endif; ?>
 </div>
 </div>

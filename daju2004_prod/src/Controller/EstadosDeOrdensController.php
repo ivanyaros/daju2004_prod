@@ -42,7 +42,45 @@ class EstadosDeOrdensController extends AppController
         $estadosDeOrden = $this->EstadosDeOrdens->get($id, [
             'contain' => ['Ordens', 'Estados', 'MaquinasUsadas', 'UsuariosEnEstadosOrden', 'UtensiliosUsados']
         ]);
+        $this->paginate =[
+            'Ordens' => ['scope' => 'mis_Ordens']
+            ,'Estados' => ['scope' => 'mis_Estados']
+            ,'MaquinasUsadas' => ['scope' => 'mis_MaquinasUsadas']
+            ,'UsuariosEnEstadosOrden' => ['scope' => 'mis_UsuariosEnEstadosOrden']
+            ,'UtensiliosUsados' => ['scope' => 'mis_UtensiliosUsados']
+        ];
 
+        $this->loadModel('Ordens');
+        $query=$this->Ordens->find('all')
+                                        ->where(['estadosDeOrden_id' => $id]);
+        $ordens=$this->paginate($query,['scope'=>'mis_Ordens']);
+        $this->set(compact('ordens'));
+
+        $this->loadModel('Estados');
+        $query=$this->Estados->find('all')
+                                        ->where(['estadosDeOrden_id' => $id]);
+        $estados=$this->paginate($query,['scope'=>'mis_Estados']);
+        $this->set(compact('estados'));
+
+        $this->loadModel('MaquinasUsadas');
+        $query=$this->MaquinasUsadas->find('all')
+                                        ->where(['estadosDeOrden_id' => $id]);
+        $maquinasUsadas=$this->paginate($query,['scope'=>'mis_MaquinasUsadas']);
+        $this->set(compact('maquinasUsadas'));
+
+        $this->loadModel('UsuariosEnEstadosOrden');
+        $query=$this->UsuariosEnEstadosOrden->find('all')
+                                        ->where(['estadosDeOrden_id' => $id]);
+        $usuariosEnEstadosOrden=$this->paginate($query,['scope'=>'mis_UsuariosEnEstadosOrden']);
+        $this->set(compact('usuariosEnEstadosOrden'));
+
+        $this->loadModel('UtensiliosUsados');
+        $query=$this->UtensiliosUsados->find('all')
+                                        ->where(['estadosDeOrden_id' => $id]);
+        $utensiliosUsados=$this->paginate($query,['scope'=>'mis_UtensiliosUsados']);
+        $this->set(compact('utensiliosUsados'));
+
+                                         
         $this->set('estadosDeOrden', $estadosDeOrden);
         $this->set('_serialize', ['estadosDeOrden']);
     }

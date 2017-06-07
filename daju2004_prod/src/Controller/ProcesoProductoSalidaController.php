@@ -42,7 +42,24 @@ class ProcesoProductoSalidaController extends AppController
         $procesoProductoSalida = $this->ProcesoProductoSalida->get($id, [
             'contain' => ['Proceso', 'Producto']
         ]);
+        $this->paginate =[
+            'Proceso' => ['scope' => 'mis_Proceso']
+            ,'Producto' => ['scope' => 'mis_Producto']
+        ];
 
+        $this->loadModel('Proceso');
+        $query=$this->Proceso->find('all')
+                                        ->where(['procesoProductoSalida_id' => $id]);
+        $proceso=$this->paginate($query,['scope'=>'mis_Proceso']);
+        $this->set(compact('proceso'));
+
+        $this->loadModel('Producto');
+        $query=$this->Producto->find('all')
+                                        ->where(['procesoProductoSalida_id' => $id]);
+        $producto=$this->paginate($query,['scope'=>'mis_Producto']);
+        $this->set(compact('producto'));
+
+                                         
         $this->set('procesoProductoSalida', $procesoProductoSalida);
         $this->set('_serialize', ['procesoProductoSalida']);
     }

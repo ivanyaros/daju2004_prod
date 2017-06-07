@@ -42,7 +42,59 @@ class ProductoController extends AppController
         $producto = $this->Producto->get($id, [
             'contain' => ['Familias', 'Monedas', 'Ivas', 'Objetos', 'PedidosProductosDetalle', 'ProcesoProductoEntrada', 'ProcesoProductoSalida']
         ]);
+        $this->paginate =[
+            'Familias' => ['scope' => 'mis_Familias']
+            ,'Monedas' => ['scope' => 'mis_Monedas']
+            ,'Ivas' => ['scope' => 'mis_Ivas']
+            ,'Objetos' => ['scope' => 'mis_Objetos']
+            ,'PedidosProductosDetalle' => ['scope' => 'mis_PedidosProductosDetalle']
+            ,'ProcesoProductoEntrada' => ['scope' => 'mis_ProcesoProductoEntrada']
+            ,'ProcesoProductoSalida' => ['scope' => 'mis_ProcesoProductoSalida']
+        ];
 
+        $this->loadModel('Familias');
+        $query=$this->Familias->find('all')
+                                        ->where(['producto_id' => $id]);
+        $familias=$this->paginate($query,['scope'=>'mis_Familias']);
+        $this->set(compact('familias'));
+
+        $this->loadModel('Monedas');
+        $query=$this->Monedas->find('all')
+                                        ->where(['producto_id' => $id]);
+        $monedas=$this->paginate($query,['scope'=>'mis_Monedas']);
+        $this->set(compact('monedas'));
+
+        $this->loadModel('Ivas');
+        $query=$this->Ivas->find('all')
+                                        ->where(['producto_id' => $id]);
+        $ivas=$this->paginate($query,['scope'=>'mis_Ivas']);
+        $this->set(compact('ivas'));
+
+        $this->loadModel('Objetos');
+        $query=$this->Objetos->find('all')
+                                        ->where(['producto_id' => $id]);
+        $objetos=$this->paginate($query,['scope'=>'mis_Objetos']);
+        $this->set(compact('objetos'));
+
+        $this->loadModel('PedidosProductosDetalle');
+        $query=$this->PedidosProductosDetalle->find('all')
+                                        ->where(['producto_id' => $id]);
+        $pedidosProductosDetalle=$this->paginate($query,['scope'=>'mis_PedidosProductosDetalle']);
+        $this->set(compact('pedidosProductosDetalle'));
+
+        $this->loadModel('ProcesoProductoEntrada');
+        $query=$this->ProcesoProductoEntrada->find('all')
+                                        ->where(['producto_id' => $id]);
+        $procesoProductoEntrada=$this->paginate($query,['scope'=>'mis_ProcesoProductoEntrada']);
+        $this->set(compact('procesoProductoEntrada'));
+
+        $this->loadModel('ProcesoProductoSalida');
+        $query=$this->ProcesoProductoSalida->find('all')
+                                        ->where(['producto_id' => $id]);
+        $procesoProductoSalida=$this->paginate($query,['scope'=>'mis_ProcesoProductoSalida']);
+        $this->set(compact('procesoProductoSalida'));
+
+                                         
         $this->set('producto', $producto);
         $this->set('_serialize', ['producto']);
     }

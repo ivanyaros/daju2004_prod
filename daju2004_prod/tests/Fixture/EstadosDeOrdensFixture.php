@@ -49,8 +49,8 @@ class EstadosDeOrdensFixture extends TestFixture
             'id' => 1,
             'orden_id' => 1,
             'estado_id' => 1,
-            'fecha_inicio' => '2017-06-07 09:57:29',
-            'fecha_fin' => '2017-06-07 09:57:29',
+            'fecha_inicio' => '2017-06-07 12:29:43',
+            'fecha_fin' => '2017-06-07 12:29:43',
             'descripcion' => 'Lorem ipsum dolor sit amet'
         ],
     ];

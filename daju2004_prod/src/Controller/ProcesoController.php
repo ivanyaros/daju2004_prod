@@ -42,7 +42,66 @@ class ProcesoController extends AppController
         $proceso = $this->Proceso->get($id, [
             'contain' => ['Familias', 'Monedas', 'Ivas', 'Centros', 'Ordens', 'ProcesoMaterialEntrada', 'ProcesoProductoEntrada', 'ProcesoProductoSalida']
         ]);
+        $this->paginate =[
+            'Familias' => ['scope' => 'mis_Familias']
+            ,'Monedas' => ['scope' => 'mis_Monedas']
+            ,'Ivas' => ['scope' => 'mis_Ivas']
+            ,'Centros' => ['scope' => 'mis_Centros']
+            ,'Ordens' => ['scope' => 'mis_Ordens']
+            ,'ProcesoMaterialEntrada' => ['scope' => 'mis_ProcesoMaterialEntrada']
+            ,'ProcesoProductoEntrada' => ['scope' => 'mis_ProcesoProductoEntrada']
+            ,'ProcesoProductoSalida' => ['scope' => 'mis_ProcesoProductoSalida']
+        ];
 
+        $this->loadModel('Familias');
+        $query=$this->Familias->find('all')
+                                        ->where(['proceso_id' => $id]);
+        $familias=$this->paginate($query,['scope'=>'mis_Familias']);
+        $this->set(compact('familias'));
+
+        $this->loadModel('Monedas');
+        $query=$this->Monedas->find('all')
+                                        ->where(['proceso_id' => $id]);
+        $monedas=$this->paginate($query,['scope'=>'mis_Monedas']);
+        $this->set(compact('monedas'));
+
+        $this->loadModel('Ivas');
+        $query=$this->Ivas->find('all')
+                                        ->where(['proceso_id' => $id]);
+        $ivas=$this->paginate($query,['scope'=>'mis_Ivas']);
+        $this->set(compact('ivas'));
+
+        $this->loadModel('Centros');
+        $query=$this->Centros->find('all')
+                                        ->where(['proceso_id' => $id]);
+        $centros=$this->paginate($query,['scope'=>'mis_Centros']);
+        $this->set(compact('centros'));
+
+        $this->loadModel('Ordens');
+        $query=$this->Ordens->find('all')
+                                        ->where(['proceso_id' => $id]);
+        $ordens=$this->paginate($query,['scope'=>'mis_Ordens']);
+        $this->set(compact('ordens'));
+
+        $this->loadModel('ProcesoMaterialEntrada');
+        $query=$this->ProcesoMaterialEntrada->find('all')
+                                        ->where(['proceso_id' => $id]);
+        $procesoMaterialEntrada=$this->paginate($query,['scope'=>'mis_ProcesoMaterialEntrada']);
+        $this->set(compact('procesoMaterialEntrada'));
+
+        $this->loadModel('ProcesoProductoEntrada');
+        $query=$this->ProcesoProductoEntrada->find('all')
+                                        ->where(['proceso_id' => $id]);
+        $procesoProductoEntrada=$this->paginate($query,['scope'=>'mis_ProcesoProductoEntrada']);
+        $this->set(compact('procesoProductoEntrada'));
+
+        $this->loadModel('ProcesoProductoSalida');
+        $query=$this->ProcesoProductoSalida->find('all')
+                                        ->where(['proceso_id' => $id]);
+        $procesoProductoSalida=$this->paginate($query,['scope'=>'mis_ProcesoProductoSalida']);
+        $this->set(compact('procesoProductoSalida'));
+
+                                         
         $this->set('proceso', $proceso);
         $this->set('_serialize', ['proceso']);
     }

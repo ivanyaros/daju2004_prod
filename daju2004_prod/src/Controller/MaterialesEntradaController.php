@@ -42,7 +42,24 @@ class MaterialesEntradaController extends AppController
         $materialesEntrada = $this->MaterialesEntrada->get($id, [
             'contain' => ['Objetos', 'Materiales']
         ]);
+        $this->paginate =[
+            'Objetos' => ['scope' => 'mis_Objetos']
+            ,'Materiales' => ['scope' => 'mis_Materiales']
+        ];
 
+        $this->loadModel('Objetos');
+        $query=$this->Objetos->find('all')
+                                        ->where(['materialesEntrada_id' => $id]);
+        $objetos=$this->paginate($query,['scope'=>'mis_Objetos']);
+        $this->set(compact('objetos'));
+
+        $this->loadModel('Materiales');
+        $query=$this->Materiales->find('all')
+                                        ->where(['materialesEntrada_id' => $id]);
+        $materiales=$this->paginate($query,['scope'=>'mis_Materiales']);
+        $this->set(compact('materiales'));
+
+                                         
         $this->set('materialesEntrada', $materialesEntrada);
         $this->set('_serialize', ['materialesEntrada']);
     }

@@ -65,7 +65,7 @@ class MaterialesFixture extends TestFixture
         [
             'id' => 1,
             'material_id' => 1,
-            'fecha_entega' => '2017-06-07 09:57:31',
+            'fecha_entega' => '2017-06-07 12:29:45',
             'localizacione_id' => 1,
             'entradas_de_materiale_id' => 1,
             'bobina_lote' => 1,
