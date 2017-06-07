@@ -48,7 +48,7 @@
 
 <div style="display:none" id="envios" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related Envios') ?>
-        <button onClick="location.href='/envios/add/<?= $pedidosEmpresa->id ?>/pedidosEmpresa_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+        <button onClick="location.href='/envios/add/<?= $pedidosEmpresa->id ?>/pedidos_empresa_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
     </h4>
         <?php if (!empty($envios)): ?>
 	<div class="w3-responsive">
@@ -59,7 +59,6 @@
                 <th scope="col"><?= $this->Paginator->sort('fecha_pedido','fecha_pedido', ['model'=>'Envios']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('fecha_envio','fecha_envio', ['model'=>'Envios']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('albaran','albaran', ['model'=>'Envios']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('pedidos_empresa_id','pedidos_empresa_id', ['model'=>'Envios']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('centro_id','centro_id', ['model'=>'Envios']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('fecha_entrega','fecha_entrega', ['model'=>'Envios']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'Envios']) ?></th>
@@ -74,7 +73,6 @@
                 	<td><?= h($envio->fecha_pedido) ?></td>
                 	<td><?= h($envio->fecha_envio) ?></td>
                 	<td><?= h($envio->albaran) ?></td>
-                	<td><?= h($envio->pedidos_empresa_id) ?></td>
                 	<td><?= h($envio->centro_id) ?></td>
                 	<td><?= h($envio->fecha_entrega) ?></td>
                 	<td><?= h($envio->observaciones) ?></td>
@@ -97,14 +95,13 @@
 </div>
 <div style="display:none" id="pedidosProductosDetalle" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related Pedidos Productos Detalle') ?>
-        <button onClick="location.href='/pedidos-productos-detalle/add/<?= $pedidosEmpresa->id ?>/pedidosEmpresa_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+        <button onClick="location.href='/pedidos-productos-detalle/add/<?= $pedidosEmpresa->id ?>/pedidos_empresa_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
     </h4>
         <?php if (!empty($pedidosProductosDetalle)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
         	<thead class="w3-border w3-black">  
                 <th scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'PedidosProductosDetalle']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('pedidos_empresa_id','pedidos_empresa_id', ['model'=>'PedidosProductosDetalle']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('producto_id','producto_id', ['model'=>'PedidosProductosDetalle']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('cantidad','cantidad', ['model'=>'PedidosProductosDetalle']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('fecha','fecha', ['model'=>'PedidosProductosDetalle']) ?></th>
@@ -117,7 +114,6 @@
 				<?php $my_url= $this->Url->build(['controller' => 'pedidosProductosDetalle', 'action' => 'view',$pedidosProductosDetalle->id]) ?>
             	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
                 	<td><?= h($pedidosProductosDetalle->id) ?></td>
-                	<td><?= h($pedidosProductosDetalle->pedidos_empresa_id) ?></td>
                 	<td><?= h($pedidosProductosDetalle->producto_id) ?></td>
                 	<td><?= h($pedidosProductosDetalle->cantidad) ?></td>
                 	<td><?= h($pedidosProductosDetalle->fecha) ?></td>

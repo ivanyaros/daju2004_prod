@@ -46,7 +46,7 @@
 
 <div style="display:none" id="materiales" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related Materiales') ?>
-        <button onClick="location.href='/materiales/add/<?= $entradasDeMateriale->id ?>/entradasDeMateriale_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+        <button onClick="location.href='/materiales/add/<?= $entradasDeMateriale->id ?>/entradas_de_materiale_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
     </h4>
         <?php if (!empty($materiales)): ?>
 	<div class="w3-responsive">
@@ -56,7 +56,6 @@
                 <th scope="col"><?= $this->Paginator->sort('material_id','material_id', ['model'=>'Materiales']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('fecha_entega','fecha_entega', ['model'=>'Materiales']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('localizacione_id','localizacione_id', ['model'=>'Materiales']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('entradas_de_materiale_id','entradas_de_materiale_id', ['model'=>'Materiales']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('bobina_lote','bobina_lote', ['model'=>'Materiales']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('bobinas','bobinas', ['model'=>'Materiales']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('bobinas_actual','bobinas_actual', ['model'=>'Materiales']) ?></th>
@@ -82,7 +81,6 @@
                 	<td><?= h($materiale->material_id) ?></td>
                 	<td><?= h($materiale->fecha_entega) ?></td>
                 	<td><?= h($materiale->localizacione_id) ?></td>
-                	<td><?= h($materiale->entradas_de_materiale_id) ?></td>
                 	<td><?= h($materiale->bobina_lote) ?></td>
                 	<td><?= h($materiale->bobinas) ?></td>
                 	<td><?= h($materiale->bobinas_actual) ?></td>

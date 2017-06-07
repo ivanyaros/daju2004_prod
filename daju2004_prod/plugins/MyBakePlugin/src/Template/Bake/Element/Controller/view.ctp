@@ -50,7 +50,7 @@ use Cake\Utility\Inflector;
 <% foreach($myAssociations as $association): %>
         $this->loadModel('<%= $association %>');
         $query=$this-><%= $association %>->find('all')
-                                        ->where(['<%= $singularName%>_id' => $id]);
+                                        ->where(['<%= Inflector::singularize(Inflector::tableize($singularName))%>_id' => $id]);
         $<%= Inflector::variable($association) %>=$this->paginate($query,['scope'=>'mis_<%= $association %>']);
         $this->set(compact('<%= Inflector::variable($association) %>'));
 

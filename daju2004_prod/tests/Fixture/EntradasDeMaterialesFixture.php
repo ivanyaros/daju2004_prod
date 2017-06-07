@@ -53,9 +53,9 @@ class EntradasDeMaterialesFixture extends TestFixture
             'referencia' => 'Lorem ipsum dolor sit amet',
             'observaciones' => 'Lorem ipsum dolor sit amet',
             'albaran' => 'Lorem ipsum dolor sit amet',
-            'fecha_envio' => '2017-06-07 13:15:02',
+            'fecha_envio' => '2017-06-07 13:43:02',
             'centro_id' => 1,
-            'fecha_recepcion' => '2017-06-07 13:15:02'
+            'fecha_recepcion' => '2017-06-07 13:43:02'
         ],
     ];
 }

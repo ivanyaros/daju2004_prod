@@ -49,31 +49,31 @@ class ProveedoresClientesController extends AppController
 
         $this->loadModel('Direcciones');
         $query=$this->Direcciones->find('all')
-                                        ->where(['proveedoresCliente_id' => $id]);
+                                        ->where(['proveedores_cliente_id' => $id]);
         $direcciones=$this->paginate($query,['scope'=>'mis_Direcciones']);
         $this->set(compact('direcciones'));
 
         $this->loadModel('EntradasDeMateriales');
         $query=$this->EntradasDeMateriales->find('all')
-                                        ->where(['proveedoresCliente_id' => $id]);
+                                        ->where(['proveedores_cliente_id' => $id]);
         $entradasDeMateriales=$this->paginate($query,['scope'=>'mis_EntradasDeMateriales']);
         $this->set(compact('entradasDeMateriales'));
 
         $this->loadModel('Envios');
         $query=$this->Envios->find('all')
-                                        ->where(['proveedoresCliente_id' => $id]);
+                                        ->where(['proveedores_cliente_id' => $id]);
         $envios=$this->paginate($query,['scope'=>'mis_Envios']);
         $this->set(compact('envios'));
 
         $this->loadModel('PedidosEmpresas');
         $query=$this->PedidosEmpresas->find('all')
-                                        ->where(['proveedoresCliente_id' => $id]);
+                                        ->where(['proveedores_cliente_id' => $id]);
         $pedidosEmpresas=$this->paginate($query,['scope'=>'mis_PedidosEmpresas']);
         $this->set(compact('pedidosEmpresas'));
 
         $this->loadModel('ProveedoresMaterial');
         $query=$this->ProveedoresMaterial->find('all')
-                                        ->where(['proveedoresCliente_id' => $id]);
+                                        ->where(['proveedores_cliente_id' => $id]);
         $proveedoresMaterial=$this->paginate($query,['scope'=>'mis_ProveedoresMaterial']);
         $this->set(compact('proveedoresMaterial'));
 

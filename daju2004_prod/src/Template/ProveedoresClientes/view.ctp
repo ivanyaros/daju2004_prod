@@ -70,14 +70,13 @@
 
 <div style="display:none" id="direcciones" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related Direcciones') ?>
-        <button onClick="location.href='/direcciones/add/<?= $proveedoresCliente->id ?>/proveedoresCliente_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+        <button onClick="location.href='/direcciones/add/<?= $proveedoresCliente->id ?>/proveedores_cliente_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
     </h4>
         <?php if (!empty($direcciones)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
         	<thead class="w3-border w3-black">  
                 <th scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'Direcciones']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('proveedores_cliente_id','proveedores_cliente_id', ['model'=>'Direcciones']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('direccion','direccion', ['model'=>'Direcciones']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('telefono','telefono', ['model'=>'Direcciones']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('fax','fax', ['model'=>'Direcciones']) ?></th>
@@ -90,7 +89,6 @@
 				<?php $my_url= $this->Url->build(['controller' => 'direcciones', 'action' => 'view',$direccione->id]) ?>
             	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
                 	<td><?= h($direccione->id) ?></td>
-                	<td><?= h($direccione->proveedores_cliente_id) ?></td>
                 	<td><?= h($direccione->direccion) ?></td>
                 	<td><?= h($direccione->telefono) ?></td>
                 	<td><?= h($direccione->fax) ?></td>
@@ -115,14 +113,13 @@
 </div>
 <div style="display:none" id="entradasDeMateriales" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related Entradas De Materiales') ?>
-        <button onClick="location.href='/entradas-de-materiales/add/<?= $proveedoresCliente->id ?>/proveedoresCliente_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+        <button onClick="location.href='/entradas-de-materiales/add/<?= $proveedoresCliente->id ?>/proveedores_cliente_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
     </h4>
         <?php if (!empty($entradasDeMateriales)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
         	<thead class="w3-border w3-black">  
                 <th scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'EntradasDeMateriales']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('proveedores_cliente_id','proveedores_cliente_id', ['model'=>'EntradasDeMateriales']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('referencia','referencia', ['model'=>'EntradasDeMateriales']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'EntradasDeMateriales']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('albaran','albaran', ['model'=>'EntradasDeMateriales']) ?></th>
@@ -135,7 +132,6 @@
 				<?php $my_url= $this->Url->build(['controller' => 'entradasDeMateriales', 'action' => 'view',$entradasDeMateriale->id]) ?>
             	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
                 	<td><?= h($entradasDeMateriale->id) ?></td>
-                	<td><?= h($entradasDeMateriale->proveedores_cliente_id) ?></td>
                 	<td><?= h($entradasDeMateriale->referencia) ?></td>
                 	<td><?= h($entradasDeMateriale->observaciones) ?></td>
                 	<td><?= h($entradasDeMateriale->albaran) ?></td>
@@ -160,14 +156,13 @@
 </div>
 <div style="display:none" id="envios" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related Envios') ?>
-        <button onClick="location.href='/envios/add/<?= $proveedoresCliente->id ?>/proveedoresCliente_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+        <button onClick="location.href='/envios/add/<?= $proveedoresCliente->id ?>/proveedores_cliente_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
     </h4>
         <?php if (!empty($envios)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
         	<thead class="w3-border w3-black">  
                 <th scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'Envios']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('proveedores_cliente_id','proveedores_cliente_id', ['model'=>'Envios']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('fecha_pedido','fecha_pedido', ['model'=>'Envios']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('fecha_envio','fecha_envio', ['model'=>'Envios']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('albaran','albaran', ['model'=>'Envios']) ?></th>
@@ -182,7 +177,6 @@
 				<?php $my_url= $this->Url->build(['controller' => 'envios', 'action' => 'view',$envio->id]) ?>
             	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
                 	<td><?= h($envio->id) ?></td>
-                	<td><?= h($envio->proveedores_cliente_id) ?></td>
                 	<td><?= h($envio->fecha_pedido) ?></td>
                 	<td><?= h($envio->fecha_envio) ?></td>
                 	<td><?= h($envio->albaran) ?></td>
@@ -209,7 +203,7 @@
 </div>
 <div style="display:none" id="pedidosEmpresas" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related Pedidos Empresas') ?>
-        <button onClick="location.href='/pedidos-empresas/add/<?= $proveedoresCliente->id ?>/proveedoresCliente_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+        <button onClick="location.href='/pedidos-empresas/add/<?= $proveedoresCliente->id ?>/proveedores_cliente_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
     </h4>
         <?php if (!empty($pedidosEmpresas)): ?>
 	<div class="w3-responsive">
@@ -218,7 +212,6 @@
                 <th scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'PedidosEmpresas']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name','name', ['model'=>'PedidosEmpresas']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('referencia','referencia', ['model'=>'PedidosEmpresas']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('proveedores_cliente_id','proveedores_cliente_id', ['model'=>'PedidosEmpresas']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('fecha','fecha', ['model'=>'PedidosEmpresas']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('albaran','albaran', ['model'=>'PedidosEmpresas']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'PedidosEmpresas']) ?></th>
@@ -231,7 +224,6 @@
                 	<td><?= h($pedidosEmpresa->id) ?></td>
                 	<td><?= h($pedidosEmpresa->name) ?></td>
                 	<td><?= h($pedidosEmpresa->referencia) ?></td>
-                	<td><?= h($pedidosEmpresa->proveedores_cliente_id) ?></td>
                 	<td><?= h($pedidosEmpresa->fecha) ?></td>
                 	<td><?= h($pedidosEmpresa->albaran) ?></td>
                 	<td><?= h($pedidosEmpresa->observaciones) ?></td>
@@ -254,14 +246,13 @@
 </div>
 <div style="display:none" id="proveedoresMaterial" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related Proveedores Material') ?>
-        <button onClick="location.href='/proveedores-material/add/<?= $proveedoresCliente->id ?>/proveedoresCliente_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+        <button onClick="location.href='/proveedores-material/add/<?= $proveedoresCliente->id ?>/proveedores_cliente_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
     </h4>
         <?php if (!empty($proveedoresMaterial)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
         	<thead class="w3-border w3-black">  
                 <th scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'ProveedoresMaterial']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('proveedores_cliente_id','proveedores_cliente_id', ['model'=>'ProveedoresMaterial']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('material_id','material_id', ['model'=>'ProveedoresMaterial']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'ProveedoresMaterial']) ?></th>
 			</thead>
@@ -270,7 +261,6 @@
 				<?php $my_url= $this->Url->build(['controller' => 'proveedoresMaterial', 'action' => 'view',$proveedoresMaterial->id]) ?>
             	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
                 	<td><?= h($proveedoresMaterial->id) ?></td>
-                	<td><?= h($proveedoresMaterial->proveedores_cliente_id) ?></td>
                 	<td><?= h($proveedoresMaterial->material_id) ?></td>
                 	<td><?= h($proveedoresMaterial->observaciones) ?></td>
             	</tr>

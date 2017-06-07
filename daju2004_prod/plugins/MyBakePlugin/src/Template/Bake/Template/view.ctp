@@ -142,14 +142,14 @@ foreach ($relations as $alias => $details):
     %>
 <div style="display:none" id="<%= $otherPluralVar %>" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related <%= $otherPluralHumanName %>') ?>
-        <button onClick="location.href='/<%= Inflector::dasherize($otherPluralVar)%>/add/<?= $<%= $singularVar %>->id ?>/<%= $singularVar %>_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+        <button onClick="location.href='/<%= Inflector::dasherize($otherPluralVar)%>/add/<?= $<%= $singularVar %>->id ?>/<%= Inflector::singularize(Inflector::tableize($singularVar)) %>_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
     </h4>
         <?php if (!empty($<%= $otherPluralVar %>)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
         	<thead class="w3-border w3-black">  
 <% foreach ($details['fields'] as $field): 
-	if($field!=''.$singularVar.'_id'):
+	if($field!=''.Inflector::singularize(Inflector::tableize($singularVar)).'_id'):
 %>
                 <th scope="col"><?= $this->Paginator->sort('<%= $field %>','<%= $field %>', ['model'=>'<%= $alias %>']) ?></th>
 <% endif; 
@@ -160,7 +160,7 @@ endforeach; %>
 				<?php $my_url= $this->Url->build(['controller' => '<%= $otherPluralVar %>', 'action' => 'view',$<%= $otherSingularVar %>->id]) ?>
             	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
             <%- foreach ($details['fields'] as $field): 
-            		if($field!=''.$singularVar.'_id'): %>
+            		if($field!=''.Inflector::singularize(Inflector::tableize($singularVar)).'_id'): %>
                 	<td><?= h($<%= $otherSingularVar %>-><%= $field %>) ?></td>
             <%- endif;
             	endforeach; %>
