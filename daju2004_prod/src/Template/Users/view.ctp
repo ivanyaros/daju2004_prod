@@ -48,21 +48,27 @@
             <td><?= $this->Number->format($user->coste_tiempo) ?></td>
         </tr>
     </table>
-    <div class="related">
-        <h4><?= __('Related Usuarios En Estados Orden') ?>
-        	<li><?= $this->Html->link(__('New Usuarios En Estados Orden'), ['controller' => 'UsuariosEnEstadosOrden', 'action' => 'add',$user->id,'user_id']) ?> </li>
-        </h4>
+<div class="w3-bar w3-black">
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'usuariosEnEstadosOrden')"><?= __("Usuarios En Estados Orden") ?></button>
+
+<div style="display:none" id="usuariosEnEstadosOrden" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Usuarios En Estados Orden') ?></h4>
         <?php if (!empty($user->usuarios_en_estados_orden)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Estados De Orden Id') ?></th>
+                <th scope="col"><?= __('User Id') ?></th>
                 <th scope="col"><?= __('Parte') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($user->usuarios_en_estados_orden as $usuariosEnEstadosOrden): ?>
             <tr>
+                <td><?= h($usuariosEnEstadosOrden->id) ?></td>
                 <td><?= h($usuariosEnEstadosOrden->estados_de_orden_id) ?></td>
+                <td><?= h($usuariosEnEstadosOrden->user_id) ?></td>
                 <td><?= h($usuariosEnEstadosOrden->parte) ?></td>
                 <td><?= h($usuariosEnEstadosOrden->observaciones) ?></td>
                 <td class="actions">
@@ -73,6 +79,22 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
+    <?php endif; ?>
 </div>
+</div>
+<script>
+function openRelated(evt, relatedName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("related");
+  for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(relatedName).style.display = "block";
+  evt.currentTarget.className += " w3-red";
+}
+</script>
+

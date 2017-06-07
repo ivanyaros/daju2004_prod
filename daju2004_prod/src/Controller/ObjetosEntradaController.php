@@ -27,6 +27,7 @@ class ObjetosEntradaController extends AppController
 
         $this->set(compact('objetosEntrada'));
         $this->set('_serialize', ['objetosEntrada']);
+        $this->set('modelo', "objetosEntrada");
     }
 
     /**
@@ -81,7 +82,7 @@ class ObjetosEntradaController extends AppController
     public function edit($id = null)
     {
         $objetosEntrada = $this->ObjetosEntrada->get($id, [
-            'contain' => []
+            'contain' => ['Objetos']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $objetosEntrada = $this->ObjetosEntrada->patchEntity($objetosEntrada, $this->request->getData());

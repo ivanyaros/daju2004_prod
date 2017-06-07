@@ -13,11 +13,4 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 %>
-<?php
-/**
-  * @var \<%= $namespace %>\View\AppView $this
-  */
-?>
-
-
-<%= $this->element('form');
+<%= $this->fetch('content');

@@ -12,5 +12,17 @@
  * @since         0.10.0
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
+
 ?>
+<?= $this->Html->meta('icon') ?>
+
+    
+    <?= $this->Html->css('w3.css')?>
+    <?= $this->Html->css('w3-theme-green.css')?>
+    
+    
+
+    <?= $this->fetch('meta') ?>
+    <?= $this->fetch('css') ?>
+    <?= $this->fetch('script') ?>
 <?= $this->fetch('content') ?>

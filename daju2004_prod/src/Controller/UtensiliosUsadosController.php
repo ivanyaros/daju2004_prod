@@ -27,6 +27,7 @@ class UtensiliosUsadosController extends AppController
 
         $this->set(compact('utensiliosUsados'));
         $this->set('_serialize', ['utensiliosUsados']);
+        $this->set('modelo', "utensiliosUsados");
     }
 
     /**
@@ -82,7 +83,7 @@ class UtensiliosUsadosController extends AppController
     public function edit($id = null)
     {
         $utensiliosUsado = $this->UtensiliosUsados->get($id, [
-            'contain' => []
+            'contain' => ['EstadosDeOrdens', 'Utensilios']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $utensiliosUsado = $this->UtensiliosUsados->patchEntity($utensiliosUsado, $this->request->getData());

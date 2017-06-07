@@ -27,6 +27,7 @@ class MaterialesEntradaController extends AppController
 
         $this->set(compact('materialesEntrada'));
         $this->set('_serialize', ['materialesEntrada']);
+        $this->set('modelo', "materialesEntrada");
     }
 
     /**
@@ -82,7 +83,7 @@ class MaterialesEntradaController extends AppController
     public function edit($id = null)
     {
         $materialesEntrada = $this->MaterialesEntrada->get($id, [
-            'contain' => []
+            'contain' => ['Objetos', 'Materiales']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $materialesEntrada = $this->MaterialesEntrada->patchEntity($materialesEntrada, $this->request->getData());

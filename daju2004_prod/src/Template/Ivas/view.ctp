@@ -24,13 +24,20 @@
             <td><?= $this->Number->format($iva->valor) ?></td>
         </tr>
     </table>
-    <div class="related">
-        <h4><?= __('Related Material') ?>
-        	<li><?= $this->Html->link(__('New Material'), ['controller' => 'Material', 'action' => 'add',$iva->id,'iva_id']) ?> </li>
-        </h4>
+<div class="w3-bar w3-black">
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'material')"><?= __("Material") ?></button>
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'proceso')"><?= __("Proceso") ?></button>
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'producto')"><?= __("Producto") ?></button>
+
+<div style="display:none" id="material" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Material') ?></h4>
         <?php if (!empty($iva->material)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Referencia Proveedor') ?></th>
@@ -44,12 +51,14 @@
                 <th scope="col"><?= __('Unidades Embalaje') ?></th>
                 <th scope="col"><?= __('Precio') ?></th>
                 <th scope="col"><?= __('Moneda Id') ?></th>
+                <th scope="col"><?= __('Iva Id') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col"><?= __('Visible') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($iva->material as $material): ?>
             <tr>
+                <td><?= h($material->id) ?></td>
                 <td><?= h($material->name) ?></td>
                 <td><?= h($material->referencia) ?></td>
                 <td><?= h($material->referencia_proveedor) ?></td>
@@ -63,6 +72,7 @@
                 <td><?= h($material->unidades_embalaje) ?></td>
                 <td><?= h($material->precio) ?></td>
                 <td><?= h($material->moneda_id) ?></td>
+                <td><?= h($material->iva_id) ?></td>
                 <td><?= h($material->observaciones) ?></td>
                 <td><?= h($material->visible) ?></td>
                 <td class="actions">
@@ -73,20 +83,20 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
-    <div class="related">
-        <h4><?= __('Related Proceso') ?>
-        	<li><?= $this->Html->link(__('New Proceso'), ['controller' => 'Proceso', 'action' => 'add',$iva->id,'iva_id']) ?> </li>
-        </h4>
+    <?php endif; ?>
+</div>
+<div style="display:none" id="proceso" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Proceso') ?></h4>
         <?php if (!empty($iva->proceso)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Familia Id') ?></th>
                 <th scope="col"><?= __('Precio') ?></th>
                 <th scope="col"><?= __('Moneda Id') ?></th>
+                <th scope="col"><?= __('Iva Id') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col"><?= __('Visible') ?></th>
                 <th scope="col"><?= __('Enlaces') ?></th>
@@ -99,11 +109,13 @@
             </tr>
             <?php foreach ($iva->proceso as $proceso): ?>
             <tr>
+                <td><?= h($proceso->id) ?></td>
                 <td><?= h($proceso->name) ?></td>
                 <td><?= h($proceso->referencia) ?></td>
                 <td><?= h($proceso->familia_id) ?></td>
                 <td><?= h($proceso->precio) ?></td>
                 <td><?= h($proceso->moneda_id) ?></td>
+                <td><?= h($proceso->iva_id) ?></td>
                 <td><?= h($proceso->observaciones) ?></td>
                 <td><?= h($proceso->visible) ?></td>
                 <td><?= h($proceso->enlaces) ?></td>
@@ -120,21 +132,21 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
-    <div class="related">
-        <h4><?= __('Related Producto') ?>
-        	<li><?= $this->Html->link(__('New Producto'), ['controller' => 'Producto', 'action' => 'add',$iva->id,'iva_id']) ?> </li>
-        </h4>
+    <?php endif; ?>
+</div>
+<div style="display:none" id="producto" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Producto') ?></h4>
         <?php if (!empty($iva->producto)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Referencia Proveedor') ?></th>
                 <th scope="col"><?= __('Familia Id') ?></th>
                 <th scope="col"><?= __('Precio') ?></th>
                 <th scope="col"><?= __('Moneda Id') ?></th>
+                <th scope="col"><?= __('Iva Id') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col"><?= __('Visible') ?></th>
                 <th scope="col"><?= __('Peso') ?></th>
@@ -149,12 +161,14 @@
             </tr>
             <?php foreach ($iva->producto as $producto): ?>
             <tr>
+                <td><?= h($producto->id) ?></td>
                 <td><?= h($producto->name) ?></td>
                 <td><?= h($producto->referencia) ?></td>
                 <td><?= h($producto->referencia_proveedor) ?></td>
                 <td><?= h($producto->familia_id) ?></td>
                 <td><?= h($producto->precio) ?></td>
                 <td><?= h($producto->moneda_id) ?></td>
+                <td><?= h($producto->iva_id) ?></td>
                 <td><?= h($producto->observaciones) ?></td>
                 <td><?= h($producto->visible) ?></td>
                 <td><?= h($producto->peso) ?></td>
@@ -173,6 +187,22 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
+    <?php endif; ?>
 </div>
+</div>
+<script>
+function openRelated(evt, relatedName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("related");
+  for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(relatedName).style.display = "block";
+  evt.currentTarget.className += " w3-red";
+}
+</script>
+

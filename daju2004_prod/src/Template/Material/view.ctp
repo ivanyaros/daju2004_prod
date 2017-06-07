@@ -76,13 +76,21 @@
             <td><?= $material->visible ? __('Yes') : __('No'); ?></td>
         </tr>
     </table>
-    <div class="related">
-        <h4><?= __('Related Materiales') ?>
-        	<li><?= $this->Html->link(__('New Materiale'), ['controller' => 'Materiales', 'action' => 'add',$material->id,'material_id']) ?> </li>
-        </h4>
+<div class="w3-bar w3-black">
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'materiales')"><?= __("Materiales") ?></button>
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'procesoMaterialEntrada')"><?= __("Proceso Material Entrada") ?></button>
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'proveedoresMaterial')"><?= __("Proveedores Material") ?></button>
+
+<div style="display:none" id="materiales" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Materiales') ?></h4>
         <?php if (!empty($material->materiales)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Material Id') ?></th>
                 <th scope="col"><?= __('Fecha Entega') ?></th>
                 <th scope="col"><?= __('Localizacione Id') ?></th>
                 <th scope="col"><?= __('Entradas De Materiale Id') ?></th>
@@ -106,6 +114,8 @@
             </tr>
             <?php foreach ($material->materiales as $materiales): ?>
             <tr>
+                <td><?= h($materiales->id) ?></td>
+                <td><?= h($materiales->material_id) ?></td>
                 <td><?= h($materiales->fecha_entega) ?></td>
                 <td><?= h($materiales->localizacione_id) ?></td>
                 <td><?= h($materiales->entradas_de_materiale_id) ?></td>
@@ -133,16 +143,16 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
-    <div class="related">
-        <h4><?= __('Related Proceso Material Entrada') ?>
-        	<li><?= $this->Html->link(__('New Proceso Material Entrada'), ['controller' => 'ProcesoMaterialEntrada', 'action' => 'add',$material->id,'material_id']) ?> </li>
-        </h4>
+    <?php endif; ?>
+</div>
+<div style="display:none" id="procesoMaterialEntrada" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Proceso Material Entrada') ?></h4>
         <?php if (!empty($material->proceso_material_entrada)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Proceso Id') ?></th>
+                <th scope="col"><?= __('Material Id') ?></th>
                 <th scope="col"><?= __('Metros Lineales') ?></th>
                 <th scope="col"><?= __('Metros Cuadrados') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
@@ -150,7 +160,9 @@
             </tr>
             <?php foreach ($material->proceso_material_entrada as $procesoMaterialEntrada): ?>
             <tr>
+                <td><?= h($procesoMaterialEntrada->id) ?></td>
                 <td><?= h($procesoMaterialEntrada->proceso_id) ?></td>
+                <td><?= h($procesoMaterialEntrada->material_id) ?></td>
                 <td><?= h($procesoMaterialEntrada->metros_lineales) ?></td>
                 <td><?= h($procesoMaterialEntrada->metros_cuadrados) ?></td>
                 <td><?= h($procesoMaterialEntrada->observaciones) ?></td>
@@ -162,22 +174,24 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
-    <div class="related">
-        <h4><?= __('Related Proveedores Material') ?>
-        	<li><?= $this->Html->link(__('New Proveedores Material'), ['controller' => 'ProveedoresMaterial', 'action' => 'add',$material->id,'material_id']) ?> </li>
-        </h4>
+    <?php endif; ?>
+</div>
+<div style="display:none" id="proveedoresMaterial" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Proveedores Material') ?></h4>
         <?php if (!empty($material->proveedores_material)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Proveedores Cliente Id') ?></th>
+                <th scope="col"><?= __('Material Id') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($material->proveedores_material as $proveedoresMaterial): ?>
             <tr>
+                <td><?= h($proveedoresMaterial->id) ?></td>
                 <td><?= h($proveedoresMaterial->proveedores_cliente_id) ?></td>
+                <td><?= h($proveedoresMaterial->material_id) ?></td>
                 <td><?= h($proveedoresMaterial->observaciones) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'ProveedoresMaterial', 'action' => 'view', $proveedoresMaterial->id]) ?>
@@ -187,6 +201,22 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
+    <?php endif; ?>
 </div>
+</div>
+<script>
+function openRelated(evt, relatedName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("related");
+  for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(relatedName).style.display = "block";
+  evt.currentTarget.className += " w3-red";
+}
+</script>
+

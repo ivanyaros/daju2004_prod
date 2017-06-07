@@ -56,13 +56,25 @@
             <td><?= $proveedoresCliente->visible ? __('Yes') : __('No'); ?></td>
         </tr>
     </table>
-    <div class="related">
-        <h4><?= __('Related Direcciones') ?>
-        	<li><?= $this->Html->link(__('New Direccione'), ['controller' => 'Direcciones', 'action' => 'add',$proveedoresCliente->id,'proveedores_cliente_id']) ?> </li>
-        </h4>
+<div class="w3-bar w3-black">
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'direcciones')"><?= __("Direcciones") ?></button>
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'entradasDeMateriales')"><?= __("Entradas De Materiales") ?></button>
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'envios')"><?= __("Envios") ?></button>
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'pedidosEmpresas')"><?= __("Pedidos Empresas") ?></button>
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'proveedoresMaterial')"><?= __("Proveedores Material") ?></button>
+
+<div style="display:none" id="direcciones" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Direcciones') ?></h4>
         <?php if (!empty($proveedoresCliente->direcciones)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Proveedores Cliente Id') ?></th>
                 <th scope="col"><?= __('Direccion') ?></th>
                 <th scope="col"><?= __('Telefono') ?></th>
                 <th scope="col"><?= __('Fax') ?></th>
@@ -73,6 +85,8 @@
             </tr>
             <?php foreach ($proveedoresCliente->direcciones as $direcciones): ?>
             <tr>
+                <td><?= h($direcciones->id) ?></td>
+                <td><?= h($direcciones->proveedores_cliente_id) ?></td>
                 <td><?= h($direcciones->direccion) ?></td>
                 <td><?= h($direcciones->telefono) ?></td>
                 <td><?= h($direcciones->fax) ?></td>
@@ -87,15 +101,15 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
-    <div class="related">
-        <h4><?= __('Related Entradas De Materiales') ?>
-        	<li><?= $this->Html->link(__('New Entradas De Materiale'), ['controller' => 'EntradasDeMateriales', 'action' => 'add',$proveedoresCliente->id,'proveedores_cliente_id']) ?> </li>
-        </h4>
+    <?php endif; ?>
+</div>
+<div style="display:none" id="entradasDeMateriales" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Entradas De Materiales') ?></h4>
         <?php if (!empty($proveedoresCliente->entradas_de_materiales)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Proveedores Cliente Id') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col"><?= __('Albaran') ?></th>
@@ -106,6 +120,8 @@
             </tr>
             <?php foreach ($proveedoresCliente->entradas_de_materiales as $entradasDeMateriales): ?>
             <tr>
+                <td><?= h($entradasDeMateriales->id) ?></td>
+                <td><?= h($entradasDeMateriales->proveedores_cliente_id) ?></td>
                 <td><?= h($entradasDeMateriales->referencia) ?></td>
                 <td><?= h($entradasDeMateriales->observaciones) ?></td>
                 <td><?= h($entradasDeMateriales->albaran) ?></td>
@@ -120,15 +136,15 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
-    <div class="related">
-        <h4><?= __('Related Envios') ?>
-        	<li><?= $this->Html->link(__('New Envio'), ['controller' => 'Envios', 'action' => 'add',$proveedoresCliente->id,'proveedores_cliente_id']) ?> </li>
-        </h4>
+    <?php endif; ?>
+</div>
+<div style="display:none" id="envios" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Envios') ?></h4>
         <?php if (!empty($proveedoresCliente->envios)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Proveedores Cliente Id') ?></th>
                 <th scope="col"><?= __('Fecha Pedido') ?></th>
                 <th scope="col"><?= __('Fecha Envio') ?></th>
                 <th scope="col"><?= __('Albaran') ?></th>
@@ -141,6 +157,8 @@
             </tr>
             <?php foreach ($proveedoresCliente->envios as $envios): ?>
             <tr>
+                <td><?= h($envios->id) ?></td>
+                <td><?= h($envios->proveedores_cliente_id) ?></td>
                 <td><?= h($envios->fecha_pedido) ?></td>
                 <td><?= h($envios->fecha_envio) ?></td>
                 <td><?= h($envios->albaran) ?></td>
@@ -157,17 +175,17 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
-    <div class="related">
-        <h4><?= __('Related Pedidos Empresas') ?>
-        	<li><?= $this->Html->link(__('New Pedidos Empresa'), ['controller' => 'PedidosEmpresas', 'action' => 'add',$proveedoresCliente->id,'proveedores_cliente_id']) ?> </li>
-        </h4>
+    <?php endif; ?>
+</div>
+<div style="display:none" id="pedidosEmpresas" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Pedidos Empresas') ?></h4>
         <?php if (!empty($proveedoresCliente->pedidos_empresas)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
+                <th scope="col"><?= __('Proveedores Cliente Id') ?></th>
                 <th scope="col"><?= __('Fecha') ?></th>
                 <th scope="col"><?= __('Albaran') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
@@ -176,8 +194,10 @@
             </tr>
             <?php foreach ($proveedoresCliente->pedidos_empresas as $pedidosEmpresas): ?>
             <tr>
+                <td><?= h($pedidosEmpresas->id) ?></td>
                 <td><?= h($pedidosEmpresas->name) ?></td>
                 <td><?= h($pedidosEmpresas->referencia) ?></td>
+                <td><?= h($pedidosEmpresas->proveedores_cliente_id) ?></td>
                 <td><?= h($pedidosEmpresas->fecha) ?></td>
                 <td><?= h($pedidosEmpresas->albaran) ?></td>
                 <td><?= h($pedidosEmpresas->observaciones) ?></td>
@@ -190,21 +210,23 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
-    <div class="related">
-        <h4><?= __('Related Proveedores Material') ?>
-        	<li><?= $this->Html->link(__('New Proveedores Material'), ['controller' => 'ProveedoresMaterial', 'action' => 'add',$proveedoresCliente->id,'proveedores_cliente_id']) ?> </li>
-        </h4>
+    <?php endif; ?>
+</div>
+<div style="display:none" id="proveedoresMaterial" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Proveedores Material') ?></h4>
         <?php if (!empty($proveedoresCliente->proveedores_material)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Proveedores Cliente Id') ?></th>
                 <th scope="col"><?= __('Material Id') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($proveedoresCliente->proveedores_material as $proveedoresMaterial): ?>
             <tr>
+                <td><?= h($proveedoresMaterial->id) ?></td>
+                <td><?= h($proveedoresMaterial->proveedores_cliente_id) ?></td>
                 <td><?= h($proveedoresMaterial->material_id) ?></td>
                 <td><?= h($proveedoresMaterial->observaciones) ?></td>
                 <td class="actions">
@@ -215,6 +237,22 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
+    <?php endif; ?>
 </div>
+</div>
+<script>
+function openRelated(evt, relatedName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("related");
+  for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(relatedName).style.display = "block";
+  evt.currentTarget.className += " w3-red";
+}
+</script>
+

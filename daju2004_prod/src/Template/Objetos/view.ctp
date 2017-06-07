@@ -56,13 +56,19 @@
             <td><?= $this->Number->format($objeto->peso) ?></td>
         </tr>
     </table>
-    <div class="related">
-        <h4><?= __('Related Materiales Entrada') ?>
-        	<li><?= $this->Html->link(__('New Materiales Entrada'), ['controller' => 'MaterialesEntrada', 'action' => 'add',$objeto->id,'objeto_id']) ?> </li>
-        </h4>
+<div class="w3-bar w3-black">
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'materialesEntrada')"><?= __("Materiales Entrada") ?></button>
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'envios')"><?= __("Envios") ?></button>
+
+<div style="display:none" id="materialesEntrada" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Materiales Entrada') ?></h4>
         <?php if (!empty($objeto->materiales_entrada)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Objeto Id') ?></th>
                 <th scope="col"><?= __('Materiale Id') ?></th>
                 <th scope="col"><?= __('Cantidad Producida') ?></th>
                 <th scope="col"><?= __('Metros Gastados') ?></th>
@@ -73,6 +79,8 @@
             </tr>
             <?php foreach ($objeto->materiales_entrada as $materialesEntrada): ?>
             <tr>
+                <td><?= h($materialesEntrada->id) ?></td>
+                <td><?= h($materialesEntrada->objeto_id) ?></td>
                 <td><?= h($materialesEntrada->materiale_id) ?></td>
                 <td><?= h($materialesEntrada->cantidad_producida) ?></td>
                 <td><?= h($materialesEntrada->metros_gastados) ?></td>
@@ -87,15 +95,14 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
-    <div class="related">
-        <h4><?= __('Related Envios') ?>
-        	<li><?= $this->Html->link(__('New Envio'), ['controller' => 'Envios', 'action' => 'add',$objeto->id,'objeto_id']) ?> </li>
-        </h4>
+    <?php endif; ?>
+</div>
+<div style="display:none" id="envios" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Envios') ?></h4>
         <?php if (!empty($objeto->envios)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Proveedores Cliente Id') ?></th>
                 <th scope="col"><?= __('Fecha Pedido') ?></th>
                 <th scope="col"><?= __('Fecha Envio') ?></th>
@@ -109,6 +116,7 @@
             </tr>
             <?php foreach ($objeto->envios as $envios): ?>
             <tr>
+                <td><?= h($envios->id) ?></td>
                 <td><?= h($envios->proveedores_cliente_id) ?></td>
                 <td><?= h($envios->fecha_pedido) ?></td>
                 <td><?= h($envios->fecha_envio) ?></td>
@@ -126,6 +134,22 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
+    <?php endif; ?>
 </div>
+</div>
+<script>
+function openRelated(evt, relatedName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("related");
+  for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(relatedName).style.display = "block";
+  evt.currentTarget.className += " w3-red";
+}
+</script>
+

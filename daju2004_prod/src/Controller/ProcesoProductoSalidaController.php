@@ -27,6 +27,7 @@ class ProcesoProductoSalidaController extends AppController
 
         $this->set(compact('procesoProductoSalida'));
         $this->set('_serialize', ['procesoProductoSalida']);
+        $this->set('modelo', "procesoProductoSalida");
     }
 
     /**
@@ -82,7 +83,7 @@ class ProcesoProductoSalidaController extends AppController
     public function edit($id = null)
     {
         $procesoProductoSalida = $this->ProcesoProductoSalida->get($id, [
-            'contain' => []
+            'contain' => ['Proceso', 'Producto']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $procesoProductoSalida = $this->ProcesoProductoSalida->patchEntity($procesoProductoSalida, $this->request->getData());

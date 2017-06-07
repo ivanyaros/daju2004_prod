@@ -24,6 +24,7 @@ class CentrosController extends AppController
 
         $this->set(compact('centros'));
         $this->set('_serialize', ['centros']);
+        $this->set('modelo', "centros");
     }
 
     /**
@@ -77,7 +78,7 @@ class CentrosController extends AppController
     public function edit($id = null)
     {
         $centro = $this->Centros->get($id, [
-            'contain' => []
+            'contain' => ['EntradasDeMateriales', 'Envios', 'Localizaciones', 'Ordens', 'Proceso']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $centro = $this->Centros->patchEntity($centro, $this->request->getData());

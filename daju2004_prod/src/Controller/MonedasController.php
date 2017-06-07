@@ -24,6 +24,7 @@ class MonedasController extends AppController
 
         $this->set(compact('monedas'));
         $this->set('_serialize', ['monedas']);
+        $this->set('modelo', "monedas");
     }
 
     /**
@@ -77,7 +78,7 @@ class MonedasController extends AppController
     public function edit($id = null)
     {
         $moneda = $this->Monedas->get($id, [
-            'contain' => []
+            'contain' => ['Material', 'Proceso', 'Producto']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $moneda = $this->Monedas->patchEntity($moneda, $this->request->getData());

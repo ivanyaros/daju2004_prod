@@ -18,6 +18,8 @@
   * @var \<%= $namespace %>\View\AppView $this
   */
 ?>
+<%= $this->element('form');
+%>
 <%
 use Cake\Utility\Inflector;
 
@@ -58,68 +60,6 @@ $groupedFields = collection($fields)
 $groupedFields += ['number' => [], 'string' => [], 'boolean' => [], 'date' => [], 'text' => []];
 $pk = "\$$singularVar->{$primaryKey[0]}";
 %>
-
-<div class="<%= $pluralVar %> view large-9 medium-8 columns content">
-    <h3><?= h($<%= $singularVar %>-><%= $displayField %>) ?></h3>
-    <table class="vertical-table">
-<% if ($groupedFields['string']) : %>
-<% foreach ($groupedFields['string'] as $field) : %>
-<% if (isset($associationFields[$field])) :
-            $details = $associationFields[$field];
-%>
-        <tr>
-            <th scope="row"><?= __('<%= Inflector::humanize($details['property']) %>') ?></th>
-            <td><?= $<%= $singularVar %>->has('<%= $details['property'] %>') ? $this->Html->link($<%= $singularVar %>-><%= $details['property'] %>-><%= $details['displayField'] %>, ['controller' => '<%= $details['controller'] %>', 'action' => 'view', $<%= $singularVar %>-><%= $details['property'] %>-><%= $details['primaryKey'][0] %>]) : '' ?></td>
-        </tr>
-<% else : %>
-        <tr>
-            <th scope="row"><?= __('<%= Inflector::humanize($field) %>') ?></th>
-            <td><?= h($<%= $singularVar %>-><%= $field %>) ?></td>
-        </tr>
-<% endif; %>
-<% endforeach; %>
-<% endif; %>
-<% if ($associations['HasOne']) : %>
-    <%- foreach ($associations['HasOne'] as $alias => $details) : %>
-        <tr>
-            <th scope="row"><?= __('<%= Inflector::humanize(Inflector::singularize(Inflector::underscore($alias))) %>') ?></th>
-            <td><?= $<%= $singularVar %>->has('<%= $details['property'] %>') ? $this->Html->link($<%= $singularVar %>-><%= $details['property'] %>-><%= $details['displayField'] %>, ['controller' => '<%= $details['controller'] %>', 'action' => 'view', $<%= $singularVar %>-><%= $details['property'] %>-><%= $details['primaryKey'][0] %>]) : '' ?></td>
-        </tr>
-    <%- endforeach; %>
-<% endif; %>
-<% if ($groupedFields['number']) : %>
-<% foreach ($groupedFields['number'] as $field) : %>
-        <tr>
-            <th scope="row"><?= __('<%= Inflector::humanize($field) %>') ?></th>
-            <td><?= $this->Number->format($<%= $singularVar %>-><%= $field %>) ?></td>
-        </tr>
-<% endforeach; %>
-<% endif; %>
-<% if ($groupedFields['date']) : %>
-<% foreach ($groupedFields['date'] as $field) : %>
-        <tr>
-            <th scope="row"><%= "<%= __('" . Inflector::humanize($field) . "') %>" %></th>
-            <td><?= h($<%= $singularVar %>-><%= $field %>) ?></td>
-        </tr>
-<% endforeach; %>
-<% endif; %>
-<% if ($groupedFields['boolean']) : %>
-<% foreach ($groupedFields['boolean'] as $field) : %>
-        <tr>
-            <th scope="row"><?= __('<%= Inflector::humanize($field) %>') ?></th>
-            <td><?= $<%= $singularVar %>-><%= $field %> ? __('Yes') : __('No'); ?></td>
-        </tr>
-<% endforeach; %>
-<% endif; %>
-    </table>
-<% if ($groupedFields['text']) : %>
-<% foreach ($groupedFields['text'] as $field) : %>
-    <div class="row">
-        <h4><?= __('<%= Inflector::humanize($field) %>') ?></h4>
-        <?= $this->Text->autoParagraph(h($<%= $singularVar %>-><%= $field %>)); ?>
-    </div>
-<% endforeach; %>
-<% endif; %>
 <%
 $relations = $associations['HasMany'] + $associations['BelongsToMany'];
 %>
@@ -130,7 +70,7 @@ $relations = $associations['HasMany'] + $associations['BelongsToMany'];
     $otherSingularVar = Inflector::variable($alias);
     $otherPluralHumanName = Inflector::humanize(Inflector::underscore($details['controller']));
     %>
-    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'<%= $otherSingularVar %>')"><?= __("<%= $otherPluralHumanName %>") ?></button>
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'<%= $otherPluralHumanName %>')"><?= __("<%= $otherPluralHumanName %>") ?></button>
 
 <% endforeach; %>
 <%
@@ -139,20 +79,26 @@ foreach ($relations as $alias => $details):
     $otherSingularVar = Inflector::variable($alias);
     $otherPluralHumanName = Inflector::humanize(Inflector::underscore($details['controller']));
     %>
-<div style="display:none" id="<%= $otherSingularVar %>" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related <%= $otherPluralHumanName %>') ?></h4>
+    <div style="display:none" id="<%= $otherPluralHumanName %>" class="related w3-container w3-theme-d3 w3-border">
+        <h4><?= __('Related <%= $otherPluralHumanName %>') ?>
+        	<li><?= $this->Html->link(__('New <%= Inflector::humanize(Inflector::singularize(Inflector::underscore($alias))) %>'), ['controller' => '<%= $details['controller'] %>', 'action' => 'add',<%= $pk %>,'<%=Inflector::underscore(Inflector::classify($singularVar))%>_id']) ?> </li>
+        </h4>
         <?php if (!empty($<%= $singularVar %>-><%= $details['property'] %>)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
 <% foreach ($details['fields'] as $field): %>
+                <%- if (($field!='id')&&($field!=Inflector::underscore(Inflector::classify($singularVar)).'_id')):%>
                 <th scope="col"><?= __('<%= Inflector::humanize($field) %>') ?></th>
+                <%- endif;%>
 <% endforeach; %>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($<%= $singularVar %>-><%= $details['property'] %> as $<%= $otherSingularVar %>): ?>
             <tr>
             <%- foreach ($details['fields'] as $field): %>
+                <%- if (($field!='id')&&($field!=Inflector::underscore(Inflector::classify($singularVar)).'_id')):%>
                 <td><?= h($<%= $otherSingularVar %>-><%= $field %>) ?></td>
+                <%- endif;%>
             <%- endforeach; %>
             <%- $otherPk = "\${$otherSingularVar}->{$details['primaryKey'][0]}"; %>
                 <td class="actions">
@@ -163,8 +109,8 @@ foreach ($relations as $alias => $details):
             </tr>
             <?php endforeach; ?>
         </table>
-    <?php endif; ?>
-</div>
+        <?php endif; ?>
+    </div>
 <% endforeach; %>
 </div>
 <script>

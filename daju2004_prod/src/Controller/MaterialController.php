@@ -27,6 +27,7 @@ class MaterialController extends AppController
 
         $this->set(compact('material'));
         $this->set('_serialize', ['material']);
+        $this->set('modelo', "material");
     }
 
     /**
@@ -83,7 +84,7 @@ class MaterialController extends AppController
     public function edit($id = null)
     {
         $material = $this->Material->get($id, [
-            'contain' => []
+            'contain' => ['Familias', 'Monedas', 'Ivas', 'Materiales', 'ProcesoMaterialEntrada', 'ProveedoresMaterial']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $material = $this->Material->patchEntity($material, $this->request->getData());

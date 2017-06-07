@@ -3,44 +3,26 @@
   * @var \App\View\AppView $this
   */
 ?>
-<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
-    <h3 class="w3-bar-item"><?= __('Actions') ?></h3>
-    <a class="w3-bar-item w3-button" href="<?= $this->Url->build(['action' => 'add']) ?>"
-    ><?= __('New Iva') ?></a>
-	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'Material', 'action' => 'index']) ?>"><?= __('List Material') ?></a>
-	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'Material','action' => 'add']) ?>"><?= __('New Material') ?></a>
-	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'Proceso', 'action' => 'index']) ?>"><?= __('List Proceso') ?></a>
-	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'Proceso','action' => 'add']) ?>"><?= __('New Proceso') ?></a>
-	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'Producto', 'action' => 'index']) ?>"><?= __('List Producto') ?></a>
-	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => 'Producto','action' => 'add']) ?>"><?= __('New Producto') ?></a>
-    
-</div>
-<div style="margin-left:25%">
+
 <div class="w3 container w3-theme">
     <h3><?= __('Ivas') ?></h3>
     <div class="w3-responsive">
-    <table class=" w3-table w3-bordered w3-hoverable w3-theme">
-        <thead>
-            <tr>
+    <table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
+        <thead class="w3-border w3-black">            
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('valor') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('observaciones') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
         </thead>
         <tbody>
             <?php foreach ($ivas as $iva): ?>
-            <tr>
+            <?php $my_url= $this->Url->build(['controller' => 'ivas', 'action' => 'view',$iva->id]) ?>
+            <tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
                 <td><?= $this->Number->format($iva->id) ?></td>
                 <td><?= h($iva->name) ?></td>
                 <td><?= $this->Number->format($iva->valor) ?></td>
                 <td><?= h($iva->observaciones) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $iva->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $iva->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $iva->id], ['confirm' => __('Are you sure you want to delete # {0}?', $iva->id)]) ?>
-                </td>
+                
             </tr>
             <?php endforeach; ?>
         </tbody>

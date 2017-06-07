@@ -48,13 +48,16 @@
             <td><?= h($envio->fecha_entrega) ?></td>
         </tr>
     </table>
-    <div class="related">
-        <h4><?= __('Related Objetos') ?>
-        	<li><?= $this->Html->link(__('New Objeto'), ['controller' => 'Objetos', 'action' => 'add',$envio->id,'envio_id']) ?> </li>
-        </h4>
+<div class="w3-bar w3-black">
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'objetos')"><?= __("Objetos") ?></button>
+
+<div style="display:none" id="objetos" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Objetos') ?></h4>
         <?php if (!empty($envio->objetos)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Producto Id') ?></th>
                 <th scope="col"><?= __('Numero Serie') ?></th>
@@ -70,6 +73,7 @@
             </tr>
             <?php foreach ($envio->objetos as $objetos): ?>
             <tr>
+                <td><?= h($objetos->id) ?></td>
                 <td><?= h($objetos->name) ?></td>
                 <td><?= h($objetos->producto_id) ?></td>
                 <td><?= h($objetos->numero_serie) ?></td>
@@ -89,6 +93,22 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
+    <?php endif; ?>
 </div>
+</div>
+<script>
+function openRelated(evt, relatedName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("related");
+  for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(relatedName).style.display = "block";
+  evt.currentTarget.className += " w3-red";
+}
+</script>
+

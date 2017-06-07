@@ -27,6 +27,7 @@ class MaquinasUsadasController extends AppController
 
         $this->set(compact('maquinasUsadas'));
         $this->set('_serialize', ['maquinasUsadas']);
+        $this->set('modelo', "maquinasUsadas");
     }
 
     /**
@@ -82,7 +83,7 @@ class MaquinasUsadasController extends AppController
     public function edit($id = null)
     {
         $maquinasUsada = $this->MaquinasUsadas->get($id, [
-            'contain' => []
+            'contain' => ['EstadosDeOrdens', 'Maquinas']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $maquinasUsada = $this->MaquinasUsadas->patchEntity($maquinasUsada, $this->request->getData());

@@ -60,13 +60,19 @@
             <td><?= h($orden->fecha_terminacion) ?></td>
         </tr>
     </table>
-    <div class="related">
-        <h4><?= __('Related Estados De Ordens') ?>
-        	<li><?= $this->Html->link(__('New Estados De Orden'), ['controller' => 'EstadosDeOrdens', 'action' => 'add',$orden->id,'orden_id']) ?> </li>
-        </h4>
+<div class="w3-bar w3-black">
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'estadosDeOrdens')"><?= __("Estados De Ordens") ?></button>
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'objetos')"><?= __("Objetos") ?></button>
+
+<div style="display:none" id="estadosDeOrdens" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Estados De Ordens') ?></h4>
         <?php if (!empty($orden->estados_de_ordens)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Orden Id') ?></th>
                 <th scope="col"><?= __('Estado Id') ?></th>
                 <th scope="col"><?= __('Fecha Inicio') ?></th>
                 <th scope="col"><?= __('Fecha Fin') ?></th>
@@ -75,6 +81,8 @@
             </tr>
             <?php foreach ($orden->estados_de_ordens as $estadosDeOrdens): ?>
             <tr>
+                <td><?= h($estadosDeOrdens->id) ?></td>
+                <td><?= h($estadosDeOrdens->orden_id) ?></td>
                 <td><?= h($estadosDeOrdens->estado_id) ?></td>
                 <td><?= h($estadosDeOrdens->fecha_inicio) ?></td>
                 <td><?= h($estadosDeOrdens->fecha_fin) ?></td>
@@ -87,19 +95,19 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
-    <div class="related">
-        <h4><?= __('Related Objetos') ?>
-        	<li><?= $this->Html->link(__('New Objeto'), ['controller' => 'Objetos', 'action' => 'add',$orden->id,'orden_id']) ?> </li>
-        </h4>
+    <?php endif; ?>
+</div>
+<div style="display:none" id="objetos" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Objetos') ?></h4>
         <?php if (!empty($orden->objetos)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Producto Id') ?></th>
                 <th scope="col"><?= __('Numero Serie') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
+                <th scope="col"><?= __('Orden Id') ?></th>
                 <th scope="col"><?= __('Lote') ?></th>
                 <th scope="col"><?= __('Localizacione Id') ?></th>
                 <th scope="col"><?= __('Coste') ?></th>
@@ -110,10 +118,12 @@
             </tr>
             <?php foreach ($orden->objetos as $objetos): ?>
             <tr>
+                <td><?= h($objetos->id) ?></td>
                 <td><?= h($objetos->name) ?></td>
                 <td><?= h($objetos->producto_id) ?></td>
                 <td><?= h($objetos->numero_serie) ?></td>
                 <td><?= h($objetos->referencia) ?></td>
+                <td><?= h($objetos->orden_id) ?></td>
                 <td><?= h($objetos->lote) ?></td>
                 <td><?= h($objetos->localizacione_id) ?></td>
                 <td><?= h($objetos->coste) ?></td>
@@ -128,6 +138,22 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
+    <?php endif; ?>
 </div>
+</div>
+<script>
+function openRelated(evt, relatedName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("related");
+  for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(relatedName).style.display = "block";
+  evt.currentTarget.className += " w3-red";
+}
+</script>
+

@@ -27,6 +27,7 @@ class DireccionesController extends AppController
 
         $this->set(compact('direcciones'));
         $this->set('_serialize', ['direcciones']);
+        $this->set('modelo', "direcciones");
     }
 
     /**
@@ -81,7 +82,7 @@ class DireccionesController extends AppController
     public function edit($id = null)
     {
         $direccione = $this->Direcciones->get($id, [
-            'contain' => []
+            'contain' => ['ProveedoresClientes', 'Envios']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $direccione = $this->Direcciones->patchEntity($direccione, $this->request->getData());

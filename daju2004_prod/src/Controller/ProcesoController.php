@@ -27,6 +27,7 @@ class ProcesoController extends AppController
 
         $this->set(compact('proceso'));
         $this->set('_serialize', ['proceso']);
+        $this->set('modelo', "proceso");
     }
 
     /**
@@ -84,7 +85,7 @@ class ProcesoController extends AppController
     public function edit($id = null)
     {
         $proceso = $this->Proceso->get($id, [
-            'contain' => []
+            'contain' => ['Familias', 'Monedas', 'Ivas', 'Centros', 'Ordens', 'ProcesoMaterialEntrada', 'ProcesoProductoEntrada', 'ProcesoProductoSalida']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $proceso = $this->Proceso->patchEntity($proceso, $this->request->getData());

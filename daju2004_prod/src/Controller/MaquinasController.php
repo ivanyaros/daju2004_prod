@@ -24,6 +24,7 @@ class MaquinasController extends AppController
 
         $this->set(compact('maquinas'));
         $this->set('_serialize', ['maquinas']);
+        $this->set('modelo', "maquinas");
     }
 
     /**
@@ -77,7 +78,7 @@ class MaquinasController extends AppController
     public function edit($id = null)
     {
         $maquina = $this->Maquinas->get($id, [
-            'contain' => []
+            'contain' => ['MaquinasUsadas']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $maquina = $this->Maquinas->patchEntity($maquina, $this->request->getData());

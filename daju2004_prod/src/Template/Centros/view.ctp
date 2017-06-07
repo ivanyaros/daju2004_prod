@@ -3,63 +3,67 @@
   * @var \App\View\AppView $this
   */
 ?>
-<div class="w3-container">
-    <div class="w3-responsive">
-        <h3><?= h($centro->label) ?></h3>
-        <table class="w3-table w3-bordered w3-theme">
-            <tr>
-                <th scope="row"><?= __('Name') ?></th>
-                <td><?= h($centro->name) ?></td>
-            </tr>
-            <tr>
-                <th scope="row"><?= __('Referencia') ?></th>
-                <td><?= h($centro->referencia) ?></td>
-            </tr>
-            <tr>
-                <th scope="row"><?= __('Direccion') ?></th>
-                <td><?= h($centro->direccion) ?></td>
-            </tr>
-            <tr>
-                <th scope="row"><?= __('Observaciones') ?></th>
-                <td><?= h($centro->observaciones) ?></td>
-            </tr>
-            <tr>
-                <th scope="row"><?= __('Id') ?></th>
-                <td><?= $this->Number->format($centro->id) ?></td>
-            </tr>
-        </table>
-    </div>
-</div>
-<div class="w3-bar w3-black">
-  <button class="w3-bar-item w3-button" onclick="openRelated('Related Entradas De Materiales')">Entradas De Materiales</button>
-  <button class="w3-bar-item w3-button" onclick="openRelated('Related Envios')">Envios</button>
-  <button class="w3-bar-item w3-button" onclick="openRelated('Related Localizaciones')">Localizaciones</button>
-  <button class="w3-bar-item w3-button" onclick="openRelated('Related Ordens')">Ordens</button>
-  <button class="w3-bar-item w3-button" onclick="openRelated('Related Proceso')">Procesos</button>
 
-</div>
-    <div id='Related Entradas De Materiales' class="w3-container related" style="display:none">
-        <h4><?= __('Related Entradas De Materiales') ?>
-        	<li><?= $this->Html->link(__('New Entradas De Materiale'), ['controller' => 'EntradasDeMateriales', 'action' => 'add',$centro->id,'centro_id']) ?> </li>
-        </h4>
+<div class="centros view large-9 medium-8 columns content">
+    <h3><?= h($centro->label) ?></h3>
+    <table class="vertical-table">
+        <tr>
+            <th scope="row"><?= __('Name') ?></th>
+            <td><?= h($centro->name) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Referencia') ?></th>
+            <td><?= h($centro->referencia) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Direccion') ?></th>
+            <td><?= h($centro->direccion) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Observaciones') ?></th>
+            <td><?= h($centro->observaciones) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Id') ?></th>
+            <td><?= $this->Number->format($centro->id) ?></td>
+        </tr>
+    </table>
+<div class="w3-bar w3-black">
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'entradasDeMateriales')"><?= __("Entradas De Materiales") ?></button>
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'envios')"><?= __("Envios") ?></button>
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'localizaciones')"><?= __("Localizaciones") ?></button>
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'ordens')"><?= __("Ordens") ?></button>
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'proceso')"><?= __("Proceso") ?></button>
+
+<div style="display:none" id="entradasDeMateriales" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Entradas De Materiales') ?></h4>
         <?php if (!empty($centro->entradas_de_materiales)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Proveedores Cliente Id') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col"><?= __('Albaran') ?></th>
                 <th scope="col"><?= __('Fecha Envio') ?></th>
+                <th scope="col"><?= __('Centro Id') ?></th>
                 <th scope="col"><?= __('Fecha Recepcion') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($centro->entradas_de_materiales as $entradasDeMateriales): ?>
             <tr>
+                <td><?= h($entradasDeMateriales->id) ?></td>
                 <td><?= h($entradasDeMateriales->proveedores_cliente_id) ?></td>
                 <td><?= h($entradasDeMateriales->referencia) ?></td>
                 <td><?= h($entradasDeMateriales->observaciones) ?></td>
                 <td><?= h($entradasDeMateriales->albaran) ?></td>
                 <td><?= h($entradasDeMateriales->fecha_envio) ?></td>
+                <td><?= h($entradasDeMateriales->centro_id) ?></td>
                 <td><?= h($entradasDeMateriales->fecha_recepcion) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'EntradasDeMateriales', 'action' => 'view', $entradasDeMateriales->id]) ?>
@@ -69,20 +73,20 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
-    <div id='Related Envios' class="w3-container related" style="display:none">
-        <h4><?= __('Related Envios') ?>
-        	<li><?= $this->Html->link(__('New Envio'), ['controller' => 'Envios', 'action' => 'add',$centro->id,'centro_id']) ?> </li>
-        </h4>
+    <?php endif; ?>
+</div>
+<div style="display:none" id="envios" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Envios') ?></h4>
         <?php if (!empty($centro->envios)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Proveedores Cliente Id') ?></th>
                 <th scope="col"><?= __('Fecha Pedido') ?></th>
                 <th scope="col"><?= __('Fecha Envio') ?></th>
                 <th scope="col"><?= __('Albaran') ?></th>
                 <th scope="col"><?= __('Pedidos Empresa Id') ?></th>
+                <th scope="col"><?= __('Centro Id') ?></th>
                 <th scope="col"><?= __('Fecha Entrega') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col"><?= __('Direccione Id') ?></th>
@@ -90,11 +94,13 @@
             </tr>
             <?php foreach ($centro->envios as $envios): ?>
             <tr>
+                <td><?= h($envios->id) ?></td>
                 <td><?= h($envios->proveedores_cliente_id) ?></td>
                 <td><?= h($envios->fecha_pedido) ?></td>
                 <td><?= h($envios->fecha_envio) ?></td>
                 <td><?= h($envios->albaran) ?></td>
                 <td><?= h($envios->pedidos_empresa_id) ?></td>
+                <td><?= h($envios->centro_id) ?></td>
                 <td><?= h($envios->fecha_entrega) ?></td>
                 <td><?= h($envios->observaciones) ?></td>
                 <td><?= h($envios->direccione_id) ?></td>
@@ -106,21 +112,23 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
-    <div id='Related Localizaciones' class="w3-container related" style="display:none">
-        <h4><?= __('Related Localizaciones') ?>
-        	<li><?= $this->Html->link(__('New Localizacione'), ['controller' => 'Localizaciones', 'action' => 'add',$centro->id,'centro_id']) ?> </li>
-        </h4>
+    <?php endif; ?>
+</div>
+<div style="display:none" id="localizaciones" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Localizaciones') ?></h4>
         <?php if (!empty($centro->localizaciones)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
+                <th scope="col"><?= __('Centro Id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($centro->localizaciones as $localizaciones): ?>
             <tr>
+                <td><?= h($localizaciones->id) ?></td>
                 <td><?= h($localizaciones->name) ?></td>
+                <td><?= h($localizaciones->centro_id) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Localizaciones', 'action' => 'view', $localizaciones->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Localizaciones', 'action' => 'edit', $localizaciones->id]) ?>
@@ -129,21 +137,21 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
-    <div id='Related Ordens' class="w3-container related" style="display:none">
-        <h4><?= __('Related Ordens') ?>
-        	<li><?= $this->Html->link(__('New Orden'), ['controller' => 'Ordens', 'action' => 'add',$centro->id,'centro_id']) ?> </li>
-        </h4>
+    <?php endif; ?>
+</div>
+<div style="display:none" id="ordens" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Ordens') ?></h4>
         <?php if (!empty($centro->ordens)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Cantidad') ?></th>
                 <th scope="col"><?= __('Fecha Creacion') ?></th>
                 <th scope="col"><?= __('Fecha Terminacion') ?></th>
                 <th scope="col"><?= __('Estado Id') ?></th>
+                <th scope="col"><?= __('Centro Id') ?></th>
                 <th scope="col"><?= __('Proceso Id') ?></th>
                 <th scope="col"><?= __('Scrap') ?></th>
                 <th scope="col"><?= __('Coste Operario') ?></th>
@@ -153,12 +161,14 @@
             </tr>
             <?php foreach ($centro->ordens as $ordens): ?>
             <tr>
+                <td><?= h($ordens->id) ?></td>
                 <td><?= h($ordens->name) ?></td>
                 <td><?= h($ordens->referencia) ?></td>
                 <td><?= h($ordens->cantidad) ?></td>
                 <td><?= h($ordens->fecha_creacion) ?></td>
                 <td><?= h($ordens->fecha_terminacion) ?></td>
                 <td><?= h($ordens->estado_id) ?></td>
+                <td><?= h($ordens->centro_id) ?></td>
                 <td><?= h($ordens->proceso_id) ?></td>
                 <td><?= h($ordens->scrap) ?></td>
                 <td><?= h($ordens->coste_operario) ?></td>
@@ -172,15 +182,14 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
-    <div id='Related Proceso' class="w3-container related" style="display:none">
-        <h4><?= __('Related Proceso') ?>
-        	<li><?= $this->Html->link(__('New Proceso'), ['controller' => 'Proceso', 'action' => 'add',$centro->id,'centro_id']) ?> </li>
-        </h4>
+    <?php endif; ?>
+</div>
+<div style="display:none" id="proceso" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Proceso') ?></h4>
         <?php if (!empty($centro->proceso)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Familia Id') ?></th>
@@ -190,6 +199,7 @@
                 <th scope="col"><?= __('Observaciones') ?></th>
                 <th scope="col"><?= __('Visible') ?></th>
                 <th scope="col"><?= __('Enlaces') ?></th>
+                <th scope="col"><?= __('Centro Id') ?></th>
                 <th scope="col"><?= __('Coste Tiempo') ?></th>
                 <th scope="col"><?= __('Coste Operaciones') ?></th>
                 <th scope="col"><?= __('Descripcion') ?></th>
@@ -198,6 +208,7 @@
             </tr>
             <?php foreach ($centro->proceso as $proceso): ?>
             <tr>
+                <td><?= h($proceso->id) ?></td>
                 <td><?= h($proceso->name) ?></td>
                 <td><?= h($proceso->referencia) ?></td>
                 <td><?= h($proceso->familia_id) ?></td>
@@ -207,6 +218,7 @@
                 <td><?= h($proceso->observaciones) ?></td>
                 <td><?= h($proceso->visible) ?></td>
                 <td><?= h($proceso->enlaces) ?></td>
+                <td><?= h($proceso->centro_id) ?></td>
                 <td><?= h($proceso->coste_tiempo) ?></td>
                 <td><?= h($proceso->coste_operaciones) ?></td>
                 <td><?= h($proceso->descripcion) ?></td>
@@ -219,16 +231,22 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
+    <?php endif; ?>
+</div>
 </div>
 <script>
-function openRelated(relatedName) {
-    var i;
-    var x = document.getElementsByClassName("related");
-    for (i = 0; i < x.length; i++) {
-       x[i].style.display = "none";  
-    }
-    document.getElementById(relatedName).style.display = "block";  
+function openRelated(evt, relatedName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("related");
+  for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(relatedName).style.display = "block";
+  evt.currentTarget.className += " w3-red";
 }
 </script>
+

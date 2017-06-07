@@ -24,6 +24,7 @@ class IvasController extends AppController
 
         $this->set(compact('ivas'));
         $this->set('_serialize', ['ivas']);
+        $this->set('modelo', "ivas");
     }
 
     /**
@@ -77,7 +78,7 @@ class IvasController extends AppController
     public function edit($id = null)
     {
         $iva = $this->Ivas->get($id, [
-            'contain' => []
+            'contain' => ['Material', 'Proceso', 'Producto']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $iva = $this->Ivas->patchEntity($iva, $this->request->getData());

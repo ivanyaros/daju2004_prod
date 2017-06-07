@@ -27,6 +27,7 @@ class ObjetosController extends AppController
 
         $this->set(compact('objetos'));
         $this->set('_serialize', ['objetos']);
+        $this->set('modelo', "objetos");
     }
 
     /**
@@ -84,7 +85,7 @@ class ObjetosController extends AppController
     public function edit($id = null)
     {
         $objeto = $this->Objetos->get($id, [
-            'contain' => ['Envios']
+            'contain' => ['Producto', 'Ordens', 'Localizaciones', 'Envios', 'MaterialesEntrada']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $objeto = $this->Objetos->patchEntity($objeto, $this->request->getData());

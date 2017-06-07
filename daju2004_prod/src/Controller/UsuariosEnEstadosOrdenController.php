@@ -27,6 +27,7 @@ class UsuariosEnEstadosOrdenController extends AppController
 
         $this->set(compact('usuariosEnEstadosOrden'));
         $this->set('_serialize', ['usuariosEnEstadosOrden']);
+        $this->set('modelo', "usuariosEnEstadosOrden");
     }
 
     /**
@@ -82,7 +83,7 @@ class UsuariosEnEstadosOrdenController extends AppController
     public function edit($id = null)
     {
         $usuariosEnEstadosOrden = $this->UsuariosEnEstadosOrden->get($id, [
-            'contain' => []
+            'contain' => ['EstadosDeOrdens', 'Users']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $usuariosEnEstadosOrden = $this->UsuariosEnEstadosOrden->patchEntity($usuariosEnEstadosOrden, $this->request->getData());

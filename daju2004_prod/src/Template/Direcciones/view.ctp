@@ -40,13 +40,16 @@
             <td><?= $this->Number->format($direccione->id) ?></td>
         </tr>
     </table>
-    <div class="related">
-        <h4><?= __('Related Envios') ?>
-        	<li><?= $this->Html->link(__('New Envio'), ['controller' => 'Envios', 'action' => 'add',$direccione->id,'direccione_id']) ?> </li>
-        </h4>
+<div class="w3-bar w3-black">
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'envios')"><?= __("Envios") ?></button>
+
+<div style="display:none" id="envios" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Envios') ?></h4>
         <?php if (!empty($direccione->envios)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Proveedores Cliente Id') ?></th>
                 <th scope="col"><?= __('Fecha Pedido') ?></th>
                 <th scope="col"><?= __('Fecha Envio') ?></th>
@@ -55,10 +58,12 @@
                 <th scope="col"><?= __('Centro Id') ?></th>
                 <th scope="col"><?= __('Fecha Entrega') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
+                <th scope="col"><?= __('Direccione Id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($direccione->envios as $envios): ?>
             <tr>
+                <td><?= h($envios->id) ?></td>
                 <td><?= h($envios->proveedores_cliente_id) ?></td>
                 <td><?= h($envios->fecha_pedido) ?></td>
                 <td><?= h($envios->fecha_envio) ?></td>
@@ -67,6 +72,7 @@
                 <td><?= h($envios->centro_id) ?></td>
                 <td><?= h($envios->fecha_entrega) ?></td>
                 <td><?= h($envios->observaciones) ?></td>
+                <td><?= h($envios->direccione_id) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Envios', 'action' => 'view', $envios->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Envios', 'action' => 'edit', $envios->id]) ?>
@@ -75,6 +81,22 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
+    <?php endif; ?>
 </div>
+</div>
+<script>
+function openRelated(evt, relatedName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("related");
+  for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(relatedName).style.display = "block";
+  evt.currentTarget.className += " w3-red";
+}
+</script>
+

@@ -16,6 +16,12 @@
 $belongsTo = $this->Bake->aliasExtractor($modelObj, 'BelongsTo');
 $belongsToMany = $this->Bake->aliasExtractor($modelObj, 'BelongsToMany');
 $compact = ["'" . $singularName . "'"];
+$allAssociations = array_merge(
+    $this->Bake->aliasExtractor($modelObj, 'BelongsTo'),
+    $this->Bake->aliasExtractor($modelObj, 'BelongsToMany'),
+    $this->Bake->aliasExtractor($modelObj, 'HasOne'),
+    $this->Bake->aliasExtractor($modelObj, 'HasMany')
+);
 %>
 
     /**
@@ -28,7 +34,7 @@ $compact = ["'" . $singularName . "'"];
     public function edit($id = null)
     {
         $<%= $singularName %> = $this-><%= $currentModelName %>->get($id, [
-            'contain' => [<%= $this->Bake->stringifyList($belongsToMany, ['indent' => false]) %>]
+            'contain' => [<%= $this->Bake->stringifyList($allAssociations, ['indent' => false]) %>]
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $<%= $singularName %> = $this-><%= $currentModelName %>->patchEntity($<%= $singularName %>, $this->request->getData());

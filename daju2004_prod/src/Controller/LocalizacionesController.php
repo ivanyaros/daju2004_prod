@@ -27,6 +27,7 @@ class LocalizacionesController extends AppController
 
         $this->set(compact('localizaciones'));
         $this->set('_serialize', ['localizaciones']);
+        $this->set('modelo', "localizaciones");
     }
 
     /**
@@ -81,7 +82,7 @@ class LocalizacionesController extends AppController
     public function edit($id = null)
     {
         $localizacione = $this->Localizaciones->get($id, [
-            'contain' => []
+            'contain' => ['Centros', 'Materiales', 'Objetos']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $localizacione = $this->Localizaciones->patchEntity($localizacione, $this->request->getData());

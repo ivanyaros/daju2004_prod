@@ -27,6 +27,7 @@ class EstadosDeOrdensController extends AppController
 
         $this->set(compact('estadosDeOrdens'));
         $this->set('_serialize', ['estadosDeOrdens']);
+        $this->set('modelo', "estadosDeOrdens");
     }
 
     /**
@@ -82,7 +83,7 @@ class EstadosDeOrdensController extends AppController
     public function edit($id = null)
     {
         $estadosDeOrden = $this->EstadosDeOrdens->get($id, [
-            'contain' => []
+            'contain' => ['Ordens', 'Estados', 'MaquinasUsadas', 'UsuariosEnEstadosOrden', 'UtensiliosUsados']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $estadosDeOrden = $this->EstadosDeOrdens->patchEntity($estadosDeOrden, $this->request->getData());

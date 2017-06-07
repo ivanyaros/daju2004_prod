@@ -40,17 +40,23 @@
             <td><?= $pedidosEmpresa->terminado ? __('Yes') : __('No'); ?></td>
         </tr>
     </table>
-    <div class="related">
-        <h4><?= __('Related Envios') ?>
-        	<li><?= $this->Html->link(__('New Envio'), ['controller' => 'Envios', 'action' => 'add',$pedidosEmpresa->id,'pedidos_empresa_id']) ?> </li>
-        </h4>
+<div class="w3-bar w3-black">
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'envios')"><?= __("Envios") ?></button>
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'pedidosProductosDetalle')"><?= __("Pedidos Productos Detalle") ?></button>
+
+<div style="display:none" id="envios" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Envios') ?></h4>
         <?php if (!empty($pedidosEmpresa->envios)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Proveedores Cliente Id') ?></th>
                 <th scope="col"><?= __('Fecha Pedido') ?></th>
                 <th scope="col"><?= __('Fecha Envio') ?></th>
                 <th scope="col"><?= __('Albaran') ?></th>
+                <th scope="col"><?= __('Pedidos Empresa Id') ?></th>
                 <th scope="col"><?= __('Centro Id') ?></th>
                 <th scope="col"><?= __('Fecha Entrega') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
@@ -59,10 +65,12 @@
             </tr>
             <?php foreach ($pedidosEmpresa->envios as $envios): ?>
             <tr>
+                <td><?= h($envios->id) ?></td>
                 <td><?= h($envios->proveedores_cliente_id) ?></td>
                 <td><?= h($envios->fecha_pedido) ?></td>
                 <td><?= h($envios->fecha_envio) ?></td>
                 <td><?= h($envios->albaran) ?></td>
+                <td><?= h($envios->pedidos_empresa_id) ?></td>
                 <td><?= h($envios->centro_id) ?></td>
                 <td><?= h($envios->fecha_entrega) ?></td>
                 <td><?= h($envios->observaciones) ?></td>
@@ -75,15 +83,15 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
-    <div class="related">
-        <h4><?= __('Related Pedidos Productos Detalle') ?>
-        	<li><?= $this->Html->link(__('New Pedidos Productos Detalle'), ['controller' => 'PedidosProductosDetalle', 'action' => 'add',$pedidosEmpresa->id,'pedidos_empresa_id']) ?> </li>
-        </h4>
+    <?php endif; ?>
+</div>
+<div style="display:none" id="pedidosProductosDetalle" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Pedidos Productos Detalle') ?></h4>
         <?php if (!empty($pedidosEmpresa->pedidos_productos_detalle)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Pedidos Empresa Id') ?></th>
                 <th scope="col"><?= __('Producto Id') ?></th>
                 <th scope="col"><?= __('Cantidad') ?></th>
                 <th scope="col"><?= __('Fecha') ?></th>
@@ -94,6 +102,8 @@
             </tr>
             <?php foreach ($pedidosEmpresa->pedidos_productos_detalle as $pedidosProductosDetalle): ?>
             <tr>
+                <td><?= h($pedidosProductosDetalle->id) ?></td>
+                <td><?= h($pedidosProductosDetalle->pedidos_empresa_id) ?></td>
                 <td><?= h($pedidosProductosDetalle->producto_id) ?></td>
                 <td><?= h($pedidosProductosDetalle->cantidad) ?></td>
                 <td><?= h($pedidosProductosDetalle->fecha) ?></td>
@@ -108,6 +118,22 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
+    <?php endif; ?>
 </div>
+</div>
+<script>
+function openRelated(evt, relatedName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("related");
+  for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(relatedName).style.display = "block";
+  evt.currentTarget.className += " w3-red";
+}
+</script>
+

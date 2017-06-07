@@ -24,6 +24,7 @@ class PrioridadesController extends AppController
 
         $this->set(compact('prioridades'));
         $this->set('_serialize', ['prioridades']);
+        $this->set('modelo', "prioridades");
     }
 
     /**
@@ -77,7 +78,7 @@ class PrioridadesController extends AppController
     public function edit($id = null)
     {
         $prioridade = $this->Prioridades->get($id, [
-            'contain' => []
+            'contain' => ['Ordens', 'PedidosProductosDetalle']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $prioridade = $this->Prioridades->patchEntity($prioridade, $this->request->getData());

@@ -40,16 +40,20 @@
             <td><?= h($entradasDeMateriale->fecha_recepcion) ?></td>
         </tr>
     </table>
-    <div class="related">
-        <h4><?= __('Related Materiales') ?>
-        	<li><?= $this->Html->link(__('New Materiale'), ['controller' => 'Materiales', 'action' => 'add',$entradasDeMateriale->id,'entradas_de_materiale_id']) ?> </li>
-        </h4>
+<div class="w3-bar w3-black">
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'materiales')"><?= __("Materiales") ?></button>
+
+<div style="display:none" id="materiales" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Materiales') ?></h4>
         <?php if (!empty($entradasDeMateriale->materiales)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Material Id') ?></th>
                 <th scope="col"><?= __('Fecha Entega') ?></th>
                 <th scope="col"><?= __('Localizacione Id') ?></th>
+                <th scope="col"><?= __('Entradas De Materiale Id') ?></th>
                 <th scope="col"><?= __('Bobina Lote') ?></th>
                 <th scope="col"><?= __('Bobinas') ?></th>
                 <th scope="col"><?= __('Bobinas Actual') ?></th>
@@ -70,9 +74,11 @@
             </tr>
             <?php foreach ($entradasDeMateriale->materiales as $materiales): ?>
             <tr>
+                <td><?= h($materiales->id) ?></td>
                 <td><?= h($materiales->material_id) ?></td>
                 <td><?= h($materiales->fecha_entega) ?></td>
                 <td><?= h($materiales->localizacione_id) ?></td>
+                <td><?= h($materiales->entradas_de_materiale_id) ?></td>
                 <td><?= h($materiales->bobina_lote) ?></td>
                 <td><?= h($materiales->bobinas) ?></td>
                 <td><?= h($materiales->bobinas_actual) ?></td>
@@ -97,6 +103,22 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
+    <?php endif; ?>
 </div>
+</div>
+<script>
+function openRelated(evt, relatedName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("related");
+  for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(relatedName).style.display = "block";
+  evt.currentTarget.className += " w3-red";
+}
+</script>
+

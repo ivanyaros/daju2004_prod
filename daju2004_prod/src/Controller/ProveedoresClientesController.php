@@ -24,6 +24,7 @@ class ProveedoresClientesController extends AppController
 
         $this->set(compact('proveedoresClientes'));
         $this->set('_serialize', ['proveedoresClientes']);
+        $this->set('modelo', "proveedoresClientes");
     }
 
     /**
@@ -77,7 +78,7 @@ class ProveedoresClientesController extends AppController
     public function edit($id = null)
     {
         $proveedoresCliente = $this->ProveedoresClientes->get($id, [
-            'contain' => []
+            'contain' => ['Direcciones', 'EntradasDeMateriales', 'Envios', 'PedidosEmpresas', 'ProveedoresMaterial']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $proveedoresCliente = $this->ProveedoresClientes->patchEntity($proveedoresCliente, $this->request->getData());

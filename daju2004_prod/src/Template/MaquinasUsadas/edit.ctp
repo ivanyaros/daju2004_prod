@@ -4,6 +4,8 @@
   */
 ?>
 
+
+
 <div class="maquinasUsadas form large-9 medium-8 columns content">
     <?= $this->Form->create($maquinasUsada) ?>
     <fieldset>

@@ -24,6 +24,7 @@ class FamiliasController extends AppController
 
         $this->set(compact('familias'));
         $this->set('_serialize', ['familias']);
+        $this->set('modelo', "familias");
     }
 
     /**
@@ -77,7 +78,7 @@ class FamiliasController extends AppController
     public function edit($id = null)
     {
         $familia = $this->Familias->get($id, [
-            'contain' => []
+            'contain' => ['Material', 'Proceso', 'Producto']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $familia = $this->Familias->patchEntity($familia, $this->request->getData());

@@ -27,6 +27,7 @@ class EnviosObjetosController extends AppController
 
         $this->set(compact('enviosObjetos'));
         $this->set('_serialize', ['enviosObjetos']);
+        $this->set('modelo', "enviosObjetos");
     }
 
     /**
@@ -82,7 +83,7 @@ class EnviosObjetosController extends AppController
     public function edit($id = null)
     {
         $enviosObjeto = $this->EnviosObjetos->get($id, [
-            'contain' => []
+            'contain' => ['Envios', 'Objetos']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $enviosObjeto = $this->EnviosObjetos->patchEntity($enviosObjeto, $this->request->getData());

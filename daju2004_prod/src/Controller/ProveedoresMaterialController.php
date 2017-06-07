@@ -27,6 +27,7 @@ class ProveedoresMaterialController extends AppController
 
         $this->set(compact('proveedoresMaterial'));
         $this->set('_serialize', ['proveedoresMaterial']);
+        $this->set('modelo', "proveedoresMaterial");
     }
 
     /**
@@ -82,7 +83,7 @@ class ProveedoresMaterialController extends AppController
     public function edit($id = null)
     {
         $proveedoresMaterial = $this->ProveedoresMaterial->get($id, [
-            'contain' => []
+            'contain' => ['ProveedoresClientes', 'Material']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $proveedoresMaterial = $this->ProveedoresMaterial->patchEntity($proveedoresMaterial, $this->request->getData());

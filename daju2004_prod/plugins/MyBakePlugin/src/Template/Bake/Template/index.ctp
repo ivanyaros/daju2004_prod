@@ -37,42 +37,20 @@ if (!empty($indexColumns)) {
 }
 
 %>
-<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
-    <h3 class="w3-bar-item"><?= __('Actions') ?></h3>
-    <a class="w3-bar-item w3-button" href="<?= $this->Url->build(['action' => 'add']) ?>"
-    ><?= __('New <%= $singularHumanName %>') ?></a>
-<%
-    $done = [];
-    foreach ($associations as $type => $data):
-        foreach ($data as $alias => $details):
-            if (!empty($details['navLink']) && $details['controller'] !== $this->name && !in_array($details['controller'], $done)):
-%>
-	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => '<%= $details['controller'] %>', 'action' => 'index']) ?>"><?= __('List <%= $this->_pluralHumanName($alias) %>') ?></a>
-	<a class="w3-bar-item w3-button" href="<?= $this->Url->build(['controller' => '<%= $details['controller'] %>','action' => 'add']) ?>"><?= __('New <%= $this->_singularHumanName($alias) %>') ?></a>
-<%
-                $done[] = $details['controller'];
-            endif;
-        endforeach;
-    endforeach;
-%>
-    
-</div>
-<div style="margin-left:25%">
+
 <div class="w3 container w3-theme">
     <h3><?= __('<%= $pluralHumanName %>') ?></h3>
     <div class="w3-responsive">
-    <table class=" w3-table w3-bordered w3-hoverable w3-theme">
-        <thead>
-            <tr>
+    <table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
+        <thead class="w3-border w3-black">            
 <% foreach ($fields as $field): %>
                 <th scope="col"><?= $this->Paginator->sort('<%= $field %>') ?></th>
 <% endforeach; %>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
         </thead>
         <tbody>
             <?php foreach ($<%= $pluralVar %> as $<%= $singularVar %>): ?>
-            <tr>
+            <?php $my_url= $this->Url->build(['controller' => '<%= $pluralVar %>', 'action' => 'view',$<%= $singularVar %>->id]) ?>
+            <tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
 <%        foreach ($fields as $field) {
             $isKey = false;
             if (!empty($associations['BelongsTo'])) {
@@ -101,11 +79,7 @@ if (!empty($indexColumns)) {
 
         $pk = '$' . $singularVar . '->' . $primaryKey[0];
 %>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', <%= $pk %>]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', <%= $pk %>]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', <%= $pk %>], ['confirm' => __('Are you sure you want to delete # {0}?', <%= $pk %>)]) ?>
-                </td>
+                
             </tr>
             <?php endforeach; ?>
         </tbody>

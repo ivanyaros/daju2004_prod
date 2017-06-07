@@ -31,4 +31,5 @@
 
         $this->set(compact('<%= $pluralName %>'));
         $this->set('_serialize', ['<%= $pluralName %>']);
+        $this->set('modelo', "<%= $pluralName %>");
     }

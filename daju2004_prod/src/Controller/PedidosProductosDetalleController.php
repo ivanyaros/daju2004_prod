@@ -27,6 +27,7 @@ class PedidosProductosDetalleController extends AppController
 
         $this->set(compact('pedidosProductosDetalle'));
         $this->set('_serialize', ['pedidosProductosDetalle']);
+        $this->set('modelo', "pedidosProductosDetalle");
     }
 
     /**
@@ -83,7 +84,7 @@ class PedidosProductosDetalleController extends AppController
     public function edit($id = null)
     {
         $pedidosProductosDetalle = $this->PedidosProductosDetalle->get($id, [
-            'contain' => []
+            'contain' => ['PedidosEmpresas', 'Producto', 'Prioridades']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $pedidosProductosDetalle = $this->PedidosProductosDetalle->patchEntity($pedidosProductosDetalle, $this->request->getData());

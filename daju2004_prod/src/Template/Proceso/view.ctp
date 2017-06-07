@@ -68,13 +68,22 @@
             <td><?= $proceso->visible ? __('Yes') : __('No'); ?></td>
         </tr>
     </table>
-    <div class="related">
-        <h4><?= __('Related Ordens') ?>
-        	<li><?= $this->Html->link(__('New Orden'), ['controller' => 'Ordens', 'action' => 'add',$proceso->id,'proceso_id']) ?> </li>
-        </h4>
+<div class="w3-bar w3-black">
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'ordens')"><?= __("Ordens") ?></button>
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'procesoMaterialEntrada')"><?= __("Proceso Material Entrada") ?></button>
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'procesoProductoEntrada')"><?= __("Proceso Producto Entrada") ?></button>
+
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'procesoProductoSalida')"><?= __("Proceso Producto Salida") ?></button>
+
+<div style="display:none" id="ordens" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Ordens') ?></h4>
         <?php if (!empty($proceso->ordens)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Referencia') ?></th>
                 <th scope="col"><?= __('Cantidad') ?></th>
@@ -82,6 +91,7 @@
                 <th scope="col"><?= __('Fecha Terminacion') ?></th>
                 <th scope="col"><?= __('Estado Id') ?></th>
                 <th scope="col"><?= __('Centro Id') ?></th>
+                <th scope="col"><?= __('Proceso Id') ?></th>
                 <th scope="col"><?= __('Scrap') ?></th>
                 <th scope="col"><?= __('Coste Operario') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
@@ -90,6 +100,7 @@
             </tr>
             <?php foreach ($proceso->ordens as $ordens): ?>
             <tr>
+                <td><?= h($ordens->id) ?></td>
                 <td><?= h($ordens->name) ?></td>
                 <td><?= h($ordens->referencia) ?></td>
                 <td><?= h($ordens->cantidad) ?></td>
@@ -97,6 +108,7 @@
                 <td><?= h($ordens->fecha_terminacion) ?></td>
                 <td><?= h($ordens->estado_id) ?></td>
                 <td><?= h($ordens->centro_id) ?></td>
+                <td><?= h($ordens->proceso_id) ?></td>
                 <td><?= h($ordens->scrap) ?></td>
                 <td><?= h($ordens->coste_operario) ?></td>
                 <td><?= h($ordens->observaciones) ?></td>
@@ -109,15 +121,15 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
-    <div class="related">
-        <h4><?= __('Related Proceso Material Entrada') ?>
-        	<li><?= $this->Html->link(__('New Proceso Material Entrada'), ['controller' => 'ProcesoMaterialEntrada', 'action' => 'add',$proceso->id,'proceso_id']) ?> </li>
-        </h4>
+    <?php endif; ?>
+</div>
+<div style="display:none" id="procesoMaterialEntrada" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Proceso Material Entrada') ?></h4>
         <?php if (!empty($proceso->proceso_material_entrada)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Proceso Id') ?></th>
                 <th scope="col"><?= __('Material Id') ?></th>
                 <th scope="col"><?= __('Metros Lineales') ?></th>
                 <th scope="col"><?= __('Metros Cuadrados') ?></th>
@@ -126,6 +138,8 @@
             </tr>
             <?php foreach ($proceso->proceso_material_entrada as $procesoMaterialEntrada): ?>
             <tr>
+                <td><?= h($procesoMaterialEntrada->id) ?></td>
+                <td><?= h($procesoMaterialEntrada->proceso_id) ?></td>
                 <td><?= h($procesoMaterialEntrada->material_id) ?></td>
                 <td><?= h($procesoMaterialEntrada->metros_lineales) ?></td>
                 <td><?= h($procesoMaterialEntrada->metros_cuadrados) ?></td>
@@ -138,15 +152,15 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
-    <div class="related">
-        <h4><?= __('Related Proceso Producto Entrada') ?>
-        	<li><?= $this->Html->link(__('New Proceso Producto Entrada'), ['controller' => 'ProcesoProductoEntrada', 'action' => 'add',$proceso->id,'proceso_id']) ?> </li>
-        </h4>
+    <?php endif; ?>
+</div>
+<div style="display:none" id="procesoProductoEntrada" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Proceso Producto Entrada') ?></h4>
         <?php if (!empty($proceso->proceso_producto_entrada)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Proceso Id') ?></th>
                 <th scope="col"><?= __('Producto Id') ?></th>
                 <th scope="col"><?= __('Cantidad') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
@@ -154,6 +168,8 @@
             </tr>
             <?php foreach ($proceso->proceso_producto_entrada as $procesoProductoEntrada): ?>
             <tr>
+                <td><?= h($procesoProductoEntrada->id) ?></td>
+                <td><?= h($procesoProductoEntrada->proceso_id) ?></td>
                 <td><?= h($procesoProductoEntrada->producto_id) ?></td>
                 <td><?= h($procesoProductoEntrada->cantidad) ?></td>
                 <td><?= h($procesoProductoEntrada->observaciones) ?></td>
@@ -165,15 +181,15 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
-    <div class="related">
-        <h4><?= __('Related Proceso Producto Salida') ?>
-        	<li><?= $this->Html->link(__('New Proceso Producto Salida'), ['controller' => 'ProcesoProductoSalida', 'action' => 'add',$proceso->id,'proceso_id']) ?> </li>
-        </h4>
+    <?php endif; ?>
+</div>
+<div style="display:none" id="procesoProductoSalida" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Proceso Producto Salida') ?></h4>
         <?php if (!empty($proceso->proceso_producto_salida)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
+                <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Proceso Id') ?></th>
                 <th scope="col"><?= __('Producto Id') ?></th>
                 <th scope="col"><?= __('Cantidad') ?></th>
                 <th scope="col"><?= __('Observaciones') ?></th>
@@ -181,6 +197,8 @@
             </tr>
             <?php foreach ($proceso->proceso_producto_salida as $procesoProductoSalida): ?>
             <tr>
+                <td><?= h($procesoProductoSalida->id) ?></td>
+                <td><?= h($procesoProductoSalida->proceso_id) ?></td>
                 <td><?= h($procesoProductoSalida->producto_id) ?></td>
                 <td><?= h($procesoProductoSalida->cantidad) ?></td>
                 <td><?= h($procesoProductoSalida->observaciones) ?></td>
@@ -192,6 +210,22 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
-    </div>
+    <?php endif; ?>
 </div>
+</div>
+<script>
+function openRelated(evt, relatedName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("related");
+  for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(relatedName).style.display = "block";
+  evt.currentTarget.className += " w3-red";
+}
+</script>
+
