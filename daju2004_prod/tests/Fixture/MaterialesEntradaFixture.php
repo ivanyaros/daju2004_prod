@@ -38,8 +38,8 @@ class MaterialesEntradaFixture extends TestFixture
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'fk_objetos_has_materiales_materiales1' => ['type' => 'foreign', 'columns' => ['materiale_id'], 'references' => ['materiales', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
             'fk_objetos_has_materiales_objetos1' => ['type' => 'foreign', 'columns' => ['objeto_id'], 'references' => ['objetos', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
+            'fk_objetos_has_materiales_materiales1' => ['type' => 'foreign', 'columns' => ['materiale_id'], 'references' => ['materiales', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',

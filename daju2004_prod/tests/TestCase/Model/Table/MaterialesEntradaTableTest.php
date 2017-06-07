@@ -49,7 +49,6 @@ class MaterialesEntradaTableTest extends TestCase
         'app.users',
         'app.utensilios_usados',
         'app.utensilios',
-        'app.envios_objetos',
         'app.proveedores_material',
         'app.materiales',
         'app.localizaciones',

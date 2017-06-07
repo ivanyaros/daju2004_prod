@@ -48,9 +48,9 @@ class MaterialFixture extends TestFixture
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'fk_material_familias1' => ['type' => 'foreign', 'columns' => ['familia_id'], 'references' => ['familias', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
             'fk_material_ivas10' => ['type' => 'foreign', 'columns' => ['iva_id'], 'references' => ['ivas', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
             'fk_material_monedas10' => ['type' => 'foreign', 'columns' => ['moneda_id'], 'references' => ['monedas', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
+            'fk_material_familias1' => ['type' => 'foreign', 'columns' => ['familia_id'], 'references' => ['familias', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',

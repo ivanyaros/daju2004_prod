@@ -69,7 +69,9 @@
     <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'proveedoresMaterial')"><?= __("Proveedores Material") ?></button>
 
 <div style="display:none" id="direcciones" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Direcciones') ?></h4>
+    <h4><?= __('Related Direcciones') ?>
+        <button onClick="location.href='/direcciones/add/<?= $proveedoresCliente->id ?>/proveedoresCliente_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($direcciones)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
@@ -112,7 +114,9 @@
     <?php endif; ?>
 </div>
 <div style="display:none" id="entradasDeMateriales" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Entradas De Materiales') ?></h4>
+    <h4><?= __('Related Entradas De Materiales') ?>
+        <button onClick="location.href='/entradas-de-materiales/add/<?= $proveedoresCliente->id ?>/proveedoresCliente_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($entradasDeMateriales)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
@@ -155,7 +159,9 @@
     <?php endif; ?>
 </div>
 <div style="display:none" id="envios" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Envios') ?></h4>
+    <h4><?= __('Related Envios') ?>
+        <button onClick="location.href='/envios/add/<?= $proveedoresCliente->id ?>/proveedoresCliente_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($envios)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
@@ -202,7 +208,9 @@
     <?php endif; ?>
 </div>
 <div style="display:none" id="pedidosEmpresas" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Pedidos Empresas') ?></h4>
+    <h4><?= __('Related Pedidos Empresas') ?>
+        <button onClick="location.href='/pedidos-empresas/add/<?= $proveedoresCliente->id ?>/proveedoresCliente_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($pedidosEmpresas)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
@@ -245,7 +253,9 @@
     <?php endif; ?>
 </div>
 <div style="display:none" id="proveedoresMaterial" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Proveedores Material') ?></h4>
+    <h4><?= __('Related Proveedores Material') ?>
+        <button onClick="location.href='/proveedores-material/add/<?= $proveedoresCliente->id ?>/proveedoresCliente_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($proveedoresMaterial)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">

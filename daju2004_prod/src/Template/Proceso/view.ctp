@@ -79,7 +79,9 @@
     <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'procesoProductoSalida')"><?= __("Proceso Producto Salida") ?></button>
 
 <div style="display:none" id="ordens" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Ordens') ?></h4>
+    <h4><?= __('Related Ordens') ?>
+        <button onClick="location.href='/ordens/add/<?= $proceso->id ?>/proceso_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($ordens)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
@@ -130,7 +132,9 @@
     <?php endif; ?>
 </div>
 <div style="display:none" id="procesoMaterialEntrada" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Proceso Material Entrada') ?></h4>
+    <h4><?= __('Related Proceso Material Entrada') ?>
+        <button onClick="location.href='/proceso-material-entrada/add/<?= $proceso->id ?>/proceso_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($procesoMaterialEntrada)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
@@ -167,7 +171,9 @@
     <?php endif; ?>
 </div>
 <div style="display:none" id="procesoProductoEntrada" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Proceso Producto Entrada') ?></h4>
+    <h4><?= __('Related Proceso Producto Entrada') ?>
+        <button onClick="location.href='/proceso-producto-entrada/add/<?= $proceso->id ?>/proceso_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($procesoProductoEntrada)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
@@ -202,7 +208,9 @@
     <?php endif; ?>
 </div>
 <div style="display:none" id="procesoProductoSalida" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Proceso Producto Salida') ?></h4>
+    <h4><?= __('Related Proceso Producto Salida') ?>
+        <button onClick="location.href='/proceso-producto-salida/add/<?= $proceso->id ?>/proceso_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($procesoProductoSalida)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">

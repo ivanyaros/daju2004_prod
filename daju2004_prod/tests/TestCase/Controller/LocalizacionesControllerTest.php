@@ -43,7 +43,6 @@ class LocalizacionesControllerTest extends IntegrationTestCase
         'app.objetos',
         'app.materiales_entrada',
         'app.materiales',
-        'app.envios_objetos',
         'app.proceso_material_entrada',
         'app.proceso_producto_entrada',
         'app.proceso_producto_salida',

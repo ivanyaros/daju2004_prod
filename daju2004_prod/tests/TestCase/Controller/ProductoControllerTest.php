@@ -43,7 +43,6 @@ class ProductoControllerTest extends IntegrationTestCase
         'app.localizaciones',
         'app.materiales',
         'app.materiales_entrada',
-        'app.envios_objetos',
         'app.proveedores_material',
         'app.proceso_material_entrada',
         'app.proceso_producto_entrada',

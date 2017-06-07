@@ -141,7 +141,9 @@ foreach ($relations as $alias => $details):
     $otherPluralHumanName = Inflector::humanize(Inflector::underscore($details['controller']));
     %>
 <div style="display:none" id="<%= $otherPluralVar %>" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related <%= $otherPluralHumanName %>') ?></h4>
+    <h4><?= __('Related <%= $otherPluralHumanName %>') ?>
+        <button onClick="location.href='/<%= Inflector::dasherize($otherPluralVar)%>/add/<?= $<%= $singularVar %>->id ?>/<%= $singularVar %>_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($<%= $otherPluralVar %>)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">

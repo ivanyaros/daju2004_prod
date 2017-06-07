@@ -43,36 +43,8 @@ class EnviosController extends AppController
             'contain' => ['ProveedoresClientes', 'PedidosEmpresas', 'Centros', 'Direcciones', 'Objetos']
         ]);
         $this->paginate =[
-            'ProveedoresClientes' => ['scope' => 'mis_ProveedoresClientes']
-            ,'PedidosEmpresas' => ['scope' => 'mis_PedidosEmpresas']
-            ,'Centros' => ['scope' => 'mis_Centros']
-            ,'Direcciones' => ['scope' => 'mis_Direcciones']
-            ,'Objetos' => ['scope' => 'mis_Objetos']
+            'Objetos' => ['scope' => 'mis_Objetos']
         ];
-
-        $this->loadModel('ProveedoresClientes');
-        $query=$this->ProveedoresClientes->find('all')
-                                        ->where(['envio_id' => $id]);
-        $proveedoresClientes=$this->paginate($query,['scope'=>'mis_ProveedoresClientes']);
-        $this->set(compact('proveedoresClientes'));
-
-        $this->loadModel('PedidosEmpresas');
-        $query=$this->PedidosEmpresas->find('all')
-                                        ->where(['envio_id' => $id]);
-        $pedidosEmpresas=$this->paginate($query,['scope'=>'mis_PedidosEmpresas']);
-        $this->set(compact('pedidosEmpresas'));
-
-        $this->loadModel('Centros');
-        $query=$this->Centros->find('all')
-                                        ->where(['envio_id' => $id]);
-        $centros=$this->paginate($query,['scope'=>'mis_Centros']);
-        $this->set(compact('centros'));
-
-        $this->loadModel('Direcciones');
-        $query=$this->Direcciones->find('all')
-                                        ->where(['envio_id' => $id]);
-        $direcciones=$this->paginate($query,['scope'=>'mis_Direcciones']);
-        $this->set(compact('direcciones'));
 
         $this->loadModel('Objetos');
         $query=$this->Objetos->find('all')
@@ -109,8 +81,7 @@ class EnviosController extends AppController
         $pedidosEmpresas = $this->Envios->PedidosEmpresas->find('list', ['limit' => 200]);
         $centros = $this->Envios->Centros->find('list', ['limit' => 200]);
         $direcciones = $this->Envios->Direcciones->find('list', ['limit' => 200]);
-        $objetos = $this->Envios->Objetos->find('list', ['limit' => 200]);
-        $this->set(compact('envio', 'proveedoresClientes', 'pedidosEmpresas', 'centros', 'direcciones', 'objetos'));
+        $this->set(compact('envio', 'proveedoresClientes', 'pedidosEmpresas', 'centros', 'direcciones'));
         $this->set('_serialize', ['envio']);
     }
 
@@ -139,8 +110,7 @@ class EnviosController extends AppController
         $pedidosEmpresas = $this->Envios->PedidosEmpresas->find('list', ['limit' => 200]);
         $centros = $this->Envios->Centros->find('list', ['limit' => 200]);
         $direcciones = $this->Envios->Direcciones->find('list', ['limit' => 200]);
-        $objetos = $this->Envios->Objetos->find('list', ['limit' => 200]);
-        $this->set(compact('envio', 'proveedoresClientes', 'pedidosEmpresas', 'centros', 'direcciones', 'objetos'));
+        $this->set(compact('envio', 'proveedoresClientes', 'pedidosEmpresas', 'centros', 'direcciones'));
         $this->set('_serialize', ['envio']);
     }
 

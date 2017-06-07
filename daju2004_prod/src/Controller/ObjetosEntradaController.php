@@ -42,15 +42,6 @@ class ObjetosEntradaController extends AppController
         $objetosEntrada = $this->ObjetosEntrada->get($id, [
             'contain' => ['Objetos']
         ]);
-        $this->paginate =[
-            'Objetos' => ['scope' => 'mis_Objetos']
-        ];
-
-        $this->loadModel('Objetos');
-        $query=$this->Objetos->find('all')
-                                        ->where(['objetosEntrada_id' => $id]);
-        $objetos=$this->paginate($query,['scope'=>'mis_Objetos']);
-        $this->set(compact('objetos'));
 
                                          
         $this->set('objetosEntrada', $objetosEntrada);

@@ -42,22 +42,6 @@ class MaquinasUsadasController extends AppController
         $maquinasUsada = $this->MaquinasUsadas->get($id, [
             'contain' => ['EstadosDeOrdens', 'Maquinas']
         ]);
-        $this->paginate =[
-            'EstadosDeOrdens' => ['scope' => 'mis_EstadosDeOrdens']
-            ,'Maquinas' => ['scope' => 'mis_Maquinas']
-        ];
-
-        $this->loadModel('EstadosDeOrdens');
-        $query=$this->EstadosDeOrdens->find('all')
-                                        ->where(['maquinasUsada_id' => $id]);
-        $estadosDeOrdens=$this->paginate($query,['scope'=>'mis_EstadosDeOrdens']);
-        $this->set(compact('estadosDeOrdens'));
-
-        $this->loadModel('Maquinas');
-        $query=$this->Maquinas->find('all')
-                                        ->where(['maquinasUsada_id' => $id]);
-        $maquinas=$this->paginate($query,['scope'=>'mis_Maquinas']);
-        $this->set(compact('maquinas'));
 
                                          
         $this->set('maquinasUsada', $maquinasUsada);

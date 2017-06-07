@@ -21,6 +21,7 @@
                 <th scope="col"><?= $this->Paginator->sort('defectuosos') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('peso') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('observaciones') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('envio_id') ?></th>
         </thead>
         <tbody>
             <?php foreach ($objetos as $objeto): ?>
@@ -38,6 +39,7 @@
                 <td><?= $this->Number->format($objeto->defectuosos) ?></td>
                 <td><?= $this->Number->format($objeto->peso) ?></td>
                 <td><?= h($objeto->observaciones) ?></td>
+                <td><?= $objeto->has('envio') ? $this->Html->link($objeto->envio->label, ['controller' => 'Envios', 'action' => 'view', $objeto->envio->id]) : '' ?></td>
                 
             </tr>
             <?php endforeach; ?>

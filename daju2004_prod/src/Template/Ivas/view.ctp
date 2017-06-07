@@ -33,7 +33,9 @@
     <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'producto')"><?= __("Producto") ?></button>
 
 <div style="display:none" id="material" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Material') ?></h4>
+    <h4><?= __('Related Material') ?>
+        <button onClick="location.href='/material/add/<?= $iva->id ?>/iva_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($material)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
@@ -92,7 +94,9 @@
     <?php endif; ?>
 </div>
 <div style="display:none" id="proceso" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Proceso') ?></h4>
+    <h4><?= __('Related Proceso') ?>
+        <button onClick="location.href='/proceso/add/<?= $iva->id ?>/iva_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($proceso)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
@@ -147,7 +151,9 @@
     <?php endif; ?>
 </div>
 <div style="display:none" id="producto" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Producto') ?></h4>
+    <h4><?= __('Related Producto') ?>
+        <button onClick="location.href='/producto/add/<?= $iva->id ?>/iva_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($producto)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">

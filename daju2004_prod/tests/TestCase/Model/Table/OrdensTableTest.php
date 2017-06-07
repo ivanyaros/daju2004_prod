@@ -53,7 +53,6 @@ class OrdensTableTest extends TestCase
         'app.localizaciones',
         'app.objetos',
         'app.materiales_entrada',
-        'app.envios_objetos',
         'app.proveedores_material',
         'app.prioridades'
     ];

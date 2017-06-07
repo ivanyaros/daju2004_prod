@@ -18,6 +18,11 @@ $allAssociations = array_merge(
     $this->Bake->aliasExtractor($modelObj, 'HasOne'),
     $this->Bake->aliasExtractor($modelObj, 'HasMany')
 );
+$myAssociations = array_merge(
+    $this->Bake->aliasExtractor($modelObj, 'BelongsToMany'),
+    $this->Bake->aliasExtractor($modelObj, 'HasMany')
+);
+
 use Cake\Utility\Inflector;
 %>
 
@@ -33,16 +38,16 @@ use Cake\Utility\Inflector;
         $<%= $singularName%> = $this-><%= $currentModelName %>->get($id, [
             'contain' => [<%= $this->Bake->stringifyList($allAssociations, ['indent' => false]) %>]
         ]);
-<% if(count($allAssociations)>0): %>
+<% if(count($myAssociations)>0): %>
         $this->paginate =[
-            '<%= $allAssociations[0] %>' => ['scope' => 'mis_<%= $allAssociations[0] %>']
-<% for($i=1;$i<count($allAssociations);$i++): %>
-            ,'<%= $allAssociations[$i] %>' => ['scope' => 'mis_<%= $allAssociations[$i] %>']
+            '<%= $myAssociations[0] %>' => ['scope' => 'mis_<%= $myAssociations[0] %>']
+<% for($i=1;$i<count($myAssociations);$i++): %>
+            ,'<%= $myAssociations[$i] %>' => ['scope' => 'mis_<%= $myAssociations[$i] %>']
 <% endfor; %>
         ];
 <% endif; %>
 
-<% foreach($allAssociations as $association): %>
+<% foreach($myAssociations as $association): %>
         $this->loadModel('<%= $association %>');
         $query=$this-><%= $association %>->find('all')
                                         ->where(['<%= $singularName%>_id' => $id]);

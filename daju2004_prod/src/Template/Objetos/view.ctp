@@ -36,6 +36,10 @@
             <td><?= h($objeto->observaciones) ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Envio') ?></th>
+            <td><?= $objeto->has('envio') ? $this->Html->link($objeto->envio->label, ['controller' => 'Envios', 'action' => 'view', $objeto->envio->id]) : '' ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($objeto->id) ?></td>
         </tr>
@@ -60,10 +64,10 @@
 
     <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'materialesEntrada')"><?= __("Materiales Entrada") ?></button>
 
-    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'envios')"><?= __("Envios") ?></button>
-
 <div style="display:none" id="materialesEntrada" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Materiales Entrada') ?></h4>
+    <h4><?= __('Related Materiales Entrada') ?>
+        <button onClick="location.href='/materiales-entrada/add/<?= $objeto->id ?>/objeto_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($materialesEntrada)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
@@ -100,53 +104,6 @@
             <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'MaterialesEntrada']) ?>
         </ul>
         <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')], ['model'=>'MaterialesEntrada']) ?></p>
-    </div>
-    <?php endif; ?>
-</div>
-<div style="display:none" id="envios" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Envios') ?></h4>
-        <?php if (!empty($envios)): ?>
-	<div class="w3-responsive">
-		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
-        	<thead class="w3-border w3-black">  
-                <th scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'Envios']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('proveedores_cliente_id','proveedores_cliente_id', ['model'=>'Envios']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('fecha_pedido','fecha_pedido', ['model'=>'Envios']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('fecha_envio','fecha_envio', ['model'=>'Envios']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('albaran','albaran', ['model'=>'Envios']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('pedidos_empresa_id','pedidos_empresa_id', ['model'=>'Envios']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('centro_id','centro_id', ['model'=>'Envios']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('fecha_entrega','fecha_entrega', ['model'=>'Envios']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'Envios']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('direccione_id','direccione_id', ['model'=>'Envios']) ?></th>
-			</thead>
-			<tbody>
-<?php foreach ($envios as $envio): ?>
-				<?php $my_url= $this->Url->build(['controller' => 'envios', 'action' => 'view',$envio->id]) ?>
-            	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
-                	<td><?= h($envio->id) ?></td>
-                	<td><?= h($envio->proveedores_cliente_id) ?></td>
-                	<td><?= h($envio->fecha_pedido) ?></td>
-                	<td><?= h($envio->fecha_envio) ?></td>
-                	<td><?= h($envio->albaran) ?></td>
-                	<td><?= h($envio->pedidos_empresa_id) ?></td>
-                	<td><?= h($envio->centro_id) ?></td>
-                	<td><?= h($envio->fecha_entrega) ?></td>
-                	<td><?= h($envio->observaciones) ?></td>
-                	<td><?= h($envio->direccione_id) ?></td>
-            	</tr>
-            <?php endforeach; ?>
-        </table>
-    </div>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'Envios']) ?>
-            <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'Envios']) ?>
-            <?= $this->Paginator->numbers(['model'=>'Envios']) ?>
-            <?= $this->Paginator->next(__('next') . ' >', ['model'=>'Envios']) ?>
-            <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'Envios']) ?>
-        </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')], ['model'=>'Envios']) ?></p>
     </div>
     <?php endif; ?>
 </div>

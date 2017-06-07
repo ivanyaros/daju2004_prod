@@ -91,7 +91,9 @@
     <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'procesoProductoSalida')"><?= __("Proceso Producto Salida") ?></button>
 
 <div style="display:none" id="objetos" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Objetos') ?></h4>
+    <h4><?= __('Related Objetos') ?>
+        <button onClick="location.href='/objetos/add/<?= $producto->id ?>/producto_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($objetos)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
@@ -107,6 +109,7 @@
                 <th scope="col"><?= $this->Paginator->sort('defectuosos','defectuosos', ['model'=>'Objetos']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('peso','peso', ['model'=>'Objetos']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'Objetos']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('envio_id','envio_id', ['model'=>'Objetos']) ?></th>
 			</thead>
 			<tbody>
 <?php foreach ($objetos as $objeto): ?>
@@ -123,6 +126,7 @@
                 	<td><?= h($objeto->defectuosos) ?></td>
                 	<td><?= h($objeto->peso) ?></td>
                 	<td><?= h($objeto->observaciones) ?></td>
+                	<td><?= h($objeto->envio_id) ?></td>
             	</tr>
             <?php endforeach; ?>
         </table>
@@ -140,7 +144,9 @@
     <?php endif; ?>
 </div>
 <div style="display:none" id="pedidosProductosDetalle" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Pedidos Productos Detalle') ?></h4>
+    <h4><?= __('Related Pedidos Productos Detalle') ?>
+        <button onClick="location.href='/pedidos-productos-detalle/add/<?= $producto->id ?>/producto_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($pedidosProductosDetalle)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
@@ -181,7 +187,9 @@
     <?php endif; ?>
 </div>
 <div style="display:none" id="procesoProductoEntrada" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Proceso Producto Entrada') ?></h4>
+    <h4><?= __('Related Proceso Producto Entrada') ?>
+        <button onClick="location.href='/proceso-producto-entrada/add/<?= $producto->id ?>/producto_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($procesoProductoEntrada)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
@@ -216,7 +224,9 @@
     <?php endif; ?>
 </div>
 <div style="display:none" id="procesoProductoSalida" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Proceso Producto Salida') ?></h4>
+    <h4><?= __('Related Proceso Producto Salida') ?>
+        <button onClick="location.href='/proceso-producto-salida/add/<?= $producto->id ?>/producto_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($procesoProductoSalida)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">

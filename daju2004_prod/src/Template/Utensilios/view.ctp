@@ -29,7 +29,9 @@
     <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'utensiliosUsados')"><?= __("Utensilios Usados") ?></button>
 
 <div style="display:none" id="utensiliosUsados" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Utensilios Usados') ?></h4>
+    <h4><?= __('Related Utensilios Usados') ?>
+        <button onClick="location.href='/utensilios-usados/add/<?= $utensilio->id ?>/utensilio_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($utensiliosUsados)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">

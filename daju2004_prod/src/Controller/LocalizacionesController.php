@@ -43,16 +43,9 @@ class LocalizacionesController extends AppController
             'contain' => ['Centros', 'Materiales', 'Objetos']
         ]);
         $this->paginate =[
-            'Centros' => ['scope' => 'mis_Centros']
-            ,'Materiales' => ['scope' => 'mis_Materiales']
+            'Materiales' => ['scope' => 'mis_Materiales']
             ,'Objetos' => ['scope' => 'mis_Objetos']
         ];
-
-        $this->loadModel('Centros');
-        $query=$this->Centros->find('all')
-                                        ->where(['localizacione_id' => $id]);
-        $centros=$this->paginate($query,['scope'=>'mis_Centros']);
-        $this->set(compact('centros'));
 
         $this->loadModel('Materiales');
         $query=$this->Materiales->find('all')

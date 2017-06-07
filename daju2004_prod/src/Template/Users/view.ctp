@@ -53,7 +53,9 @@
     <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'usuariosEnEstadosOrden')"><?= __("Usuarios En Estados Orden") ?></button>
 
 <div style="display:none" id="usuariosEnEstadosOrden" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Usuarios En Estados Orden') ?></h4>
+    <h4><?= __('Related Usuarios En Estados Orden') ?>
+        <button onClick="location.href='/usuarios-en-estados-orden/add/<?= $user->id ?>/user_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($usuariosEnEstadosOrden)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">

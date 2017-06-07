@@ -43,22 +43,8 @@ class EntradasDeMaterialesController extends AppController
             'contain' => ['ProveedoresClientes', 'Centros', 'Materiales']
         ]);
         $this->paginate =[
-            'ProveedoresClientes' => ['scope' => 'mis_ProveedoresClientes']
-            ,'Centros' => ['scope' => 'mis_Centros']
-            ,'Materiales' => ['scope' => 'mis_Materiales']
+            'Materiales' => ['scope' => 'mis_Materiales']
         ];
-
-        $this->loadModel('ProveedoresClientes');
-        $query=$this->ProveedoresClientes->find('all')
-                                        ->where(['entradasDeMateriale_id' => $id]);
-        $proveedoresClientes=$this->paginate($query,['scope'=>'mis_ProveedoresClientes']);
-        $this->set(compact('proveedoresClientes'));
-
-        $this->loadModel('Centros');
-        $query=$this->Centros->find('all')
-                                        ->where(['entradasDeMateriale_id' => $id]);
-        $centros=$this->paginate($query,['scope'=>'mis_Centros']);
-        $this->set(compact('centros'));
 
         $this->loadModel('Materiales');
         $query=$this->Materiales->find('all')

@@ -45,7 +45,9 @@
     <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'materiales')"><?= __("Materiales") ?></button>
 
 <div style="display:none" id="materiales" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Materiales') ?></h4>
+    <h4><?= __('Related Materiales') ?>
+        <button onClick="location.href='/materiales/add/<?= $entradasDeMateriale->id ?>/entradasDeMateriale_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($materiales)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">

@@ -29,8 +29,8 @@ class EstadosDeOrdensFixture extends TestFixture
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'fk_estados_de_ordenes_estados1' => ['type' => 'foreign', 'columns' => ['estado_id'], 'references' => ['estados', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
             'fk_estados_de_ordenes_ordens1' => ['type' => 'foreign', 'columns' => ['orden_id'], 'references' => ['ordens', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
+            'fk_estados_de_ordenes_estados1' => ['type' => 'foreign', 'columns' => ['estado_id'], 'references' => ['estados', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -49,8 +49,8 @@ class EstadosDeOrdensFixture extends TestFixture
             'id' => 1,
             'orden_id' => 1,
             'estado_id' => 1,
-            'fecha_inicio' => '2017-06-07 12:29:43',
-            'fecha_fin' => '2017-06-07 12:29:43',
+            'fecha_inicio' => '2017-06-07 13:15:03',
+            'fecha_fin' => '2017-06-07 13:15:03',
             'descripcion' => 'Lorem ipsum dolor sit amet'
         ],
     ];

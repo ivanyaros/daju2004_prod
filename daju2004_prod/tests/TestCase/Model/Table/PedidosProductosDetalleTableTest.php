@@ -51,7 +51,6 @@ class PedidosProductosDetalleTableTest extends TestCase
         'app.prioridades',
         'app.localizaciones',
         'app.materiales_entrada',
-        'app.envios_objetos',
         'app.proceso_producto_entrada',
         'app.proceso_producto_salida',
         'app.proceso_material_entrada',

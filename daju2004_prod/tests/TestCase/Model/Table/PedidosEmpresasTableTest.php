@@ -51,7 +51,6 @@ class PedidosEmpresasTableTest extends TestCase
         'app.pedidos_productos_detalle',
         'app.localizaciones',
         'app.materiales_entrada',
-        'app.envios_objetos',
         'app.proceso_producto_entrada',
         'app.proceso_producto_salida',
         'app.proceso_material_entrada',

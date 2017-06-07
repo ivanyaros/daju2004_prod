@@ -22,7 +22,7 @@
             echo $this->Form->control('defectuosos');
             echo $this->Form->control('peso');
             echo $this->Form->control('observaciones');
-            echo $this->Form->control('envios._ids', ['options' => $envios]);
+            echo $this->Form->control('envio_id', ['options' => $envios, 'empty' => true]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

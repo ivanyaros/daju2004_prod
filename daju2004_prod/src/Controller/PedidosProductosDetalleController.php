@@ -42,29 +42,6 @@ class PedidosProductosDetalleController extends AppController
         $pedidosProductosDetalle = $this->PedidosProductosDetalle->get($id, [
             'contain' => ['PedidosEmpresas', 'Producto', 'Prioridades']
         ]);
-        $this->paginate =[
-            'PedidosEmpresas' => ['scope' => 'mis_PedidosEmpresas']
-            ,'Producto' => ['scope' => 'mis_Producto']
-            ,'Prioridades' => ['scope' => 'mis_Prioridades']
-        ];
-
-        $this->loadModel('PedidosEmpresas');
-        $query=$this->PedidosEmpresas->find('all')
-                                        ->where(['pedidosProductosDetalle_id' => $id]);
-        $pedidosEmpresas=$this->paginate($query,['scope'=>'mis_PedidosEmpresas']);
-        $this->set(compact('pedidosEmpresas'));
-
-        $this->loadModel('Producto');
-        $query=$this->Producto->find('all')
-                                        ->where(['pedidosProductosDetalle_id' => $id]);
-        $producto=$this->paginate($query,['scope'=>'mis_Producto']);
-        $this->set(compact('producto'));
-
-        $this->loadModel('Prioridades');
-        $query=$this->Prioridades->find('all')
-                                        ->where(['pedidosProductosDetalle_id' => $id]);
-        $prioridades=$this->paginate($query,['scope'=>'mis_Prioridades']);
-        $this->set(compact('prioridades'));
 
                                          
         $this->set('pedidosProductosDetalle', $pedidosProductosDetalle);

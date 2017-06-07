@@ -18,13 +18,13 @@ use Cake\ORM\Entity;
  * @property int $defectuosos
  * @property float $peso
  * @property string $observaciones
+ * @property int $envio_id
  *
  * @property \App\Model\Entity\Producto $producto
  * @property \App\Model\Entity\Orden $orden
  * @property \App\Model\Entity\Localizacione $localizacione
+ * @property \App\Model\Entity\Envio $envio
  * @property \App\Model\Entity\MaterialesEntrada[] $materiales_entrada
- * @property \App\Model\Entity\Envio[] $envios
- * @property \App\Model\Entity\EnviosObjeto[] $envios_objetos
  */
 class Objeto extends Entity
 {

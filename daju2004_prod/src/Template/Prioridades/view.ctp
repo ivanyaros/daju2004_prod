@@ -23,7 +23,9 @@
     <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'pedidosProductosDetalle')"><?= __("Pedidos Productos Detalle") ?></button>
 
 <div style="display:none" id="ordens" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Ordens') ?></h4>
+    <h4><?= __('Related Ordens') ?>
+        <button onClick="location.href='/ordens/add/<?= $prioridade->id ?>/prioridade_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($ordens)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
@@ -74,7 +76,9 @@
     <?php endif; ?>
 </div>
 <div style="display:none" id="pedidosProductosDetalle" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Pedidos Productos Detalle') ?></h4>
+    <h4><?= __('Related Pedidos Productos Detalle') ?>
+        <button onClick="location.href='/pedidos-productos-detalle/add/<?= $prioridade->id ?>/prioridade_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($pedidosProductosDetalle)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">

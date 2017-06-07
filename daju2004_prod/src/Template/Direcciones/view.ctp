@@ -45,7 +45,9 @@
     <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'envios')"><?= __("Envios") ?></button>
 
 <div style="display:none" id="envios" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Envios') ?></h4>
+    <h4><?= __('Related Envios') ?>
+        <button onClick="location.href='/envios/add/<?= $direccione->id ?>/direccione_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($envios)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">

@@ -85,7 +85,9 @@
     <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'proveedoresMaterial')"><?= __("Proveedores Material") ?></button>
 
 <div style="display:none" id="materiales" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Materiales') ?></h4>
+    <h4><?= __('Related Materiales') ?>
+        <button onClick="location.href='/materiales/add/<?= $material->id ?>/material_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($materiales)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
@@ -152,7 +154,9 @@
     <?php endif; ?>
 </div>
 <div style="display:none" id="procesoMaterialEntrada" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Proceso Material Entrada') ?></h4>
+    <h4><?= __('Related Proceso Material Entrada') ?>
+        <button onClick="location.href='/proceso-material-entrada/add/<?= $material->id ?>/material_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($procesoMaterialEntrada)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
@@ -189,7 +193,9 @@
     <?php endif; ?>
 </div>
 <div style="display:none" id="proveedoresMaterial" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Proveedores Material') ?></h4>
+    <h4><?= __('Related Proveedores Material') ?>
+        <button onClick="location.href='/proveedores-material/add/<?= $material->id ?>/material_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($proveedoresMaterial)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">

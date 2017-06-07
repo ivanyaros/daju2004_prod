@@ -18,7 +18,6 @@
             echo $this->Form->control('fecha_entrega', ['empty' => true]);
             echo $this->Form->control('observaciones');
             echo $this->Form->control('direccione_id', ['options' => $direcciones, 'empty' => true]);
-            echo $this->Form->control('objetos._ids', ['options' => $objetos]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

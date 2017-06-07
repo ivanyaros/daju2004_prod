@@ -51,7 +51,6 @@ class EnviosTableTest extends TestCase
         'app.pedidos_productos_detalle',
         'app.pedidos_empresas',
         'app.materiales_entrada',
-        'app.envios_objetos',
         'app.proceso_producto_entrada',
         'app.proceso_producto_salida',
         'app.proceso_material_entrada',

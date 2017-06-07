@@ -43,16 +43,9 @@ class PedidosEmpresasController extends AppController
             'contain' => ['ProveedoresClientes', 'Envios', 'PedidosProductosDetalle']
         ]);
         $this->paginate =[
-            'ProveedoresClientes' => ['scope' => 'mis_ProveedoresClientes']
-            ,'Envios' => ['scope' => 'mis_Envios']
+            'Envios' => ['scope' => 'mis_Envios']
             ,'PedidosProductosDetalle' => ['scope' => 'mis_PedidosProductosDetalle']
         ];
-
-        $this->loadModel('ProveedoresClientes');
-        $query=$this->ProveedoresClientes->find('all')
-                                        ->where(['pedidosEmpresa_id' => $id]);
-        $proveedoresClientes=$this->paginate($query,['scope'=>'mis_ProveedoresClientes']);
-        $this->set(compact('proveedoresClientes'));
 
         $this->loadModel('Envios');
         $query=$this->Envios->find('all')

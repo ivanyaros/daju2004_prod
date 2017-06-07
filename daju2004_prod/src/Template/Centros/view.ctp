@@ -41,7 +41,9 @@
     <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'proceso')"><?= __("Proceso") ?></button>
 
 <div style="display:none" id="entradasDeMateriales" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Entradas De Materiales') ?></h4>
+    <h4><?= __('Related Entradas De Materiales') ?>
+        <button onClick="location.href='/entradas-de-materiales/add/<?= $centro->id ?>/centro_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($entradasDeMateriales)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
@@ -82,7 +84,9 @@
     <?php endif; ?>
 </div>
 <div style="display:none" id="envios" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Envios') ?></h4>
+    <h4><?= __('Related Envios') ?>
+        <button onClick="location.href='/envios/add/<?= $centro->id ?>/centro_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($envios)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
@@ -127,7 +131,9 @@
     <?php endif; ?>
 </div>
 <div style="display:none" id="localizaciones" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Localizaciones') ?></h4>
+    <h4><?= __('Related Localizaciones') ?>
+        <button onClick="location.href='/localizaciones/add/<?= $centro->id ?>/centro_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($localizaciones)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
@@ -158,7 +164,9 @@
     <?php endif; ?>
 </div>
 <div style="display:none" id="ordens" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Ordens') ?></h4>
+    <h4><?= __('Related Ordens') ?>
+        <button onClick="location.href='/ordens/add/<?= $centro->id ?>/centro_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($ordens)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
@@ -209,7 +217,9 @@
     <?php endif; ?>
 </div>
 <div style="display:none" id="proceso" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Proceso') ?></h4>
+    <h4><?= __('Related Proceso') ?>
+        <button onClick="location.href='/proceso/add/<?= $centro->id ?>/centro_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($proceso)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">

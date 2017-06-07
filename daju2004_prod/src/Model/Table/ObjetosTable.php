@@ -12,8 +12,8 @@ use Cake\Validation\Validator;
  * @property \Cake\ORM\Association\BelongsTo $Producto
  * @property \Cake\ORM\Association\BelongsTo $Ordens
  * @property \Cake\ORM\Association\BelongsTo $Localizaciones
+ * @property \Cake\ORM\Association\BelongsTo $Envios
  * @property \Cake\ORM\Association\HasMany $MaterialesEntrada
- * @property \Cake\ORM\Association\BelongsToMany $Envios
  *
  * @method \App\Model\Entity\Objeto get($primaryKey, $options = [])
  * @method \App\Model\Entity\Objeto newEntity($data = null, array $options = [])
@@ -52,13 +52,11 @@ class ObjetosTable extends Table
             'foreignKey' => 'localizacione_id',
             'joinType' => 'INNER'
         ]);
+        $this->belongsTo('Envios', [
+            'foreignKey' => 'envio_id'
+        ]);
         $this->hasMany('MaterialesEntrada', [
             'foreignKey' => 'objeto_id'
-        ]);
-        $this->belongsToMany('Envios', [
-            'foreignKey' => 'objeto_id',
-            'targetForeignKey' => 'envio_id',
-            'joinTable' => 'envios_objetos'
         ]);
     }
 
@@ -117,6 +115,7 @@ class ObjetosTable extends Table
         $rules->add($rules->existsIn(['producto_id'], 'Producto'));
         $rules->add($rules->existsIn(['orden_id'], 'Ordens'));
         $rules->add($rules->existsIn(['localizacione_id'], 'Localizaciones'));
+        $rules->add($rules->existsIn(['envio_id'], 'Envios'));
 
         return $rules;
     }

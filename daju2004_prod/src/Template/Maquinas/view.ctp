@@ -37,7 +37,9 @@
     <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'maquinasUsadas')"><?= __("Maquinas Usadas") ?></button>
 
 <div style="display:none" id="maquinasUsadas" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Maquinas Usadas') ?></h4>
+    <h4><?= __('Related Maquinas Usadas') ?>
+        <button onClick="location.href='/maquinas-usadas/add/<?= $maquina->id ?>/maquina_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($maquinasUsadas)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">

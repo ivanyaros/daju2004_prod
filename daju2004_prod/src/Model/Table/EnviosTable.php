@@ -13,7 +13,7 @@ use Cake\Validation\Validator;
  * @property \Cake\ORM\Association\BelongsTo $PedidosEmpresas
  * @property \Cake\ORM\Association\BelongsTo $Centros
  * @property \Cake\ORM\Association\BelongsTo $Direcciones
- * @property \Cake\ORM\Association\BelongsToMany $Objetos
+ * @property \Cake\ORM\Association\HasMany $Objetos
  *
  * @method \App\Model\Entity\Envio get($primaryKey, $options = [])
  * @method \App\Model\Entity\Envio newEntity($data = null, array $options = [])
@@ -53,10 +53,8 @@ class EnviosTable extends Table
         $this->belongsTo('Direcciones', [
             'foreignKey' => 'direccione_id'
         ]);
-        $this->belongsToMany('Objetos', [
-            'foreignKey' => 'envio_id',
-            'targetForeignKey' => 'objeto_id',
-            'joinTable' => 'envios_objetos'
+        $this->hasMany('Objetos', [
+            'foreignKey' => 'envio_id'
         ]);
     }
 

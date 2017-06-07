@@ -43,29 +43,8 @@ class MaterialesController extends AppController
             'contain' => ['Material', 'Localizaciones', 'EntradasDeMateriales', 'MaterialesEntrada']
         ]);
         $this->paginate =[
-            'Material' => ['scope' => 'mis_Material']
-            ,'Localizaciones' => ['scope' => 'mis_Localizaciones']
-            ,'EntradasDeMateriales' => ['scope' => 'mis_EntradasDeMateriales']
-            ,'MaterialesEntrada' => ['scope' => 'mis_MaterialesEntrada']
+            'MaterialesEntrada' => ['scope' => 'mis_MaterialesEntrada']
         ];
-
-        $this->loadModel('Material');
-        $query=$this->Material->find('all')
-                                        ->where(['materiale_id' => $id]);
-        $material=$this->paginate($query,['scope'=>'mis_Material']);
-        $this->set(compact('material'));
-
-        $this->loadModel('Localizaciones');
-        $query=$this->Localizaciones->find('all')
-                                        ->where(['materiale_id' => $id]);
-        $localizaciones=$this->paginate($query,['scope'=>'mis_Localizaciones']);
-        $this->set(compact('localizaciones'));
-
-        $this->loadModel('EntradasDeMateriales');
-        $query=$this->EntradasDeMateriales->find('all')
-                                        ->where(['materiale_id' => $id]);
-        $entradasDeMateriales=$this->paginate($query,['scope'=>'mis_EntradasDeMateriales']);
-        $this->set(compact('entradasDeMateriales'));
 
         $this->loadModel('MaterialesEntrada');
         $query=$this->MaterialesEntrada->find('all')

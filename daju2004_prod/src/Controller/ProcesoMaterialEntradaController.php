@@ -42,22 +42,6 @@ class ProcesoMaterialEntradaController extends AppController
         $procesoMaterialEntrada = $this->ProcesoMaterialEntrada->get($id, [
             'contain' => ['Proceso', 'Material']
         ]);
-        $this->paginate =[
-            'Proceso' => ['scope' => 'mis_Proceso']
-            ,'Material' => ['scope' => 'mis_Material']
-        ];
-
-        $this->loadModel('Proceso');
-        $query=$this->Proceso->find('all')
-                                        ->where(['procesoMaterialEntrada_id' => $id]);
-        $proceso=$this->paginate($query,['scope'=>'mis_Proceso']);
-        $this->set(compact('proceso'));
-
-        $this->loadModel('Material');
-        $query=$this->Material->find('all')
-                                        ->where(['procesoMaterialEntrada_id' => $id]);
-        $material=$this->paginate($query,['scope'=>'mis_Material']);
-        $this->set(compact('material'));
 
                                          
         $this->set('procesoMaterialEntrada', $procesoMaterialEntrada);

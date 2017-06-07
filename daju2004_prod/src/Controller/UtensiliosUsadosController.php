@@ -42,22 +42,6 @@ class UtensiliosUsadosController extends AppController
         $utensiliosUsado = $this->UtensiliosUsados->get($id, [
             'contain' => ['EstadosDeOrdens', 'Utensilios']
         ]);
-        $this->paginate =[
-            'EstadosDeOrdens' => ['scope' => 'mis_EstadosDeOrdens']
-            ,'Utensilios' => ['scope' => 'mis_Utensilios']
-        ];
-
-        $this->loadModel('EstadosDeOrdens');
-        $query=$this->EstadosDeOrdens->find('all')
-                                        ->where(['utensiliosUsado_id' => $id]);
-        $estadosDeOrdens=$this->paginate($query,['scope'=>'mis_EstadosDeOrdens']);
-        $this->set(compact('estadosDeOrdens'));
-
-        $this->loadModel('Utensilios');
-        $query=$this->Utensilios->find('all')
-                                        ->where(['utensiliosUsado_id' => $id]);
-        $utensilios=$this->paginate($query,['scope'=>'mis_Utensilios']);
-        $this->set(compact('utensilios'));
 
                                          
         $this->set('utensiliosUsado', $utensiliosUsado);

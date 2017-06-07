@@ -41,7 +41,9 @@
     <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'utensiliosUsados')"><?= __("Utensilios Usados") ?></button>
 
 <div style="display:none" id="maquinasUsadas" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Maquinas Usadas') ?></h4>
+    <h4><?= __('Related Maquinas Usadas') ?>
+        <button onClick="location.href='/maquinas-usadas/add/<?= $estadosDeOrden->id ?>/estadosDeOrden_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($maquinasUsadas)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
@@ -80,7 +82,9 @@
     <?php endif; ?>
 </div>
 <div style="display:none" id="usuariosEnEstadosOrden" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Usuarios En Estados Orden') ?></h4>
+    <h4><?= __('Related Usuarios En Estados Orden') ?>
+        <button onClick="location.href='/usuarios-en-estados-orden/add/<?= $estadosDeOrden->id ?>/estadosDeOrden_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($usuariosEnEstadosOrden)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
@@ -117,7 +121,9 @@
     <?php endif; ?>
 </div>
 <div style="display:none" id="utensiliosUsados" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Utensilios Usados') ?></h4>
+    <h4><?= __('Related Utensilios Usados') ?>
+        <button onClick="location.href='/utensilios-usados/add/<?= $estadosDeOrden->id ?>/estadosDeOrden_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
         <?php if (!empty($utensiliosUsados)): ?>
 	<div class="w3-responsive">
 		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">

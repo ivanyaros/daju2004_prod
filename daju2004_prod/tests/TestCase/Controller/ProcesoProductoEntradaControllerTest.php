@@ -41,7 +41,6 @@ class ProcesoProductoEntradaControllerTest extends IntegrationTestCase
         'app.pedidos_empresas',
         'app.pedidos_productos_detalle',
         'app.prioridades',
-        'app.envios_objetos',
         'app.proveedores_material',
         'app.materiales',
         'app.localizaciones',
