@@ -18,6 +18,7 @@ class CentrosController extends AppController
      *
      * @return \Cake\Http\Response|null
      */
+    
     public function index()
     {
         $centros = $this->paginate($this->Centros);
@@ -36,49 +37,23 @@ class CentrosController extends AppController
      */
     public function view($id = null)
     {
+
         $centro = $this->Centros->get($id, [
             'contain' => ['EntradasDeMateriales', 'Envios', 'Localizaciones', 'Ordens', 'Proceso']
         ]);
-        $this->paginate =[
-            'EntradasDeMateriales' => ['scope' => 'mis_EntradasDeMateriales']
-            ,'Envios' => ['scope' => 'mis_Envios']
-            ,'Localizaciones' => ['scope' => 'mis_Localizaciones']
-            ,'Ordens' => ['scope' => 'mis_Ordens']
-            ,'Proceso' => ['scope' => 'mis_Proceso']
-        ];
-
-        $this->loadModel('EntradasDeMateriales');
-        $query=$this->EntradasDeMateriales->find('all')
-                                        ->where(['centro_id' => $id]);
-        $entradasDeMateriales=$this->paginate($query,['scope'=>'mis_EntradasDeMateriales']);
-        $this->set(compact('entradasDeMateriales'));
-
-        $this->loadModel('Envios');
-        $query=$this->Envios->find('all')
-                                        ->where(['centro_id' => $id]);
-        $envios=$this->paginate($query,['scope'=>'mis_Envios']);
-        $this->set(compact('envios'));
-
+        $this->paginate = [
+            'Localizaciones' => ['scope'=> 'mis_localizaciones'],
+            'Proceso'=>['scope' =>'mis_proceso']];
         $this->loadModel('Localizaciones');
         $query=$this->Localizaciones->find('all')
-                                        ->where(['centro_id' => $id]);
-        $localizaciones=$this->paginate($query,['scope'=>'mis_Localizaciones']);
-        $this->set(compact('localizaciones'));
-
-        $this->loadModel('Ordens');
-        $query=$this->Ordens->find('all')
-                                        ->where(['centro_id' => $id]);
-        $ordens=$this->paginate($query,['scope'=>'mis_Ordens']);
-        $this->set(compact('ordens'));
-
+                                    ->where(['centro_id'=>$id]);
+        $localizaciones=$this->paginate($query,['scope'=>'mis_localizaciones']);
         $this->loadModel('Proceso');
         $query=$this->Proceso->find('all')
-                                        ->where(['centro_id' => $id]);
-        $proceso=$this->paginate($query,['scope'=>'mis_Proceso']);
-        $this->set(compact('proceso'));
-
-                                         
+                                    ->where(['centro_id'=>$id]);
+        $proceso=$this->paginate($query,['scope'=>'mis_proceso']);
         $this->set('centro', $centro);
+        $this->set(compact('localizaciones','proceso'));
         $this->set('_serialize', ['centro']);
     }
 
@@ -127,6 +102,7 @@ class CentrosController extends AppController
             }
             $this->Flash->error(__('The centro could not be saved. Please, try again.'));
         }
+
         $this->set(compact('centro'));
         $this->set('_serialize', ['centro']);
     }

@@ -42,195 +42,225 @@
 
 <div style="display:none" id="entradasDeMateriales" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related Entradas De Materiales') ?></h4>
-        <?php if (!empty($centro->entradas_de_materiales)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Proveedores Cliente Id') ?></th>
-                <th scope="col"><?= __('Referencia') ?></th>
-                <th scope="col"><?= __('Observaciones') ?></th>
-                <th scope="col"><?= __('Albaran') ?></th>
-                <th scope="col"><?= __('Fecha Envio') ?></th>
-                <th scope="col"><?= __('Centro Id') ?></th>
-                <th scope="col"><?= __('Fecha Recepcion') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($centro->entradas_de_materiales as $entradasDeMateriales): ?>
-            <tr>
-                <td><?= h($entradasDeMateriales->id) ?></td>
-                <td><?= h($entradasDeMateriales->proveedores_cliente_id) ?></td>
-                <td><?= h($entradasDeMateriales->referencia) ?></td>
-                <td><?= h($entradasDeMateriales->observaciones) ?></td>
-                <td><?= h($entradasDeMateriales->albaran) ?></td>
-                <td><?= h($entradasDeMateriales->fecha_envio) ?></td>
-                <td><?= h($entradasDeMateriales->centro_id) ?></td>
-                <td><?= h($entradasDeMateriales->fecha_recepcion) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'EntradasDeMateriales', 'action' => 'view', $entradasDeMateriales->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'EntradasDeMateriales', 'action' => 'edit', $entradasDeMateriales->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'EntradasDeMateriales', 'action' => 'delete', $entradasDeMateriales->id], ['confirm' => __('Are you sure you want to delete # {0}?', $entradasDeMateriales->id)]) ?>
-                </td>
-            </tr>
+        <?php if (!empty($entradasDeMateriales)): ?>
+	<div class="w3-responsive">
+		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
+        	<thead class="w3-border w3-black">  
+                <th scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'EntradasDeMateriales']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('proveedores_cliente_id','proveedores_cliente_id', ['model'=>'EntradasDeMateriales']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('referencia','referencia', ['model'=>'EntradasDeMateriales']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'EntradasDeMateriales']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('albaran','albaran', ['model'=>'EntradasDeMateriales']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('fecha_envio','fecha_envio', ['model'=>'EntradasDeMateriales']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('fecha_recepcion','fecha_recepcion', ['model'=>'EntradasDeMateriales']) ?></th>
+			</thead>
+			<tbody>
+<?php foreach ($entradasDeMateriales as $entradasDeMateriale): ?>
+				<?php $my_url= $this->Url->build(['controller' => 'entradasDeMateriales', 'action' => 'view',$entradasDeMateriale->id]) ?>
+            	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
+                	<td><?= h($entradasDeMateriale->id) ?></td>
+                	<td><?= h($entradasDeMateriale->proveedores_cliente_id) ?></td>
+                	<td><?= h($entradasDeMateriale->referencia) ?></td>
+                	<td><?= h($entradasDeMateriale->observaciones) ?></td>
+                	<td><?= h($entradasDeMateriale->albaran) ?></td>
+                	<td><?= h($entradasDeMateriale->fecha_envio) ?></td>
+                	<td><?= h($entradasDeMateriale->fecha_recepcion) ?></td>
+            	</tr>
             <?php endforeach; ?>
         </table>
+    </div>
+    <div class="paginator">
+        <ul class="pagination">
+            <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'EntradasDeMateriales']) ?>
+            <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'EntradasDeMateriales']) ?>
+            <?= $this->Paginator->numbers(['model'=>'EntradasDeMateriales']) ?>
+            <?= $this->Paginator->next(__('next') . ' >', ['model'=>'EntradasDeMateriales']) ?>
+            <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'EntradasDeMateriales']) ?>
+        </ul>
+        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')], ['model'=>'EntradasDeMateriales']) ?></p>
+    </div>
     <?php endif; ?>
 </div>
 <div style="display:none" id="envios" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related Envios') ?></h4>
-        <?php if (!empty($centro->envios)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Proveedores Cliente Id') ?></th>
-                <th scope="col"><?= __('Fecha Pedido') ?></th>
-                <th scope="col"><?= __('Fecha Envio') ?></th>
-                <th scope="col"><?= __('Albaran') ?></th>
-                <th scope="col"><?= __('Pedidos Empresa Id') ?></th>
-                <th scope="col"><?= __('Centro Id') ?></th>
-                <th scope="col"><?= __('Fecha Entrega') ?></th>
-                <th scope="col"><?= __('Observaciones') ?></th>
-                <th scope="col"><?= __('Direccione Id') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($centro->envios as $envios): ?>
-            <tr>
-                <td><?= h($envios->id) ?></td>
-                <td><?= h($envios->proveedores_cliente_id) ?></td>
-                <td><?= h($envios->fecha_pedido) ?></td>
-                <td><?= h($envios->fecha_envio) ?></td>
-                <td><?= h($envios->albaran) ?></td>
-                <td><?= h($envios->pedidos_empresa_id) ?></td>
-                <td><?= h($envios->centro_id) ?></td>
-                <td><?= h($envios->fecha_entrega) ?></td>
-                <td><?= h($envios->observaciones) ?></td>
-                <td><?= h($envios->direccione_id) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Envios', 'action' => 'view', $envios->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Envios', 'action' => 'edit', $envios->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Envios', 'action' => 'delete', $envios->id], ['confirm' => __('Are you sure you want to delete # {0}?', $envios->id)]) ?>
-                </td>
-            </tr>
+        <?php if (!empty($envios)): ?>
+	<div class="w3-responsive">
+		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
+        	<thead class="w3-border w3-black">  
+                <th scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'Envios']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('proveedores_cliente_id','proveedores_cliente_id', ['model'=>'Envios']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('fecha_pedido','fecha_pedido', ['model'=>'Envios']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('fecha_envio','fecha_envio', ['model'=>'Envios']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('albaran','albaran', ['model'=>'Envios']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('pedidos_empresa_id','pedidos_empresa_id', ['model'=>'Envios']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('fecha_entrega','fecha_entrega', ['model'=>'Envios']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'Envios']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('direccione_id','direccione_id', ['model'=>'Envios']) ?></th>
+			</thead>
+			<tbody>
+<?php foreach ($envios as $envio): ?>
+				<?php $my_url= $this->Url->build(['controller' => 'envios', 'action' => 'view',$envio->id]) ?>
+            	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
+                	<td><?= h($envio->id) ?></td>
+                	<td><?= h($envio->proveedores_cliente_id) ?></td>
+                	<td><?= h($envio->fecha_pedido) ?></td>
+                	<td><?= h($envio->fecha_envio) ?></td>
+                	<td><?= h($envio->albaran) ?></td>
+                	<td><?= h($envio->pedidos_empresa_id) ?></td>
+                	<td><?= h($envio->fecha_entrega) ?></td>
+                	<td><?= h($envio->observaciones) ?></td>
+                	<td><?= h($envio->direccione_id) ?></td>
+            	</tr>
             <?php endforeach; ?>
         </table>
+    </div>
+    <div class="paginator">
+        <ul class="pagination">
+            <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'Envios']) ?>
+            <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'Envios']) ?>
+            <?= $this->Paginator->numbers(['model'=>'Envios']) ?>
+            <?= $this->Paginator->next(__('next') . ' >', ['model'=>'Envios']) ?>
+            <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'Envios']) ?>
+        </ul>
+        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')], ['model'=>'Envios']) ?></p>
+    </div>
     <?php endif; ?>
 </div>
 <div style="display:none" id="localizaciones" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related Localizaciones') ?></h4>
-        <?php if (!empty($centro->localizaciones)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Name') ?></th>
-                <th scope="col"><?= __('Centro Id') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($centro->localizaciones as $localizaciones): ?>
-            <tr>
-                <td><?= h($localizaciones->id) ?></td>
-                <td><?= h($localizaciones->name) ?></td>
-                <td><?= h($localizaciones->centro_id) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Localizaciones', 'action' => 'view', $localizaciones->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Localizaciones', 'action' => 'edit', $localizaciones->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Localizaciones', 'action' => 'delete', $localizaciones->id], ['confirm' => __('Are you sure you want to delete # {0}?', $localizaciones->id)]) ?>
-                </td>
-            </tr>
+        <?php if (!empty($localizaciones)): ?>
+	<div class="w3-responsive">
+		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
+        	<thead class="w3-border w3-black">  
+                <th scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'Localizaciones']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('name','name', ['model'=>'Localizaciones']) ?></th>
+			</thead>
+			<tbody>
+<?php foreach ($localizaciones as $localizacione): ?>
+				<?php $my_url= $this->Url->build(['controller' => 'localizaciones', 'action' => 'view',$localizacione->id]) ?>
+            	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
+                	<td><?= h($localizacione->id) ?></td>
+                	<td><?= h($localizacione->name) ?></td>
+            	</tr>
             <?php endforeach; ?>
         </table>
+    </div>
+    <div class="paginator">
+        <ul class="pagination">
+            <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'Localizaciones']) ?>
+            <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'Localizaciones']) ?>
+            <?= $this->Paginator->numbers(['model'=>'Localizaciones']) ?>
+            <?= $this->Paginator->next(__('next') . ' >', ['model'=>'Localizaciones']) ?>
+            <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'Localizaciones']) ?>
+        </ul>
+        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')], ['model'=>'Localizaciones']) ?></p>
+    </div>
     <?php endif; ?>
 </div>
 <div style="display:none" id="ordens" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related Ordens') ?></h4>
-        <?php if (!empty($centro->ordens)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Name') ?></th>
-                <th scope="col"><?= __('Referencia') ?></th>
-                <th scope="col"><?= __('Cantidad') ?></th>
-                <th scope="col"><?= __('Fecha Creacion') ?></th>
-                <th scope="col"><?= __('Fecha Terminacion') ?></th>
-                <th scope="col"><?= __('Estado Id') ?></th>
-                <th scope="col"><?= __('Centro Id') ?></th>
-                <th scope="col"><?= __('Proceso Id') ?></th>
-                <th scope="col"><?= __('Scrap') ?></th>
-                <th scope="col"><?= __('Coste Operario') ?></th>
-                <th scope="col"><?= __('Observaciones') ?></th>
-                <th scope="col"><?= __('Prioridade Id') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($centro->ordens as $ordens): ?>
-            <tr>
-                <td><?= h($ordens->id) ?></td>
-                <td><?= h($ordens->name) ?></td>
-                <td><?= h($ordens->referencia) ?></td>
-                <td><?= h($ordens->cantidad) ?></td>
-                <td><?= h($ordens->fecha_creacion) ?></td>
-                <td><?= h($ordens->fecha_terminacion) ?></td>
-                <td><?= h($ordens->estado_id) ?></td>
-                <td><?= h($ordens->centro_id) ?></td>
-                <td><?= h($ordens->proceso_id) ?></td>
-                <td><?= h($ordens->scrap) ?></td>
-                <td><?= h($ordens->coste_operario) ?></td>
-                <td><?= h($ordens->observaciones) ?></td>
-                <td><?= h($ordens->prioridade_id) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Ordens', 'action' => 'view', $ordens->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Ordens', 'action' => 'edit', $ordens->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Ordens', 'action' => 'delete', $ordens->id], ['confirm' => __('Are you sure you want to delete # {0}?', $ordens->id)]) ?>
-                </td>
-            </tr>
+        <?php if (!empty($ordens)): ?>
+	<div class="w3-responsive">
+		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
+        	<thead class="w3-border w3-black">  
+                <th scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'Ordens']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('name','name', ['model'=>'Ordens']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('referencia','referencia', ['model'=>'Ordens']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('cantidad','cantidad', ['model'=>'Ordens']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('fecha_creacion','fecha_creacion', ['model'=>'Ordens']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('fecha_terminacion','fecha_terminacion', ['model'=>'Ordens']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('estado_id','estado_id', ['model'=>'Ordens']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('proceso_id','proceso_id', ['model'=>'Ordens']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('scrap','scrap', ['model'=>'Ordens']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('coste_operario','coste_operario', ['model'=>'Ordens']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'Ordens']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('prioridade_id','prioridade_id', ['model'=>'Ordens']) ?></th>
+			</thead>
+			<tbody>
+<?php foreach ($ordens as $orden): ?>
+				<?php $my_url= $this->Url->build(['controller' => 'ordens', 'action' => 'view',$orden->id]) ?>
+            	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
+                	<td><?= h($orden->id) ?></td>
+                	<td><?= h($orden->name) ?></td>
+                	<td><?= h($orden->referencia) ?></td>
+                	<td><?= h($orden->cantidad) ?></td>
+                	<td><?= h($orden->fecha_creacion) ?></td>
+                	<td><?= h($orden->fecha_terminacion) ?></td>
+                	<td><?= h($orden->estado_id) ?></td>
+                	<td><?= h($orden->proceso_id) ?></td>
+                	<td><?= h($orden->scrap) ?></td>
+                	<td><?= h($orden->coste_operario) ?></td>
+                	<td><?= h($orden->observaciones) ?></td>
+                	<td><?= h($orden->prioridade_id) ?></td>
+            	</tr>
             <?php endforeach; ?>
         </table>
+    </div>
+    <div class="paginator">
+        <ul class="pagination">
+            <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'Ordens']) ?>
+            <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'Ordens']) ?>
+            <?= $this->Paginator->numbers(['model'=>'Ordens']) ?>
+            <?= $this->Paginator->next(__('next') . ' >', ['model'=>'Ordens']) ?>
+            <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'Ordens']) ?>
+        </ul>
+        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')], ['model'=>'Ordens']) ?></p>
+    </div>
     <?php endif; ?>
 </div>
 <div style="display:none" id="proceso" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related Proceso') ?></h4>
-        <?php if (!empty($centro->proceso)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Name') ?></th>
-                <th scope="col"><?= __('Referencia') ?></th>
-                <th scope="col"><?= __('Familia Id') ?></th>
-                <th scope="col"><?= __('Precio') ?></th>
-                <th scope="col"><?= __('Moneda Id') ?></th>
-                <th scope="col"><?= __('Iva Id') ?></th>
-                <th scope="col"><?= __('Observaciones') ?></th>
-                <th scope="col"><?= __('Visible') ?></th>
-                <th scope="col"><?= __('Enlaces') ?></th>
-                <th scope="col"><?= __('Centro Id') ?></th>
-                <th scope="col"><?= __('Coste Tiempo') ?></th>
-                <th scope="col"><?= __('Coste Operaciones') ?></th>
-                <th scope="col"><?= __('Descripcion') ?></th>
-                <th scope="col"><?= __('Larga') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($centro->proceso as $proceso): ?>
-            <tr>
-                <td><?= h($proceso->id) ?></td>
-                <td><?= h($proceso->name) ?></td>
-                <td><?= h($proceso->referencia) ?></td>
-                <td><?= h($proceso->familia_id) ?></td>
-                <td><?= h($proceso->precio) ?></td>
-                <td><?= h($proceso->moneda_id) ?></td>
-                <td><?= h($proceso->iva_id) ?></td>
-                <td><?= h($proceso->observaciones) ?></td>
-                <td><?= h($proceso->visible) ?></td>
-                <td><?= h($proceso->enlaces) ?></td>
-                <td><?= h($proceso->centro_id) ?></td>
-                <td><?= h($proceso->coste_tiempo) ?></td>
-                <td><?= h($proceso->coste_operaciones) ?></td>
-                <td><?= h($proceso->descripcion) ?></td>
-                <td><?= h($proceso->larga) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Proceso', 'action' => 'view', $proceso->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Proceso', 'action' => 'edit', $proceso->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Proceso', 'action' => 'delete', $proceso->id], ['confirm' => __('Are you sure you want to delete # {0}?', $proceso->id)]) ?>
-                </td>
-            </tr>
+        <?php if (!empty($proceso)): ?>
+	<div class="w3-responsive">
+		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
+        	<thead class="w3-border w3-black">  
+                <th scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'Proceso']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('name','name', ['model'=>'Proceso']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('referencia','referencia', ['model'=>'Proceso']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('familia_id','familia_id', ['model'=>'Proceso']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('precio','precio', ['model'=>'Proceso']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('moneda_id','moneda_id', ['model'=>'Proceso']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('iva_id','iva_id', ['model'=>'Proceso']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'Proceso']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('visible','visible', ['model'=>'Proceso']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('enlaces','enlaces', ['model'=>'Proceso']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('coste_tiempo','coste_tiempo', ['model'=>'Proceso']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('coste_operaciones','coste_operaciones', ['model'=>'Proceso']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('descripcion','descripcion', ['model'=>'Proceso']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('larga','larga', ['model'=>'Proceso']) ?></th>
+			</thead>
+			<tbody>
+<?php foreach ($proceso as $proceso): ?>
+				<?php $my_url= $this->Url->build(['controller' => 'proceso', 'action' => 'view',$proceso->id]) ?>
+            	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
+                	<td><?= h($proceso->id) ?></td>
+                	<td><?= h($proceso->name) ?></td>
+                	<td><?= h($proceso->referencia) ?></td>
+                	<td><?= h($proceso->familia_id) ?></td>
+                	<td><?= h($proceso->precio) ?></td>
+                	<td><?= h($proceso->moneda_id) ?></td>
+                	<td><?= h($proceso->iva_id) ?></td>
+                	<td><?= h($proceso->observaciones) ?></td>
+                	<td><?= h($proceso->visible) ?></td>
+                	<td><?= h($proceso->enlaces) ?></td>
+                	<td><?= h($proceso->coste_tiempo) ?></td>
+                	<td><?= h($proceso->coste_operaciones) ?></td>
+                	<td><?= h($proceso->descripcion) ?></td>
+                	<td><?= h($proceso->larga) ?></td>
+            	</tr>
             <?php endforeach; ?>
         </table>
+    </div>
+    <div class="paginator">
+        <ul class="pagination">
+            <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'Proceso']) ?>
+            <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'Proceso']) ?>
+            <?= $this->Paginator->numbers(['model'=>'Proceso']) ?>
+            <?= $this->Paginator->next(__('next') . ' >', ['model'=>'Proceso']) ?>
+            <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'Proceso']) ?>
+        </ul>
+        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')], ['model'=>'Proceso']) ?></p>
+    </div>
     <?php endif; ?>
 </div>
 </div>

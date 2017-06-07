@@ -136,46 +136,33 @@ $relations = $associations['HasMany'] + $associations['BelongsToMany'];
 <%
 foreach ($relations as $alias => $details):
 
-    $otherSingularVar = Inflector::singularize(Inflector::variable($alias));
-    $otherPluralVar= Inflector::variable($alias);
+    $otherSingularVar = Inflector::variable($alias);
     $otherPluralHumanName = Inflector::humanize(Inflector::underscore($details['controller']));
     %>
-<div style="display:none" id="<%= $otherPluralVar %>" class="related w3-container w3-theme-d3 w3-border">
+<div style="display:none" id="<%= $otherSingularVar %>" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related <%= $otherPluralHumanName %>') ?></h4>
-        <?php if (!empty($<%= $otherPluralVar %>)): ?>
-	<div class="w3-responsive">
-		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
-        	<thead class="w3-border w3-black">  
-<% foreach ($details['fields'] as $field): 
-	if($field!=''.$singularVar.'_id'):
-%>
-                <th scope="col"><?= $this->Paginator->sort('<%= $field %>','<%= $field %>', ['model'=>'<%= $alias %>']) ?></th>
-<% endif; 
-endforeach; %>
-			</thead>
-			<tbody>
-<?php foreach ($<%= $otherPluralVar %> as $<%= $otherSingularVar %>): ?>
-				<?php $my_url= $this->Url->build(['controller' => '<%= $otherPluralVar %>', 'action' => 'view',$<%= $otherSingularVar %>->id]) ?>
-            	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
-            <%- foreach ($details['fields'] as $field): 
-            		if($field!=''.$singularVar.'_id'): %>
-                	<td><?= h($<%= $otherSingularVar %>-><%= $field %>) ?></td>
-            <%- endif;
-            	endforeach; %>
-            	</tr>
+        <?php if (!empty($<%= $singularVar %>-><%= $details['property'] %>)): ?>
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+<% foreach ($details['fields'] as $field): %>
+                <th scope="col"><?= __('<%= Inflector::humanize($field) %>') ?></th>
+<% endforeach; %>
+                <th scope="col" class="actions"><?= __('Actions') ?></th>
+            </tr>
+            <?php foreach ($<%= $singularVar %>-><%= $details['property'] %> as $<%= $otherSingularVar %>): ?>
+            <tr>
+            <%- foreach ($details['fields'] as $field): %>
+                <td><?= h($<%= $otherSingularVar %>-><%= $field %>) ?></td>
+            <%- endforeach; %>
+            <%- $otherPk = "\${$otherSingularVar}->{$details['primaryKey'][0]}"; %>
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['controller' => '<%= $details['controller'] %>', 'action' => 'view', <%= $otherPk %>]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => '<%= $details['controller'] %>', 'action' => 'edit', <%= $otherPk %>]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => '<%= $details['controller'] %>', 'action' => 'delete', <%= $otherPk %>], ['confirm' => __('Are you sure you want to delete # {0}?', <%= $otherPk %>)]) ?>
+                </td>
+            </tr>
             <?php endforeach; ?>
         </table>
-    </div>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'<%= $alias %>']) ?>
-            <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'<%= $alias %>']) ?>
-            <?= $this->Paginator->numbers(['model'=>'<%= $alias %>']) ?>
-            <?= $this->Paginator->next(__('next') . ' >', ['model'=>'<%= $alias %>']) ?>
-            <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'<%= $alias %>']) ?>
-        </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')], ['model'=>'<%= $alias %>']) ?></p>
-    </div>
     <?php endif; ?>
 </div>
 <% endforeach; %>
