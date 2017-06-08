@@ -43,6 +43,7 @@ class PedidosProductosDetalleControllerTest extends IntegrationTestCase
         'app.prioridades',
         'app.localizaciones',
         'app.materiales_entrada',
+        'app.objetos_entrada',
         'app.proceso_producto_entrada',
         'app.proceso_producto_salida',
         'app.proceso_material_entrada',

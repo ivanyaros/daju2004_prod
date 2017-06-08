@@ -51,6 +51,7 @@ class ProductoTableTest extends TestCase
         'app.localizaciones',
         'app.materiales',
         'app.materiales_entrada',
+        'app.objetos_entrada',
         'app.proveedores_material',
         'app.proceso_material_entrada',
         'app.proceso_producto_entrada',

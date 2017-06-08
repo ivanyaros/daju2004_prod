@@ -14,6 +14,7 @@ use Cake\Validation\Validator;
  * @property \Cake\ORM\Association\BelongsTo $Localizaciones
  * @property \Cake\ORM\Association\BelongsTo $Envios
  * @property \Cake\ORM\Association\HasMany $MaterialesEntrada
+ * @property \Cake\ORM\Association\HasMany $ObjetosEntrada
  *
  * @method \App\Model\Entity\Objeto get($primaryKey, $options = [])
  * @method \App\Model\Entity\Objeto newEntity($data = null, array $options = [])
@@ -56,6 +57,9 @@ class ObjetosTable extends Table
             'foreignKey' => 'envio_id'
         ]);
         $this->hasMany('MaterialesEntrada', [
+            'foreignKey' => 'objeto_id'
+        ]);
+        $this->hasMany('ObjetosEntrada', [
             'foreignKey' => 'objeto_id'
         ]);
     }

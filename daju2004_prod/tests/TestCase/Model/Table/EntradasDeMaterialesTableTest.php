@@ -51,6 +51,7 @@ class EntradasDeMaterialesTableTest extends TestCase
         'app.utensilios_usados',
         'app.utensilios',
         'app.prioridades',
+        'app.objetos_entrada',
         'app.proceso_material_entrada',
         'app.proceso_producto_entrada',
         'app.proceso_producto_salida',

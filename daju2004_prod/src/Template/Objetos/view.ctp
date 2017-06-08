@@ -64,6 +64,8 @@
 
     <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'materialesEntrada')"><?= __("Materiales Entrada") ?></button>
 
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'objetosEntrada')"><?= __("Objetos Entrada") ?></button>
+
 <div style="display:none" id="materialesEntrada" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related Materiales Entrada') ?>
         <button onClick="location.href='/materiales-entrada/add/<?= $objeto->id ?>/objeto_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
@@ -104,6 +106,45 @@
             <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'MaterialesEntrada']) ?>
         </ul>
         <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')], ['model'=>'MaterialesEntrada']) ?></p>
+    </div>
+    <?php endif; ?>
+</div>
+<div style="display:none" id="objetosEntrada" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Objetos Entrada') ?>
+        <button onClick="location.href='/objetos-entrada/add/<?= $objeto->id ?>/objeto_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+    </h4>
+        <?php if (!empty($objetosEntrada)): ?>
+	<div class="w3-responsive">
+		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
+        	<thead class="w3-border w3-black">  
+                <th scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'ObjetosEntrada']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('entrada_id','entrada_id', ['model'=>'ObjetosEntrada']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('cantidad_entrada','cantidad_entrada', ['model'=>'ObjetosEntrada']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('cantidad_producida','cantidad_producida', ['model'=>'ObjetosEntrada']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'ObjetosEntrada']) ?></th>
+			</thead>
+			<tbody>
+<?php foreach ($objetosEntrada as $objetosEntrada): ?>
+				<?php $my_url= $this->Url->build(['controller' => 'objetosEntrada', 'action' => 'view',$objetosEntrada->id]) ?>
+            	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
+                	<td><?= h($objetosEntrada->id) ?></td>
+                	<td><?= h($objetosEntrada->entrada_id) ?></td>
+                	<td><?= h($objetosEntrada->cantidad_entrada) ?></td>
+                	<td><?= h($objetosEntrada->cantidad_producida) ?></td>
+                	<td><?= h($objetosEntrada->observaciones) ?></td>
+            	</tr>
+            <?php endforeach; ?>
+        </table>
+    </div>
+    <div class="paginator">
+        <ul class="pagination">
+            <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'ObjetosEntrada']) ?>
+            <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'ObjetosEntrada']) ?>
+            <?= $this->Paginator->numbers(['model'=>'ObjetosEntrada']) ?>
+            <?= $this->Paginator->next(__('next') . ' >', ['model'=>'ObjetosEntrada']) ?>
+            <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'ObjetosEntrada']) ?>
+        </ul>
+        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')], ['model'=>'ObjetosEntrada']) ?></p>
     </div>
     <?php endif; ?>
 </div>

@@ -25,6 +25,7 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Localizacione $localizacione
  * @property \App\Model\Entity\Envio $envio
  * @property \App\Model\Entity\MaterialesEntrada[] $materiales_entrada
+ * @property \App\Model\Entity\ObjetosEntrada[] $objetos_entrada
  */
 class Objeto extends Entity
 {

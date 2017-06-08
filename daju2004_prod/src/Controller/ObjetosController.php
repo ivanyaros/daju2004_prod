@@ -40,10 +40,11 @@ class ObjetosController extends AppController
     public function view($id = null)
     {
         $objeto = $this->Objetos->get($id, [
-            'contain' => ['Producto', 'Ordens', 'Localizaciones', 'Envios', 'MaterialesEntrada']
+            'contain' => ['Producto', 'Ordens', 'Localizaciones', 'Envios', 'MaterialesEntrada', 'ObjetosEntrada']
         ]);
         $this->paginate =[
             'MaterialesEntrada' => ['scope' => 'mis_MaterialesEntrada']
+            ,'ObjetosEntrada' => ['scope' => 'mis_ObjetosEntrada']
         ];
 
         $this->loadModel('MaterialesEntrada');
@@ -51,6 +52,12 @@ class ObjetosController extends AppController
                                         ->where(['objeto_id' => $id]);
         $materialesEntrada=$this->paginate($query,['scope'=>'mis_MaterialesEntrada']);
         $this->set(compact('materialesEntrada'));
+
+        $this->loadModel('ObjetosEntrada');
+        $query=$this->ObjetosEntrada->find('all')
+                                        ->where(['objeto_id' => $id]);
+        $objetosEntrada=$this->paginate($query,['scope'=>'mis_ObjetosEntrada']);
+        $this->set(compact('objetosEntrada'));
 
                                          
         $this->set('objeto', $objeto);
@@ -95,7 +102,7 @@ class ObjetosController extends AppController
     public function edit($id = null)
     {
         $objeto = $this->Objetos->get($id, [
-            'contain' => ['Producto', 'Ordens', 'Localizaciones', 'Envios', 'MaterialesEntrada']
+            'contain' => ['Producto', 'Ordens', 'Localizaciones', 'Envios', 'MaterialesEntrada', 'ObjetosEntrada']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $objeto = $this->Objetos->patchEntity($objeto, $this->request->getData());

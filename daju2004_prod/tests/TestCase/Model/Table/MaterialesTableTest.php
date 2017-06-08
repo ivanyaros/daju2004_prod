@@ -52,6 +52,7 @@ class MaterialesTableTest extends TestCase
         'app.proveedores_material',
         'app.localizaciones',
         'app.materiales_entrada',
+        'app.objetos_entrada',
         'app.proceso_producto_entrada',
         'app.proceso_producto_salida',
         'app.proceso_material_entrada'

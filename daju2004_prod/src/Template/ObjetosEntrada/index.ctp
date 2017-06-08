@@ -11,7 +11,7 @@
         <thead class="w3-border w3-black">            
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('entrada_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('salida_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('objeto_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('cantidad_entrada') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('cantidad_producida') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('observaciones') ?></th>

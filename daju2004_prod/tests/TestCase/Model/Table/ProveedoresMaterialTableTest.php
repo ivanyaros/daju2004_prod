@@ -52,6 +52,7 @@ class ProveedoresMaterialTableTest extends TestCase
         'app.utensilios',
         'app.prioridades',
         'app.materiales_entrada',
+        'app.objetos_entrada',
         'app.proceso_material_entrada',
         'app.proceso_producto_entrada',
         'app.proceso_producto_salida'

@@ -10,7 +10,7 @@
         <legend><?= __('Add Objetos Entrada') ?></legend>
         <?php
             echo $this->Form->control('entrada_id');
-            echo $this->Form->control('salida_id', ['options' => $objetos, 'empty' => true]);
+            echo $this->Form->control('objeto_id', ['options' => $objetos, 'empty' => true]);
             echo $this->Form->control('cantidad_entrada');
             echo $this->Form->control('cantidad_producida');
             echo $this->Form->control('observaciones');

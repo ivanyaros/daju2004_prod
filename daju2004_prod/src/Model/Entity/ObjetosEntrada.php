@@ -8,7 +8,7 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property int $entrada_id
- * @property int $salida_id
+ * @property int $objeto_id
  * @property int $cantidad_entrada
  * @property int $cantidad_producida
  * @property string $observaciones

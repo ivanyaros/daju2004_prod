@@ -46,7 +46,8 @@ class MaterialesEntradaControllerTest extends IntegrationTestCase
         'app.localizaciones',
         'app.proceso_material_entrada',
         'app.proceso_producto_entrada',
-        'app.proceso_producto_salida'
+        'app.proceso_producto_salida',
+        'app.objetos_entrada'
     ];
 
     /**

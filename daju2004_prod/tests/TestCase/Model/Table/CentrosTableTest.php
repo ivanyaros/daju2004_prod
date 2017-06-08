@@ -51,6 +51,7 @@ class CentrosTableTest extends TestCase
         'app.localizaciones',
         'app.materiales',
         'app.materiales_entrada',
+        'app.objetos_entrada',
         'app.proceso_material_entrada',
         'app.proceso_producto_entrada',
         'app.proceso_producto_salida',

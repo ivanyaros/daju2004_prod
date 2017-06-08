@@ -42,7 +42,7 @@ class ObjetosEntradaTable extends Table
             'foreignKey' => 'entrada_id'
         ]);
         $this->belongsTo('Objetos', [
-            'foreignKey' => 'salida_id'
+            'foreignKey' => 'objeto_id'
         ]);
     }
 
@@ -82,7 +82,7 @@ class ObjetosEntradaTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['entrada_id'], 'Objetos'));
-        $rules->add($rules->existsIn(['salida_id'], 'Objetos'));
+        $rules->add($rules->existsIn(['objeto_id'], 'Objetos'));
 
         return $rules;
     }
