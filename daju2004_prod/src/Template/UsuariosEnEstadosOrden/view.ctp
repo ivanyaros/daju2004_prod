@@ -4,28 +4,31 @@
   */
 ?>
 
-<div class="usuariosEnEstadosOrden view large-9 medium-8 columns content">
-    <h3><?= h($usuariosEnEstadosOrden->label) ?></h3>
-    <table class="vertical-table">
+<div class="w3-container">
+    <h3><?= h($usuariosEnEstadosOrden->label) ?>
+        <?php $my_url_edit=$this->Url->build(['controller' => 'usuariosEnEstadosOrden','action' => 'edit',$usuariosEnEstadosOrden->id])  ?>
+        <button onClick="location.href='<?= $my_url_edit?>'" class="w3-button  w3-circle w3-black"> <?= __("Edit")?></button>
+    </h3>
+    <table class="w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
         <tr>
-            <th scope="row"><?= __('Estados De Orden') ?></th>
-            <td><?= $usuariosEnEstadosOrden->has('estados_de_orden') ? $this->Html->link($usuariosEnEstadosOrden->estados_de_orden->label, ['controller' => 'EstadosDeOrdens', 'action' => 'view', $usuariosEnEstadosOrden->estados_de_orden->id]) : '' ?></td>
+            <td class="w3-border"><?= __('Estados De Orden') ?></td>
+            <td class="w3-border"><?= $usuariosEnEstadosOrden->has('estados_de_orden') ? $this->Html->link($usuariosEnEstadosOrden->estados_de_orden->label, ['controller' => 'EstadosDeOrdens', 'action' => 'view', $usuariosEnEstadosOrden->estados_de_orden->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('User') ?></th>
-            <td><?= $usuariosEnEstadosOrden->has('user') ? $this->Html->link($usuariosEnEstadosOrden->user->label, ['controller' => 'Users', 'action' => 'view', $usuariosEnEstadosOrden->user->id]) : '' ?></td>
+            <td class="w3-border"><?= __('User') ?></td>
+            <td class="w3-border"><?= $usuariosEnEstadosOrden->has('user') ? $this->Html->link($usuariosEnEstadosOrden->user->label, ['controller' => 'Users', 'action' => 'view', $usuariosEnEstadosOrden->user->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Observaciones') ?></th>
-            <td><?= h($usuariosEnEstadosOrden->observaciones) ?></td>
+            <td class="w3-border"><?= __('Observaciones') ?></td>
+            <td class="w3-border"><?= h($usuariosEnEstadosOrden->observaciones) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($usuariosEnEstadosOrden->id) ?></td>
+            <td class="w3-border"><?= __('Id') ?></td>
+            <td class="w3-border"><?= $this->Number->format($usuariosEnEstadosOrden->id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Parte') ?></th>
-            <td><?= $this->Number->format($usuariosEnEstadosOrden->parte) ?></td>
+            <td class="w3-border"><?= __('Parte') ?></td>
+            <td class="w3-border"><?= $this->Number->format($usuariosEnEstadosOrden->parte) ?></td>
         </tr>
     </table>
 <div class="w3-bar w3-black">

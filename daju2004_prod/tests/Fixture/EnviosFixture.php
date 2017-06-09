@@ -35,10 +35,10 @@ class EnviosFixture extends TestFixture
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'fk_salidas_productos_proveedores_clientes1' => ['type' => 'foreign', 'columns' => ['proveedores_cliente_id'], 'references' => ['proveedores_clientes', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
-            'fk_salidas_productos_pedidos_empresa1' => ['type' => 'foreign', 'columns' => ['pedidos_empresa_id'], 'references' => ['pedidos_empresas', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
-            'fk_salidas_productos_centros1' => ['type' => 'foreign', 'columns' => ['centro_id'], 'references' => ['centros', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
             'fk_salidas_objetos_direcciones1' => ['type' => 'foreign', 'columns' => ['direccione_id'], 'references' => ['direcciones', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
+            'fk_salidas_productos_centros1' => ['type' => 'foreign', 'columns' => ['centro_id'], 'references' => ['centros', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
+            'fk_salidas_productos_pedidos_empresa1' => ['type' => 'foreign', 'columns' => ['pedidos_empresa_id'], 'references' => ['pedidos_empresas', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
+            'fk_salidas_productos_proveedores_clientes1' => ['type' => 'foreign', 'columns' => ['proveedores_cliente_id'], 'references' => ['proveedores_clientes', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -56,12 +56,12 @@ class EnviosFixture extends TestFixture
         [
             'id' => 1,
             'proveedores_cliente_id' => 1,
-            'fecha_pedido' => '2017-06-07 13:57:55',
-            'fecha_envio' => '2017-06-07 13:57:55',
+            'fecha_pedido' => '2017-06-09 09:50:48',
+            'fecha_envio' => '2017-06-09 09:50:48',
             'albaran' => 'Lorem ipsum dolor sit amet',
             'pedidos_empresa_id' => 1,
             'centro_id' => 1,
-            'fecha_entrega' => '2017-06-07 13:57:55',
+            'fecha_entrega' => '2017-06-09 09:50:48',
             'observaciones' => 'Lorem ipsum dolor sit amet',
             'direccione_id' => 1
         ],

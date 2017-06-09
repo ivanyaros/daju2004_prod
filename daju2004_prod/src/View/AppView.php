@@ -39,6 +39,7 @@ class AppView extends View
     public function initialize()
     {
         //$this->initializeUI();
+        $this->loadHelper('Paginator', ['templates' => 'my_paginator']);
         $this->loadHelper('NiceAdmin.StatusLights');
         $this->loadHelper('NiceAdmin.Actions');
         $this->loadHelper('NiceAdmin.Gravatar');

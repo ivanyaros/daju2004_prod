@@ -59,22 +59,25 @@ $groupedFields += ['number' => [], 'string' => [], 'boolean' => [], 'date' => []
 $pk = "\$$singularVar->{$primaryKey[0]}";
 %>
 
-<div class="<%= $pluralVar %> view large-9 medium-8 columns content">
-    <h3><?= h($<%= $singularVar %>-><%= $displayField %>) ?></h3>
-    <table class="vertical-table">
+<div class="w3-container">
+    <h3><?= h($<%= $singularVar %>-><%= $displayField %>) ?>
+        <?php $my_url_edit=$this->Url->build(['controller' => '<%= $pluralVar %>','action' => 'edit',$<%= $singularVar%>->id])  ?>
+        <button onClick="location.href='<?= $my_url_edit?>'" class="w3-button  w3-circle w3-black"> <?= __("Edit")?></button>
+    </h3>
+    <table class="w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
 <% if ($groupedFields['string']) : %>
 <% foreach ($groupedFields['string'] as $field) : %>
 <% if (isset($associationFields[$field])) :
             $details = $associationFields[$field];
 %>
         <tr>
-            <th scope="row"><?= __('<%= Inflector::humanize($details['property']) %>') ?></th>
-            <td><?= $<%= $singularVar %>->has('<%= $details['property'] %>') ? $this->Html->link($<%= $singularVar %>-><%= $details['property'] %>-><%= $details['displayField'] %>, ['controller' => '<%= $details['controller'] %>', 'action' => 'view', $<%= $singularVar %>-><%= $details['property'] %>-><%= $details['primaryKey'][0] %>]) : '' ?></td>
+            <td class="w3-border"><?= __('<%= Inflector::humanize($details['property']) %>') ?></td>
+            <td class="w3-border"><?= $<%= $singularVar %>->has('<%= $details['property'] %>') ? $this->Html->link($<%= $singularVar %>-><%= $details['property'] %>-><%= $details['displayField'] %>, ['controller' => '<%= $details['controller'] %>', 'action' => 'view', $<%= $singularVar %>-><%= $details['property'] %>-><%= $details['primaryKey'][0] %>]) : '' ?></td>
         </tr>
 <% else : %>
         <tr>
-            <th scope="row"><?= __('<%= Inflector::humanize($field) %>') ?></th>
-            <td><?= h($<%= $singularVar %>-><%= $field %>) ?></td>
+            <td class="w3-border"><?= __('<%= Inflector::humanize($field) %>') ?></td>
+            <td class="w3-border"><?= h($<%= $singularVar %>-><%= $field %>) ?></td>
         </tr>
 <% endif; %>
 <% endforeach; %>
@@ -82,32 +85,32 @@ $pk = "\$$singularVar->{$primaryKey[0]}";
 <% if ($associations['HasOne']) : %>
     <%- foreach ($associations['HasOne'] as $alias => $details) : %>
         <tr>
-            <th scope="row"><?= __('<%= Inflector::humanize(Inflector::singularize(Inflector::underscore($alias))) %>') ?></th>
-            <td><?= $<%= $singularVar %>->has('<%= $details['property'] %>') ? $this->Html->link($<%= $singularVar %>-><%= $details['property'] %>-><%= $details['displayField'] %>, ['controller' => '<%= $details['controller'] %>', 'action' => 'view', $<%= $singularVar %>-><%= $details['property'] %>-><%= $details['primaryKey'][0] %>]) : '' ?></td>
+            <td class="w3-border" ><?= __('<%= Inflector::humanize(Inflector::singularize(Inflector::underscore($alias))) %>') ?></td>
+            <td class="w3-border"><?= $<%= $singularVar %>->has('<%= $details['property'] %>') ? $this->Html->link($<%= $singularVar %>-><%= $details['property'] %>-><%= $details['displayField'] %>, ['controller' => '<%= $details['controller'] %>', 'action' => 'view', $<%= $singularVar %>-><%= $details['property'] %>-><%= $details['primaryKey'][0] %>]) : '' ?></td>
         </tr>
     <%- endforeach; %>
 <% endif; %>
 <% if ($groupedFields['number']) : %>
 <% foreach ($groupedFields['number'] as $field) : %>
         <tr>
-            <th scope="row"><?= __('<%= Inflector::humanize($field) %>') ?></th>
-            <td><?= $this->Number->format($<%= $singularVar %>-><%= $field %>) ?></td>
+            <td class="w3-border"><?= __('<%= Inflector::humanize($field) %>') ?></td>
+            <td class="w3-border"><?= $this->Number->format($<%= $singularVar %>-><%= $field %>) ?></td>
         </tr>
 <% endforeach; %>
 <% endif; %>
 <% if ($groupedFields['date']) : %>
 <% foreach ($groupedFields['date'] as $field) : %>
         <tr>
-            <th scope="row"><%= "<%= __('" . Inflector::humanize($field) . "') %>" %></th>
-            <td><?= h($<%= $singularVar %>-><%= $field %>) ?></td>
+            <td class="w3-border"><%= "<%= __('" . Inflector::humanize($field) . "') %>" %></td>
+            <td class="w3-border"><?= h($<%= $singularVar %>-><%= $field %>) ?></td>
         </tr>
 <% endforeach; %>
 <% endif; %>
 <% if ($groupedFields['boolean']) : %>
 <% foreach ($groupedFields['boolean'] as $field) : %>
         <tr>
-            <th scope="row"><?= __('<%= Inflector::humanize($field) %>') ?></th>
-            <td><?= $<%= $singularVar %>-><%= $field %> ? __('Yes') : __('No'); ?></td>
+            <td class="w3-border"><?= __('<%= Inflector::humanize($field) %>') ?></td>
+            <td class="w3-border"><?= $<%= $singularVar %>-><%= $field %> ? __('Yes') : __('No'); ?></td>
         </tr>
 <% endforeach; %>
 <% endif; %>
@@ -115,7 +118,7 @@ $pk = "\$$singularVar->{$primaryKey[0]}";
 <% if ($groupedFields['text']) : %>
 <% foreach ($groupedFields['text'] as $field) : %>
     <div class="row">
-        <h4><?= __('<%= Inflector::humanize($field) %>') ?></h4>
+        <h4 class="w3-border"><?= __('<%= Inflector::humanize($field) %>') ?></h4>
         <?= $this->Text->autoParagraph(h($<%= $singularVar %>-><%= $field %>)); ?>
     </div>
 <% endforeach; %>
@@ -142,16 +145,27 @@ foreach ($relations as $alias => $details):
     %>
 <div style="display:none" id="<%= $otherPluralVar %>" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related <%= $otherPluralHumanName %>') ?>
-        <button onClick="location.href='/<%= Inflector::dasherize($otherPluralVar)%>/add/<?= $<%= $singularVar %>->id ?>/<%= Inflector::singularize(Inflector::tableize($singularVar)) %>_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+        <?php $my_url_add=$this->Url->build(['controller' => '<%= Inflector::dasherize($otherPluralVar) %>', 'action' => 'add',$<%= $singularVar %>->id,'<%= Inflector::singularize(Inflector::tableize($singularVar)) %>_id'])?>
+        <button onClick="location.href='<?= $my_url_add?>'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
     </h4>
         <?php if (!empty($<%= $otherPluralVar %>)): ?>
-	<div class="w3-responsive">
-		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
+	
+        <div class="paginator">
+            <ul class="pagination">
+                <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'<%= $alias %>']) ?>
+                <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'<%= $alias %>']) ?>
+                <?= $this->Paginator->numbers(['model'=>'<%= $alias %>','modulus' => 4,'first' => 2, 'last' => 2]) ?>
+                <?= $this->Paginator->next(__('next') . ' >', ['model'=>'<%= $alias %>']) ?>
+                <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'<%= $alias %>']) ?>
+            </ul>        
+        </div>
+    <div class="w3-responsive">
+		<table class=" w3-table w3-centered w3-border w3-bordered w3-hoverable w3-theme-d4">
         	<thead class="w3-border w3-black">  
 <% foreach ($details['fields'] as $field): 
 	if($field!=''.Inflector::singularize(Inflector::tableize($singularVar)).'_id'):
 %>
-                <th scope="col"><?= $this->Paginator->sort('<%= $field %>','<%= $field %>', ['model'=>'<%= $alias %>']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('<%= $field %>','<%= $field %>', ['model'=>'<%= $alias %>']) ?></th>
 <% endif; 
 endforeach; %>
 			</thead>
@@ -161,23 +175,24 @@ endforeach; %>
             	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
             <%- foreach ($details['fields'] as $field): 
             		if($field!=''.Inflector::singularize(Inflector::tableize($singularVar)).'_id'): %>
-                	<td><?= h($<%= $otherSingularVar %>-><%= $field %>) ?></td>
+                	<td class="w3-border"><?= h($<%= $otherSingularVar %>-><%= $field %>) ?></td>
             <%- endif;
             	endforeach; %>
             	</tr>
             <?php endforeach; ?>
         </table>
     </div>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'<%= $alias %>']) ?>
-            <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'<%= $alias %>']) ?>
-            <?= $this->Paginator->numbers(['model'=>'<%= $alias %>']) ?>
-            <?= $this->Paginator->next(__('next') . ' >', ['model'=>'<%= $alias %>']) ?>
-            <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'<%= $alias %>']) ?>
-        </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')], ['model'=>'<%= $alias %>']) ?></p>
-    </div>
+        <div class="paginator">
+            <ul class="pagination">
+                <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'<%= $alias %>']) ?>
+                <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'<%= $alias %>']) ?>
+                <?= $this->Paginator->numbers(['model'=>'<%= $alias %>','modulus' => 4,'first' => 2, 'last' => 2]) ?>
+                <?= $this->Paginator->next(__('next') . ' >', ['model'=>'<%= $alias %>']) ?>
+                <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'<%= $alias %>']) ?>
+            </ul>
+            <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total'),'model'=>'<%= $alias %>']) ?></p>
+        </div>
+    
     <?php endif; ?>
 </div>
 <% endforeach; %>

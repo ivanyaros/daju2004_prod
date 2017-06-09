@@ -4,32 +4,35 @@
   */
 ?>
 
-<div class="maquinas view large-9 medium-8 columns content">
-    <h3><?= h($maquina->label) ?></h3>
-    <table class="vertical-table">
+<div class="w3-container">
+    <h3><?= h($maquina->label) ?>
+        <?php $my_url_edit=$this->Url->build(['controller' => 'maquinas','action' => 'edit',$maquina->id])  ?>
+        <button onClick="location.href='<?= $my_url_edit?>'" class="w3-button  w3-circle w3-black"> <?= __("Edit")?></button>
+    </h3>
+    <table class="w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
         <tr>
-            <th scope="row"><?= __('Name') ?></th>
-            <td><?= h($maquina->name) ?></td>
+            <td class="w3-border"><?= __('Name') ?></td>
+            <td class="w3-border"><?= h($maquina->name) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Referencia') ?></th>
-            <td><?= h($maquina->referencia) ?></td>
+            <td class="w3-border"><?= __('Referencia') ?></td>
+            <td class="w3-border"><?= h($maquina->referencia) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Observaciones') ?></th>
-            <td><?= h($maquina->observaciones) ?></td>
+            <td class="w3-border"><?= __('Observaciones') ?></td>
+            <td class="w3-border"><?= h($maquina->observaciones) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($maquina->id) ?></td>
+            <td class="w3-border"><?= __('Id') ?></td>
+            <td class="w3-border"><?= $this->Number->format($maquina->id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Coste Operacion') ?></th>
-            <td><?= $this->Number->format($maquina->coste_operacion) ?></td>
+            <td class="w3-border"><?= __('Coste Operacion') ?></td>
+            <td class="w3-border"><?= $this->Number->format($maquina->coste_operacion) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Coste Tiempo') ?></th>
-            <td><?= $this->Number->format($maquina->coste_tiempo) ?></td>
+            <td class="w3-border"><?= __('Coste Tiempo') ?></td>
+            <td class="w3-border"><?= $this->Number->format($maquina->coste_tiempo) ?></td>
         </tr>
     </table>
 <div class="w3-bar w3-black">
@@ -38,41 +41,53 @@
 
 <div style="display:none" id="maquinasUsadas" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related Maquinas Usadas') ?>
-        <button onClick="location.href='/maquinas-usadas/add/<?= $maquina->id ?>/maquina_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+        <?php $my_url_add=$this->Url->build(['controller' => 'maquinas-usadas', 'action' => 'add',$maquina->id,'maquina_id'])?>
+        <button onClick="location.href='<?= $my_url_add?>'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
     </h4>
         <?php if (!empty($maquinasUsadas)): ?>
-	<div class="w3-responsive">
-		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
+	
+        <div class="paginator">
+            <ul class="pagination">
+                <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'MaquinasUsadas']) ?>
+                <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'MaquinasUsadas']) ?>
+                <?= $this->Paginator->numbers(['model'=>'MaquinasUsadas','modulus' => 4,'first' => 2, 'last' => 2]) ?>
+                <?= $this->Paginator->next(__('next') . ' >', ['model'=>'MaquinasUsadas']) ?>
+                <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'MaquinasUsadas']) ?>
+            </ul>        
+        </div>
+    <div class="w3-responsive">
+		<table class=" w3-table w3-centered w3-border w3-bordered w3-hoverable w3-theme-d4">
         	<thead class="w3-border w3-black">  
-                <th scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'MaquinasUsadas']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('estados_de_orden_id','estados_de_orden_id', ['model'=>'MaquinasUsadas']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('operaciones','operaciones', ['model'=>'MaquinasUsadas']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('uso','uso', ['model'=>'MaquinasUsadas']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'MaquinasUsadas']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'MaquinasUsadas']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('estados_de_orden_id','estados_de_orden_id', ['model'=>'MaquinasUsadas']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('operaciones','operaciones', ['model'=>'MaquinasUsadas']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('uso','uso', ['model'=>'MaquinasUsadas']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'MaquinasUsadas']) ?></th>
 			</thead>
 			<tbody>
 <?php foreach ($maquinasUsadas as $maquinasUsada): ?>
 				<?php $my_url= $this->Url->build(['controller' => 'maquinasUsadas', 'action' => 'view',$maquinasUsada->id]) ?>
             	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
-                	<td><?= h($maquinasUsada->id) ?></td>
-                	<td><?= h($maquinasUsada->estados_de_orden_id) ?></td>
-                	<td><?= h($maquinasUsada->operaciones) ?></td>
-                	<td><?= h($maquinasUsada->uso) ?></td>
-                	<td><?= h($maquinasUsada->observaciones) ?></td>
+                	<td class="w3-border"><?= h($maquinasUsada->id) ?></td>
+                	<td class="w3-border"><?= h($maquinasUsada->estados_de_orden_id) ?></td>
+                	<td class="w3-border"><?= h($maquinasUsada->operaciones) ?></td>
+                	<td class="w3-border"><?= h($maquinasUsada->uso) ?></td>
+                	<td class="w3-border"><?= h($maquinasUsada->observaciones) ?></td>
             	</tr>
             <?php endforeach; ?>
         </table>
     </div>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'MaquinasUsadas']) ?>
-            <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'MaquinasUsadas']) ?>
-            <?= $this->Paginator->numbers(['model'=>'MaquinasUsadas']) ?>
-            <?= $this->Paginator->next(__('next') . ' >', ['model'=>'MaquinasUsadas']) ?>
-            <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'MaquinasUsadas']) ?>
-        </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')], ['model'=>'MaquinasUsadas']) ?></p>
-    </div>
+        <div class="paginator">
+            <ul class="pagination">
+                <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'MaquinasUsadas']) ?>
+                <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'MaquinasUsadas']) ?>
+                <?= $this->Paginator->numbers(['model'=>'MaquinasUsadas','modulus' => 4,'first' => 2, 'last' => 2]) ?>
+                <?= $this->Paginator->next(__('next') . ' >', ['model'=>'MaquinasUsadas']) ?>
+                <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'MaquinasUsadas']) ?>
+            </ul>
+            <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total'),'model'=>'MaquinasUsadas']) ?></p>
+        </div>
+    
     <?php endif; ?>
 </div>
 </div>

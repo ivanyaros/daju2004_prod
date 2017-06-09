@@ -4,80 +4,83 @@
   */
 ?>
 
-<div class="producto view large-9 medium-8 columns content">
-    <h3><?= h($producto->label) ?></h3>
-    <table class="vertical-table">
+<div class="w3-container">
+    <h3><?= h($producto->label) ?>
+        <?php $my_url_edit=$this->Url->build(['controller' => 'producto','action' => 'edit',$producto->id])  ?>
+        <button onClick="location.href='<?= $my_url_edit?>'" class="w3-button  w3-circle w3-black"> <?= __("Edit")?></button>
+    </h3>
+    <table class="w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
         <tr>
-            <th scope="row"><?= __('Name') ?></th>
-            <td><?= h($producto->name) ?></td>
+            <td class="w3-border"><?= __('Name') ?></td>
+            <td class="w3-border"><?= h($producto->name) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Referencia') ?></th>
-            <td><?= h($producto->referencia) ?></td>
+            <td class="w3-border"><?= __('Referencia') ?></td>
+            <td class="w3-border"><?= h($producto->referencia) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Referencia Proveedor') ?></th>
-            <td><?= h($producto->referencia_proveedor) ?></td>
+            <td class="w3-border"><?= __('Referencia Proveedor') ?></td>
+            <td class="w3-border"><?= h($producto->referencia_proveedor) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Familia') ?></th>
-            <td><?= $producto->has('familia') ? $this->Html->link($producto->familia->label, ['controller' => 'Familias', 'action' => 'view', $producto->familia->id]) : '' ?></td>
+            <td class="w3-border"><?= __('Familia') ?></td>
+            <td class="w3-border"><?= $producto->has('familia') ? $this->Html->link($producto->familia->label, ['controller' => 'Familias', 'action' => 'view', $producto->familia->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Moneda') ?></th>
-            <td><?= $producto->has('moneda') ? $this->Html->link($producto->moneda->label, ['controller' => 'Monedas', 'action' => 'view', $producto->moneda->id]) : '' ?></td>
+            <td class="w3-border"><?= __('Moneda') ?></td>
+            <td class="w3-border"><?= $producto->has('moneda') ? $this->Html->link($producto->moneda->label, ['controller' => 'Monedas', 'action' => 'view', $producto->moneda->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Iva') ?></th>
-            <td><?= $producto->has('iva') ? $this->Html->link($producto->iva->label, ['controller' => 'Ivas', 'action' => 'view', $producto->iva->id]) : '' ?></td>
+            <td class="w3-border"><?= __('Iva') ?></td>
+            <td class="w3-border"><?= $producto->has('iva') ? $this->Html->link($producto->iva->label, ['controller' => 'Ivas', 'action' => 'view', $producto->iva->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Observaciones') ?></th>
-            <td><?= h($producto->observaciones) ?></td>
+            <td class="w3-border"><?= __('Observaciones') ?></td>
+            <td class="w3-border"><?= h($producto->observaciones) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Descripcion') ?></th>
-            <td><?= h($producto->descripcion) ?></td>
+            <td class="w3-border"><?= __('Descripcion') ?></td>
+            <td class="w3-border"><?= h($producto->descripcion) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Larga') ?></th>
-            <td><?= h($producto->larga) ?></td>
+            <td class="w3-border"><?= __('Larga') ?></td>
+            <td class="w3-border"><?= h($producto->larga) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($producto->id) ?></td>
+            <td class="w3-border"><?= __('Id') ?></td>
+            <td class="w3-border"><?= $this->Number->format($producto->id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Precio') ?></th>
-            <td><?= $this->Number->format($producto->precio) ?></td>
+            <td class="w3-border"><?= __('Precio') ?></td>
+            <td class="w3-border"><?= $this->Number->format($producto->precio) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Peso') ?></th>
-            <td><?= $this->Number->format($producto->peso) ?></td>
+            <td class="w3-border"><?= __('Peso') ?></td>
+            <td class="w3-border"><?= $this->Number->format($producto->peso) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Cantidad') ?></th>
-            <td><?= $this->Number->format($producto->cantidad) ?></td>
+            <td class="w3-border"><?= __('Cantidad') ?></td>
+            <td class="w3-border"><?= $this->Number->format($producto->cantidad) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Coste') ?></th>
-            <td><?= $this->Number->format($producto->coste) ?></td>
+            <td class="w3-border"><?= __('Coste') ?></td>
+            <td class="w3-border"><?= $this->Number->format($producto->coste) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Ancho') ?></th>
-            <td><?= $this->Number->format($producto->ancho) ?></td>
+            <td class="w3-border"><?= __('Ancho') ?></td>
+            <td class="w3-border"><?= $this->Number->format($producto->ancho) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Largo') ?></th>
-            <td><?= $this->Number->format($producto->largo) ?></td>
+            <td class="w3-border"><?= __('Largo') ?></td>
+            <td class="w3-border"><?= $this->Number->format($producto->largo) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Tolerancia') ?></th>
-            <td><?= $this->Number->format($producto->tolerancia) ?></td>
+            <td class="w3-border"><?= __('Tolerancia') ?></td>
+            <td class="w3-border"><?= $this->Number->format($producto->tolerancia) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Visible') ?></th>
-            <td><?= $producto->visible ? __('Yes') : __('No'); ?></td>
+            <td class="w3-border"><?= __('Visible') ?></td>
+            <td class="w3-border"><?= $producto->visible ? __('Yes') : __('No'); ?></td>
         </tr>
     </table>
 <div class="w3-bar w3-black">
@@ -92,172 +95,220 @@
 
 <div style="display:none" id="objetos" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related Objetos') ?>
-        <button onClick="location.href='/objetos/add/<?= $producto->id ?>/producto_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+        <?php $my_url_add=$this->Url->build(['controller' => 'objetos', 'action' => 'add',$producto->id,'producto_id'])?>
+        <button onClick="location.href='<?= $my_url_add?>'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
     </h4>
         <?php if (!empty($objetos)): ?>
-	<div class="w3-responsive">
-		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
+	
+        <div class="paginator">
+            <ul class="pagination">
+                <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'Objetos']) ?>
+                <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'Objetos']) ?>
+                <?= $this->Paginator->numbers(['model'=>'Objetos','modulus' => 4,'first' => 2, 'last' => 2]) ?>
+                <?= $this->Paginator->next(__('next') . ' >', ['model'=>'Objetos']) ?>
+                <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'Objetos']) ?>
+            </ul>        
+        </div>
+    <div class="w3-responsive">
+		<table class=" w3-table w3-centered w3-border w3-bordered w3-hoverable w3-theme-d4">
         	<thead class="w3-border w3-black">  
-                <th scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'Objetos']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('name','name', ['model'=>'Objetos']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('numero_serie','numero_serie', ['model'=>'Objetos']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('referencia','referencia', ['model'=>'Objetos']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('orden_id','orden_id', ['model'=>'Objetos']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('lote','lote', ['model'=>'Objetos']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('localizacione_id','localizacione_id', ['model'=>'Objetos']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('coste','coste', ['model'=>'Objetos']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('defectuosos','defectuosos', ['model'=>'Objetos']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('peso','peso', ['model'=>'Objetos']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'Objetos']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('envio_id','envio_id', ['model'=>'Objetos']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'Objetos']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('name','name', ['model'=>'Objetos']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('numero_serie','numero_serie', ['model'=>'Objetos']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('referencia','referencia', ['model'=>'Objetos']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('orden_id','orden_id', ['model'=>'Objetos']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('lote','lote', ['model'=>'Objetos']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('localizacione_id','localizacione_id', ['model'=>'Objetos']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('coste','coste', ['model'=>'Objetos']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('defectuosos','defectuosos', ['model'=>'Objetos']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('peso','peso', ['model'=>'Objetos']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'Objetos']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('envio_id','envio_id', ['model'=>'Objetos']) ?></th>
 			</thead>
 			<tbody>
 <?php foreach ($objetos as $objeto): ?>
 				<?php $my_url= $this->Url->build(['controller' => 'objetos', 'action' => 'view',$objeto->id]) ?>
             	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
-                	<td><?= h($objeto->id) ?></td>
-                	<td><?= h($objeto->name) ?></td>
-                	<td><?= h($objeto->numero_serie) ?></td>
-                	<td><?= h($objeto->referencia) ?></td>
-                	<td><?= h($objeto->orden_id) ?></td>
-                	<td><?= h($objeto->lote) ?></td>
-                	<td><?= h($objeto->localizacione_id) ?></td>
-                	<td><?= h($objeto->coste) ?></td>
-                	<td><?= h($objeto->defectuosos) ?></td>
-                	<td><?= h($objeto->peso) ?></td>
-                	<td><?= h($objeto->observaciones) ?></td>
-                	<td><?= h($objeto->envio_id) ?></td>
+                	<td class="w3-border"><?= h($objeto->id) ?></td>
+                	<td class="w3-border"><?= h($objeto->name) ?></td>
+                	<td class="w3-border"><?= h($objeto->numero_serie) ?></td>
+                	<td class="w3-border"><?= h($objeto->referencia) ?></td>
+                	<td class="w3-border"><?= h($objeto->orden_id) ?></td>
+                	<td class="w3-border"><?= h($objeto->lote) ?></td>
+                	<td class="w3-border"><?= h($objeto->localizacione_id) ?></td>
+                	<td class="w3-border"><?= h($objeto->coste) ?></td>
+                	<td class="w3-border"><?= h($objeto->defectuosos) ?></td>
+                	<td class="w3-border"><?= h($objeto->peso) ?></td>
+                	<td class="w3-border"><?= h($objeto->observaciones) ?></td>
+                	<td class="w3-border"><?= h($objeto->envio_id) ?></td>
             	</tr>
             <?php endforeach; ?>
         </table>
     </div>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'Objetos']) ?>
-            <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'Objetos']) ?>
-            <?= $this->Paginator->numbers(['model'=>'Objetos']) ?>
-            <?= $this->Paginator->next(__('next') . ' >', ['model'=>'Objetos']) ?>
-            <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'Objetos']) ?>
-        </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')], ['model'=>'Objetos']) ?></p>
-    </div>
+        <div class="paginator">
+            <ul class="pagination">
+                <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'Objetos']) ?>
+                <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'Objetos']) ?>
+                <?= $this->Paginator->numbers(['model'=>'Objetos','modulus' => 4,'first' => 2, 'last' => 2]) ?>
+                <?= $this->Paginator->next(__('next') . ' >', ['model'=>'Objetos']) ?>
+                <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'Objetos']) ?>
+            </ul>
+            <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total'),'model'=>'Objetos']) ?></p>
+        </div>
+    
     <?php endif; ?>
 </div>
 <div style="display:none" id="pedidosProductosDetalle" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related Pedidos Productos Detalle') ?>
-        <button onClick="location.href='/pedidos-productos-detalle/add/<?= $producto->id ?>/producto_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+        <?php $my_url_add=$this->Url->build(['controller' => 'pedidos-productos-detalle', 'action' => 'add',$producto->id,'producto_id'])?>
+        <button onClick="location.href='<?= $my_url_add?>'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
     </h4>
         <?php if (!empty($pedidosProductosDetalle)): ?>
-	<div class="w3-responsive">
-		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
+	
+        <div class="paginator">
+            <ul class="pagination">
+                <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'PedidosProductosDetalle']) ?>
+                <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'PedidosProductosDetalle']) ?>
+                <?= $this->Paginator->numbers(['model'=>'PedidosProductosDetalle','modulus' => 4,'first' => 2, 'last' => 2]) ?>
+                <?= $this->Paginator->next(__('next') . ' >', ['model'=>'PedidosProductosDetalle']) ?>
+                <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'PedidosProductosDetalle']) ?>
+            </ul>        
+        </div>
+    <div class="w3-responsive">
+		<table class=" w3-table w3-centered w3-border w3-bordered w3-hoverable w3-theme-d4">
         	<thead class="w3-border w3-black">  
-                <th scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'PedidosProductosDetalle']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('pedidos_empresa_id','pedidos_empresa_id', ['model'=>'PedidosProductosDetalle']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('cantidad','cantidad', ['model'=>'PedidosProductosDetalle']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('fecha','fecha', ['model'=>'PedidosProductosDetalle']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'PedidosProductosDetalle']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('prioridade_id','prioridade_id', ['model'=>'PedidosProductosDetalle']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('terminado','terminado', ['model'=>'PedidosProductosDetalle']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'PedidosProductosDetalle']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('pedidos_empresa_id','pedidos_empresa_id', ['model'=>'PedidosProductosDetalle']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('cantidad','cantidad', ['model'=>'PedidosProductosDetalle']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('fecha','fecha', ['model'=>'PedidosProductosDetalle']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'PedidosProductosDetalle']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('prioridade_id','prioridade_id', ['model'=>'PedidosProductosDetalle']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('terminado','terminado', ['model'=>'PedidosProductosDetalle']) ?></th>
 			</thead>
 			<tbody>
 <?php foreach ($pedidosProductosDetalle as $pedidosProductosDetalle): ?>
 				<?php $my_url= $this->Url->build(['controller' => 'pedidosProductosDetalle', 'action' => 'view',$pedidosProductosDetalle->id]) ?>
             	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
-                	<td><?= h($pedidosProductosDetalle->id) ?></td>
-                	<td><?= h($pedidosProductosDetalle->pedidos_empresa_id) ?></td>
-                	<td><?= h($pedidosProductosDetalle->cantidad) ?></td>
-                	<td><?= h($pedidosProductosDetalle->fecha) ?></td>
-                	<td><?= h($pedidosProductosDetalle->observaciones) ?></td>
-                	<td><?= h($pedidosProductosDetalle->prioridade_id) ?></td>
-                	<td><?= h($pedidosProductosDetalle->terminado) ?></td>
+                	<td class="w3-border"><?= h($pedidosProductosDetalle->id) ?></td>
+                	<td class="w3-border"><?= h($pedidosProductosDetalle->pedidos_empresa_id) ?></td>
+                	<td class="w3-border"><?= h($pedidosProductosDetalle->cantidad) ?></td>
+                	<td class="w3-border"><?= h($pedidosProductosDetalle->fecha) ?></td>
+                	<td class="w3-border"><?= h($pedidosProductosDetalle->observaciones) ?></td>
+                	<td class="w3-border"><?= h($pedidosProductosDetalle->prioridade_id) ?></td>
+                	<td class="w3-border"><?= h($pedidosProductosDetalle->terminado) ?></td>
             	</tr>
             <?php endforeach; ?>
         </table>
     </div>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'PedidosProductosDetalle']) ?>
-            <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'PedidosProductosDetalle']) ?>
-            <?= $this->Paginator->numbers(['model'=>'PedidosProductosDetalle']) ?>
-            <?= $this->Paginator->next(__('next') . ' >', ['model'=>'PedidosProductosDetalle']) ?>
-            <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'PedidosProductosDetalle']) ?>
-        </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')], ['model'=>'PedidosProductosDetalle']) ?></p>
-    </div>
+        <div class="paginator">
+            <ul class="pagination">
+                <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'PedidosProductosDetalle']) ?>
+                <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'PedidosProductosDetalle']) ?>
+                <?= $this->Paginator->numbers(['model'=>'PedidosProductosDetalle','modulus' => 4,'first' => 2, 'last' => 2]) ?>
+                <?= $this->Paginator->next(__('next') . ' >', ['model'=>'PedidosProductosDetalle']) ?>
+                <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'PedidosProductosDetalle']) ?>
+            </ul>
+            <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total'),'model'=>'PedidosProductosDetalle']) ?></p>
+        </div>
+    
     <?php endif; ?>
 </div>
 <div style="display:none" id="procesoProductoEntrada" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related Proceso Producto Entrada') ?>
-        <button onClick="location.href='/proceso-producto-entrada/add/<?= $producto->id ?>/producto_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+        <?php $my_url_add=$this->Url->build(['controller' => 'proceso-producto-entrada', 'action' => 'add',$producto->id,'producto_id'])?>
+        <button onClick="location.href='<?= $my_url_add?>'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
     </h4>
         <?php if (!empty($procesoProductoEntrada)): ?>
-	<div class="w3-responsive">
-		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
+	
+        <div class="paginator">
+            <ul class="pagination">
+                <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'ProcesoProductoEntrada']) ?>
+                <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'ProcesoProductoEntrada']) ?>
+                <?= $this->Paginator->numbers(['model'=>'ProcesoProductoEntrada','modulus' => 4,'first' => 2, 'last' => 2]) ?>
+                <?= $this->Paginator->next(__('next') . ' >', ['model'=>'ProcesoProductoEntrada']) ?>
+                <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'ProcesoProductoEntrada']) ?>
+            </ul>        
+        </div>
+    <div class="w3-responsive">
+		<table class=" w3-table w3-centered w3-border w3-bordered w3-hoverable w3-theme-d4">
         	<thead class="w3-border w3-black">  
-                <th scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'ProcesoProductoEntrada']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('proceso_id','proceso_id', ['model'=>'ProcesoProductoEntrada']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('cantidad','cantidad', ['model'=>'ProcesoProductoEntrada']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'ProcesoProductoEntrada']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'ProcesoProductoEntrada']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('proceso_id','proceso_id', ['model'=>'ProcesoProductoEntrada']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('cantidad','cantidad', ['model'=>'ProcesoProductoEntrada']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'ProcesoProductoEntrada']) ?></th>
 			</thead>
 			<tbody>
 <?php foreach ($procesoProductoEntrada as $procesoProductoEntrada): ?>
 				<?php $my_url= $this->Url->build(['controller' => 'procesoProductoEntrada', 'action' => 'view',$procesoProductoEntrada->id]) ?>
             	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
-                	<td><?= h($procesoProductoEntrada->id) ?></td>
-                	<td><?= h($procesoProductoEntrada->proceso_id) ?></td>
-                	<td><?= h($procesoProductoEntrada->cantidad) ?></td>
-                	<td><?= h($procesoProductoEntrada->observaciones) ?></td>
+                	<td class="w3-border"><?= h($procesoProductoEntrada->id) ?></td>
+                	<td class="w3-border"><?= h($procesoProductoEntrada->proceso_id) ?></td>
+                	<td class="w3-border"><?= h($procesoProductoEntrada->cantidad) ?></td>
+                	<td class="w3-border"><?= h($procesoProductoEntrada->observaciones) ?></td>
             	</tr>
             <?php endforeach; ?>
         </table>
     </div>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'ProcesoProductoEntrada']) ?>
-            <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'ProcesoProductoEntrada']) ?>
-            <?= $this->Paginator->numbers(['model'=>'ProcesoProductoEntrada']) ?>
-            <?= $this->Paginator->next(__('next') . ' >', ['model'=>'ProcesoProductoEntrada']) ?>
-            <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'ProcesoProductoEntrada']) ?>
-        </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')], ['model'=>'ProcesoProductoEntrada']) ?></p>
-    </div>
+        <div class="paginator">
+            <ul class="pagination">
+                <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'ProcesoProductoEntrada']) ?>
+                <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'ProcesoProductoEntrada']) ?>
+                <?= $this->Paginator->numbers(['model'=>'ProcesoProductoEntrada','modulus' => 4,'first' => 2, 'last' => 2]) ?>
+                <?= $this->Paginator->next(__('next') . ' >', ['model'=>'ProcesoProductoEntrada']) ?>
+                <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'ProcesoProductoEntrada']) ?>
+            </ul>
+            <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total'),'model'=>'ProcesoProductoEntrada']) ?></p>
+        </div>
+    
     <?php endif; ?>
 </div>
 <div style="display:none" id="procesoProductoSalida" class="related w3-container w3-theme-d3 w3-border">
     <h4><?= __('Related Proceso Producto Salida') ?>
-        <button onClick="location.href='/proceso-producto-salida/add/<?= $producto->id ?>/producto_id'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
+        <?php $my_url_add=$this->Url->build(['controller' => 'proceso-producto-salida', 'action' => 'add',$producto->id,'producto_id'])?>
+        <button onClick="location.href='<?= $my_url_add?>'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
     </h4>
         <?php if (!empty($procesoProductoSalida)): ?>
-	<div class="w3-responsive">
-		<table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
+	
+        <div class="paginator">
+            <ul class="pagination">
+                <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'ProcesoProductoSalida']) ?>
+                <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'ProcesoProductoSalida']) ?>
+                <?= $this->Paginator->numbers(['model'=>'ProcesoProductoSalida','modulus' => 4,'first' => 2, 'last' => 2]) ?>
+                <?= $this->Paginator->next(__('next') . ' >', ['model'=>'ProcesoProductoSalida']) ?>
+                <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'ProcesoProductoSalida']) ?>
+            </ul>        
+        </div>
+    <div class="w3-responsive">
+		<table class=" w3-table w3-centered w3-border w3-bordered w3-hoverable w3-theme-d4">
         	<thead class="w3-border w3-black">  
-                <th scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'ProcesoProductoSalida']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('proceso_id','proceso_id', ['model'=>'ProcesoProductoSalida']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('cantidad','cantidad', ['model'=>'ProcesoProductoSalida']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'ProcesoProductoSalida']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'ProcesoProductoSalida']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('proceso_id','proceso_id', ['model'=>'ProcesoProductoSalida']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('cantidad','cantidad', ['model'=>'ProcesoProductoSalida']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'ProcesoProductoSalida']) ?></th>
 			</thead>
 			<tbody>
 <?php foreach ($procesoProductoSalida as $procesoProductoSalida): ?>
 				<?php $my_url= $this->Url->build(['controller' => 'procesoProductoSalida', 'action' => 'view',$procesoProductoSalida->id]) ?>
             	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
-                	<td><?= h($procesoProductoSalida->id) ?></td>
-                	<td><?= h($procesoProductoSalida->proceso_id) ?></td>
-                	<td><?= h($procesoProductoSalida->cantidad) ?></td>
-                	<td><?= h($procesoProductoSalida->observaciones) ?></td>
+                	<td class="w3-border"><?= h($procesoProductoSalida->id) ?></td>
+                	<td class="w3-border"><?= h($procesoProductoSalida->proceso_id) ?></td>
+                	<td class="w3-border"><?= h($procesoProductoSalida->cantidad) ?></td>
+                	<td class="w3-border"><?= h($procesoProductoSalida->observaciones) ?></td>
             	</tr>
             <?php endforeach; ?>
         </table>
     </div>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'ProcesoProductoSalida']) ?>
-            <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'ProcesoProductoSalida']) ?>
-            <?= $this->Paginator->numbers(['model'=>'ProcesoProductoSalida']) ?>
-            <?= $this->Paginator->next(__('next') . ' >', ['model'=>'ProcesoProductoSalida']) ?>
-            <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'ProcesoProductoSalida']) ?>
-        </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')], ['model'=>'ProcesoProductoSalida']) ?></p>
-    </div>
+        <div class="paginator">
+            <ul class="pagination">
+                <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'ProcesoProductoSalida']) ?>
+                <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'ProcesoProductoSalida']) ?>
+                <?= $this->Paginator->numbers(['model'=>'ProcesoProductoSalida','modulus' => 4,'first' => 2, 'last' => 2]) ?>
+                <?= $this->Paginator->next(__('next') . ' >', ['model'=>'ProcesoProductoSalida']) ?>
+                <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'ProcesoProductoSalida']) ?>
+            </ul>
+            <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total'),'model'=>'ProcesoProductoSalida']) ?></p>
+        </div>
+    
     <?php endif; ?>
 </div>
 </div>

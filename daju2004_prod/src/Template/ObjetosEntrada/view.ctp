@@ -4,32 +4,35 @@
   */
 ?>
 
-<div class="objetosEntrada view large-9 medium-8 columns content">
-    <h3><?= h($objetosEntrada->label) ?></h3>
-    <table class="vertical-table">
+<div class="w3-container">
+    <h3><?= h($objetosEntrada->label) ?>
+        <?php $my_url_edit=$this->Url->build(['controller' => 'objetosEntrada','action' => 'edit',$objetosEntrada->id])  ?>
+        <button onClick="location.href='<?= $my_url_edit?>'" class="w3-button  w3-circle w3-black"> <?= __("Edit")?></button>
+    </h3>
+    <table class="w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
         <tr>
-            <th scope="row"><?= __('Objeto') ?></th>
-            <td><?= $objetosEntrada->has('objeto') ? $this->Html->link($objetosEntrada->objeto->label, ['controller' => 'Objetos', 'action' => 'view', $objetosEntrada->objeto->id]) : '' ?></td>
+            <td class="w3-border"><?= __('Objeto') ?></td>
+            <td class="w3-border"><?= $objetosEntrada->has('objeto') ? $this->Html->link($objetosEntrada->objeto->label, ['controller' => 'Objetos', 'action' => 'view', $objetosEntrada->objeto->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Observaciones') ?></th>
-            <td><?= h($objetosEntrada->observaciones) ?></td>
+            <td class="w3-border"><?= __('Observaciones') ?></td>
+            <td class="w3-border"><?= h($objetosEntrada->observaciones) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($objetosEntrada->id) ?></td>
+            <td class="w3-border"><?= __('Id') ?></td>
+            <td class="w3-border"><?= $this->Number->format($objetosEntrada->id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Entrada Id') ?></th>
-            <td><?= $this->Number->format($objetosEntrada->entrada_id) ?></td>
+            <td class="w3-border"><?= __('Entrada Id') ?></td>
+            <td class="w3-border"><?= $this->Number->format($objetosEntrada->entrada_id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Cantidad Entrada') ?></th>
-            <td><?= $this->Number->format($objetosEntrada->cantidad_entrada) ?></td>
+            <td class="w3-border"><?= __('Cantidad Entrada') ?></td>
+            <td class="w3-border"><?= $this->Number->format($objetosEntrada->cantidad_entrada) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Cantidad Producida') ?></th>
-            <td><?= $this->Number->format($objetosEntrada->cantidad_producida) ?></td>
+            <td class="w3-border"><?= __('Cantidad Producida') ?></td>
+            <td class="w3-border"><?= $this->Number->format($objetosEntrada->cantidad_producida) ?></td>
         </tr>
     </table>
 <div class="w3-bar w3-black">

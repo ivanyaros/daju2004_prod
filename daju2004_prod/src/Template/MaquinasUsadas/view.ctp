@@ -4,32 +4,35 @@
   */
 ?>
 
-<div class="maquinasUsadas view large-9 medium-8 columns content">
-    <h3><?= h($maquinasUsada->label) ?></h3>
-    <table class="vertical-table">
+<div class="w3-container">
+    <h3><?= h($maquinasUsada->label) ?>
+        <?php $my_url_edit=$this->Url->build(['controller' => 'maquinasUsadas','action' => 'edit',$maquinasUsada->id])  ?>
+        <button onClick="location.href='<?= $my_url_edit?>'" class="w3-button  w3-circle w3-black"> <?= __("Edit")?></button>
+    </h3>
+    <table class="w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
         <tr>
-            <th scope="row"><?= __('Estados De Orden') ?></th>
-            <td><?= $maquinasUsada->has('estados_de_orden') ? $this->Html->link($maquinasUsada->estados_de_orden->label, ['controller' => 'EstadosDeOrdens', 'action' => 'view', $maquinasUsada->estados_de_orden->id]) : '' ?></td>
+            <td class="w3-border"><?= __('Estados De Orden') ?></td>
+            <td class="w3-border"><?= $maquinasUsada->has('estados_de_orden') ? $this->Html->link($maquinasUsada->estados_de_orden->label, ['controller' => 'EstadosDeOrdens', 'action' => 'view', $maquinasUsada->estados_de_orden->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Maquina') ?></th>
-            <td><?= $maquinasUsada->has('maquina') ? $this->Html->link($maquinasUsada->maquina->label, ['controller' => 'Maquinas', 'action' => 'view', $maquinasUsada->maquina->id]) : '' ?></td>
+            <td class="w3-border"><?= __('Maquina') ?></td>
+            <td class="w3-border"><?= $maquinasUsada->has('maquina') ? $this->Html->link($maquinasUsada->maquina->label, ['controller' => 'Maquinas', 'action' => 'view', $maquinasUsada->maquina->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Observaciones') ?></th>
-            <td><?= h($maquinasUsada->observaciones) ?></td>
+            <td class="w3-border"><?= __('Observaciones') ?></td>
+            <td class="w3-border"><?= h($maquinasUsada->observaciones) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($maquinasUsada->id) ?></td>
+            <td class="w3-border"><?= __('Id') ?></td>
+            <td class="w3-border"><?= $this->Number->format($maquinasUsada->id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Operaciones') ?></th>
-            <td><?= $this->Number->format($maquinasUsada->operaciones) ?></td>
+            <td class="w3-border"><?= __('Operaciones') ?></td>
+            <td class="w3-border"><?= $this->Number->format($maquinasUsada->operaciones) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Uso') ?></th>
-            <td><?= $this->Number->format($maquinasUsada->uso) ?></td>
+            <td class="w3-border"><?= __('Uso') ?></td>
+            <td class="w3-border"><?= $this->Number->format($maquinasUsada->uso) ?></td>
         </tr>
     </table>
 <div class="w3-bar w3-black">

@@ -4,24 +4,27 @@
   */
 ?>
 
-<div class="proveedoresMaterial view large-9 medium-8 columns content">
-    <h3><?= h($proveedoresMaterial->label) ?></h3>
-    <table class="vertical-table">
+<div class="w3-container">
+    <h3><?= h($proveedoresMaterial->label) ?>
+        <?php $my_url_edit=$this->Url->build(['controller' => 'proveedoresMaterial','action' => 'edit',$proveedoresMaterial->id])  ?>
+        <button onClick="location.href='<?= $my_url_edit?>'" class="w3-button  w3-circle w3-black"> <?= __("Edit")?></button>
+    </h3>
+    <table class="w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
         <tr>
-            <th scope="row"><?= __('Proveedores Cliente') ?></th>
-            <td><?= $proveedoresMaterial->has('proveedores_cliente') ? $this->Html->link($proveedoresMaterial->proveedores_cliente->label, ['controller' => 'ProveedoresClientes', 'action' => 'view', $proveedoresMaterial->proveedores_cliente->id]) : '' ?></td>
+            <td class="w3-border"><?= __('Proveedores Cliente') ?></td>
+            <td class="w3-border"><?= $proveedoresMaterial->has('proveedores_cliente') ? $this->Html->link($proveedoresMaterial->proveedores_cliente->label, ['controller' => 'ProveedoresClientes', 'action' => 'view', $proveedoresMaterial->proveedores_cliente->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Material') ?></th>
-            <td><?= $proveedoresMaterial->has('material') ? $this->Html->link($proveedoresMaterial->material->label, ['controller' => 'Material', 'action' => 'view', $proveedoresMaterial->material->id]) : '' ?></td>
+            <td class="w3-border"><?= __('Material') ?></td>
+            <td class="w3-border"><?= $proveedoresMaterial->has('material') ? $this->Html->link($proveedoresMaterial->material->label, ['controller' => 'Material', 'action' => 'view', $proveedoresMaterial->material->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Observaciones') ?></th>
-            <td><?= h($proveedoresMaterial->observaciones) ?></td>
+            <td class="w3-border"><?= __('Observaciones') ?></td>
+            <td class="w3-border"><?= h($proveedoresMaterial->observaciones) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($proveedoresMaterial->id) ?></td>
+            <td class="w3-border"><?= __('Id') ?></td>
+            <td class="w3-border"><?= $this->Number->format($proveedoresMaterial->id) ?></td>
         </tr>
     </table>
 <div class="w3-bar w3-black">

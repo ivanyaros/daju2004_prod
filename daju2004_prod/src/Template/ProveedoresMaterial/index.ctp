@@ -7,21 +7,30 @@
 <div class="w3 container w3-theme">
     <h3><?= __('Proveedores Material') ?></h3>
     <div class="w3-responsive">
-    <table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
+    <div class="paginator">
+        <ul class="pagination">
+            <?= $this->Paginator->first('<< ' . __('first')) ?>
+            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+            <?= $this->Paginator->numbers(['modulus' => 4,'first' => 2, 'last' => 2]) ?>
+            <?= $this->Paginator->next(__('next') . ' >') ?>
+            <?= $this->Paginator->last(__('last') . ' >>') ?>
+        </ul>        
+    </div>
+    <table class=" w3-table w3-border w3-bordered w3-hoverable w3-centered w3-theme-d4">
         <thead class="w3-border w3-black">            
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('proveedores_cliente_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('material_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('observaciones') ?></th>
+                <th class="w3-border" scope="col"><?= $this->Paginator->sort('id') ?></th>
+                <th class="w3-border" scope="col"><?= $this->Paginator->sort('proveedores_cliente_id') ?></th>
+                <th class="w3-border" scope="col"><?= $this->Paginator->sort('material_id') ?></th>
+                <th class="w3-border" scope="col"><?= $this->Paginator->sort('observaciones') ?></th>
         </thead>
         <tbody>
             <?php foreach ($proveedoresMaterial as $proveedoresMaterial): ?>
             <?php $my_url= $this->Url->build(['controller' => 'proveedoresMaterial', 'action' => 'view',$proveedoresMaterial->id]) ?>
             <tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
-                <td><?= $this->Number->format($proveedoresMaterial->id) ?></td>
-                <td><?= $proveedoresMaterial->has('proveedores_cliente') ? $this->Html->link($proveedoresMaterial->proveedores_cliente->label, ['controller' => 'ProveedoresClientes', 'action' => 'view', $proveedoresMaterial->proveedores_cliente->id]) : '' ?></td>
-                <td><?= $proveedoresMaterial->has('material') ? $this->Html->link($proveedoresMaterial->material->label, ['controller' => 'Material', 'action' => 'view', $proveedoresMaterial->material->id]) : '' ?></td>
-                <td><?= h($proveedoresMaterial->observaciones) ?></td>
+                <td class="w3-border"><?= $this->Number->format($proveedoresMaterial->id) ?></td>
+                <td class="w3-border"><?= $proveedoresMaterial->has('proveedores_cliente') ? $this->Html->link($proveedoresMaterial->proveedores_cliente->label, ['controller' => 'ProveedoresClientes', 'action' => 'view', $proveedoresMaterial->proveedores_cliente->id]) : '' ?></td>
+                <td class="w3-border"><?= $proveedoresMaterial->has('material') ? $this->Html->link($proveedoresMaterial->material->label, ['controller' => 'Material', 'action' => 'view', $proveedoresMaterial->material->id]) : '' ?></td>
+                <td class="w3-border"><?= h($proveedoresMaterial->observaciones) ?></td>
                 
             </tr>
             <?php endforeach; ?>
@@ -32,7 +41,7 @@
         <ul class="pagination">
             <?= $this->Paginator->first('<< ' . __('first')) ?>
             <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
+            <?= $this->Paginator->numbers(['modulus' => 4,'first' => 2, 'last' => 2]) ?>
             <?= $this->Paginator->next(__('next') . ' >') ?>
             <?= $this->Paginator->last(__('last') . ' >>') ?>
         </ul>

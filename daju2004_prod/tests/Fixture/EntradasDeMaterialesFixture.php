@@ -31,8 +31,8 @@ class EntradasDeMaterialesFixture extends TestFixture
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'fk_entradas_material_proveedores_clientes1' => ['type' => 'foreign', 'columns' => ['proveedores_cliente_id'], 'references' => ['proveedores_clientes', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
             'fk_entradas_material_centros1' => ['type' => 'foreign', 'columns' => ['centro_id'], 'references' => ['centros', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
+            'fk_entradas_material_proveedores_clientes1' => ['type' => 'foreign', 'columns' => ['proveedores_cliente_id'], 'references' => ['proveedores_clientes', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -53,9 +53,9 @@ class EntradasDeMaterialesFixture extends TestFixture
             'referencia' => 'Lorem ipsum dolor sit amet',
             'observaciones' => 'Lorem ipsum dolor sit amet',
             'albaran' => 'Lorem ipsum dolor sit amet',
-            'fecha_envio' => '2017-06-07 13:57:55',
+            'fecha_envio' => '2017-06-09 09:50:48',
             'centro_id' => 1,
-            'fecha_recepcion' => '2017-06-07 13:57:55'
+            'fecha_recepcion' => '2017-06-09 09:50:48'
         ],
     ];
 }

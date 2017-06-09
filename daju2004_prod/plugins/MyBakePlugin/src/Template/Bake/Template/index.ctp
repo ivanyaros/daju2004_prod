@@ -41,10 +41,19 @@ if (!empty($indexColumns)) {
 <div class="w3 container w3-theme">
     <h3><?= __('<%= $pluralHumanName %>') ?></h3>
     <div class="w3-responsive">
-    <table class=" w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
+    <div class="paginator">
+        <ul class="pagination">
+            <?= $this->Paginator->first('<< ' . __('first')) ?>
+            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+            <?= $this->Paginator->numbers(['modulus' => 4,'first' => 2, 'last' => 2]) ?>
+            <?= $this->Paginator->next(__('next') . ' >') ?>
+            <?= $this->Paginator->last(__('last') . ' >>') ?>
+        </ul>        
+    </div>
+    <table class=" w3-table w3-border w3-bordered w3-hoverable w3-centered w3-theme-d4">
         <thead class="w3-border w3-black">            
 <% foreach ($fields as $field): %>
-                <th scope="col"><?= $this->Paginator->sort('<%= $field %>') ?></th>
+                <th class="w3-border" scope="col"><?= $this->Paginator->sort('<%= $field %>') ?></th>
 <% endforeach; %>
         </thead>
         <tbody>
@@ -58,7 +67,7 @@ if (!empty($indexColumns)) {
                     if ($field === $details['foreignKey']) {
                         $isKey = true;
 %>
-                <td><?= $<%= $singularVar %>->has('<%= $details['property'] %>') ? $this->Html->link($<%= $singularVar %>-><%= $details['property'] %>-><%= $details['displayField'] %>, ['controller' => '<%= $details['controller'] %>', 'action' => 'view', $<%= $singularVar %>-><%= $details['property'] %>-><%= $details['primaryKey'][0] %>]) : '' ?></td>
+                <td class="w3-border"><?= $<%= $singularVar %>->has('<%= $details['property'] %>') ? $this->Html->link($<%= $singularVar %>-><%= $details['property'] %>-><%= $details['displayField'] %>, ['controller' => '<%= $details['controller'] %>', 'action' => 'view', $<%= $singularVar %>-><%= $details['property'] %>-><%= $details['primaryKey'][0] %>]) : '' ?></td>
 <%
                         break;
                     }
@@ -67,11 +76,11 @@ if (!empty($indexColumns)) {
             if ($isKey !== true) {
                 if (!in_array($schema->columnType($field), ['integer', 'biginteger', 'decimal', 'float'])) {
 %>
-                <td><?= h($<%= $singularVar %>-><%= $field %>) ?></td>
+                <td class="w3-border"><?= h($<%= $singularVar %>-><%= $field %>) ?></td>
 <%
                 } else {
 %>
-                <td><?= $this->Number->format($<%= $singularVar %>-><%= $field %>) ?></td>
+                <td class="w3-border"><?= $this->Number->format($<%= $singularVar %>-><%= $field %>) ?></td>
 <%
                 }
             }
@@ -89,7 +98,7 @@ if (!empty($indexColumns)) {
         <ul class="pagination">
             <?= $this->Paginator->first('<< ' . __('first')) ?>
             <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
+            <?= $this->Paginator->numbers(['modulus' => 4,'first' => 2, 'last' => 2]) ?>
             <?= $this->Paginator->next(__('next') . ' >') ?>
             <?= $this->Paginator->last(__('last') . ' >>') ?>
         </ul>

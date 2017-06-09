@@ -23,11 +23,36 @@ class LocalizacionesController extends AppController
         $this->paginate = [
             'contain' => ['Centros']
         ];
-        $localizaciones = $this->paginate($this->Localizaciones);
+        $this->loadModel('Centros');
+        $localizacione = $this->Localizaciones->newEntity();
+        $localizacione = $this->Localizaciones->patchEntity($localizacione, $this->request->getQuery());
+        $query=$this->Localizaciones->find();
+        /**
+        $my_query_name=$this->request->getQuery('name');
+        if(isset($my_query_name)&&($my_query_name!="")){
+            $query=$query->where(['Localizaciones.name LIKE "'.$my_query_name.'"']);
+        }
+        $my_query_name=$this->request->getQuery('centro_id');
+        if(isset($my_query_name)&&($my_query_name!="")){
+            $query=$query->where(['Localizaciones.centro_id = ' => $my_query_name]);
+        }
+        **/
+        
+        if($localizacione->name!=""){
+            $query=$query->where(['Localizaciones.name LIKE "'.$localizacione->name.'"']);
+        }
+        if(isset($localizacione->centro_id)){
+            $query=$query->where(['Localizaciones.centro_id = ' => $localizacione->centro_id]);
 
-        $this->set(compact('localizaciones'));
+        }
+        
+        $centros=$this->Centros->find('list');
+        $localizaciones = $this->paginate($query);
+        $this->set(compact('localizaciones','my_query','localizacione','centros'));
         $this->set('_serialize', ['localizaciones']);
         $this->set('modelo', "localizaciones");
+        
+        
     }
 
     /**
