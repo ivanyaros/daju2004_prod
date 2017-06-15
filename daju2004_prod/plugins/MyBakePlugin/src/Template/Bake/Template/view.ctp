@@ -20,7 +20,9 @@
 ?>
 <%
 use Cake\Utility\Inflector;
-
+use Bake\Utility\Model\AssociationFilter;
+use Cake\ORM\Table;
+use Cake\ORM\TableRegistry;
 $associations += ['BelongsTo' => [], 'HasOne' => [], 'HasMany' => [], 'BelongsToMany' => []];
 $immediateAssociations = $associations['BelongsTo'];
 $associationFields = collection($fields)
@@ -138,7 +140,10 @@ $relations = $associations['HasMany'] + $associations['BelongsToMany'];
 <% endforeach; %>
 <%
 foreach ($relations as $alias => $details):
-
+    $modelObject = TableRegistry::get($alias);
+    $my_filter= new AssociationFilter;
+    $my_belongs=$my_filter->filterAssociations($modelObject);
+    $my_belongs=$my_belongs['BelongsTo'];
     $otherSingularVar = Inflector::singularize(Inflector::variable($alias));
     $otherPluralVar= Inflector::variable($alias);
     $otherPluralHumanName = Inflector::humanize(Inflector::underscore($details['controller']));
@@ -163,21 +168,33 @@ foreach ($relations as $alias => $details):
 		<table class=" w3-table w3-centered w3-border w3-bordered w3-hoverable w3-theme-d4">
         	<thead class="w3-border w3-black">  
 <% foreach ($details['fields'] as $field): 
-	if($field!=''.Inflector::singularize(Inflector::tableize($singularVar)).'_id'):
+	
 %>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('<%= $field %>','<%= $field %>', ['model'=>'<%= $alias %>']) ?></th>
-<% endif; 
+<% 
 endforeach; %>
 			</thead>
 			<tbody>
 <?php foreach ($<%= $otherPluralVar %> as $<%= $otherSingularVar %>): ?>
 				<?php $my_url= $this->Url->build(['controller' => '<%= $otherPluralVar %>', 'action' => 'view',$<%= $otherSingularVar %>->id]) ?>
             	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
-            <%- foreach ($details['fields'] as $field): 
-            		if($field!=''.Inflector::singularize(Inflector::tableize($singularVar)).'_id'): %>
-                	<td class="w3-border"><?= h($<%= $otherSingularVar %>-><%= $field %>) ?></td>
-            <%- endif;
-            	endforeach; %>
+            <%  foreach ($details['fields'] as $field):             		
+                    $isKey = false;
+                    if (!empty($my_belongs)) {
+                        foreach ($my_belongs as $my_alias => $my_details) {                            
+                            if ($field === $my_details['foreignKey']) {
+                                $isKey = true; %>
+
+                                <td class="w3-border"><?= $<%= $otherSingularVar %>->has('<%= $my_details['property'] %>') ? $this->Html->link($<%= $otherSingularVar %>-><%= $my_details['property'] %>-><%= $my_details['displayField'] %>, ['controller' => '<%= $my_details['controller'] %>', 'action' => 'view', $<%= $otherSingularVar %>-><%= $my_details['property'] %>-><%= $my_details['primaryKey'][0] %>]) : '' ?></td>
+<%
+                                break;
+                            }
+                        }
+                    }
+                    if ($isKey !== true) {  %>
+                        <td class="w3-border"><?= h($<%= $otherSingularVar %>-><%= $field %>) ?></td>
+<%                  }
+                endforeach; %>
             	</tr>
             <?php endforeach; ?>
         </table>

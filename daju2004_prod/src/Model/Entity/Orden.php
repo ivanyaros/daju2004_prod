@@ -10,15 +10,16 @@ use Cake\ORM\Entity;
  * @property string $name
  * @property string $referencia
  * @property int $cantidad
+ * @property int $defectuosos
  * @property \Cake\I18n\FrozenTime $fecha_creacion
  * @property \Cake\I18n\FrozenTime $fecha_terminacion
  * @property int $estado_id
  * @property int $centro_id
  * @property int $proceso_id
- * @property float $scrap
  * @property float $coste_operario
  * @property string $observaciones
  * @property int $prioridade_id
+ * @property string $atributos
  *
  * @property \App\Model\Entity\Estado $estado
  * @property \App\Model\Entity\Centro $centro
@@ -26,6 +27,8 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Prioridade $prioridade
  * @property \App\Model\Entity\EstadosDeOrden[] $estados_de_ordens
  * @property \App\Model\Entity\Objeto[] $objetos
+ * @property \App\Model\Entity\Parada[] $paradas
+ * @property \App\Model\Entity\Tarea[] $tareas
  */
 class Orden extends Entity
 {

@@ -75,20 +75,26 @@
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('centro_id','centro_id', ['model'=>'Envios']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('fecha_entrega','fecha_entrega', ['model'=>'Envios']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'Envios']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('direccione_id','direccione_id', ['model'=>'Envios']) ?></th>
 			</thead>
 			<tbody>
 <?php foreach ($envios as $envio): ?>
 				<?php $my_url= $this->Url->build(['controller' => 'envios', 'action' => 'view',$envio->id]) ?>
             	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
-                	<td class="w3-border"><?= h($envio->id) ?></td>
-                	<td class="w3-border"><?= h($envio->proveedores_cliente_id) ?></td>
-                	<td class="w3-border"><?= h($envio->fecha_pedido) ?></td>
-                	<td class="w3-border"><?= h($envio->fecha_envio) ?></td>
-                	<td class="w3-border"><?= h($envio->albaran) ?></td>
-                	<td class="w3-border"><?= h($envio->pedidos_empresa_id) ?></td>
-                	<td class="w3-border"><?= h($envio->centro_id) ?></td>
-                	<td class="w3-border"><?= h($envio->fecha_entrega) ?></td>
-                	<td class="w3-border"><?= h($envio->observaciones) ?></td>
+                                    <td class="w3-border"><?= h($envio->id) ?></td>
+
+                                <td class="w3-border"><?= $envio->has('proveedores_cliente') ? $this->Html->link($envio->proveedores_cliente->label, ['controller' => 'ProveedoresClientes', 'action' => 'view', $envio->proveedores_cliente->id]) : '' ?></td>
+                        <td class="w3-border"><?= h($envio->fecha_pedido) ?></td>
+                        <td class="w3-border"><?= h($envio->fecha_envio) ?></td>
+                        <td class="w3-border"><?= h($envio->albaran) ?></td>
+
+                                <td class="w3-border"><?= $envio->has('pedidos_empresa') ? $this->Html->link($envio->pedidos_empresa->label, ['controller' => 'PedidosEmpresas', 'action' => 'view', $envio->pedidos_empresa->id]) : '' ?></td>
+
+                                <td class="w3-border"><?= $envio->has('centro') ? $this->Html->link($envio->centro->label, ['controller' => 'Centros', 'action' => 'view', $envio->centro->id]) : '' ?></td>
+                        <td class="w3-border"><?= h($envio->fecha_entrega) ?></td>
+                        <td class="w3-border"><?= h($envio->observaciones) ?></td>
+
+                                <td class="w3-border"><?= $envio->has('direccione') ? $this->Html->link($envio->direccione->label, ['controller' => 'Direcciones', 'action' => 'view', $envio->direccione->id]) : '' ?></td>
             	</tr>
             <?php endforeach; ?>
         </table>

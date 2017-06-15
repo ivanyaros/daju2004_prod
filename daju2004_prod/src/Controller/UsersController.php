@@ -45,7 +45,9 @@ class UsersController extends AppController
 
         $this->loadModel('UsuariosEnEstadosOrden');
         $query=$this->UsuariosEnEstadosOrden->find('all')
-                                        ->where(['user_id' => $id]);
+                                        ->where(['user_id' => $id])
+                                        ->contain(['EstadosDeOrdens', 'Users']);
+
         $usuariosEnEstadosOrden=$this->paginate($query,['scope'=>'mis_UsuariosEnEstadosOrden']);
         $this->set(compact('usuariosEnEstadosOrden'));
 

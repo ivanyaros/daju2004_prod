@@ -48,31 +48,39 @@
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('name','name', ['model'=>'Ordens']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('referencia','referencia', ['model'=>'Ordens']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('cantidad','cantidad', ['model'=>'Ordens']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('defectuosos','defectuosos', ['model'=>'Ordens']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('fecha_creacion','fecha_creacion', ['model'=>'Ordens']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('fecha_terminacion','fecha_terminacion', ['model'=>'Ordens']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('estado_id','estado_id', ['model'=>'Ordens']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('centro_id','centro_id', ['model'=>'Ordens']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('proceso_id','proceso_id', ['model'=>'Ordens']) ?></th>
-                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('scrap','scrap', ['model'=>'Ordens']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('coste_operario','coste_operario', ['model'=>'Ordens']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'Ordens']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('prioridade_id','prioridade_id', ['model'=>'Ordens']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('atributos','atributos', ['model'=>'Ordens']) ?></th>
 			</thead>
 			<tbody>
 <?php foreach ($ordens as $orden): ?>
 				<?php $my_url= $this->Url->build(['controller' => 'ordens', 'action' => 'view',$orden->id]) ?>
             	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
-                	<td class="w3-border"><?= h($orden->id) ?></td>
-                	<td class="w3-border"><?= h($orden->name) ?></td>
-                	<td class="w3-border"><?= h($orden->referencia) ?></td>
-                	<td class="w3-border"><?= h($orden->cantidad) ?></td>
-                	<td class="w3-border"><?= h($orden->fecha_creacion) ?></td>
-                	<td class="w3-border"><?= h($orden->fecha_terminacion) ?></td>
-                	<td class="w3-border"><?= h($orden->estado_id) ?></td>
-                	<td class="w3-border"><?= h($orden->centro_id) ?></td>
-                	<td class="w3-border"><?= h($orden->proceso_id) ?></td>
-                	<td class="w3-border"><?= h($orden->scrap) ?></td>
-                	<td class="w3-border"><?= h($orden->coste_operario) ?></td>
-                	<td class="w3-border"><?= h($orden->observaciones) ?></td>
+                                    <td class="w3-border"><?= h($orden->id) ?></td>
+                        <td class="w3-border"><?= h($orden->name) ?></td>
+                        <td class="w3-border"><?= h($orden->referencia) ?></td>
+                        <td class="w3-border"><?= h($orden->cantidad) ?></td>
+                        <td class="w3-border"><?= h($orden->defectuosos) ?></td>
+                        <td class="w3-border"><?= h($orden->fecha_creacion) ?></td>
+                        <td class="w3-border"><?= h($orden->fecha_terminacion) ?></td>
+
+                                <td class="w3-border"><?= $orden->has('estado') ? $this->Html->link($orden->estado->label, ['controller' => 'Estados', 'action' => 'view', $orden->estado->id]) : '' ?></td>
+
+                                <td class="w3-border"><?= $orden->has('centro') ? $this->Html->link($orden->centro->label, ['controller' => 'Centros', 'action' => 'view', $orden->centro->id]) : '' ?></td>
+
+                                <td class="w3-border"><?= $orden->has('proceso') ? $this->Html->link($orden->proceso->label, ['controller' => 'Proceso', 'action' => 'view', $orden->proceso->id]) : '' ?></td>
+                        <td class="w3-border"><?= h($orden->coste_operario) ?></td>
+                        <td class="w3-border"><?= h($orden->observaciones) ?></td>
+
+                                <td class="w3-border"><?= $orden->has('prioridade') ? $this->Html->link($orden->prioridade->label, ['controller' => 'Prioridades', 'action' => 'view', $orden->prioridade->id]) : '' ?></td>
+                        <td class="w3-border"><?= h($orden->atributos) ?></td>
             	</tr>
             <?php endforeach; ?>
         </table>
@@ -115,19 +123,24 @@
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('cantidad','cantidad', ['model'=>'PedidosProductosDetalle']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('fecha','fecha', ['model'=>'PedidosProductosDetalle']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'PedidosProductosDetalle']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('prioridade_id','prioridade_id', ['model'=>'PedidosProductosDetalle']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('terminado','terminado', ['model'=>'PedidosProductosDetalle']) ?></th>
 			</thead>
 			<tbody>
 <?php foreach ($pedidosProductosDetalle as $pedidosProductosDetalle): ?>
 				<?php $my_url= $this->Url->build(['controller' => 'pedidosProductosDetalle', 'action' => 'view',$pedidosProductosDetalle->id]) ?>
             	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
-                	<td class="w3-border"><?= h($pedidosProductosDetalle->id) ?></td>
-                	<td class="w3-border"><?= h($pedidosProductosDetalle->pedidos_empresa_id) ?></td>
-                	<td class="w3-border"><?= h($pedidosProductosDetalle->producto_id) ?></td>
-                	<td class="w3-border"><?= h($pedidosProductosDetalle->cantidad) ?></td>
-                	<td class="w3-border"><?= h($pedidosProductosDetalle->fecha) ?></td>
-                	<td class="w3-border"><?= h($pedidosProductosDetalle->observaciones) ?></td>
-                	<td class="w3-border"><?= h($pedidosProductosDetalle->terminado) ?></td>
+                                    <td class="w3-border"><?= h($pedidosProductosDetalle->id) ?></td>
+
+                                <td class="w3-border"><?= $pedidosProductosDetalle->has('pedidos_empresa') ? $this->Html->link($pedidosProductosDetalle->pedidos_empresa->label, ['controller' => 'PedidosEmpresas', 'action' => 'view', $pedidosProductosDetalle->pedidos_empresa->id]) : '' ?></td>
+
+                                <td class="w3-border"><?= $pedidosProductosDetalle->has('producto') ? $this->Html->link($pedidosProductosDetalle->producto->label, ['controller' => 'Producto', 'action' => 'view', $pedidosProductosDetalle->producto->id]) : '' ?></td>
+                        <td class="w3-border"><?= h($pedidosProductosDetalle->cantidad) ?></td>
+                        <td class="w3-border"><?= h($pedidosProductosDetalle->fecha) ?></td>
+                        <td class="w3-border"><?= h($pedidosProductosDetalle->observaciones) ?></td>
+
+                                <td class="w3-border"><?= $pedidosProductosDetalle->has('prioridade') ? $this->Html->link($pedidosProductosDetalle->prioridade->label, ['controller' => 'Prioridades', 'action' => 'view', $pedidosProductosDetalle->prioridade->id]) : '' ?></td>
+                        <td class="w3-border"><?= h($pedidosProductosDetalle->terminado) ?></td>
             	</tr>
             <?php endforeach; ?>
         </table>

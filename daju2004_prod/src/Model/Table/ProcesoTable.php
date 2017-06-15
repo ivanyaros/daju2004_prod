@@ -17,6 +17,7 @@ use Cake\Validation\Validator;
  * @property \Cake\ORM\Association\HasMany $ProcesoMaterialEntrada
  * @property \Cake\ORM\Association\HasMany $ProcesoProductoEntrada
  * @property \Cake\ORM\Association\HasMany $ProcesoProductoSalida
+ * @property \Cake\ORM\Association\HasMany $Subproceso
  *
  * @method \App\Model\Entity\Proceso get($primaryKey, $options = [])
  * @method \App\Model\Entity\Proceso newEntity($data = null, array $options = [])
@@ -68,6 +69,9 @@ class ProcesoTable extends Table
         $this->hasMany('ProcesoProductoSalida', [
             'foreignKey' => 'proceso_id'
         ]);
+        $this->hasMany('Subproceso', [
+            'foreignKey' => 'proceso_id'
+        ]);
     }
 
     /**
@@ -103,8 +107,8 @@ class ProcesoTable extends Table
             ->allowEmpty('enlaces');
 
         $validator
-            ->numeric('coste_tiempo')
-            ->allowEmpty('coste_tiempo');
+            ->integer('segundos_tiempo')
+            ->allowEmpty('segundos_tiempo');
 
         $validator
             ->allowEmpty('coste_operaciones');
@@ -114,6 +118,9 @@ class ProcesoTable extends Table
 
         $validator
             ->allowEmpty('larga');
+
+        $validator
+            ->allowEmpty('atributos');
 
         return $validator;
     }

@@ -50,19 +50,25 @@ class MaterialController extends AppController
 
         $this->loadModel('Materiales');
         $query=$this->Materiales->find('all')
-                                        ->where(['material_id' => $id]);
+                                        ->where(['material_id' => $id])
+                                        ->contain(['Material', 'Localizaciones', 'EntradasDeMateriales']);
+
         $materiales=$this->paginate($query,['scope'=>'mis_Materiales']);
         $this->set(compact('materiales'));
 
         $this->loadModel('ProcesoMaterialEntrada');
         $query=$this->ProcesoMaterialEntrada->find('all')
-                                        ->where(['material_id' => $id]);
+                                        ->where(['material_id' => $id])
+                                        ->contain(['Proceso', 'Material']);
+
         $procesoMaterialEntrada=$this->paginate($query,['scope'=>'mis_ProcesoMaterialEntrada']);
         $this->set(compact('procesoMaterialEntrada'));
 
         $this->loadModel('ProveedoresMaterial');
         $query=$this->ProveedoresMaterial->find('all')
-                                        ->where(['material_id' => $id]);
+                                        ->where(['material_id' => $id])
+                                        ->contain(['ProveedoresClientes', 'Material']);
+
         $proveedoresMaterial=$this->paginate($query,['scope'=>'mis_ProveedoresMaterial']);
         $this->set(compact('proveedoresMaterial'));
 

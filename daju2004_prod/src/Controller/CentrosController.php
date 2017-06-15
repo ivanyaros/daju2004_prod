@@ -49,31 +49,41 @@ class CentrosController extends AppController
 
         $this->loadModel('EntradasDeMateriales');
         $query=$this->EntradasDeMateriales->find('all')
-                                        ->where(['centro_id' => $id]);
+                                        ->where(['centro_id' => $id])
+                                        ->contain(['ProveedoresClientes', 'Centros']);
+
         $entradasDeMateriales=$this->paginate($query,['scope'=>'mis_EntradasDeMateriales']);
         $this->set(compact('entradasDeMateriales'));
 
         $this->loadModel('Envios');
         $query=$this->Envios->find('all')
-                                        ->where(['centro_id' => $id]);
+                                        ->where(['centro_id' => $id])
+                                        ->contain(['ProveedoresClientes', 'PedidosEmpresas', 'Centros', 'Direcciones']);
+
         $envios=$this->paginate($query,['scope'=>'mis_Envios']);
         $this->set(compact('envios'));
 
         $this->loadModel('Localizaciones');
         $query=$this->Localizaciones->find('all')
-                                        ->where(['centro_id' => $id]);
+                                        ->where(['centro_id' => $id])
+                                        ->contain(['Centros']);
+
         $localizaciones=$this->paginate($query,['scope'=>'mis_Localizaciones']);
         $this->set(compact('localizaciones'));
 
         $this->loadModel('Ordens');
         $query=$this->Ordens->find('all')
-                                        ->where(['centro_id' => $id]);
+                                        ->where(['centro_id' => $id])
+                                        ->contain(['Estados', 'Centros', 'Proceso', 'Prioridades']);
+
         $ordens=$this->paginate($query,['scope'=>'mis_Ordens']);
         $this->set(compact('ordens'));
 
         $this->loadModel('Proceso');
         $query=$this->Proceso->find('all')
-                                        ->where(['centro_id' => $id]);
+                                        ->where(['centro_id' => $id])
+                                        ->contain(['Familias', 'Monedas', 'Ivas', 'Centros']);
+
         $proceso=$this->paginate($query,['scope'=>'mis_Proceso']);
         $this->set(compact('proceso'));
 

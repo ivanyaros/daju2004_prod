@@ -48,7 +48,9 @@ class EntradasDeMaterialesController extends AppController
 
         $this->loadModel('Materiales');
         $query=$this->Materiales->find('all')
-                                        ->where(['entradas_de_materiale_id' => $id]);
+                                        ->where(['entradas_de_materiale_id' => $id])
+                                        ->contain(['Material', 'Localizaciones', 'EntradasDeMateriales']);
+
         $materiales=$this->paginate($query,['scope'=>'mis_Materiales']);
         $this->set(compact('materiales'));
 

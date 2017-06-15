@@ -50,12 +50,16 @@ class PrioridadesTableTest extends TestCase
         'app.proceso_material_entrada',
         'app.proceso_producto_entrada',
         'app.proceso_producto_salida',
+        'app.subproceso',
+        'app.tareas',
         'app.materiales',
         'app.localizaciones',
         'app.objetos',
         'app.materiales_entrada',
         'app.objetos_entrada',
-        'app.proveedores_material'
+        'app.proveedores_material',
+        'app.paradas',
+        'app.paradas_tipo'
     ];
 
     /**

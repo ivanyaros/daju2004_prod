@@ -46,13 +46,17 @@ class EstadosController extends AppController
 
         $this->loadModel('EstadosDeOrdens');
         $query=$this->EstadosDeOrdens->find('all')
-                                        ->where(['estado_id' => $id]);
+                                        ->where(['estado_id' => $id])
+                                        ->contain(['Ordens', 'Estados']);
+
         $estadosDeOrdens=$this->paginate($query,['scope'=>'mis_EstadosDeOrdens']);
         $this->set(compact('estadosDeOrdens'));
 
         $this->loadModel('Ordens');
         $query=$this->Ordens->find('all')
-                                        ->where(['estado_id' => $id]);
+                                        ->where(['estado_id' => $id])
+                                        ->contain(['Estados', 'Centros', 'Proceso', 'Prioridades']);
+
         $ordens=$this->paginate($query,['scope'=>'mis_Ordens']);
         $this->set(compact('ordens'));
 

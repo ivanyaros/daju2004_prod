@@ -15,6 +15,8 @@ use Cake\Validation\Validator;
  * @property \Cake\ORM\Association\BelongsTo $Prioridades
  * @property \Cake\ORM\Association\HasMany $EstadosDeOrdens
  * @property \Cake\ORM\Association\HasMany $Objetos
+ * @property \Cake\ORM\Association\HasMany $Paradas
+ * @property \Cake\ORM\Association\HasMany $Tareas
  *
  * @method \App\Model\Entity\Orden get($primaryKey, $options = [])
  * @method \App\Model\Entity\Orden newEntity($data = null, array $options = [])
@@ -61,6 +63,12 @@ class OrdensTable extends Table
         $this->hasMany('Objetos', [
             'foreignKey' => 'orden_id'
         ]);
+        $this->hasMany('Paradas', [
+            'foreignKey' => 'orden_id'
+        ]);
+        $this->hasMany('Tareas', [
+            'foreignKey' => 'orden_id'
+        ]);
     }
 
     /**
@@ -86,6 +94,10 @@ class OrdensTable extends Table
             ->allowEmpty('cantidad');
 
         $validator
+            ->integer('defectuosos')
+            ->allowEmpty('defectuosos');
+
+        $validator
             ->dateTime('fecha_creacion')
             ->allowEmpty('fecha_creacion');
 
@@ -94,15 +106,14 @@ class OrdensTable extends Table
             ->allowEmpty('fecha_terminacion');
 
         $validator
-            ->numeric('scrap')
-            ->allowEmpty('scrap');
-
-        $validator
             ->numeric('coste_operario')
             ->allowEmpty('coste_operario');
 
         $validator
             ->allowEmpty('observaciones');
+
+        $validator
+            ->allowEmpty('atributos');
 
         return $validator;
     }

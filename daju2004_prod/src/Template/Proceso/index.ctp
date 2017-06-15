@@ -29,7 +29,7 @@
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('visible') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('enlaces') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('centro_id') ?></th>
-                <th class="w3-border" scope="col"><?= $this->Paginator->sort('coste_tiempo') ?></th>
+                <th class="w3-border" scope="col"><?= $this->Paginator->sort('segundos_tiempo') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('coste_operaciones') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('descripcion') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('larga') ?></th>
@@ -49,7 +49,7 @@
                 <td class="w3-border"><?= h($proceso->visible) ?></td>
                 <td class="w3-border"><?= h($proceso->enlaces) ?></td>
                 <td class="w3-border"><?= $proceso->has('centro') ? $this->Html->link($proceso->centro->label, ['controller' => 'Centros', 'action' => 'view', $proceso->centro->id]) : '' ?></td>
-                <td class="w3-border"><?= $this->Number->format($proceso->coste_tiempo) ?></td>
+                <td class="w3-border"><?= $this->Number->format($proceso->segundos_tiempo) ?></td>
                 <td class="w3-border"><?= h($proceso->coste_operaciones) ?></td>
                 <td class="w3-border"><?= h($proceso->descripcion) ?></td>
                 <td class="w3-border"><?= h($proceso->larga) ?></td>

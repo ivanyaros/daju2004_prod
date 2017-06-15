@@ -12,6 +12,13 @@
  * @since         0.1.0
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
+use Cake\Utility\Inflector;
+use Bake\Utility\Model\AssociationFilter;
+use Cake\Console\Shell;
+use Cake\Core\App;
+use Cake\Core\Configure;
+use Cake\ORM\Table;
+use Cake\ORM\TableRegistry;
 $allAssociations = array_merge(
     $this->Bake->aliasExtractor($modelObj, 'BelongsTo'),
     $this->Bake->aliasExtractor($modelObj, 'BelongsToMany'),
@@ -23,7 +30,6 @@ $myAssociations = array_merge(
     $this->Bake->aliasExtractor($modelObj, 'HasMany')
 );
 
-use Cake\Utility\Inflector;
 %>
 
     /**
@@ -47,10 +53,17 @@ use Cake\Utility\Inflector;
         ];
 <% endif; %>
 
-<% foreach($myAssociations as $association): %>
+<% foreach($myAssociations as $association): 
+        $modelObject = TableRegistry::get($association);
+        $my_contains = array_merge(
+            $this->Bake->aliasExtractor($modelObject, 'BelongsTo'),
+            $this->Bake->aliasExtractor($modelObject, 'HasOne'));
+%>
         $this->loadModel('<%= $association %>');
         $query=$this-><%= $association %>->find('all')
-                                        ->where(['<%= Inflector::singularize(Inflector::tableize($singularName))%>_id' => $id]);
+                                        ->where(['<%= Inflector::singularize(Inflector::tableize($singularName))%>_id' => $id])
+                                        ->contain([<%= $this->Bake->stringifyList($my_contains, ['indent' => false]) %>]);
+
         $<%= Inflector::variable($association) %>=$this->paginate($query,['scope'=>'mis_<%= $association %>']);
         $this->set(compact('<%= Inflector::variable($association) %>'));
 

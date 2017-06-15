@@ -86,23 +86,29 @@
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('defectuosos','defectuosos', ['model'=>'Objetos']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('peso','peso', ['model'=>'Objetos']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'Objetos']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('envio_id','envio_id', ['model'=>'Objetos']) ?></th>
 			</thead>
 			<tbody>
 <?php foreach ($objetos as $objeto): ?>
 				<?php $my_url= $this->Url->build(['controller' => 'objetos', 'action' => 'view',$objeto->id]) ?>
             	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
-                	<td class="w3-border"><?= h($objeto->id) ?></td>
-                	<td class="w3-border"><?= h($objeto->name) ?></td>
-                	<td class="w3-border"><?= h($objeto->producto_id) ?></td>
-                	<td class="w3-border"><?= h($objeto->numero_serie) ?></td>
-                	<td class="w3-border"><?= h($objeto->referencia) ?></td>
-                	<td class="w3-border"><?= h($objeto->orden_id) ?></td>
-                	<td class="w3-border"><?= h($objeto->lote) ?></td>
-                	<td class="w3-border"><?= h($objeto->localizacione_id) ?></td>
-                	<td class="w3-border"><?= h($objeto->coste) ?></td>
-                	<td class="w3-border"><?= h($objeto->defectuosos) ?></td>
-                	<td class="w3-border"><?= h($objeto->peso) ?></td>
-                	<td class="w3-border"><?= h($objeto->observaciones) ?></td>
+                                    <td class="w3-border"><?= h($objeto->id) ?></td>
+                        <td class="w3-border"><?= h($objeto->name) ?></td>
+
+                                <td class="w3-border"><?= $objeto->has('producto') ? $this->Html->link($objeto->producto->label, ['controller' => 'Producto', 'action' => 'view', $objeto->producto->id]) : '' ?></td>
+                        <td class="w3-border"><?= h($objeto->numero_serie) ?></td>
+                        <td class="w3-border"><?= h($objeto->referencia) ?></td>
+
+                                <td class="w3-border"><?= $objeto->has('orden') ? $this->Html->link($objeto->orden->label, ['controller' => 'Ordens', 'action' => 'view', $objeto->orden->id]) : '' ?></td>
+                        <td class="w3-border"><?= h($objeto->lote) ?></td>
+
+                                <td class="w3-border"><?= $objeto->has('localizacione') ? $this->Html->link($objeto->localizacione->label, ['controller' => 'Localizaciones', 'action' => 'view', $objeto->localizacione->id]) : '' ?></td>
+                        <td class="w3-border"><?= h($objeto->coste) ?></td>
+                        <td class="w3-border"><?= h($objeto->defectuosos) ?></td>
+                        <td class="w3-border"><?= h($objeto->peso) ?></td>
+                        <td class="w3-border"><?= h($objeto->observaciones) ?></td>
+
+                                <td class="w3-border"><?= $objeto->has('envio') ? $this->Html->link($objeto->envio->label, ['controller' => 'Envios', 'action' => 'view', $objeto->envio->id]) : '' ?></td>
             	</tr>
             <?php endforeach; ?>
         </table>

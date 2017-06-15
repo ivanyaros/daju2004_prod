@@ -50,19 +50,25 @@ class EstadosDeOrdensController extends AppController
 
         $this->loadModel('MaquinasUsadas');
         $query=$this->MaquinasUsadas->find('all')
-                                        ->where(['estados_de_orden_id' => $id]);
+                                        ->where(['estados_de_orden_id' => $id])
+                                        ->contain(['EstadosDeOrdens', 'Maquinas']);
+
         $maquinasUsadas=$this->paginate($query,['scope'=>'mis_MaquinasUsadas']);
         $this->set(compact('maquinasUsadas'));
 
         $this->loadModel('UsuariosEnEstadosOrden');
         $query=$this->UsuariosEnEstadosOrden->find('all')
-                                        ->where(['estados_de_orden_id' => $id]);
+                                        ->where(['estados_de_orden_id' => $id])
+                                        ->contain(['EstadosDeOrdens', 'Users']);
+
         $usuariosEnEstadosOrden=$this->paginate($query,['scope'=>'mis_UsuariosEnEstadosOrden']);
         $this->set(compact('usuariosEnEstadosOrden'));
 
         $this->loadModel('UtensiliosUsados');
         $query=$this->UtensiliosUsados->find('all')
-                                        ->where(['estados_de_orden_id' => $id]);
+                                        ->where(['estados_de_orden_id' => $id])
+                                        ->contain(['EstadosDeOrdens', 'Utensilios']);
+
         $utensiliosUsados=$this->paginate($query,['scope'=>'mis_UtensiliosUsados']);
         $this->set(compact('utensiliosUsados'));
 

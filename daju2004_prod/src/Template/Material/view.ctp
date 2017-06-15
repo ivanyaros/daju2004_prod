@@ -107,6 +107,7 @@
 		<table class=" w3-table w3-centered w3-border w3-bordered w3-hoverable w3-theme-d4">
         	<thead class="w3-border w3-black">  
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'Materiales']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('material_id','material_id', ['model'=>'Materiales']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('fecha_entega','fecha_entega', ['model'=>'Materiales']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('localizacione_id','localizacione_id', ['model'=>'Materiales']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('entradas_de_materiale_id','entradas_de_materiale_id', ['model'=>'Materiales']) ?></th>
@@ -131,26 +132,30 @@
 <?php foreach ($materiales as $materiale): ?>
 				<?php $my_url= $this->Url->build(['controller' => 'materiales', 'action' => 'view',$materiale->id]) ?>
             	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
-                	<td class="w3-border"><?= h($materiale->id) ?></td>
-                	<td class="w3-border"><?= h($materiale->fecha_entega) ?></td>
-                	<td class="w3-border"><?= h($materiale->localizacione_id) ?></td>
-                	<td class="w3-border"><?= h($materiale->entradas_de_materiale_id) ?></td>
-                	<td class="w3-border"><?= h($materiale->bobina_lote) ?></td>
-                	<td class="w3-border"><?= h($materiale->bobinas) ?></td>
-                	<td class="w3-border"><?= h($materiale->bobinas_actual) ?></td>
-                	<td class="w3-border"><?= h($materiale->lote) ?></td>
-                	<td class="w3-border"><?= h($materiale->numero_bobina) ?></td>
-                	<td class="w3-border"><?= h($materiale->taras) ?></td>
-                	<td class="w3-border"><?= h($materiale->taras_reales) ?></td>
-                	<td class="w3-border"><?= h($materiale->taras_mediciones) ?></td>
-                	<td class="w3-border"><?= h($materiale->metros_brutos) ?></td>
-                	<td class="w3-border"><?= h($materiale->metros_netos) ?></td>
-                	<td class="w3-border"><?= h($materiale->metros_actuales) ?></td>
-                	<td class="w3-border"><?= h($materiale->metros_utiles) ?></td>
-                	<td class="w3-border"><?= h($materiale->scrap) ?></td>
-                	<td class="w3-border"><?= h($materiale->en_uso) ?></td>
-                	<td class="w3-border"><?= h($materiale->terminado) ?></td>
-                	<td class="w3-border"><?= h($materiale->peso_ud) ?></td>
+                                    <td class="w3-border"><?= h($materiale->id) ?></td>
+
+                                <td class="w3-border"><?= $materiale->has('material') ? $this->Html->link($materiale->material->label, ['controller' => 'Material', 'action' => 'view', $materiale->material->id]) : '' ?></td>
+                        <td class="w3-border"><?= h($materiale->fecha_entega) ?></td>
+
+                                <td class="w3-border"><?= $materiale->has('localizacione') ? $this->Html->link($materiale->localizacione->label, ['controller' => 'Localizaciones', 'action' => 'view', $materiale->localizacione->id]) : '' ?></td>
+
+                                <td class="w3-border"><?= $materiale->has('entradas_de_materiale') ? $this->Html->link($materiale->entradas_de_materiale->label, ['controller' => 'EntradasDeMateriales', 'action' => 'view', $materiale->entradas_de_materiale->id]) : '' ?></td>
+                        <td class="w3-border"><?= h($materiale->bobina_lote) ?></td>
+                        <td class="w3-border"><?= h($materiale->bobinas) ?></td>
+                        <td class="w3-border"><?= h($materiale->bobinas_actual) ?></td>
+                        <td class="w3-border"><?= h($materiale->lote) ?></td>
+                        <td class="w3-border"><?= h($materiale->numero_bobina) ?></td>
+                        <td class="w3-border"><?= h($materiale->taras) ?></td>
+                        <td class="w3-border"><?= h($materiale->taras_reales) ?></td>
+                        <td class="w3-border"><?= h($materiale->taras_mediciones) ?></td>
+                        <td class="w3-border"><?= h($materiale->metros_brutos) ?></td>
+                        <td class="w3-border"><?= h($materiale->metros_netos) ?></td>
+                        <td class="w3-border"><?= h($materiale->metros_actuales) ?></td>
+                        <td class="w3-border"><?= h($materiale->metros_utiles) ?></td>
+                        <td class="w3-border"><?= h($materiale->scrap) ?></td>
+                        <td class="w3-border"><?= h($materiale->en_uso) ?></td>
+                        <td class="w3-border"><?= h($materiale->terminado) ?></td>
+                        <td class="w3-border"><?= h($materiale->peso_ud) ?></td>
             	</tr>
             <?php endforeach; ?>
         </table>
@@ -189,6 +194,7 @@
         	<thead class="w3-border w3-black">  
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'ProcesoMaterialEntrada']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('proceso_id','proceso_id', ['model'=>'ProcesoMaterialEntrada']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('material_id','material_id', ['model'=>'ProcesoMaterialEntrada']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('metros_lineales','metros_lineales', ['model'=>'ProcesoMaterialEntrada']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('metros_cuadrados','metros_cuadrados', ['model'=>'ProcesoMaterialEntrada']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'ProcesoMaterialEntrada']) ?></th>
@@ -197,11 +203,14 @@
 <?php foreach ($procesoMaterialEntrada as $procesoMaterialEntrada): ?>
 				<?php $my_url= $this->Url->build(['controller' => 'procesoMaterialEntrada', 'action' => 'view',$procesoMaterialEntrada->id]) ?>
             	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
-                	<td class="w3-border"><?= h($procesoMaterialEntrada->id) ?></td>
-                	<td class="w3-border"><?= h($procesoMaterialEntrada->proceso_id) ?></td>
-                	<td class="w3-border"><?= h($procesoMaterialEntrada->metros_lineales) ?></td>
-                	<td class="w3-border"><?= h($procesoMaterialEntrada->metros_cuadrados) ?></td>
-                	<td class="w3-border"><?= h($procesoMaterialEntrada->observaciones) ?></td>
+                                    <td class="w3-border"><?= h($procesoMaterialEntrada->id) ?></td>
+
+                                <td class="w3-border"><?= $procesoMaterialEntrada->has('proceso') ? $this->Html->link($procesoMaterialEntrada->proceso->label, ['controller' => 'Proceso', 'action' => 'view', $procesoMaterialEntrada->proceso->id]) : '' ?></td>
+
+                                <td class="w3-border"><?= $procesoMaterialEntrada->has('material') ? $this->Html->link($procesoMaterialEntrada->material->label, ['controller' => 'Material', 'action' => 'view', $procesoMaterialEntrada->material->id]) : '' ?></td>
+                        <td class="w3-border"><?= h($procesoMaterialEntrada->metros_lineales) ?></td>
+                        <td class="w3-border"><?= h($procesoMaterialEntrada->metros_cuadrados) ?></td>
+                        <td class="w3-border"><?= h($procesoMaterialEntrada->observaciones) ?></td>
             	</tr>
             <?php endforeach; ?>
         </table>
@@ -240,15 +249,19 @@
         	<thead class="w3-border w3-black">  
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'ProveedoresMaterial']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('proveedores_cliente_id','proveedores_cliente_id', ['model'=>'ProveedoresMaterial']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('material_id','material_id', ['model'=>'ProveedoresMaterial']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'ProveedoresMaterial']) ?></th>
 			</thead>
 			<tbody>
 <?php foreach ($proveedoresMaterial as $proveedoresMaterial): ?>
 				<?php $my_url= $this->Url->build(['controller' => 'proveedoresMaterial', 'action' => 'view',$proveedoresMaterial->id]) ?>
             	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
-                	<td class="w3-border"><?= h($proveedoresMaterial->id) ?></td>
-                	<td class="w3-border"><?= h($proveedoresMaterial->proveedores_cliente_id) ?></td>
-                	<td class="w3-border"><?= h($proveedoresMaterial->observaciones) ?></td>
+                                    <td class="w3-border"><?= h($proveedoresMaterial->id) ?></td>
+
+                                <td class="w3-border"><?= $proveedoresMaterial->has('proveedores_cliente') ? $this->Html->link($proveedoresMaterial->proveedores_cliente->label, ['controller' => 'ProveedoresClientes', 'action' => 'view', $proveedoresMaterial->proveedores_cliente->id]) : '' ?></td>
+
+                                <td class="w3-border"><?= $proveedoresMaterial->has('material') ? $this->Html->link($proveedoresMaterial->material->label, ['controller' => 'Material', 'action' => 'view', $proveedoresMaterial->material->id]) : '' ?></td>
+                        <td class="w3-border"><?= h($proveedoresMaterial->observaciones) ?></td>
             	</tr>
             <?php endforeach; ?>
         </table>

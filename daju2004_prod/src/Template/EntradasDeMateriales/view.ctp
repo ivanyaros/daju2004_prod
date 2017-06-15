@@ -70,6 +70,7 @@
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('material_id','material_id', ['model'=>'Materiales']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('fecha_entega','fecha_entega', ['model'=>'Materiales']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('localizacione_id','localizacione_id', ['model'=>'Materiales']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('entradas_de_materiale_id','entradas_de_materiale_id', ['model'=>'Materiales']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('bobina_lote','bobina_lote', ['model'=>'Materiales']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('bobinas','bobinas', ['model'=>'Materiales']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('bobinas_actual','bobinas_actual', ['model'=>'Materiales']) ?></th>
@@ -91,26 +92,30 @@
 <?php foreach ($materiales as $materiale): ?>
 				<?php $my_url= $this->Url->build(['controller' => 'materiales', 'action' => 'view',$materiale->id]) ?>
             	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
-                	<td class="w3-border"><?= h($materiale->id) ?></td>
-                	<td class="w3-border"><?= h($materiale->material_id) ?></td>
-                	<td class="w3-border"><?= h($materiale->fecha_entega) ?></td>
-                	<td class="w3-border"><?= h($materiale->localizacione_id) ?></td>
-                	<td class="w3-border"><?= h($materiale->bobina_lote) ?></td>
-                	<td class="w3-border"><?= h($materiale->bobinas) ?></td>
-                	<td class="w3-border"><?= h($materiale->bobinas_actual) ?></td>
-                	<td class="w3-border"><?= h($materiale->lote) ?></td>
-                	<td class="w3-border"><?= h($materiale->numero_bobina) ?></td>
-                	<td class="w3-border"><?= h($materiale->taras) ?></td>
-                	<td class="w3-border"><?= h($materiale->taras_reales) ?></td>
-                	<td class="w3-border"><?= h($materiale->taras_mediciones) ?></td>
-                	<td class="w3-border"><?= h($materiale->metros_brutos) ?></td>
-                	<td class="w3-border"><?= h($materiale->metros_netos) ?></td>
-                	<td class="w3-border"><?= h($materiale->metros_actuales) ?></td>
-                	<td class="w3-border"><?= h($materiale->metros_utiles) ?></td>
-                	<td class="w3-border"><?= h($materiale->scrap) ?></td>
-                	<td class="w3-border"><?= h($materiale->en_uso) ?></td>
-                	<td class="w3-border"><?= h($materiale->terminado) ?></td>
-                	<td class="w3-border"><?= h($materiale->peso_ud) ?></td>
+                                    <td class="w3-border"><?= h($materiale->id) ?></td>
+
+                                <td class="w3-border"><?= $materiale->has('material') ? $this->Html->link($materiale->material->label, ['controller' => 'Material', 'action' => 'view', $materiale->material->id]) : '' ?></td>
+                        <td class="w3-border"><?= h($materiale->fecha_entega) ?></td>
+
+                                <td class="w3-border"><?= $materiale->has('localizacione') ? $this->Html->link($materiale->localizacione->label, ['controller' => 'Localizaciones', 'action' => 'view', $materiale->localizacione->id]) : '' ?></td>
+
+                                <td class="w3-border"><?= $materiale->has('entradas_de_materiale') ? $this->Html->link($materiale->entradas_de_materiale->label, ['controller' => 'EntradasDeMateriales', 'action' => 'view', $materiale->entradas_de_materiale->id]) : '' ?></td>
+                        <td class="w3-border"><?= h($materiale->bobina_lote) ?></td>
+                        <td class="w3-border"><?= h($materiale->bobinas) ?></td>
+                        <td class="w3-border"><?= h($materiale->bobinas_actual) ?></td>
+                        <td class="w3-border"><?= h($materiale->lote) ?></td>
+                        <td class="w3-border"><?= h($materiale->numero_bobina) ?></td>
+                        <td class="w3-border"><?= h($materiale->taras) ?></td>
+                        <td class="w3-border"><?= h($materiale->taras_reales) ?></td>
+                        <td class="w3-border"><?= h($materiale->taras_mediciones) ?></td>
+                        <td class="w3-border"><?= h($materiale->metros_brutos) ?></td>
+                        <td class="w3-border"><?= h($materiale->metros_netos) ?></td>
+                        <td class="w3-border"><?= h($materiale->metros_actuales) ?></td>
+                        <td class="w3-border"><?= h($materiale->metros_utiles) ?></td>
+                        <td class="w3-border"><?= h($materiale->scrap) ?></td>
+                        <td class="w3-border"><?= h($materiale->en_uso) ?></td>
+                        <td class="w3-border"><?= h($materiale->terminado) ?></td>
+                        <td class="w3-border"><?= h($materiale->peso_ud) ?></td>
             	</tr>
             <?php endforeach; ?>
         </table>

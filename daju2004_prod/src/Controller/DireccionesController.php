@@ -48,7 +48,9 @@ class DireccionesController extends AppController
 
         $this->loadModel('Envios');
         $query=$this->Envios->find('all')
-                                        ->where(['direccione_id' => $id]);
+                                        ->where(['direccione_id' => $id])
+                                        ->contain(['ProveedoresClientes', 'PedidosEmpresas', 'Centros', 'Direcciones']);
+
         $envios=$this->paginate($query,['scope'=>'mis_Envios']);
         $this->set(compact('envios'));
 

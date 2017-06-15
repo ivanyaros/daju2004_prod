@@ -67,6 +67,7 @@
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('peso_ud','peso_ud', ['model'=>'Material']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('unidades_embalaje','unidades_embalaje', ['model'=>'Material']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('precio','precio', ['model'=>'Material']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('moneda_id','moneda_id', ['model'=>'Material']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('iva_id','iva_id', ['model'=>'Material']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'Material']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('visible','visible', ['model'=>'Material']) ?></th>
@@ -75,22 +76,26 @@
 <?php foreach ($material as $material): ?>
 				<?php $my_url= $this->Url->build(['controller' => 'material', 'action' => 'view',$material->id]) ?>
             	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
-                	<td class="w3-border"><?= h($material->id) ?></td>
-                	<td class="w3-border"><?= h($material->name) ?></td>
-                	<td class="w3-border"><?= h($material->referencia) ?></td>
-                	<td class="w3-border"><?= h($material->referencia_proveedor) ?></td>
-                	<td class="w3-border"><?= h($material->familia_id) ?></td>
-                	<td class="w3-border"><?= h($material->longitud) ?></td>
-                	<td class="w3-border"><?= h($material->anchura) ?></td>
-                	<td class="w3-border"><?= h($material->profundidad) ?></td>
-                	<td class="w3-border"><?= h($material->color) ?></td>
-                	<td class="w3-border"><?= h($material->gramaje) ?></td>
-                	<td class="w3-border"><?= h($material->peso_ud) ?></td>
-                	<td class="w3-border"><?= h($material->unidades_embalaje) ?></td>
-                	<td class="w3-border"><?= h($material->precio) ?></td>
-                	<td class="w3-border"><?= h($material->iva_id) ?></td>
-                	<td class="w3-border"><?= h($material->observaciones) ?></td>
-                	<td class="w3-border"><?= h($material->visible) ?></td>
+                                    <td class="w3-border"><?= h($material->id) ?></td>
+                        <td class="w3-border"><?= h($material->name) ?></td>
+                        <td class="w3-border"><?= h($material->referencia) ?></td>
+                        <td class="w3-border"><?= h($material->referencia_proveedor) ?></td>
+
+                                <td class="w3-border"><?= $material->has('familia') ? $this->Html->link($material->familia->label, ['controller' => 'Familias', 'action' => 'view', $material->familia->id]) : '' ?></td>
+                        <td class="w3-border"><?= h($material->longitud) ?></td>
+                        <td class="w3-border"><?= h($material->anchura) ?></td>
+                        <td class="w3-border"><?= h($material->profundidad) ?></td>
+                        <td class="w3-border"><?= h($material->color) ?></td>
+                        <td class="w3-border"><?= h($material->gramaje) ?></td>
+                        <td class="w3-border"><?= h($material->peso_ud) ?></td>
+                        <td class="w3-border"><?= h($material->unidades_embalaje) ?></td>
+                        <td class="w3-border"><?= h($material->precio) ?></td>
+
+                                <td class="w3-border"><?= $material->has('moneda') ? $this->Html->link($material->moneda->label, ['controller' => 'Monedas', 'action' => 'view', $material->moneda->id]) : '' ?></td>
+
+                                <td class="w3-border"><?= $material->has('iva') ? $this->Html->link($material->iva->label, ['controller' => 'Ivas', 'action' => 'view', $material->iva->id]) : '' ?></td>
+                        <td class="w3-border"><?= h($material->observaciones) ?></td>
+                        <td class="w3-border"><?= h($material->visible) ?></td>
             	</tr>
             <?php endforeach; ?>
         </table>
@@ -132,34 +137,42 @@
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('referencia','referencia', ['model'=>'Proceso']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('familia_id','familia_id', ['model'=>'Proceso']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('precio','precio', ['model'=>'Proceso']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('moneda_id','moneda_id', ['model'=>'Proceso']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('iva_id','iva_id', ['model'=>'Proceso']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'Proceso']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('visible','visible', ['model'=>'Proceso']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('enlaces','enlaces', ['model'=>'Proceso']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('centro_id','centro_id', ['model'=>'Proceso']) ?></th>
-                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('coste_tiempo','coste_tiempo', ['model'=>'Proceso']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('segundos_tiempo','segundos_tiempo', ['model'=>'Proceso']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('coste_operaciones','coste_operaciones', ['model'=>'Proceso']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('descripcion','descripcion', ['model'=>'Proceso']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('larga','larga', ['model'=>'Proceso']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('atributos','atributos', ['model'=>'Proceso']) ?></th>
 			</thead>
 			<tbody>
 <?php foreach ($proceso as $proceso): ?>
 				<?php $my_url= $this->Url->build(['controller' => 'proceso', 'action' => 'view',$proceso->id]) ?>
             	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
-                	<td class="w3-border"><?= h($proceso->id) ?></td>
-                	<td class="w3-border"><?= h($proceso->name) ?></td>
-                	<td class="w3-border"><?= h($proceso->referencia) ?></td>
-                	<td class="w3-border"><?= h($proceso->familia_id) ?></td>
-                	<td class="w3-border"><?= h($proceso->precio) ?></td>
-                	<td class="w3-border"><?= h($proceso->iva_id) ?></td>
-                	<td class="w3-border"><?= h($proceso->observaciones) ?></td>
-                	<td class="w3-border"><?= h($proceso->visible) ?></td>
-                	<td class="w3-border"><?= h($proceso->enlaces) ?></td>
-                	<td class="w3-border"><?= h($proceso->centro_id) ?></td>
-                	<td class="w3-border"><?= h($proceso->coste_tiempo) ?></td>
-                	<td class="w3-border"><?= h($proceso->coste_operaciones) ?></td>
-                	<td class="w3-border"><?= h($proceso->descripcion) ?></td>
-                	<td class="w3-border"><?= h($proceso->larga) ?></td>
+                                    <td class="w3-border"><?= h($proceso->id) ?></td>
+                        <td class="w3-border"><?= h($proceso->name) ?></td>
+                        <td class="w3-border"><?= h($proceso->referencia) ?></td>
+
+                                <td class="w3-border"><?= $proceso->has('familia') ? $this->Html->link($proceso->familia->label, ['controller' => 'Familias', 'action' => 'view', $proceso->familia->id]) : '' ?></td>
+                        <td class="w3-border"><?= h($proceso->precio) ?></td>
+
+                                <td class="w3-border"><?= $proceso->has('moneda') ? $this->Html->link($proceso->moneda->label, ['controller' => 'Monedas', 'action' => 'view', $proceso->moneda->id]) : '' ?></td>
+
+                                <td class="w3-border"><?= $proceso->has('iva') ? $this->Html->link($proceso->iva->label, ['controller' => 'Ivas', 'action' => 'view', $proceso->iva->id]) : '' ?></td>
+                        <td class="w3-border"><?= h($proceso->observaciones) ?></td>
+                        <td class="w3-border"><?= h($proceso->visible) ?></td>
+                        <td class="w3-border"><?= h($proceso->enlaces) ?></td>
+
+                                <td class="w3-border"><?= $proceso->has('centro') ? $this->Html->link($proceso->centro->label, ['controller' => 'Centros', 'action' => 'view', $proceso->centro->id]) : '' ?></td>
+                        <td class="w3-border"><?= h($proceso->segundos_tiempo) ?></td>
+                        <td class="w3-border"><?= h($proceso->coste_operaciones) ?></td>
+                        <td class="w3-border"><?= h($proceso->descripcion) ?></td>
+                        <td class="w3-border"><?= h($proceso->larga) ?></td>
+                        <td class="w3-border"><?= h($proceso->atributos) ?></td>
             	</tr>
             <?php endforeach; ?>
         </table>
@@ -202,6 +215,7 @@
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('referencia_proveedor','referencia_proveedor', ['model'=>'Producto']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('familia_id','familia_id', ['model'=>'Producto']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('precio','precio', ['model'=>'Producto']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('moneda_id','moneda_id', ['model'=>'Producto']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('iva_id','iva_id', ['model'=>'Producto']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'Producto']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('visible','visible', ['model'=>'Producto']) ?></th>
@@ -218,23 +232,27 @@
 <?php foreach ($producto as $producto): ?>
 				<?php $my_url= $this->Url->build(['controller' => 'producto', 'action' => 'view',$producto->id]) ?>
             	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
-                	<td class="w3-border"><?= h($producto->id) ?></td>
-                	<td class="w3-border"><?= h($producto->name) ?></td>
-                	<td class="w3-border"><?= h($producto->referencia) ?></td>
-                	<td class="w3-border"><?= h($producto->referencia_proveedor) ?></td>
-                	<td class="w3-border"><?= h($producto->familia_id) ?></td>
-                	<td class="w3-border"><?= h($producto->precio) ?></td>
-                	<td class="w3-border"><?= h($producto->iva_id) ?></td>
-                	<td class="w3-border"><?= h($producto->observaciones) ?></td>
-                	<td class="w3-border"><?= h($producto->visible) ?></td>
-                	<td class="w3-border"><?= h($producto->peso) ?></td>
-                	<td class="w3-border"><?= h($producto->cantidad) ?></td>
-                	<td class="w3-border"><?= h($producto->descripcion) ?></td>
-                	<td class="w3-border"><?= h($producto->larga) ?></td>
-                	<td class="w3-border"><?= h($producto->coste) ?></td>
-                	<td class="w3-border"><?= h($producto->ancho) ?></td>
-                	<td class="w3-border"><?= h($producto->largo) ?></td>
-                	<td class="w3-border"><?= h($producto->tolerancia) ?></td>
+                                    <td class="w3-border"><?= h($producto->id) ?></td>
+                        <td class="w3-border"><?= h($producto->name) ?></td>
+                        <td class="w3-border"><?= h($producto->referencia) ?></td>
+                        <td class="w3-border"><?= h($producto->referencia_proveedor) ?></td>
+
+                                <td class="w3-border"><?= $producto->has('familia') ? $this->Html->link($producto->familia->label, ['controller' => 'Familias', 'action' => 'view', $producto->familia->id]) : '' ?></td>
+                        <td class="w3-border"><?= h($producto->precio) ?></td>
+
+                                <td class="w3-border"><?= $producto->has('moneda') ? $this->Html->link($producto->moneda->label, ['controller' => 'Monedas', 'action' => 'view', $producto->moneda->id]) : '' ?></td>
+
+                                <td class="w3-border"><?= $producto->has('iva') ? $this->Html->link($producto->iva->label, ['controller' => 'Ivas', 'action' => 'view', $producto->iva->id]) : '' ?></td>
+                        <td class="w3-border"><?= h($producto->observaciones) ?></td>
+                        <td class="w3-border"><?= h($producto->visible) ?></td>
+                        <td class="w3-border"><?= h($producto->peso) ?></td>
+                        <td class="w3-border"><?= h($producto->cantidad) ?></td>
+                        <td class="w3-border"><?= h($producto->descripcion) ?></td>
+                        <td class="w3-border"><?= h($producto->larga) ?></td>
+                        <td class="w3-border"><?= h($producto->coste) ?></td>
+                        <td class="w3-border"><?= h($producto->ancho) ?></td>
+                        <td class="w3-border"><?= h($producto->largo) ?></td>
+                        <td class="w3-border"><?= h($producto->tolerancia) ?></td>
             	</tr>
             <?php endforeach; ?>
         </table>

@@ -47,19 +47,25 @@ class MonedasController extends AppController
 
         $this->loadModel('Material');
         $query=$this->Material->find('all')
-                                        ->where(['moneda_id' => $id]);
+                                        ->where(['moneda_id' => $id])
+                                        ->contain(['Familias', 'Monedas', 'Ivas']);
+
         $material=$this->paginate($query,['scope'=>'mis_Material']);
         $this->set(compact('material'));
 
         $this->loadModel('Proceso');
         $query=$this->Proceso->find('all')
-                                        ->where(['moneda_id' => $id]);
+                                        ->where(['moneda_id' => $id])
+                                        ->contain(['Familias', 'Monedas', 'Ivas', 'Centros']);
+
         $proceso=$this->paginate($query,['scope'=>'mis_Proceso']);
         $this->set(compact('proceso'));
 
         $this->loadModel('Producto');
         $query=$this->Producto->find('all')
-                                        ->where(['moneda_id' => $id]);
+                                        ->where(['moneda_id' => $id])
+                                        ->contain(['Familias', 'Monedas', 'Ivas']);
+
         $producto=$this->paginate($query,['scope'=>'mis_Producto']);
         $this->set(compact('producto'));
 

@@ -53,6 +53,10 @@ class ProcesoProductoSalidaTableTest extends TestCase
         'app.materiales',
         'app.localizaciones',
         'app.materiales_entrada',
+        'app.paradas',
+        'app.paradas_tipo',
+        'app.tareas',
+        'app.subproceso',
         'app.objetos_entrada',
         'app.proceso_producto_entrada',
         'app.proceso_material_entrada'

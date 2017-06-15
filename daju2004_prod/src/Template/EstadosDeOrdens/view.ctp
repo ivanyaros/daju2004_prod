@@ -63,6 +63,7 @@
 		<table class=" w3-table w3-centered w3-border w3-bordered w3-hoverable w3-theme-d4">
         	<thead class="w3-border w3-black">  
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'MaquinasUsadas']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('estados_de_orden_id','estados_de_orden_id', ['model'=>'MaquinasUsadas']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('maquina_id','maquina_id', ['model'=>'MaquinasUsadas']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('operaciones','operaciones', ['model'=>'MaquinasUsadas']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('uso','uso', ['model'=>'MaquinasUsadas']) ?></th>
@@ -72,11 +73,14 @@
 <?php foreach ($maquinasUsadas as $maquinasUsada): ?>
 				<?php $my_url= $this->Url->build(['controller' => 'maquinasUsadas', 'action' => 'view',$maquinasUsada->id]) ?>
             	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
-                	<td class="w3-border"><?= h($maquinasUsada->id) ?></td>
-                	<td class="w3-border"><?= h($maquinasUsada->maquina_id) ?></td>
-                	<td class="w3-border"><?= h($maquinasUsada->operaciones) ?></td>
-                	<td class="w3-border"><?= h($maquinasUsada->uso) ?></td>
-                	<td class="w3-border"><?= h($maquinasUsada->observaciones) ?></td>
+                                    <td class="w3-border"><?= h($maquinasUsada->id) ?></td>
+
+                                <td class="w3-border"><?= $maquinasUsada->has('estados_de_orden') ? $this->Html->link($maquinasUsada->estados_de_orden->label, ['controller' => 'EstadosDeOrdens', 'action' => 'view', $maquinasUsada->estados_de_orden->id]) : '' ?></td>
+
+                                <td class="w3-border"><?= $maquinasUsada->has('maquina') ? $this->Html->link($maquinasUsada->maquina->label, ['controller' => 'Maquinas', 'action' => 'view', $maquinasUsada->maquina->id]) : '' ?></td>
+                        <td class="w3-border"><?= h($maquinasUsada->operaciones) ?></td>
+                        <td class="w3-border"><?= h($maquinasUsada->uso) ?></td>
+                        <td class="w3-border"><?= h($maquinasUsada->observaciones) ?></td>
             	</tr>
             <?php endforeach; ?>
         </table>
@@ -114,6 +118,7 @@
 		<table class=" w3-table w3-centered w3-border w3-bordered w3-hoverable w3-theme-d4">
         	<thead class="w3-border w3-black">  
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'UsuariosEnEstadosOrden']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('estados_de_orden_id','estados_de_orden_id', ['model'=>'UsuariosEnEstadosOrden']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('user_id','user_id', ['model'=>'UsuariosEnEstadosOrden']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('parte','parte', ['model'=>'UsuariosEnEstadosOrden']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'UsuariosEnEstadosOrden']) ?></th>
@@ -122,10 +127,13 @@
 <?php foreach ($usuariosEnEstadosOrden as $usuariosEnEstadosOrden): ?>
 				<?php $my_url= $this->Url->build(['controller' => 'usuariosEnEstadosOrden', 'action' => 'view',$usuariosEnEstadosOrden->id]) ?>
             	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
-                	<td class="w3-border"><?= h($usuariosEnEstadosOrden->id) ?></td>
-                	<td class="w3-border"><?= h($usuariosEnEstadosOrden->user_id) ?></td>
-                	<td class="w3-border"><?= h($usuariosEnEstadosOrden->parte) ?></td>
-                	<td class="w3-border"><?= h($usuariosEnEstadosOrden->observaciones) ?></td>
+                                    <td class="w3-border"><?= h($usuariosEnEstadosOrden->id) ?></td>
+
+                                <td class="w3-border"><?= $usuariosEnEstadosOrden->has('estados_de_orden') ? $this->Html->link($usuariosEnEstadosOrden->estados_de_orden->label, ['controller' => 'EstadosDeOrdens', 'action' => 'view', $usuariosEnEstadosOrden->estados_de_orden->id]) : '' ?></td>
+
+                                <td class="w3-border"><?= $usuariosEnEstadosOrden->has('user') ? $this->Html->link($usuariosEnEstadosOrden->user->label, ['controller' => 'Users', 'action' => 'view', $usuariosEnEstadosOrden->user->id]) : '' ?></td>
+                        <td class="w3-border"><?= h($usuariosEnEstadosOrden->parte) ?></td>
+                        <td class="w3-border"><?= h($usuariosEnEstadosOrden->observaciones) ?></td>
             	</tr>
             <?php endforeach; ?>
         </table>
@@ -163,6 +171,7 @@
 		<table class=" w3-table w3-centered w3-border w3-bordered w3-hoverable w3-theme-d4">
         	<thead class="w3-border w3-black">  
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'UtensiliosUsados']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('estados_de_orden_id','estados_de_orden_id', ['model'=>'UtensiliosUsados']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('utensilio_id','utensilio_id', ['model'=>'UtensiliosUsados']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'UtensiliosUsados']) ?></th>
 			</thead>
@@ -170,9 +179,12 @@
 <?php foreach ($utensiliosUsados as $utensiliosUsado): ?>
 				<?php $my_url= $this->Url->build(['controller' => 'utensiliosUsados', 'action' => 'view',$utensiliosUsado->id]) ?>
             	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
-                	<td class="w3-border"><?= h($utensiliosUsado->id) ?></td>
-                	<td class="w3-border"><?= h($utensiliosUsado->utensilio_id) ?></td>
-                	<td class="w3-border"><?= h($utensiliosUsado->observaciones) ?></td>
+                                    <td class="w3-border"><?= h($utensiliosUsado->id) ?></td>
+
+                                <td class="w3-border"><?= $utensiliosUsado->has('estados_de_orden') ? $this->Html->link($utensiliosUsado->estados_de_orden->label, ['controller' => 'EstadosDeOrdens', 'action' => 'view', $utensiliosUsado->estados_de_orden->id]) : '' ?></td>
+
+                                <td class="w3-border"><?= $utensiliosUsado->has('utensilio') ? $this->Html->link($utensiliosUsado->utensilio->label, ['controller' => 'Utensilios', 'action' => 'view', $utensiliosUsado->utensilio->id]) : '' ?></td>
+                        <td class="w3-border"><?= h($utensiliosUsado->observaciones) ?></td>
             	</tr>
             <?php endforeach; ?>
         </table>

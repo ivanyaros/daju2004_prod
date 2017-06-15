@@ -51,25 +51,33 @@ class ProductoController extends AppController
 
         $this->loadModel('Objetos');
         $query=$this->Objetos->find('all')
-                                        ->where(['producto_id' => $id]);
+                                        ->where(['producto_id' => $id])
+                                        ->contain(['Producto', 'Ordens', 'Localizaciones', 'Envios']);
+
         $objetos=$this->paginate($query,['scope'=>'mis_Objetos']);
         $this->set(compact('objetos'));
 
         $this->loadModel('PedidosProductosDetalle');
         $query=$this->PedidosProductosDetalle->find('all')
-                                        ->where(['producto_id' => $id]);
+                                        ->where(['producto_id' => $id])
+                                        ->contain(['PedidosEmpresas', 'Producto', 'Prioridades']);
+
         $pedidosProductosDetalle=$this->paginate($query,['scope'=>'mis_PedidosProductosDetalle']);
         $this->set(compact('pedidosProductosDetalle'));
 
         $this->loadModel('ProcesoProductoEntrada');
         $query=$this->ProcesoProductoEntrada->find('all')
-                                        ->where(['producto_id' => $id]);
+                                        ->where(['producto_id' => $id])
+                                        ->contain(['Proceso', 'Producto']);
+
         $procesoProductoEntrada=$this->paginate($query,['scope'=>'mis_ProcesoProductoEntrada']);
         $this->set(compact('procesoProductoEntrada'));
 
         $this->loadModel('ProcesoProductoSalida');
         $query=$this->ProcesoProductoSalida->find('all')
-                                        ->where(['producto_id' => $id]);
+                                        ->where(['producto_id' => $id])
+                                        ->contain(['Proceso', 'Producto']);
+
         $procesoProductoSalida=$this->paginate($query,['scope'=>'mis_ProcesoProductoSalida']);
         $this->set(compact('procesoProductoSalida'));
 

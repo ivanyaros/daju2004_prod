@@ -49,13 +49,17 @@ class ObjetosController extends AppController
 
         $this->loadModel('MaterialesEntrada');
         $query=$this->MaterialesEntrada->find('all')
-                                        ->where(['objeto_id' => $id]);
+                                        ->where(['objeto_id' => $id])
+                                        ->contain(['Objetos', 'Materiales']);
+
         $materialesEntrada=$this->paginate($query,['scope'=>'mis_MaterialesEntrada']);
         $this->set(compact('materialesEntrada'));
 
         $this->loadModel('ObjetosEntrada');
         $query=$this->ObjetosEntrada->find('all')
-                                        ->where(['objeto_id' => $id]);
+                                        ->where(['objeto_id' => $id])
+                                        ->contain(['Objetos']);
+
         $objetosEntrada=$this->paginate($query,['scope'=>'mis_ObjetosEntrada']);
         $this->set(compact('objetosEntrada'));
 

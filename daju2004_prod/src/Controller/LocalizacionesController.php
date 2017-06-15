@@ -23,36 +23,11 @@ class LocalizacionesController extends AppController
         $this->paginate = [
             'contain' => ['Centros']
         ];
-        $this->loadModel('Centros');
-        $localizacione = $this->Localizaciones->newEntity();
-        $localizacione = $this->Localizaciones->patchEntity($localizacione, $this->request->getQuery());
-        $query=$this->Localizaciones->find();
-        /**
-        $my_query_name=$this->request->getQuery('name');
-        if(isset($my_query_name)&&($my_query_name!="")){
-            $query=$query->where(['Localizaciones.name LIKE "'.$my_query_name.'"']);
-        }
-        $my_query_name=$this->request->getQuery('centro_id');
-        if(isset($my_query_name)&&($my_query_name!="")){
-            $query=$query->where(['Localizaciones.centro_id = ' => $my_query_name]);
-        }
-        **/
-        
-        if($localizacione->name!=""){
-            $query=$query->where(['Localizaciones.name LIKE "'.$localizacione->name.'"']);
-        }
-        if(isset($localizacione->centro_id)){
-            $query=$query->where(['Localizaciones.centro_id = ' => $localizacione->centro_id]);
+        $localizaciones = $this->paginate($this->Localizaciones);
 
-        }
-        
-        $centros=$this->Centros->find('list');
-        $localizaciones = $this->paginate($query);
-        $this->set(compact('localizaciones','my_query','localizacione','centros'));
+        $this->set(compact('localizaciones'));
         $this->set('_serialize', ['localizaciones']);
         $this->set('modelo', "localizaciones");
-        
-        
     }
 
     /**
@@ -74,13 +49,17 @@ class LocalizacionesController extends AppController
 
         $this->loadModel('Materiales');
         $query=$this->Materiales->find('all')
-                                        ->where(['localizacione_id' => $id]);
+                                        ->where(['localizacione_id' => $id])
+                                        ->contain(['Material', 'Localizaciones', 'EntradasDeMateriales']);
+
         $materiales=$this->paginate($query,['scope'=>'mis_Materiales']);
         $this->set(compact('materiales'));
 
         $this->loadModel('Objetos');
         $query=$this->Objetos->find('all')
-                                        ->where(['localizacione_id' => $id]);
+                                        ->where(['localizacione_id' => $id])
+                                        ->contain(['Producto', 'Ordens', 'Localizaciones', 'Envios']);
+
         $objetos=$this->paginate($query,['scope'=>'mis_Objetos']);
         $this->set(compact('objetos'));
 

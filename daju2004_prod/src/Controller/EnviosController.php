@@ -48,7 +48,9 @@ class EnviosController extends AppController
 
         $this->loadModel('Objetos');
         $query=$this->Objetos->find('all')
-                                        ->where(['envio_id' => $id]);
+                                        ->where(['envio_id' => $id])
+                                        ->contain(['Producto', 'Ordens', 'Localizaciones', 'Envios']);
+
         $objetos=$this->paginate($query,['scope'=>'mis_Objetos']);
         $this->set(compact('objetos'));
 

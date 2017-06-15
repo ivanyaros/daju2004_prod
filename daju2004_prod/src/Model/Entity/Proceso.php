@@ -17,10 +17,11 @@ use Cake\ORM\Entity;
  * @property bool $visible
  * @property string $enlaces
  * @property int $centro_id
- * @property float $coste_tiempo
+ * @property int $segundos_tiempo
  * @property string $coste_operaciones
  * @property string $descripcion
  * @property string $larga
+ * @property string $atributos
  *
  * @property \App\Model\Entity\Familia $familia
  * @property \App\Model\Entity\Moneda $moneda
@@ -30,6 +31,7 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\ProcesoMaterialEntrada[] $proceso_material_entrada
  * @property \App\Model\Entity\ProcesoProductoEntrada[] $proceso_producto_entrada
  * @property \App\Model\Entity\ProcesoProductoSalida[] $proceso_producto_salida
+ * @property \App\Model\Entity\Subproceso[] $subproceso
  */
 class Proceso extends Entity
 {

@@ -49,13 +49,17 @@ class PedidosEmpresasController extends AppController
 
         $this->loadModel('Envios');
         $query=$this->Envios->find('all')
-                                        ->where(['pedidos_empresa_id' => $id]);
+                                        ->where(['pedidos_empresa_id' => $id])
+                                        ->contain(['ProveedoresClientes', 'PedidosEmpresas', 'Centros', 'Direcciones']);
+
         $envios=$this->paginate($query,['scope'=>'mis_Envios']);
         $this->set(compact('envios'));
 
         $this->loadModel('PedidosProductosDetalle');
         $query=$this->PedidosProductosDetalle->find('all')
-                                        ->where(['pedidos_empresa_id' => $id]);
+                                        ->where(['pedidos_empresa_id' => $id])
+                                        ->contain(['PedidosEmpresas', 'Producto', 'Prioridades']);
+
         $pedidosProductosDetalle=$this->paginate($query,['scope'=>'mis_PedidosProductosDetalle']);
         $this->set(compact('pedidosProductosDetalle'));
 

@@ -6,18 +6,6 @@
 
 <div class="w3 container w3-theme">
     <h3><?= __('Localizaciones') ?></h3>
-    <?= print_r($localizacione); ?>
-    <?= $this->Form->create($localizacione,['type'=>'get']) ?>
-    <fieldset>
-        <legend><?= __('Edit Localizacione') ?></legend>
-        <?php
-            echo $this->Form->control('name');
-            echo $this->Form->control('centro_id', ['options' => $centros, 'empty' => true]);
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
-    </div>
     <div class="w3-responsive">
     <div class="paginator">
         <ul class="pagination">

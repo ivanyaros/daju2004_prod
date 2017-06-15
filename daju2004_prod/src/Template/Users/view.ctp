@@ -76,6 +76,7 @@
         	<thead class="w3-border w3-black">  
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'UsuariosEnEstadosOrden']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('estados_de_orden_id','estados_de_orden_id', ['model'=>'UsuariosEnEstadosOrden']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('user_id','user_id', ['model'=>'UsuariosEnEstadosOrden']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('parte','parte', ['model'=>'UsuariosEnEstadosOrden']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'UsuariosEnEstadosOrden']) ?></th>
 			</thead>
@@ -83,10 +84,13 @@
 <?php foreach ($usuariosEnEstadosOrden as $usuariosEnEstadosOrden): ?>
 				<?php $my_url= $this->Url->build(['controller' => 'usuariosEnEstadosOrden', 'action' => 'view',$usuariosEnEstadosOrden->id]) ?>
             	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
-                	<td class="w3-border"><?= h($usuariosEnEstadosOrden->id) ?></td>
-                	<td class="w3-border"><?= h($usuariosEnEstadosOrden->estados_de_orden_id) ?></td>
-                	<td class="w3-border"><?= h($usuariosEnEstadosOrden->parte) ?></td>
-                	<td class="w3-border"><?= h($usuariosEnEstadosOrden->observaciones) ?></td>
+                                    <td class="w3-border"><?= h($usuariosEnEstadosOrden->id) ?></td>
+
+                                <td class="w3-border"><?= $usuariosEnEstadosOrden->has('estados_de_orden') ? $this->Html->link($usuariosEnEstadosOrden->estados_de_orden->label, ['controller' => 'EstadosDeOrdens', 'action' => 'view', $usuariosEnEstadosOrden->estados_de_orden->id]) : '' ?></td>
+
+                                <td class="w3-border"><?= $usuariosEnEstadosOrden->has('user') ? $this->Html->link($usuariosEnEstadosOrden->user->label, ['controller' => 'Users', 'action' => 'view', $usuariosEnEstadosOrden->user->id]) : '' ?></td>
+                        <td class="w3-border"><?= h($usuariosEnEstadosOrden->parte) ?></td>
+                        <td class="w3-border"><?= h($usuariosEnEstadosOrden->observaciones) ?></td>
             	</tr>
             <?php endforeach; ?>
         </table>

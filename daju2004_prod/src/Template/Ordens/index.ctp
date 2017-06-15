@@ -22,12 +22,12 @@
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('referencia') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('cantidad') ?></th>
+                <th class="w3-border" scope="col"><?= $this->Paginator->sort('defectuosos') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('fecha_creacion') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('fecha_terminacion') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('estado_id') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('centro_id') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('proceso_id') ?></th>
-                <th class="w3-border" scope="col"><?= $this->Paginator->sort('scrap') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('coste_operario') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('observaciones') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('prioridade_id') ?></th>
@@ -40,12 +40,12 @@
                 <td class="w3-border"><?= h($orden->name) ?></td>
                 <td class="w3-border"><?= h($orden->referencia) ?></td>
                 <td class="w3-border"><?= $this->Number->format($orden->cantidad) ?></td>
+                <td class="w3-border"><?= $this->Number->format($orden->defectuosos) ?></td>
                 <td class="w3-border"><?= h($orden->fecha_creacion) ?></td>
                 <td class="w3-border"><?= h($orden->fecha_terminacion) ?></td>
                 <td class="w3-border"><?= $orden->has('estado') ? $this->Html->link($orden->estado->label, ['controller' => 'Estados', 'action' => 'view', $orden->estado->id]) : '' ?></td>
                 <td class="w3-border"><?= $orden->has('centro') ? $this->Html->link($orden->centro->label, ['controller' => 'Centros', 'action' => 'view', $orden->centro->id]) : '' ?></td>
                 <td class="w3-border"><?= $orden->has('proceso') ? $this->Html->link($orden->proceso->label, ['controller' => 'Proceso', 'action' => 'view', $orden->proceso->id]) : '' ?></td>
-                <td class="w3-border"><?= $this->Number->format($orden->scrap) ?></td>
                 <td class="w3-border"><?= $this->Number->format($orden->coste_operario) ?></td>
                 <td class="w3-border"><?= h($orden->observaciones) ?></td>
                 <td class="w3-border"><?= $orden->has('prioridade') ? $this->Html->link($orden->prioridade->label, ['controller' => 'Prioridades', 'action' => 'view', $orden->prioridade->id]) : '' ?></td>
