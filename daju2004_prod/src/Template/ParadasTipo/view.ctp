@@ -45,6 +45,7 @@
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'Paradas']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('paradas_tipo_id','paradas_tipo_id', ['model'=>'Paradas']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('orden_id','orden_id', ['model'=>'Paradas']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('fecha_inicio','fecha_inicio', ['model'=>'Paradas']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('duracion','duracion', ['model'=>'Paradas']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('comentario','comentario', ['model'=>'Paradas']) ?></th>
 			</thead>
@@ -57,6 +58,7 @@
                                 <td class="w3-border"><?= $parada->has('paradas_tipo') ? $this->Html->link($parada->paradas_tipo->label, ['controller' => 'ParadasTipo', 'action' => 'view', $parada->paradas_tipo->id]) : '' ?></td>
 
                                 <td class="w3-border"><?= $parada->has('orden') ? $this->Html->link($parada->orden->label, ['controller' => 'Ordens', 'action' => 'view', $parada->orden->id]) : '' ?></td>
+                        <td class="w3-border"><?= h($parada->fecha_inicio) ?></td>
                         <td class="w3-border"><?= h($parada->duracion) ?></td>
                         <td class="w3-border"><?= h($parada->comentario) ?></td>
             	</tr>

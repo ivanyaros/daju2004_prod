@@ -20,12 +20,13 @@ use Cake\ORM\Entity;
  * @property string $observaciones
  * @property int $prioridade_id
  * @property string $atributos
+ * @property int $categoria_id
  *
  * @property \App\Model\Entity\Estado $estado
  * @property \App\Model\Entity\Centro $centro
  * @property \App\Model\Entity\Proceso $proceso
  * @property \App\Model\Entity\Prioridade $prioridade
- * @property \App\Model\Entity\EstadosDeOrden[] $estados_de_ordens
+ * @property \App\Model\Entity\Categoria $categoria
  * @property \App\Model\Entity\Objeto[] $objetos
  * @property \App\Model\Entity\Parada[] $paradas
  * @property \App\Model\Entity\Tarea[] $tareas

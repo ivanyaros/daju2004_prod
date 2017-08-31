@@ -37,25 +37,16 @@ class EstadosController extends AppController
     public function view($id = null)
     {
         $estado = $this->Estados->get($id, [
-            'contain' => ['EstadosDeOrdens', 'Ordens']
+            'contain' => ['Ordens']
         ]);
         $this->paginate =[
-            'EstadosDeOrdens' => ['scope' => 'mis_EstadosDeOrdens']
-            ,'Ordens' => ['scope' => 'mis_Ordens']
+            'Ordens' => ['scope' => 'mis_Ordens']
         ];
-
-        $this->loadModel('EstadosDeOrdens');
-        $query=$this->EstadosDeOrdens->find('all')
-                                        ->where(['estado_id' => $id])
-                                        ->contain(['Ordens', 'Estados']);
-
-        $estadosDeOrdens=$this->paginate($query,['scope'=>'mis_EstadosDeOrdens']);
-        $this->set(compact('estadosDeOrdens'));
 
         $this->loadModel('Ordens');
         $query=$this->Ordens->find('all')
                                         ->where(['estado_id' => $id])
-                                        ->contain(['Estados', 'Centros', 'Proceso', 'Prioridades']);
+                                        ->contain(['Estados', 'Centros', 'Proceso', 'Prioridades', 'Categorias']);
 
         $ordens=$this->paginate($query,['scope'=>'mis_Ordens']);
         $this->set(compact('ordens'));
@@ -99,7 +90,7 @@ class EstadosController extends AppController
     public function edit($id = null)
     {
         $estado = $this->Estados->get($id, [
-            'contain' => ['EstadosDeOrdens', 'Ordens']
+            'contain' => ['Ordens']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $estado = $this->Estados->patchEntity($estado, $this->request->getData());

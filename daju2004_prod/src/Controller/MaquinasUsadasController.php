@@ -21,7 +21,7 @@ class MaquinasUsadasController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['EstadosDeOrdens', 'Maquinas']
+            'contain' => ['Tareas', 'Maquinas']
         ];
         $maquinasUsadas = $this->paginate($this->MaquinasUsadas);
 
@@ -40,7 +40,7 @@ class MaquinasUsadasController extends AppController
     public function view($id = null)
     {
         $maquinasUsada = $this->MaquinasUsadas->get($id, [
-            'contain' => ['EstadosDeOrdens', 'Maquinas']
+            'contain' => ['Tareas', 'Maquinas']
         ]);
 
                                          
@@ -68,9 +68,9 @@ class MaquinasUsadasController extends AppController
             }
             $this->Flash->error(__('The maquinas usada could not be saved. Please, try again.'));
         }
-        $estadosDeOrdens = $this->MaquinasUsadas->EstadosDeOrdens->find('list', ['limit' => 200]);
+        $tareas = $this->MaquinasUsadas->Tareas->find('list', ['limit' => 200]);
         $maquinas = $this->MaquinasUsadas->Maquinas->find('list', ['limit' => 200]);
-        $this->set(compact('maquinasUsada', 'estadosDeOrdens', 'maquinas'));
+        $this->set(compact('maquinasUsada', 'tareas', 'maquinas'));
         $this->set('_serialize', ['maquinasUsada']);
     }
 
@@ -84,7 +84,7 @@ class MaquinasUsadasController extends AppController
     public function edit($id = null)
     {
         $maquinasUsada = $this->MaquinasUsadas->get($id, [
-            'contain' => ['EstadosDeOrdens', 'Maquinas']
+            'contain' => ['Tareas', 'Maquinas']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $maquinasUsada = $this->MaquinasUsadas->patchEntity($maquinasUsada, $this->request->getData());
@@ -95,9 +95,9 @@ class MaquinasUsadasController extends AppController
             }
             $this->Flash->error(__('The maquinas usada could not be saved. Please, try again.'));
         }
-        $estadosDeOrdens = $this->MaquinasUsadas->EstadosDeOrdens->find('list', ['limit' => 200]);
+        $tareas = $this->MaquinasUsadas->Tareas->find('list', ['limit' => 200]);
         $maquinas = $this->MaquinasUsadas->Maquinas->find('list', ['limit' => 200]);
-        $this->set(compact('maquinasUsada', 'estadosDeOrdens', 'maquinas'));
+        $this->set(compact('maquinasUsada', 'tareas', 'maquinas'));
         $this->set('_serialize', ['maquinasUsada']);
     }
 

@@ -17,7 +17,7 @@ use Cake\ORM\Entity;
  * @property string $observaciones
  * @property bool $visible
  * @property float $peso
- * @property int $cantidad
+ * @property int $ue
  * @property string $descripcion
  * @property string $larga
  * @property float $coste

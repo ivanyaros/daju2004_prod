@@ -29,7 +29,7 @@
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('observaciones') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('visible') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('peso') ?></th>
-                <th class="w3-border" scope="col"><?= $this->Paginator->sort('cantidad') ?></th>
+                <th class="w3-border" scope="col"><?= $this->Paginator->sort('ue') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('descripcion') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('larga') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('coste') ?></th>
@@ -52,7 +52,7 @@
                 <td class="w3-border"><?= h($producto->observaciones) ?></td>
                 <td class="w3-border"><?= h($producto->visible) ?></td>
                 <td class="w3-border"><?= $this->Number->format($producto->peso) ?></td>
-                <td class="w3-border"><?= $this->Number->format($producto->cantidad) ?></td>
+                <td class="w3-border"><?= $this->Number->format($producto->ue) ?></td>
                 <td class="w3-border"><?= h($producto->descripcion) ?></td>
                 <td class="w3-border"><?= h($producto->larga) ?></td>
                 <td class="w3-border"><?= $this->Number->format($producto->coste) ?></td>

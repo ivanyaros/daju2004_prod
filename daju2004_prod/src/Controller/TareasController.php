@@ -40,8 +40,37 @@ class TareasController extends AppController
     public function view($id = null)
     {
         $tarea = $this->Tareas->get($id, [
-            'contain' => ['Subproceso', 'Ordens']
+            'contain' => ['Subproceso', 'Ordens', 'MaquinasUsadas', 'UsuariosEnTareas', 'UtensiliosUsados']
         ]);
+        $this->paginate =[
+            'MaquinasUsadas' => ['scope' => 'mis_MaquinasUsadas']
+            ,'UsuariosEnTareas' => ['scope' => 'mis_UsuariosEnTareas']
+            ,'UtensiliosUsados' => ['scope' => 'mis_UtensiliosUsados']
+        ];
+
+        $this->loadModel('MaquinasUsadas');
+        $query=$this->MaquinasUsadas->find('all')
+                                        ->where(['tarea_id' => $id])
+                                        ->contain(['Tareas', 'Maquinas']);
+
+        $maquinasUsadas=$this->paginate($query,['scope'=>'mis_MaquinasUsadas']);
+        $this->set(compact('maquinasUsadas'));
+
+        $this->loadModel('UsuariosEnTareas');
+        $query=$this->UsuariosEnTareas->find('all')
+                                        ->where(['tarea_id' => $id])
+                                        ->contain(['Tareas', 'Users']);
+
+        $usuariosEnTareas=$this->paginate($query,['scope'=>'mis_UsuariosEnTareas']);
+        $this->set(compact('usuariosEnTareas'));
+
+        $this->loadModel('UtensiliosUsados');
+        $query=$this->UtensiliosUsados->find('all')
+                                        ->where(['tarea_id' => $id])
+                                        ->contain(['Tareas', 'Utensilios']);
+
+        $utensiliosUsados=$this->paginate($query,['scope'=>'mis_UtensiliosUsados']);
+        $this->set(compact('utensiliosUsados'));
 
                                          
         $this->set('tarea', $tarea);
@@ -84,7 +113,7 @@ class TareasController extends AppController
     public function edit($id = null)
     {
         $tarea = $this->Tareas->get($id, [
-            'contain' => ['Subproceso', 'Ordens']
+            'contain' => ['Subproceso', 'Ordens', 'MaquinasUsadas', 'UsuariosEnTareas', 'UtensiliosUsados']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $tarea = $this->Tareas->patchEntity($tarea, $this->request->getData());

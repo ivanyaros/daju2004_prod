@@ -61,7 +61,9 @@
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'Tareas']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('subproceso_id','subproceso_id', ['model'=>'Tareas']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('orden_id','orden_id', ['model'=>'Tareas']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('fecha_inicio','fecha_inicio', ['model'=>'Tareas']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('segundos_duracion','segundos_duracion', ['model'=>'Tareas']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('descripcion','descripcion', ['model'=>'Tareas']) ?></th>
 			</thead>
 			<tbody>
 <?php foreach ($tareas as $tarea): ?>
@@ -72,7 +74,9 @@
                                 <td class="w3-border"><?= $tarea->has('subproceso') ? $this->Html->link($tarea->subproceso->label, ['controller' => 'Subproceso', 'action' => 'view', $tarea->subproceso->id]) : '' ?></td>
 
                                 <td class="w3-border"><?= $tarea->has('orden') ? $this->Html->link($tarea->orden->label, ['controller' => 'Ordens', 'action' => 'view', $tarea->orden->id]) : '' ?></td>
+                        <td class="w3-border"><?= h($tarea->fecha_inicio) ?></td>
                         <td class="w3-border"><?= h($tarea->segundos_duracion) ?></td>
+                        <td class="w3-border"><?= h($tarea->descripcion) ?></td>
             	</tr>
             <?php endforeach; ?>
         </table>

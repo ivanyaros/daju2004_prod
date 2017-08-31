@@ -9,6 +9,7 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property int $paradas_tipo_id
  * @property int $orden_id
+ * @property \Cake\I18n\FrozenTime $fecha_inicio
  * @property int $duracion
  * @property string $comentario
  *

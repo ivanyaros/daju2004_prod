@@ -19,7 +19,7 @@
     <table class=" w3-table w3-border w3-bordered w3-hoverable w3-centered w3-theme-d4">
         <thead class="w3-border w3-black">            
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th class="w3-border" scope="col"><?= $this->Paginator->sort('estados_de_orden_id') ?></th>
+                <th class="w3-border" scope="col"><?= $this->Paginator->sort('tarea_id') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('utensilio_id') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('observaciones') ?></th>
         </thead>
@@ -28,7 +28,7 @@
             <?php $my_url= $this->Url->build(['controller' => 'utensiliosUsados', 'action' => 'view',$utensiliosUsado->id]) ?>
             <tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
                 <td class="w3-border"><?= $this->Number->format($utensiliosUsado->id) ?></td>
-                <td class="w3-border"><?= $utensiliosUsado->has('estados_de_orden') ? $this->Html->link($utensiliosUsado->estados_de_orden->label, ['controller' => 'EstadosDeOrdens', 'action' => 'view', $utensiliosUsado->estados_de_orden->id]) : '' ?></td>
+                <td class="w3-border"><?= $utensiliosUsado->has('tarea') ? $this->Html->link($utensiliosUsado->tarea->label, ['controller' => 'Tareas', 'action' => 'view', $utensiliosUsado->tarea->id]) : '' ?></td>
                 <td class="w3-border"><?= $utensiliosUsado->has('utensilio') ? $this->Html->link($utensiliosUsado->utensilio->label, ['controller' => 'Utensilios', 'action' => 'view', $utensiliosUsado->utensilio->id]) : '' ?></td>
                 <td class="w3-border"><?= h($utensiliosUsado->observaciones) ?></td>
                 

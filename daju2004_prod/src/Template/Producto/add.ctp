@@ -19,7 +19,7 @@
             echo $this->Form->control('observaciones');
             echo $this->Form->control('visible');
             echo $this->Form->control('peso');
-            echo $this->Form->control('cantidad');
+            echo $this->Form->control('ue');
             echo $this->Form->control('descripcion');
             echo $this->Form->control('larga');
             echo $this->Form->control('coste');

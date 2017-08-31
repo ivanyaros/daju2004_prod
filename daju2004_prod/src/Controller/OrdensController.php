@@ -21,7 +21,7 @@ class OrdensController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Estados', 'Centros', 'Proceso', 'Prioridades']
+            'contain' => ['Estados', 'Centros', 'Proceso', 'Prioridades', 'Categorias']
         ];
         $ordens = $this->paginate($this->Ordens);
 
@@ -40,22 +40,13 @@ class OrdensController extends AppController
     public function view($id = null)
     {
         $orden = $this->Ordens->get($id, [
-            'contain' => ['Estados', 'Centros', 'Proceso', 'Prioridades', 'EstadosDeOrdens', 'Objetos', 'Paradas', 'Tareas']
+            'contain' => ['Estados', 'Centros', 'Proceso', 'Prioridades', 'Categorias', 'Objetos', 'Paradas', 'Tareas']
         ]);
         $this->paginate =[
-            'EstadosDeOrdens' => ['scope' => 'mis_EstadosDeOrdens']
-            ,'Objetos' => ['scope' => 'mis_Objetos']
+            'Objetos' => ['scope' => 'mis_Objetos']
             ,'Paradas' => ['scope' => 'mis_Paradas']
             ,'Tareas' => ['scope' => 'mis_Tareas']
         ];
-
-        $this->loadModel('EstadosDeOrdens');
-        $query=$this->EstadosDeOrdens->find('all')
-                                        ->where(['orden_id' => $id])
-                                        ->contain(['Ordens', 'Estados']);
-
-        $estadosDeOrdens=$this->paginate($query,['scope'=>'mis_EstadosDeOrdens']);
-        $this->set(compact('estadosDeOrdens'));
 
         $this->loadModel('Objetos');
         $query=$this->Objetos->find('all')
@@ -81,6 +72,11 @@ class OrdensController extends AppController
         $tareas=$this->paginate($query,['scope'=>'mis_Tareas']);
         $this->set(compact('tareas'));
 
+        $this->loadModel('Subproceso');
+        $query=$this->Subproceso->find('all')
+                                      ->where(['proceso_id' => $orden->proceso_id]);
+        $subprocesos=$query->all();
+        $this->set(compact('subprocesos'));
                                          
         $this->set('orden', $orden);
         $this->set('_serialize', ['orden']);
@@ -99,9 +95,22 @@ class OrdensController extends AppController
         }
         if ($this->request->is('post')) {
             $orden = $this->Ordens->patchEntity($orden, $this->request->getData());
+            
+            
+
             if ($this->Ordens->save($orden)) {
                 $this->Flash->success(__('The orden has been saved.'));
-
+                $this->loadModel('Subproceso');
+                $query=$this->Subproceso->find('all')
+                                          ->where(['proceso_id' => $orden->proceso_id]);
+                $subprocesos=$query->all();
+                $this->loadModel('Tareas');
+                foreach($subprocesos as $subproceso){
+                    $tarea = $this->Tareas->newEntity();
+                    $tarea->orden_id=$orden->id;
+                    $tarea->subproceso_id=$subproceso->id;
+                    $this->Tareas->save($tarea);
+                }
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The orden could not be saved. Please, try again.'));
@@ -110,7 +119,8 @@ class OrdensController extends AppController
         $centros = $this->Ordens->Centros->find('list', ['limit' => 200]);
         $proceso = $this->Ordens->Proceso->find('list', ['limit' => 200]);
         $prioridades = $this->Ordens->Prioridades->find('list', ['limit' => 200]);
-        $this->set(compact('orden', 'estados', 'centros', 'proceso', 'prioridades'));
+        $categorias = $this->Ordens->Categorias->find('list', ['limit' => 200]);
+        $this->set(compact('orden', 'estados', 'centros', 'proceso', 'prioridades', 'categorias'));
         $this->set('_serialize', ['orden']);
     }
 
@@ -124,7 +134,7 @@ class OrdensController extends AppController
     public function edit($id = null)
     {
         $orden = $this->Ordens->get($id, [
-            'contain' => ['Estados', 'Centros', 'Proceso', 'Prioridades', 'EstadosDeOrdens', 'Objetos', 'Paradas', 'Tareas']
+            'contain' => ['Estados', 'Centros', 'Proceso', 'Prioridades', 'Categorias', 'Objetos', 'Paradas', 'Tareas']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $orden = $this->Ordens->patchEntity($orden, $this->request->getData());
@@ -139,7 +149,8 @@ class OrdensController extends AppController
         $centros = $this->Ordens->Centros->find('list', ['limit' => 200]);
         $proceso = $this->Ordens->Proceso->find('list', ['limit' => 200]);
         $prioridades = $this->Ordens->Prioridades->find('list', ['limit' => 200]);
-        $this->set(compact('orden', 'estados', 'centros', 'proceso', 'prioridades'));
+        $categorias = $this->Ordens->Categorias->find('list', ['limit' => 200]);
+        $this->set(compact('orden', 'estados', 'centros', 'proceso', 'prioridades', 'categorias'));
         $this->set('_serialize', ['orden']);
     }
 

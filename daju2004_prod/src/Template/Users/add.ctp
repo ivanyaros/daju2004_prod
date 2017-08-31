@@ -18,6 +18,7 @@
             echo $this->Form->control('tipo');
             echo $this->Form->control('coste_operacion');
             echo $this->Form->control('coste_tiempo');
+            echo $this->Form->control('categoria_id', ['options' => $categorias, 'empty' => true]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

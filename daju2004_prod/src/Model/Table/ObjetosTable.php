@@ -87,6 +87,10 @@ class ObjetosTable extends Table
             ->allowEmpty('referencia');
 
         $validator
+            ->integer('cantidad')
+            ->allowEmpty('cantidad');
+
+        $validator
             ->allowEmpty('lote');
 
         $validator

@@ -11,6 +11,7 @@
         <?php
             echo $this->Form->control('paradas_tipo_id', ['options' => $paradasTipo, 'empty' => true]);
             echo $this->Form->control('orden_id', ['options' => $ordens, 'empty' => true]);
+            echo $this->Form->control('fecha_inicio', ['empty' => true]);
             echo $this->Form->control('duracion');
             echo $this->Form->control('comentario');
         ?>

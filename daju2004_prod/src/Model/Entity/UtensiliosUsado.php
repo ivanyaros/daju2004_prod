@@ -7,11 +7,11 @@ use Cake\ORM\Entity;
  * UtensiliosUsado Entity
  *
  * @property int $id
- * @property int $estados_de_orden_id
+ * @property int $tarea_id
  * @property int $utensilio_id
  * @property string $observaciones
  *
- * @property \App\Model\Entity\EstadosDeOrden $estados_de_orden
+ * @property \App\Model\Entity\Tarea $tarea
  * @property \App\Model\Entity\Utensilio $utensilio
  */
 class UtensiliosUsado extends Entity

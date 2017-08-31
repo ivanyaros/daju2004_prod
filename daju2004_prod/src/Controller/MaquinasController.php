@@ -46,7 +46,7 @@ class MaquinasController extends AppController
         $this->loadModel('MaquinasUsadas');
         $query=$this->MaquinasUsadas->find('all')
                                         ->where(['maquina_id' => $id])
-                                        ->contain(['EstadosDeOrdens', 'Maquinas']);
+                                        ->contain(['Tareas', 'Maquinas']);
 
         $maquinasUsadas=$this->paginate($query,['scope'=>'mis_MaquinasUsadas']);
         $this->set(compact('maquinasUsadas'));

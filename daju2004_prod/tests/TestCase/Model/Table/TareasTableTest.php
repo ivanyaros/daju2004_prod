@@ -35,13 +35,6 @@ class TareasTableTest extends TestCase
         'app.objetos',
         'app.ordens',
         'app.estados',
-        'app.estados_de_ordens',
-        'app.maquinas_usadas',
-        'app.maquinas',
-        'app.usuarios_en_estados_orden',
-        'app.users',
-        'app.utensilios_usados',
-        'app.utensilios',
         'app.centros',
         'app.entradas_de_materiales',
         'app.proveedores_clientes',
@@ -54,12 +47,19 @@ class TareasTableTest extends TestCase
         'app.materiales',
         'app.localizaciones',
         'app.materiales_entrada',
+        'app.categorias',
+        'app.users',
+        'app.usuarios_en_tareas',
         'app.paradas',
         'app.paradas_tipo',
         'app.objetos_entrada',
         'app.proceso_producto_entrada',
         'app.proceso_producto_salida',
-        'app.proceso_material_entrada'
+        'app.proceso_material_entrada',
+        'app.maquinas_usadas',
+        'app.maquinas',
+        'app.utensilios_usados',
+        'app.utensilios'
     ];
 
     /**

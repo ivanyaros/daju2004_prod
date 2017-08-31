@@ -39,6 +39,10 @@
             <td class="w3-border"><?= h($user->tipo) ?></td>
         </tr>
         <tr>
+            <td class="w3-border"><?= __('Categoria') ?></td>
+            <td class="w3-border"><?= $user->has('categoria') ? $this->Html->link($user->categoria->label, ['controller' => 'Categorias', 'action' => 'view', $user->categoria->id]) : '' ?></td>
+        </tr>
+        <tr>
             <td class="w3-border"><?= __('Id') ?></td>
             <td class="w3-border"><?= $this->Number->format($user->id) ?></td>
         </tr>
@@ -53,57 +57,57 @@
     </table>
 <div class="w3-bar w3-black">
 
-    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'usuariosEnEstadosOrden')"><?= __("Usuarios En Estados Orden") ?></button>
+    <button class="w3-bar-item w3-button tablink" onclick="openRelated(event,'usuariosEnTareas')"><?= __("Usuarios En Tareas") ?></button>
 
-<div style="display:none" id="usuariosEnEstadosOrden" class="related w3-container w3-theme-d3 w3-border">
-    <h4><?= __('Related Usuarios En Estados Orden') ?>
-        <?php $my_url_add=$this->Url->build(['controller' => 'usuarios-en-estados-orden', 'action' => 'add',$user->id,'user_id'])?>
+<div style="display:none" id="usuariosEnTareas" class="related w3-container w3-theme-d3 w3-border">
+    <h4><?= __('Related Usuarios En Tareas') ?>
+        <?php $my_url_add=$this->Url->build(['controller' => 'usuarios-en-tareas', 'action' => 'add',$user->id,'user_id'])?>
         <button onClick="location.href='<?= $my_url_add?>'" class="w3-button w3-xlarge w3-circle w3-black">+</button>
     </h4>
-        <?php if (!empty($usuariosEnEstadosOrden)): ?>
+        <?php if (!empty($usuariosEnTareas)): ?>
 	
         <div class="paginator">
             <ul class="pagination">
-                <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'UsuariosEnEstadosOrden']) ?>
-                <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'UsuariosEnEstadosOrden']) ?>
-                <?= $this->Paginator->numbers(['model'=>'UsuariosEnEstadosOrden','modulus' => 4,'first' => 2, 'last' => 2]) ?>
-                <?= $this->Paginator->next(__('next') . ' >', ['model'=>'UsuariosEnEstadosOrden']) ?>
-                <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'UsuariosEnEstadosOrden']) ?>
+                <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'UsuariosEnTareas']) ?>
+                <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'UsuariosEnTareas']) ?>
+                <?= $this->Paginator->numbers(['model'=>'UsuariosEnTareas','modulus' => 4,'first' => 2, 'last' => 2]) ?>
+                <?= $this->Paginator->next(__('next') . ' >', ['model'=>'UsuariosEnTareas']) ?>
+                <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'UsuariosEnTareas']) ?>
             </ul>        
         </div>
     <div class="w3-responsive">
 		<table class=" w3-table w3-centered w3-border w3-bordered w3-hoverable w3-theme-d4">
         	<thead class="w3-border w3-black">  
-                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'UsuariosEnEstadosOrden']) ?></th>
-                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('estados_de_orden_id','estados_de_orden_id', ['model'=>'UsuariosEnEstadosOrden']) ?></th>
-                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('user_id','user_id', ['model'=>'UsuariosEnEstadosOrden']) ?></th>
-                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('parte','parte', ['model'=>'UsuariosEnEstadosOrden']) ?></th>
-                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'UsuariosEnEstadosOrden']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('id','id', ['model'=>'UsuariosEnTareas']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('tarea_id','tarea_id', ['model'=>'UsuariosEnTareas']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('user_id','user_id', ['model'=>'UsuariosEnTareas']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('parte','parte', ['model'=>'UsuariosEnTareas']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'UsuariosEnTareas']) ?></th>
 			</thead>
 			<tbody>
-<?php foreach ($usuariosEnEstadosOrden as $usuariosEnEstadosOrden): ?>
-				<?php $my_url= $this->Url->build(['controller' => 'usuariosEnEstadosOrden', 'action' => 'view',$usuariosEnEstadosOrden->id]) ?>
+<?php foreach ($usuariosEnTareas as $usuariosEnTarea): ?>
+				<?php $my_url= $this->Url->build(['controller' => 'usuariosEnTareas', 'action' => 'view',$usuariosEnTarea->id]) ?>
             	<tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
-                                    <td class="w3-border"><?= h($usuariosEnEstadosOrden->id) ?></td>
+                                    <td class="w3-border"><?= h($usuariosEnTarea->id) ?></td>
 
-                                <td class="w3-border"><?= $usuariosEnEstadosOrden->has('estados_de_orden') ? $this->Html->link($usuariosEnEstadosOrden->estados_de_orden->label, ['controller' => 'EstadosDeOrdens', 'action' => 'view', $usuariosEnEstadosOrden->estados_de_orden->id]) : '' ?></td>
+                                <td class="w3-border"><?= $usuariosEnTarea->has('tarea') ? $this->Html->link($usuariosEnTarea->tarea->label, ['controller' => 'Tareas', 'action' => 'view', $usuariosEnTarea->tarea->id]) : '' ?></td>
 
-                                <td class="w3-border"><?= $usuariosEnEstadosOrden->has('user') ? $this->Html->link($usuariosEnEstadosOrden->user->label, ['controller' => 'Users', 'action' => 'view', $usuariosEnEstadosOrden->user->id]) : '' ?></td>
-                        <td class="w3-border"><?= h($usuariosEnEstadosOrden->parte) ?></td>
-                        <td class="w3-border"><?= h($usuariosEnEstadosOrden->observaciones) ?></td>
+                                <td class="w3-border"><?= $usuariosEnTarea->has('user') ? $this->Html->link($usuariosEnTarea->user->label, ['controller' => 'Users', 'action' => 'view', $usuariosEnTarea->user->id]) : '' ?></td>
+                        <td class="w3-border"><?= h($usuariosEnTarea->parte) ?></td>
+                        <td class="w3-border"><?= h($usuariosEnTarea->observaciones) ?></td>
             	</tr>
             <?php endforeach; ?>
         </table>
     </div>
         <div class="paginator">
             <ul class="pagination">
-                <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'UsuariosEnEstadosOrden']) ?>
-                <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'UsuariosEnEstadosOrden']) ?>
-                <?= $this->Paginator->numbers(['model'=>'UsuariosEnEstadosOrden','modulus' => 4,'first' => 2, 'last' => 2]) ?>
-                <?= $this->Paginator->next(__('next') . ' >', ['model'=>'UsuariosEnEstadosOrden']) ?>
-                <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'UsuariosEnEstadosOrden']) ?>
+                <?= $this->Paginator->first('<< ' . __('first'), ['model'=>'UsuariosEnTareas']) ?>
+                <?= $this->Paginator->prev('< ' . __('previous'), ['model'=>'UsuariosEnTareas']) ?>
+                <?= $this->Paginator->numbers(['model'=>'UsuariosEnTareas','modulus' => 4,'first' => 2, 'last' => 2]) ?>
+                <?= $this->Paginator->next(__('next') . ' >', ['model'=>'UsuariosEnTareas']) ?>
+                <?= $this->Paginator->last(__('last') . ' >>', ['model'=>'UsuariosEnTareas']) ?>
             </ul>
-            <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total'),'model'=>'UsuariosEnEstadosOrden']) ?></p>
+            <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total'),'model'=>'UsuariosEnTareas']) ?></p>
         </div>
     
     <?php endif; ?>

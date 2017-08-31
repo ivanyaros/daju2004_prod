@@ -28,6 +28,7 @@
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('tipo') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('coste_operacion') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('coste_tiempo') ?></th>
+                <th class="w3-border" scope="col"><?= $this->Paginator->sort('categoria_id') ?></th>
         </thead>
         <tbody>
             <?php foreach ($users as $user): ?>
@@ -43,6 +44,7 @@
                 <td class="w3-border"><?= h($user->tipo) ?></td>
                 <td class="w3-border"><?= $this->Number->format($user->coste_operacion) ?></td>
                 <td class="w3-border"><?= $this->Number->format($user->coste_tiempo) ?></td>
+                <td class="w3-border"><?= $user->has('categoria') ? $this->Html->link($user->categoria->label, ['controller' => 'Categorias', 'action' => 'view', $user->categoria->id]) : '' ?></td>
                 
             </tr>
             <?php endforeach; ?>

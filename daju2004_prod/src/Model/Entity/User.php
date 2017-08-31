@@ -2,7 +2,7 @@
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
-
+use Cake\Auth\DefaultPasswordHasher;
 /**
  * User Entity
  *
@@ -16,8 +16,10 @@ use Cake\ORM\Entity;
  * @property string $tipo
  * @property float $coste_operacion
  * @property float $coste_tiempo
+ * @property int $categoria_id
  *
- * @property \App\Model\Entity\UsuariosEnEstadosOrden[] $usuarios_en_estados_orden
+ * @property \App\Model\Entity\Categoria $categoria
+ * @property \App\Model\Entity\UsuariosEnTarea[] $usuarios_en_tareas
  */
 class User extends Entity
 {
@@ -45,6 +47,12 @@ class User extends Entity
         '*' => true,
         'id' => false
     ];
+    protected function _setPassword($password)
+    {
+        if (strlen($password) > 0) {
+            return (new DefaultPasswordHasher)->hash($password);
+        }
+    }
 
     /**
      * Fields that are excluded from JSON versions of the entity.

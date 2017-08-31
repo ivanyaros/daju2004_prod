@@ -11,7 +11,9 @@
         <?php
             echo $this->Form->control('subproceso_id', ['options' => $subproceso, 'empty' => true]);
             echo $this->Form->control('orden_id', ['options' => $ordens, 'empty' => true]);
+            echo $this->Form->control('fecha_inicio', ['empty' => true]);
             echo $this->Form->control('segundos_duracion');
+            echo $this->Form->control('descripcion');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

@@ -83,8 +83,8 @@
             <td class="w3-border"><?= h($materiale->fecha_entega) ?></td>
         </tr>
         <tr>
-            <td class="w3-border"><?= __('Bobina Lote') ?></td>
-            <td class="w3-border"><?= $materiale->bobina_lote ? __('Yes') : __('No'); ?></td>
+            <td class="w3-border"><?= __('Bobina') ?></td>
+            <td class="w3-border"><?= $materiale->bobina ? __('Yes') : __('No'); ?></td>
         </tr>
         <tr>
             <td class="w3-border"><?= __('En Uso') ?></td>

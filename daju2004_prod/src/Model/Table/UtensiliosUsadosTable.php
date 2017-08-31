@@ -9,7 +9,7 @@ use Cake\Validation\Validator;
 /**
  * UtensiliosUsados Model
  *
- * @property \Cake\ORM\Association\BelongsTo $EstadosDeOrdens
+ * @property \Cake\ORM\Association\BelongsTo $Tareas
  * @property \Cake\ORM\Association\BelongsTo $Utensilios
  *
  * @method \App\Model\Entity\UtensiliosUsado get($primaryKey, $options = [])
@@ -38,8 +38,8 @@ class UtensiliosUsadosTable extends Table
 
         $this->setPrimaryKey('id');
 
-        $this->belongsTo('EstadosDeOrdens', [
-            'foreignKey' => 'estados_de_orden_id'
+        $this->belongsTo('Tareas', [
+            'foreignKey' => 'tarea_id'
         ]);
         $this->belongsTo('Utensilios', [
             'foreignKey' => 'utensilio_id'
@@ -73,7 +73,7 @@ class UtensiliosUsadosTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['estados_de_orden_id'], 'EstadosDeOrdens'));
+        $rules->add($rules->existsIn(['tarea_id'], 'Tareas'));
         $rules->add($rules->existsIn(['utensilio_id'], 'Utensilios'));
 
         return $rules;

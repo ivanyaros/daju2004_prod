@@ -21,7 +21,7 @@ class UtensiliosUsadosController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['EstadosDeOrdens', 'Utensilios']
+            'contain' => ['Tareas', 'Utensilios']
         ];
         $utensiliosUsados = $this->paginate($this->UtensiliosUsados);
 
@@ -40,7 +40,7 @@ class UtensiliosUsadosController extends AppController
     public function view($id = null)
     {
         $utensiliosUsado = $this->UtensiliosUsados->get($id, [
-            'contain' => ['EstadosDeOrdens', 'Utensilios']
+            'contain' => ['Tareas', 'Utensilios']
         ]);
 
                                          
@@ -68,9 +68,9 @@ class UtensiliosUsadosController extends AppController
             }
             $this->Flash->error(__('The utensilios usado could not be saved. Please, try again.'));
         }
-        $estadosDeOrdens = $this->UtensiliosUsados->EstadosDeOrdens->find('list', ['limit' => 200]);
+        $tareas = $this->UtensiliosUsados->Tareas->find('list', ['limit' => 200]);
         $utensilios = $this->UtensiliosUsados->Utensilios->find('list', ['limit' => 200]);
-        $this->set(compact('utensiliosUsado', 'estadosDeOrdens', 'utensilios'));
+        $this->set(compact('utensiliosUsado', 'tareas', 'utensilios'));
         $this->set('_serialize', ['utensiliosUsado']);
     }
 
@@ -84,7 +84,7 @@ class UtensiliosUsadosController extends AppController
     public function edit($id = null)
     {
         $utensiliosUsado = $this->UtensiliosUsados->get($id, [
-            'contain' => ['EstadosDeOrdens', 'Utensilios']
+            'contain' => ['Tareas', 'Utensilios']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $utensiliosUsado = $this->UtensiliosUsados->patchEntity($utensiliosUsado, $this->request->getData());
@@ -95,9 +95,9 @@ class UtensiliosUsadosController extends AppController
             }
             $this->Flash->error(__('The utensilios usado could not be saved. Please, try again.'));
         }
-        $estadosDeOrdens = $this->UtensiliosUsados->EstadosDeOrdens->find('list', ['limit' => 200]);
+        $tareas = $this->UtensiliosUsados->Tareas->find('list', ['limit' => 200]);
         $utensilios = $this->UtensiliosUsados->Utensilios->find('list', ['limit' => 200]);
-        $this->set(compact('utensiliosUsado', 'estadosDeOrdens', 'utensilios'));
+        $this->set(compact('utensiliosUsado', 'tareas', 'utensilios'));
         $this->set('_serialize', ['utensiliosUsado']);
     }
 

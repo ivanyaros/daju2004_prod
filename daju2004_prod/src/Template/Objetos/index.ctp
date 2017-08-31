@@ -23,6 +23,7 @@
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('producto_id') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('numero_serie') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('referencia') ?></th>
+                <th class="w3-border" scope="col"><?= $this->Paginator->sort('cantidad') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('orden_id') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('lote') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('localizacione_id') ?></th>
@@ -41,6 +42,7 @@
                 <td class="w3-border"><?= $objeto->has('producto') ? $this->Html->link($objeto->producto->label, ['controller' => 'Producto', 'action' => 'view', $objeto->producto->id]) : '' ?></td>
                 <td class="w3-border"><?= $this->Number->format($objeto->numero_serie) ?></td>
                 <td class="w3-border"><?= h($objeto->referencia) ?></td>
+                <td class="w3-border"><?= $this->Number->format($objeto->cantidad) ?></td>
                 <td class="w3-border"><?= $objeto->has('orden') ? $this->Html->link($objeto->orden->label, ['controller' => 'Ordens', 'action' => 'view', $objeto->orden->id]) : '' ?></td>
                 <td class="w3-border"><?= h($objeto->lote) ?></td>
                 <td class="w3-border"><?= $objeto->has('localizacione') ? $this->Html->link($objeto->localizacione->label, ['controller' => 'Localizaciones', 'action' => 'view', $objeto->localizacione->id]) : '' ?></td>

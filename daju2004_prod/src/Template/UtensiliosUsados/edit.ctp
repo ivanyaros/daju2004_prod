@@ -11,7 +11,7 @@
     <fieldset>
         <legend><?= __('Edit Utensilios Usado') ?></legend>
         <?php
-            echo $this->Form->control('estados_de_orden_id', ['options' => $estadosDeOrdens, 'empty' => true]);
+            echo $this->Form->control('tarea_id', ['options' => $tareas, 'empty' => true]);
             echo $this->Form->control('utensilio_id', ['options' => $utensilios, 'empty' => true]);
             echo $this->Form->control('observaciones');
         ?>

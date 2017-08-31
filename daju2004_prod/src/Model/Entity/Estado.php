@@ -10,7 +10,6 @@ use Cake\ORM\Entity;
  * @property string $name
  * @property string $descripcion
  *
- * @property \App\Model\Entity\EstadosDeOrden[] $estados_de_ordens
  * @property \App\Model\Entity\Orden[] $ordens
  */
 class Estado extends Entity

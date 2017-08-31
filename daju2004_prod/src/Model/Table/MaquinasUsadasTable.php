@@ -9,7 +9,7 @@ use Cake\Validation\Validator;
 /**
  * MaquinasUsadas Model
  *
- * @property \Cake\ORM\Association\BelongsTo $EstadosDeOrdens
+ * @property \Cake\ORM\Association\BelongsTo $Tareas
  * @property \Cake\ORM\Association\BelongsTo $Maquinas
  *
  * @method \App\Model\Entity\MaquinasUsada get($primaryKey, $options = [])
@@ -38,8 +38,8 @@ class MaquinasUsadasTable extends Table
 
         $this->setPrimaryKey('id');
 
-        $this->belongsTo('EstadosDeOrdens', [
-            'foreignKey' => 'estados_de_orden_id'
+        $this->belongsTo('Tareas', [
+            'foreignKey' => 'tarea_id'
         ]);
         $this->belongsTo('Maquinas', [
             'foreignKey' => 'maquina_id'
@@ -81,7 +81,7 @@ class MaquinasUsadasTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['estados_de_orden_id'], 'EstadosDeOrdens'));
+        $rules->add($rules->existsIn(['tarea_id'], 'Tareas'));
         $rules->add($rules->existsIn(['maquina_id'], 'Maquinas'));
 
         return $rules;

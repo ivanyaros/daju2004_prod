@@ -53,7 +53,7 @@
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('fecha_entega','fecha_entega', ['model'=>'Materiales']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('localizacione_id','localizacione_id', ['model'=>'Materiales']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('entradas_de_materiale_id','entradas_de_materiale_id', ['model'=>'Materiales']) ?></th>
-                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('bobina_lote','bobina_lote', ['model'=>'Materiales']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('bobina','bobina', ['model'=>'Materiales']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('bobinas','bobinas', ['model'=>'Materiales']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('bobinas_actual','bobinas_actual', ['model'=>'Materiales']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('lote','lote', ['model'=>'Materiales']) ?></th>
@@ -82,7 +82,7 @@
                                 <td class="w3-border"><?= $materiale->has('localizacione') ? $this->Html->link($materiale->localizacione->label, ['controller' => 'Localizaciones', 'action' => 'view', $materiale->localizacione->id]) : '' ?></td>
 
                                 <td class="w3-border"><?= $materiale->has('entradas_de_materiale') ? $this->Html->link($materiale->entradas_de_materiale->label, ['controller' => 'EntradasDeMateriales', 'action' => 'view', $materiale->entradas_de_materiale->id]) : '' ?></td>
-                        <td class="w3-border"><?= h($materiale->bobina_lote) ?></td>
+                        <td class="w3-border"><?= h($materiale->bobina) ?></td>
                         <td class="w3-border"><?= h($materiale->bobinas) ?></td>
                         <td class="w3-border"><?= h($materiale->bobinas_actual) ?></td>
                         <td class="w3-border"><?= h($materiale->lote) ?></td>
@@ -139,6 +139,7 @@
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('producto_id','producto_id', ['model'=>'Objetos']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('numero_serie','numero_serie', ['model'=>'Objetos']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('referencia','referencia', ['model'=>'Objetos']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('cantidad','cantidad', ['model'=>'Objetos']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('orden_id','orden_id', ['model'=>'Objetos']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('lote','lote', ['model'=>'Objetos']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('localizacione_id','localizacione_id', ['model'=>'Objetos']) ?></th>
@@ -158,6 +159,7 @@
                                 <td class="w3-border"><?= $objeto->has('producto') ? $this->Html->link($objeto->producto->label, ['controller' => 'Producto', 'action' => 'view', $objeto->producto->id]) : '' ?></td>
                         <td class="w3-border"><?= h($objeto->numero_serie) ?></td>
                         <td class="w3-border"><?= h($objeto->referencia) ?></td>
+                        <td class="w3-border"><?= h($objeto->cantidad) ?></td>
 
                                 <td class="w3-border"><?= $objeto->has('orden') ? $this->Html->link($objeto->orden->label, ['controller' => 'Ordens', 'action' => 'view', $objeto->orden->id]) : '' ?></td>
                         <td class="w3-border"><?= h($objeto->lote) ?></td>

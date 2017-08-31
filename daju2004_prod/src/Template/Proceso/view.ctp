@@ -120,6 +120,7 @@
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('observaciones','observaciones', ['model'=>'Ordens']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('prioridade_id','prioridade_id', ['model'=>'Ordens']) ?></th>
                 <th  class="w3-border" scope="col"><?= $this->Paginator->sort('atributos','atributos', ['model'=>'Ordens']) ?></th>
+                <th  class="w3-border" scope="col"><?= $this->Paginator->sort('categoria_id','categoria_id', ['model'=>'Ordens']) ?></th>
 			</thead>
 			<tbody>
 <?php foreach ($ordens as $orden): ?>
@@ -143,6 +144,8 @@
 
                                 <td class="w3-border"><?= $orden->has('prioridade') ? $this->Html->link($orden->prioridade->label, ['controller' => 'Prioridades', 'action' => 'view', $orden->prioridade->id]) : '' ?></td>
                         <td class="w3-border"><?= h($orden->atributos) ?></td>
+
+                                <td class="w3-border"><?= $orden->has('categoria') ? $this->Html->link($orden->categoria->label, ['controller' => 'Categorias', 'action' => 'view', $orden->categoria->id]) : '' ?></td>
             	</tr>
             <?php endforeach; ?>
         </table>

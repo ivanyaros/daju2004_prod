@@ -11,7 +11,7 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $fecha_entega
  * @property int $localizacione_id
  * @property int $entradas_de_materiale_id
- * @property bool $bobina_lote
+ * @property bool $bobina
  * @property int $bobinas
  * @property int $bobinas_actual
  * @property string $lote

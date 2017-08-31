@@ -71,8 +71,8 @@ class MaterialesTable extends Table
             ->allowEmpty('fecha_entega');
 
         $validator
-            ->boolean('bobina_lote')
-            ->allowEmpty('bobina_lote');
+            ->boolean('bobina')
+            ->allowEmpty('bobina');
 
         $validator
             ->integer('bobinas')

@@ -20,7 +20,9 @@ class TareasFixture extends TestFixture
         'id' => ['type' => 'integer', 'length' => 10, 'unsigned' => true, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'subproceso_id' => ['type' => 'integer', 'length' => 10, 'unsigned' => true, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'orden_id' => ['type' => 'integer', 'length' => 10, 'unsigned' => true, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'fecha_inicio' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
         'segundos_duracion' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'descripcion' => ['type' => 'string', 'length' => 255, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         '_indexes' => [
             'fk_tareas_subproceso1_idx' => ['type' => 'index', 'columns' => ['subproceso_id'], 'length' => []],
             'fk_tareas_ordens1_idx' => ['type' => 'index', 'columns' => ['orden_id'], 'length' => []],
@@ -47,7 +49,9 @@ class TareasFixture extends TestFixture
             'id' => 1,
             'subproceso_id' => 1,
             'orden_id' => 1,
-            'segundos_duracion' => 1
+            'fecha_inicio' => '2017-06-15 10:48:18',
+            'segundos_duracion' => 1,
+            'descripcion' => 'Lorem ipsum dolor sit amet'
         ],
     ];
 }

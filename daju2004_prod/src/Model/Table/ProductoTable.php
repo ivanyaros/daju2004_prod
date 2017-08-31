@@ -103,8 +103,8 @@ class ProductoTable extends Table
             ->allowEmpty('peso');
 
         $validator
-            ->integer('cantidad')
-            ->allowEmpty('cantidad');
+            ->integer('ue')
+            ->allowEmpty('ue');
 
         $validator
             ->allowEmpty('descripcion');

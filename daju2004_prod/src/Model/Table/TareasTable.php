@@ -11,6 +11,9 @@ use Cake\Validation\Validator;
  *
  * @property \Cake\ORM\Association\BelongsTo $Subproceso
  * @property \Cake\ORM\Association\BelongsTo $Ordens
+ * @property \Cake\ORM\Association\HasMany $MaquinasUsadas
+ * @property \Cake\ORM\Association\HasMany $UsuariosEnTareas
+ * @property \Cake\ORM\Association\HasMany $UtensiliosUsados
  *
  * @method \App\Model\Entity\Tarea get($primaryKey, $options = [])
  * @method \App\Model\Entity\Tarea newEntity($data = null, array $options = [])
@@ -44,6 +47,15 @@ class TareasTable extends Table
         $this->belongsTo('Ordens', [
             'foreignKey' => 'orden_id'
         ]);
+        $this->hasMany('MaquinasUsadas', [
+            'foreignKey' => 'tarea_id'
+        ]);
+        $this->hasMany('UsuariosEnTareas', [
+            'foreignKey' => 'tarea_id'
+        ]);
+        $this->hasMany('UtensiliosUsados', [
+            'foreignKey' => 'tarea_id'
+        ]);
     }
 
     /**
@@ -59,8 +71,15 @@ class TareasTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
+            ->dateTime('fecha_inicio')
+            ->allowEmpty('fecha_inicio');
+
+        $validator
             ->integer('segundos_duracion')
             ->allowEmpty('segundos_duracion');
+
+        $validator
+            ->allowEmpty('descripcion');
 
         return $validator;
     }

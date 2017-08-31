@@ -47,7 +47,7 @@ class PrioridadesController extends AppController
         $this->loadModel('Ordens');
         $query=$this->Ordens->find('all')
                                         ->where(['prioridade_id' => $id])
-                                        ->contain(['Estados', 'Centros', 'Proceso', 'Prioridades']);
+                                        ->contain(['Estados', 'Centros', 'Proceso', 'Prioridades', 'Categorias']);
 
         $ordens=$this->paginate($query,['scope'=>'mis_Ordens']);
         $this->set(compact('ordens'));

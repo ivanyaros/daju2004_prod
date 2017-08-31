@@ -25,8 +25,7 @@ class UsersTableTest extends TestCase
      */
     public $fixtures = [
         'app.users',
-        'app.usuarios_en_estados_orden',
-        'app.estados_de_ordens',
+        'app.categorias',
         'app.ordens',
         'app.estados',
         'app.centros',
@@ -47,6 +46,11 @@ class UsersTableTest extends TestCase
         'app.proceso_producto_salida',
         'app.subproceso',
         'app.tareas',
+        'app.maquinas_usadas',
+        'app.maquinas',
+        'app.usuarios_en_tareas',
+        'app.utensilios_usados',
+        'app.utensilios',
         'app.materiales',
         'app.localizaciones',
         'app.objetos',
@@ -55,11 +59,7 @@ class UsersTableTest extends TestCase
         'app.proveedores_material',
         'app.prioridades',
         'app.paradas',
-        'app.paradas_tipo',
-        'app.maquinas_usadas',
-        'app.maquinas',
-        'app.utensilios_usados',
-        'app.utensilios'
+        'app.paradas_tipo'
     ];
 
     /**

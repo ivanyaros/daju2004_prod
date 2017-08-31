@@ -41,12 +41,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <body class="w3-theme">
     <div class="w3-theme w3-sidebar w3-bar-block w3-collapse w3-card-2 " style="width:200px;" id="mySidebar">
         <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Close &times;</button>
+        <a href="/categorias" class="w3-theme w3-bar-item w3-button">Categorias</a>
         <a href="/centros" class="w3-theme w3-bar-item w3-button">Centros</a>
         <a href="/direcciones" class="w3-bar-item w3-button">Direcciones</a>
         <a href="/entradas-de-materiales" class="w3-bar-item w3-button">Entradas de materiales</a>
         <a href="/envios" class="w3-bar-item w3-button">Envios</a>
         <a href="/estados" class="w3-bar-item w3-button">Estados</a>
-        <a href="/estados-de-ordens" class="w3-bar-item w3-button">Estados de orden</a>
         <a href="/familias" class="w3-bar-item w3-button">Familias</a>
         <a href="/ivas" class="w3-bar-item w3-button">Ivas</a>
         <a href="/localizaciones" class="w3-bar-item w3-button">Localizaciones</a>
@@ -59,6 +59,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <a href="/objetos" class="w3-bar-item w3-button">Objetos</a>
         <a href="/objetos-entrada" class="w3-bar-item w3-button">Objetos entrada</a>
         <a href="/ordens" class="w3-bar-item w3-button">Ordenes</a>
+        <a href="/paradas" class="w3-bar-item w3-button">Paradas</a>
+        <a href="/paradas-tipo" class="w3-bar-item w3-button">Tipo de paradas</a>
         <a href="/pedidos-empresas" class="w3-bar-item w3-button">Pedidos Empresa</a>
         <a href="/pedidos-productos-detalle" class="w3-bar-item w3-button">Pedidos Productos Detalle</a>
         <a href="/prioridades" class="w3-bar-item w3-button">Prioridades</a>
@@ -69,8 +71,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <a href="/producto" class="w3-bar-item w3-button">Producto</a>
         <a href="/proveedores-clientes" class="w3-bar-item w3-button">Proveedores clientes</a>
         <a href="/proveedores-material" class="w3-bar-item w3-button">Proveedores material</a>
+        <a href="/subproceso" class="w3-bar-item w3-button">Subprocesos</a>
+        <a href="/tareas" class="w3-bar-item w3-button">Tareas</a>
         <a href="/users" class="w3-bar-item w3-button">Usuarios</a>
-        <a href="/usuarios-en-estados-orden" class="w3-bar-item w3-button">Usuarios en estados orden</a>
+        <a href="/usuarios-en-tareas" class="w3-bar-item w3-button">Usuarios en tareas</a>
         <a href="/utensilios" class="w3-bar-item w3-button">Utensilios</a>
         <a href="/utensilios-usados" class="w3-bar-item w3-button">Utensilios Usados</a>
 

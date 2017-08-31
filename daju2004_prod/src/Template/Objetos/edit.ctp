@@ -15,6 +15,7 @@
             echo $this->Form->control('producto_id', ['options' => $producto, 'empty' => true]);
             echo $this->Form->control('numero_serie');
             echo $this->Form->control('referencia');
+            echo $this->Form->control('cantidad');
             echo $this->Form->control('orden_id', ['options' => $ordens]);
             echo $this->Form->control('lote');
             echo $this->Form->control('localizacione_id', ['options' => $localizaciones]);

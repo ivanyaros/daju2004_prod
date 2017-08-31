@@ -21,7 +21,9 @@
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('subproceso_id') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('orden_id') ?></th>
+                <th class="w3-border" scope="col"><?= $this->Paginator->sort('fecha_inicio') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('segundos_duracion') ?></th>
+                <th class="w3-border" scope="col"><?= $this->Paginator->sort('descripcion') ?></th>
         </thead>
         <tbody>
             <?php foreach ($tareas as $tarea): ?>
@@ -30,7 +32,9 @@
                 <td class="w3-border"><?= $this->Number->format($tarea->id) ?></td>
                 <td class="w3-border"><?= $tarea->has('subproceso') ? $this->Html->link($tarea->subproceso->label, ['controller' => 'Subproceso', 'action' => 'view', $tarea->subproceso->id]) : '' ?></td>
                 <td class="w3-border"><?= $tarea->has('orden') ? $this->Html->link($tarea->orden->label, ['controller' => 'Ordens', 'action' => 'view', $tarea->orden->id]) : '' ?></td>
+                <td class="w3-border"><?= h($tarea->fecha_inicio) ?></td>
                 <td class="w3-border"><?= $this->Number->format($tarea->segundos_duracion) ?></td>
+                <td class="w3-border"><?= h($tarea->descripcion) ?></td>
                 
             </tr>
             <?php endforeach; ?>

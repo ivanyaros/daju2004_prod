@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\Event\Event;
 /**
  * Users Controller
  *
@@ -18,8 +18,33 @@ class UsersController extends AppController
      *
      * @return \Cake\Http\Response|null
      */
+
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        $this->Auth->allow(['add','logout']);
+    }
+
+    public function login()
+    {
+        if($this->request->is('post')){
+            $user = $this->Auth->identify();
+            if($user){
+                    $this->Auth->setUser($user);
+                    return $this->redirect($this->Auth->redirectUrl());
+            }
+            $this->Flash->error(__('Invalid username or password, try again'));
+        }
+    }
+    public function logout()
+    {
+        return $this->redirect($this->Auth->logout());
+    }
     public function index()
     {
+        $this->paginate = [
+            'contain' => ['Categorias']
+        ];
         $users = $this->paginate($this->Users);
 
         $this->set(compact('users'));
@@ -37,19 +62,19 @@ class UsersController extends AppController
     public function view($id = null)
     {
         $user = $this->Users->get($id, [
-            'contain' => ['UsuariosEnEstadosOrden']
+            'contain' => ['Categorias', 'UsuariosEnTareas']
         ]);
         $this->paginate =[
-            'UsuariosEnEstadosOrden' => ['scope' => 'mis_UsuariosEnEstadosOrden']
+            'UsuariosEnTareas' => ['scope' => 'mis_UsuariosEnTareas']
         ];
 
-        $this->loadModel('UsuariosEnEstadosOrden');
-        $query=$this->UsuariosEnEstadosOrden->find('all')
+        $this->loadModel('UsuariosEnTareas');
+        $query=$this->UsuariosEnTareas->find('all')
                                         ->where(['user_id' => $id])
-                                        ->contain(['EstadosDeOrdens', 'Users']);
+                                        ->contain(['Tareas', 'Users']);
 
-        $usuariosEnEstadosOrden=$this->paginate($query,['scope'=>'mis_UsuariosEnEstadosOrden']);
-        $this->set(compact('usuariosEnEstadosOrden'));
+        $usuariosEnTareas=$this->paginate($query,['scope'=>'mis_UsuariosEnTareas']);
+        $this->set(compact('usuariosEnTareas'));
 
                                          
         $this->set('user', $user);
@@ -76,7 +101,8 @@ class UsersController extends AppController
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
-        $this->set(compact('user'));
+        $categorias = $this->Users->Categorias->find('list', ['limit' => 200]);
+        $this->set(compact('user', 'categorias'));
         $this->set('_serialize', ['user']);
     }
 
@@ -90,7 +116,7 @@ class UsersController extends AppController
     public function edit($id = null)
     {
         $user = $this->Users->get($id, [
-            'contain' => ['UsuariosEnEstadosOrden']
+            'contain' => ['Categorias', 'UsuariosEnTareas']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
@@ -101,7 +127,8 @@ class UsersController extends AppController
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
-        $this->set(compact('user'));
+        $categorias = $this->Users->Categorias->find('list', ['limit' => 200]);
+        $this->set(compact('user', 'categorias'));
         $this->set('_serialize', ['user']);
     }
 

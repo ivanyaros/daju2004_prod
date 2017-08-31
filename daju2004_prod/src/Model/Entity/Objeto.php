@@ -11,6 +11,7 @@ use Cake\ORM\Entity;
  * @property int $producto_id
  * @property int $numero_serie
  * @property string $referencia
+ * @property int $cantidad
  * @property int $orden_id
  * @property string $lote
  * @property int $localizacione_id

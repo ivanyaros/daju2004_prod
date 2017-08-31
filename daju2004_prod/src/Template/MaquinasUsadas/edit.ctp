@@ -11,7 +11,7 @@
     <fieldset>
         <legend><?= __('Edit Maquinas Usada') ?></legend>
         <?php
-            echo $this->Form->control('estados_de_orden_id', ['options' => $estadosDeOrdens, 'empty' => true]);
+            echo $this->Form->control('tarea_id', ['options' => $tareas, 'empty' => true]);
             echo $this->Form->control('maquina_id', ['options' => $maquinas, 'empty' => true]);
             echo $this->Form->control('operaciones');
             echo $this->Form->control('uso');

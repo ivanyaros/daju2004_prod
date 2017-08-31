@@ -51,6 +51,10 @@
             <td class="w3-border"><?= $this->Number->format($objeto->numero_serie) ?></td>
         </tr>
         <tr>
+            <td class="w3-border"><?= __('Cantidad') ?></td>
+            <td class="w3-border"><?= $this->Number->format($objeto->cantidad) ?></td>
+        </tr>
+        <tr>
             <td class="w3-border"><?= __('Coste') ?></td>
             <td class="w3-border"><?= $this->Number->format($objeto->coste) ?></td>
         </tr>

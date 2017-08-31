@@ -23,7 +23,7 @@
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('fecha_entega') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('localizacione_id') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('entradas_de_materiale_id') ?></th>
-                <th class="w3-border" scope="col"><?= $this->Paginator->sort('bobina_lote') ?></th>
+                <th class="w3-border" scope="col"><?= $this->Paginator->sort('bobina') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('bobinas') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('bobinas_actual') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('lote') ?></th>
@@ -49,7 +49,7 @@
                 <td class="w3-border"><?= h($materiale->fecha_entega) ?></td>
                 <td class="w3-border"><?= $materiale->has('localizacione') ? $this->Html->link($materiale->localizacione->label, ['controller' => 'Localizaciones', 'action' => 'view', $materiale->localizacione->id]) : '' ?></td>
                 <td class="w3-border"><?= $materiale->has('entradas_de_materiale') ? $this->Html->link($materiale->entradas_de_materiale->label, ['controller' => 'EntradasDeMateriales', 'action' => 'view', $materiale->entradas_de_materiale->id]) : '' ?></td>
-                <td class="w3-border"><?= h($materiale->bobina_lote) ?></td>
+                <td class="w3-border"><?= h($materiale->bobina) ?></td>
                 <td class="w3-border"><?= $this->Number->format($materiale->bobinas) ?></td>
                 <td class="w3-border"><?= $this->Number->format($materiale->bobinas_actual) ?></td>
                 <td class="w3-border"><?= h($materiale->lote) ?></td>

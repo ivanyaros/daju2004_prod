@@ -9,7 +9,8 @@ use Cake\Validation\Validator;
 /**
  * Users Model
  *
- * @property \Cake\ORM\Association\HasMany $UsuariosEnEstadosOrden
+ * @property \Cake\ORM\Association\BelongsTo $Categorias
+ * @property \Cake\ORM\Association\HasMany $UsuariosEnTareas
  *
  * @method \App\Model\Entity\User get($primaryKey, $options = [])
  * @method \App\Model\Entity\User newEntity($data = null, array $options = [])
@@ -37,7 +38,10 @@ class UsersTable extends Table
 
         $this->setPrimaryKey('id');
 
-        $this->hasMany('UsuariosEnEstadosOrden', [
+        $this->belongsTo('Categorias', [
+            'foreignKey' => 'categoria_id'
+        ]);
+        $this->hasMany('UsuariosEnTareas', [
             'foreignKey' => 'user_id'
         ]);
     }
@@ -62,11 +66,11 @@ class UsersTable extends Table
 
         $validator
             ->requirePresence('username', 'create')
-            ->notEmpty('username');
+            ->notEmpty('username','Nombre de usuario obligatorio');
 
         $validator
             ->requirePresence('password', 'create')
-            ->notEmpty('password');
+            ->notEmpty('password','Contraseña obligatoria');
 
         $validator
             ->email('email')
@@ -76,7 +80,11 @@ class UsersTable extends Table
             ->allowEmpty('direccion');
 
         $validator
-            ->allowEmpty('tipo');
+            ->notEmpty('tipo', 'Introduzca tipo de cuenta')
+            ->add('tipo', 'inList', [
+                'rule' => ['inList', ['administrador', 'usuario']],
+                'message' => 'Introduzca un tipo válido'
+            ]);
 
         $validator
             ->numeric('coste_operacion')
@@ -100,6 +108,7 @@ class UsersTable extends Table
     {
         $rules->add($rules->isUnique(['username']));
         $rules->add($rules->isUnique(['email']));
+        $rules->add($rules->existsIn(['categoria_id'], 'Categorias'));
 
         return $rules;
     }

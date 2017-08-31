@@ -59,6 +59,10 @@ class ParadasTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
+            ->dateTime('fecha_inicio')
+            ->allowEmpty('fecha_inicio');
+
+        $validator
             ->integer('duracion')
             ->allowEmpty('duracion');
 

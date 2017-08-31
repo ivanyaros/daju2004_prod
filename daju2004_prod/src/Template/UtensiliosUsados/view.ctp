@@ -11,8 +11,8 @@
     </h3>
     <table class="w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
         <tr>
-            <td class="w3-border"><?= __('Estados De Orden') ?></td>
-            <td class="w3-border"><?= $utensiliosUsado->has('estados_de_orden') ? $this->Html->link($utensiliosUsado->estados_de_orden->label, ['controller' => 'EstadosDeOrdens', 'action' => 'view', $utensiliosUsado->estados_de_orden->id]) : '' ?></td>
+            <td class="w3-border"><?= __('Tarea') ?></td>
+            <td class="w3-border"><?= $utensiliosUsado->has('tarea') ? $this->Html->link($utensiliosUsado->tarea->label, ['controller' => 'Tareas', 'action' => 'view', $utensiliosUsado->tarea->id]) : '' ?></td>
         </tr>
         <tr>
             <td class="w3-border"><?= __('Utensilio') ?></td>

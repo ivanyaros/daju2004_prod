@@ -30,6 +30,10 @@
             <td class="w3-border"><?= __('Duracion') ?></td>
             <td class="w3-border"><?= $this->Number->format($parada->duracion) ?></td>
         </tr>
+        <tr>
+            <td class="w3-border"><?= __('Fecha Inicio') ?></td>
+            <td class="w3-border"><?= h($parada->fecha_inicio) ?></td>
+        </tr>
     </table>
 <div class="w3-bar w3-black">
 

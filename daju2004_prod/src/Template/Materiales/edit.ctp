@@ -15,7 +15,7 @@
             echo $this->Form->control('fecha_entega', ['empty' => true]);
             echo $this->Form->control('localizacione_id', ['options' => $localizaciones, 'empty' => true]);
             echo $this->Form->control('entradas_de_materiale_id', ['options' => $entradasDeMateriales, 'empty' => true]);
-            echo $this->Form->control('bobina_lote');
+            echo $this->Form->control('bobina');
             echo $this->Form->control('bobinas');
             echo $this->Form->control('bobinas_actual');
             echo $this->Form->control('lote');

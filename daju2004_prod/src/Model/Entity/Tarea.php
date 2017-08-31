@@ -9,10 +9,15 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property int $subproceso_id
  * @property int $orden_id
+ * @property \Cake\I18n\FrozenTime $fecha_inicio
  * @property int $segundos_duracion
+ * @property string $descripcion
  *
  * @property \App\Model\Entity\Subproceso $subproceso
  * @property \App\Model\Entity\Orden $orden
+ * @property \App\Model\Entity\MaquinasUsada[] $maquinas_usadas
+ * @property \App\Model\Entity\UsuariosEnTarea[] $usuarios_en_tareas
+ * @property \App\Model\Entity\UtensiliosUsado[] $utensilios_usados
  */
 class Tarea extends Entity
 {

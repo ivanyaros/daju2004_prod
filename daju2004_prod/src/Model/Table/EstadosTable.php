@@ -9,7 +9,6 @@ use Cake\Validation\Validator;
 /**
  * Estados Model
  *
- * @property \Cake\ORM\Association\HasMany $EstadosDeOrdens
  * @property \Cake\ORM\Association\HasMany $Ordens
  *
  * @method \App\Model\Entity\Estado get($primaryKey, $options = [])
@@ -38,9 +37,6 @@ class EstadosTable extends Table
 
         $this->setPrimaryKey('id');
 
-        $this->hasMany('EstadosDeOrdens', [
-            'foreignKey' => 'estado_id'
-        ]);
         $this->hasMany('Ordens', [
             'foreignKey' => 'estado_id'
         ]);
