@@ -14,7 +14,7 @@
 namespace App\View;
 
 use Cake\View\View;
-use BootstrapUI\View\UIViewTrait;
+//use BootstrapUI\View\UIViewTrait;
 
 /**
  * Application View

@@ -13,7 +13,7 @@
             echo $this->Form->control('referencia');
             echo $this->Form->control('cantidad');
             echo $this->Form->control('defectuosos');
-            echo $this->Form->control('fecha_creacion', ['empty' => true]);
+            echo $this->Form->control('fecha_creacion', ['type' => 'datetime']);
             echo $this->Form->control('fecha_terminacion', ['empty' => true]);
             echo $this->Form->control('estado_id', ['options' => $estados, 'empty' => true]);
             echo $this->Form->control('centro_id', ['options' => $centros, 'empty' => true]);

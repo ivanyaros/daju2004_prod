@@ -54,6 +54,7 @@ class OrdensController extends AppController
                                         ->contain(['Producto', 'Ordens', 'Localizaciones', 'Envios']);
 
         $objetos=$this->paginate($query,['scope'=>'mis_Objetos']);
+        
         $this->set(compact('objetos'));
 
         $this->loadModel('Paradas');
@@ -72,11 +73,6 @@ class OrdensController extends AppController
         $tareas=$this->paginate($query,['scope'=>'mis_Tareas']);
         $this->set(compact('tareas'));
 
-        $this->loadModel('Subproceso');
-        $query=$this->Subproceso->find('all')
-                                      ->where(['proceso_id' => $orden->proceso_id]);
-        $subprocesos=$query->all();
-        $this->set(compact('subprocesos'));
                                          
         $this->set('orden', $orden);
         $this->set('_serialize', ['orden']);
@@ -96,21 +92,32 @@ class OrdensController extends AppController
         if ($this->request->is('post')) {
             $orden = $this->Ordens->patchEntity($orden, $this->request->getData());
             
-            
-
             if ($this->Ordens->save($orden)) {
-                $this->Flash->success(__('The orden has been saved.'));
                 $this->loadModel('Subproceso');
+                $this->loadModel('ProcesoProductoSalida');
+                $queryP=$this->ProcesoProductoSalida->find('all')
+                                                                ->where(['ProcesoProductoSalida.proceso_id' => $orden->proceso_id]);
+                $this->loadModel('Objetos');
+                foreach($queryP as $pps){
+                    $obj=$this->Objetos->newEntity();
+                    $obj->producto_id=$pps->producto_id;
+                    $obj->orden_id=$orden->id;
+                    $this->Objetos->save($obj);
+
+                }
+
                 $query=$this->Subproceso->find('all')
-                                          ->where(['proceso_id' => $orden->proceso_id]);
-                $subprocesos=$query->all();
+                                                ->where(['Subproceso.proceso_id' => $orden->proceso_id]);
                 $this->loadModel('Tareas');
-                foreach($subprocesos as $subproceso){
-                    $tarea = $this->Tareas->newEntity();
+                foreach ($query as $subproceso) {
+                    $tarea=$this->Tareas->newEntity();
                     $tarea->orden_id=$orden->id;
                     $tarea->subproceso_id=$subproceso->id;
                     $this->Tareas->save($tarea);
                 }
+
+                $this->Flash->success(__('The orden has been saved.'));
+
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The orden could not be saved. Please, try again.'));

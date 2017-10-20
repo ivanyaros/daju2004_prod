@@ -20,7 +20,7 @@
         <thead class="w3-border w3-black">            
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('material_id') ?></th>
-                <th class="w3-border" scope="col"><?= $this->Paginator->sort('fecha_entega') ?></th>
+                <th class="w3-border" scope="col"><?= $this->Paginator->sort('fecha_entrega') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('localizacione_id') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('entradas_de_materiale_id') ?></th>
                 <th class="w3-border" scope="col"><?= $this->Paginator->sort('bobina') ?></th>
@@ -46,7 +46,7 @@
             <tr onClick="location.href='<?= $my_url ?>'" class="w3-hover-black ">
                 <td class="w3-border"><?= $this->Number->format($materiale->id) ?></td>
                 <td class="w3-border"><?= $materiale->has('material') ? $this->Html->link($materiale->material->label, ['controller' => 'Material', 'action' => 'view', $materiale->material->id]) : '' ?></td>
-                <td class="w3-border"><?= h($materiale->fecha_entega) ?></td>
+                <td class="w3-border"><?= h($materiale->fecha_entrega) ?></td>
                 <td class="w3-border"><?= $materiale->has('localizacione') ? $this->Html->link($materiale->localizacione->label, ['controller' => 'Localizaciones', 'action' => 'view', $materiale->localizacione->id]) : '' ?></td>
                 <td class="w3-border"><?= $materiale->has('entradas_de_materiale') ? $this->Html->link($materiale->entradas_de_materiale->label, ['controller' => 'EntradasDeMateriales', 'action' => 'view', $materiale->entradas_de_materiale->id]) : '' ?></td>
                 <td class="w3-border"><?= h($materiale->bobina) ?></td>

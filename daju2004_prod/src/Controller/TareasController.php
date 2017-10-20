@@ -102,6 +102,12 @@ class TareasController extends AppController
         $this->set(compact('tarea', 'subproceso', 'ordens'));
         $this->set('_serialize', ['tarea']);
     }
+    public function addSub($laOrden=null,$elSub=null){
+        $tarea=$this->Tareas->newEntity();
+        $tarea->orden_id=$laOrden;
+        $tarea->subproceso_id=$elSub;
+        $this->Tareas->save($tarea);
+    }
 
     /**
      * Edit method

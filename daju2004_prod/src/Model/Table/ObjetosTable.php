@@ -50,8 +50,8 @@ class ObjetosTable extends Table
             'joinType' => 'INNER'
         ]);
         $this->belongsTo('Localizaciones', [
-            'foreignKey' => 'localizacione_id',
-            'joinType' => 'INNER'
+            'foreignKey' => 'localizacione_id'
+             
         ]);
         $this->belongsTo('Envios', [
             'foreignKey' => 'envio_id'
@@ -84,7 +84,8 @@ class ObjetosTable extends Table
             ->allowEmpty('numero_serie');
 
         $validator
-            ->allowEmpty('referencia');
+            ->allowEmpty('referencia')
+            ->allowEmpty('localizacione_id');
 
         $validator
             ->integer('cantidad')

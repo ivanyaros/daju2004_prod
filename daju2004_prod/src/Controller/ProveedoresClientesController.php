@@ -49,7 +49,7 @@ class ProveedoresClientesController extends AppController
 
         $this->loadModel('Direcciones');
         $query=$this->Direcciones->find('all')
-                                        ->where(['proveedores_cliente_id' => $id])
+                                        ->where(['Direcciones.proveedores_cliente_id' => $id])
                                         ->contain(['ProveedoresClientes']);
 
         $direcciones=$this->paginate($query,['scope'=>'mis_Direcciones']);
@@ -57,7 +57,7 @@ class ProveedoresClientesController extends AppController
 
         $this->loadModel('EntradasDeMateriales');
         $query=$this->EntradasDeMateriales->find('all')
-                                        ->where(['proveedores_cliente_id' => $id])
+                                        ->where(['EntradasDeMateriales.proveedores_cliente_id' => $id])
                                         ->contain(['ProveedoresClientes', 'Centros']);
 
         $entradasDeMateriales=$this->paginate($query,['scope'=>'mis_EntradasDeMateriales']);
@@ -65,7 +65,7 @@ class ProveedoresClientesController extends AppController
 
         $this->loadModel('Envios');
         $query=$this->Envios->find('all')
-                                        ->where(['proveedores_cliente_id' => $id])
+                                        ->where(['Envios.proveedores_cliente_id' => $id])
                                         ->contain(['ProveedoresClientes', 'PedidosEmpresas', 'Centros', 'Direcciones']);
 
         $envios=$this->paginate($query,['scope'=>'mis_Envios']);
@@ -73,7 +73,7 @@ class ProveedoresClientesController extends AppController
 
         $this->loadModel('PedidosEmpresas');
         $query=$this->PedidosEmpresas->find('all')
-                                        ->where(['proveedores_cliente_id' => $id])
+                                        ->where(['PedidosEmpresas.proveedores_cliente_id' => $id])
                                         ->contain(['ProveedoresClientes']);
 
         $pedidosEmpresas=$this->paginate($query,['scope'=>'mis_PedidosEmpresas']);
@@ -81,7 +81,7 @@ class ProveedoresClientesController extends AppController
 
         $this->loadModel('ProveedoresMaterial');
         $query=$this->ProveedoresMaterial->find('all')
-                                        ->where(['proveedores_cliente_id' => $id])
+                                        ->where(['ProveedoresMaterial.proveedores_cliente_id' => $id])
                                         ->contain(['ProveedoresClientes', 'Material']);
 
         $proveedoresMaterial=$this->paginate($query,['scope'=>'mis_ProveedoresMaterial']);

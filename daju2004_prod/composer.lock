@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3377b452ef5021d6da5464e71cda849a",
+    "content-hash": "3adc1fb535e9365f8923755543275cdd",
     "packages": [
         {
             "name": "aura/intl",
@@ -645,16 +645,16 @@
         },
         {
             "name": "friendsofcake/bootstrap-ui",
-            "version": "1.1.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfCake/bootstrap-ui.git",
-                "reference": "bec60e3bf715e65fcc47532122da8544770e0152"
+                "reference": "fd02bdcd2bb3f58fa7e68c4d770836e0ac9ac988"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfCake/bootstrap-ui/zipball/bec60e3bf715e65fcc47532122da8544770e0152",
-                "reference": "bec60e3bf715e65fcc47532122da8544770e0152",
+                "url": "https://api.github.com/repos/FriendsOfCake/bootstrap-ui/zipball/fd02bdcd2bb3f58fa7e68c4d770836e0ac9ac988",
+                "reference": "fd02bdcd2bb3f58fa7e68c4d770836e0ac9ac988",
                 "shasum": ""
             },
             "require": {
@@ -691,7 +691,7 @@
                 "cakephp",
                 "twitter"
             ],
-            "time": "2017-04-21T19:47:31+00:00"
+            "time": "2017-08-04T00:58:47+00:00"
         },
         {
             "name": "jdorn/sql-formatter",
@@ -964,12 +964,12 @@
             "version": "v0.6.5",
             "source": {
                 "type": "git",
-                "url": "https://github.com/robmorgan/phinx.git",
+                "url": "https://github.com/cakephp/phinx.git",
                 "reference": "6943cb4bb78bf9d3964967a032220b7c793b97b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/robmorgan/phinx/zipball/6943cb4bb78bf9d3964967a032220b7c793b97b7",
+                "url": "https://api.github.com/repos/cakephp/phinx/zipball/6943cb4bb78bf9d3964967a032220b7c793b97b7",
                 "reference": "6943cb4bb78bf9d3964967a032220b7c793b97b7",
                 "shasum": ""
             },

@@ -33,6 +33,12 @@ class User extends Entity
      *
      * @var array
      */
+    protected function _setPassword($password)
+    {
+        if (strlen($password) > 0) {
+            return (new DefaultPasswordHasher)->hash($password);
+        }
+    }
     
     protected function _getLabel()
     {
@@ -47,12 +53,6 @@ class User extends Entity
         '*' => true,
         'id' => false
     ];
-    protected function _setPassword($password)
-    {
-        if (strlen($password) > 0) {
-            return (new DefaultPasswordHasher)->hash($password);
-        }
-    }
 
     /**
      * Fields that are excluded from JSON versions of the entity.

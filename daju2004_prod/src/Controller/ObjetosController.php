@@ -21,7 +21,7 @@ class ObjetosController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Producto', 'Ordens', 'Localizaciones', 'Envios']
+            'contain' => ['Producto','Ordens', 'Localizaciones', 'Envios']
         ];
         $objetos = $this->paginate($this->Objetos);
 
@@ -37,6 +37,16 @@ class ObjetosController extends AppController
      * @return \Cake\Http\Response|null
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
+    public function getMateriales($id=null){
+        
+
+
+
+
+
+    }
+
+
     public function view($id = null)
     {
         $objeto = $this->Objetos->get($id, [

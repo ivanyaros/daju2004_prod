@@ -12,7 +12,7 @@
         "cakephp/plugin-installer": "~1.0",
         "cakephp/debug_kit": "^3.10",
         "davidyell/nice-admin": "dev-master",
-        "friendsofcake/bootstrap-ui": "^1.1",
+        "friendsofcake/bootstrap-ui": "^1.2",
         "twbs/bootstrap": "^3.3"
     },
     "require-dev": {

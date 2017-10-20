@@ -49,7 +49,7 @@ class ParadasFixture extends TestFixture
             'id' => 1,
             'paradas_tipo_id' => 1,
             'orden_id' => 1,
-            'fecha_inicio' => '2017-06-15 10:48:15',
+            'fecha_inicio' => '2017-09-05 11:15:39',
             'duracion' => 1,
             'comentario' => 'Lorem ipsum dolor sit amet'
         ],

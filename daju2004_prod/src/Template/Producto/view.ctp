@@ -8,6 +8,9 @@
     <h3><?= h($producto->label) ?>
         <?php $my_url_edit=$this->Url->build(['controller' => 'producto','action' => 'edit',$producto->id])  ?>
         <button onClick="location.href='<?= $my_url_edit?>'" class="w3-button  w3-circle w3-black"> <?= __("Edit")?></button>
+        <div class="w3-button w3-circle w3-red">
+        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $producto->id], ['confirm' => __('Are you sure you want to delete # {0}?', $producto->id)]) ?>
+        </div>
     </h3>
     <table class="w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
         <tr>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Users                
+    </title>
+    <link href="http://localhost/favicon.ico" type="image/x-icon" rel="icon"><link href="http://localhost/favicon.ico" type="image/x-icon" rel="shortcut icon">
+    
+    <link rel="stylesheet" href="Users_files/w3.css">    <link rel="stylesheet" href="Users_files/w3-theme-green.css">    
+    
+
+            </head>
+<body class="w3-theme">
+    <div class="w3-theme w3-sidebar w3-bar-block w3-collapse w3-card-2 " style="width:200px;" id="mySidebar">
+        <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Close ×</button>
+        <a href="http://localhost/categorias" class="w3-theme w3-bar-item w3-button">Categorias</a>
+        <a href="http://localhost/centros" class="w3-theme w3-bar-item w3-button">Centros</a>
+        <a href="http://localhost/direcciones" class="w3-bar-item w3-button">Direcciones</a>
+        <a href="http://localhost/entradas-de-materiales" class="w3-bar-item w3-button">Entradas de materiales</a>
+        <a href="http://localhost/envios" class="w3-bar-item w3-button">Envios</a>
+        <a href="http://localhost/estados" class="w3-bar-item w3-button">Estados</a>
+        <a href="http://localhost/familias" class="w3-bar-item w3-button">Familias</a>
+        <a href="http://localhost/ivas" class="w3-bar-item w3-button">Ivas</a>
+        <a href="http://localhost/localizaciones" class="w3-bar-item w3-button">Localizaciones</a>
+        <a href="http://localhost/maquinas" class="w3-bar-item w3-button">Maquinas</a>
+        <a href="http://localhost/maquinas-usadas" class="w3-bar-item w3-button">Maquinas usadas</a>
+        <a href="http://localhost/material" class="w3-bar-item w3-button">Materia prima</a>
+        <a href="http://localhost/materiales" class="w3-bar-item w3-button">Materiales</a>
+        <a href="http://localhost/materiales-entrada" class="w3-bar-item w3-button">Materiales entrada</a>
+        <a href="http://localhost/monedas" class="w3-bar-item w3-button">Monedas</a>
+        <a href="http://localhost/objetos" class="w3-bar-item w3-button">Objetos</a>
+        <a href="http://localhost/objetos-entrada" class="w3-bar-item w3-button">Objetos entrada</a>
+        <a href="http://localhost/ordens" class="w3-bar-item w3-button">Ordenes</a>
+        <a href="http://localhost/paradas" class="w3-bar-item w3-button">Paradas</a>
+        <a href="http://localhost/paradas-tipo" class="w3-bar-item w3-button">Tipo de paradas</a>
+        <a href="http://localhost/pedidos-empresas" class="w3-bar-item w3-button">Pedidos Empresa</a>
+        <a href="http://localhost/pedidos-productos-detalle" class="w3-bar-item w3-button">Pedidos Productos Detalle</a>
+        <a href="http://localhost/prioridades" class="w3-bar-item w3-button">Prioridades</a>
+        <a href="http://localhost/proceso" class="w3-bar-item w3-button">Procesos</a>
+        <a href="http://localhost/proceso-material-entrada" class="w3-bar-item w3-button">Proceso material entrada</a>
+        <a href="http://localhost/proceso-produto-entrada" class="w3-bar-item w3-button">Proceso Producto Entrada</a>
+        <a href="http://localhost/proceso-produto-salida" class="w3-bar-item w3-button">Proceso Producto Salida</a>
+        <a href="http://localhost/producto" class="w3-bar-item w3-button">Producto</a>
+        <a href="http://localhost/proveedores-clientes" class="w3-bar-item w3-button">Proveedores clientes</a>
+        <a href="http://localhost/proveedores-material" class="w3-bar-item w3-button">Proveedores material</a>
+        <a href="http://localhost/subproceso" class="w3-bar-item w3-button">Subprocesos</a>
+        <a href="http://localhost/tareas" class="w3-bar-item w3-button">Tareas</a>
+        <a href="http://localhost/users" class="w3-bar-item w3-button">Usuarios</a>
+        <a href="http://localhost/usuarios-en-tareas" class="w3-bar-item w3-button">Usuarios en tareas</a>
+        <a href="http://localhost/utensilios" class="w3-bar-item w3-button">Utensilios</a>
+        <a href="http://localhost/utensilios-usados" class="w3-bar-item w3-button">Utensilios Usados</a>
+
+
+        
+    </div>
+    <div class="w3-main" style="margin-left:200px">
+        <div class="w3-teal">
+            <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">☰</button>
+            <div class="w3-container">
+            <h1>
+                Users                            </h1>
+
+            </div>
+        </div>
+    
+    <div class="w3-container">
+        <div class="message error" onclick="this.classList.add('hidden');">The user could not be saved. Please, try again.</div>
+        
+<div class="users form large-9 medium-8 columns content">
+    <form method="post" accept-charset="utf-8" action="/users/add"><div style="display:none;"><input name="_method" value="POST" type="hidden"></div>    <fieldset>
+        <legend>Add User</legend>
+        <div class="input text"><label for="name">Name</label><input name="name" maxlength="255" id="name" value="ivan" type="text"></div><div class="input text"><label for="apellidos">Apellidos</label><input name="apellidos" maxlength="255" id="apellidos" value="yaroslavskyy" type="text"></div><div class="input text required"><label for="username">Username</label><input name="username" required="required" maxlength="45" id="username" value="ivanyaros" type="text"></div><div class="input password required"><label for="password">Password</label><input name="password" required="required" id="password" value="yaros" type="password"></div><div class="input email"><label for="email">Email</label><input name="email" maxlength="45" id="email" value="ivanyaros@mail.ru" type="email"></div><div class="input text"><label for="direccion">Direccion</label><input name="direccion" maxlength="45" id="direccion" type="text"></div><div class="input select required error"><label for="tipo">Tipo</label><select name="tipo" required="required" id="tipo" class="form-error"><option value="0" selected="selected">administrador</option><option value="1">usuario</option></select><div class="error-message">Introduzca un tipo válido</div></div><div class="input number"><label for="coste-operacion">Coste Operacion</label><input name="coste_operacion" step="any" id="coste-operacion" value="123" type="number"></div><div class="input number"><label for="coste-tiempo">Coste Tiempo</label><input name="coste_tiempo" step="any" id="coste-tiempo" value="12" type="number"></div><div class="input select"><label for="categoria-id">Categoria</label><select name="categoria_id" id="categoria-id"><option value="" selected="selected"></option></select></div>    </fieldset>
+    <button type="submit">Submit</button>    </form></div>
+    </div>
+        
+    
+    <footer>
+    </footer>
+<script>
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+}
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+
+
+</div></body></html>

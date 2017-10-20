@@ -48,9 +48,9 @@ class Material extends Entity
     {
 
             if (!empty($this->_properties['name'])){
-                return '('.$this->_properties['referencia'].')'.$this->_properties['name'];
+                return '('.$this->_properties['id'].')'.$this->_properties['name'];
             }
-            return '('.$this->_properties['referencia'].')';
+            return '('.$this->_properties['id'].')';
     }
     
     protected $_accessible = [

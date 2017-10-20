@@ -17,7 +17,7 @@ class TareasFixture extends TestFixture
      */
     // @codingStandardsIgnoreStart
     public $fields = [
-        'id' => ['type' => 'integer', 'length' => 10, 'unsigned' => true, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'id' => ['type' => 'integer', 'length' => 10, 'unsigned' => true, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
         'subproceso_id' => ['type' => 'integer', 'length' => 10, 'unsigned' => true, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'orden_id' => ['type' => 'integer', 'length' => 10, 'unsigned' => true, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'fecha_inicio' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
@@ -49,7 +49,7 @@ class TareasFixture extends TestFixture
             'id' => 1,
             'subproceso_id' => 1,
             'orden_id' => 1,
-            'fecha_inicio' => '2017-06-15 10:48:18',
+            'fecha_inicio' => '2017-09-05 11:15:41',
             'segundos_duracion' => 1,
             'descripcion' => 'Lorem ipsum dolor sit amet'
         ],

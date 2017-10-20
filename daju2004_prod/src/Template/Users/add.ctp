@@ -15,7 +15,7 @@
             echo $this->Form->control('password');
             echo $this->Form->control('email');
             echo $this->Form->control('direccion');
-            echo $this->Form->control('tipo');
+            echo $this->Form->control('tipo',['options' => ['admin' => 'Admin', 'user' => 'Usuario']]);
             echo $this->Form->control('coste_operacion');
             echo $this->Form->control('coste_tiempo');
             echo $this->Form->control('categoria_id', ['options' => $categorias, 'empty' => true]);

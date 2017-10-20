@@ -95,7 +95,7 @@
                                     <td class="w3-border"><?= h($materiale->id) ?></td>
 
                                 <td class="w3-border"><?= $materiale->has('material') ? $this->Html->link($materiale->material->label, ['controller' => 'Material', 'action' => 'view', $materiale->material->id]) : '' ?></td>
-                        <td class="w3-border"><?= h($materiale->fecha_entega) ?></td>
+                        <td class="w3-border"><?= h($materiale->fecha_entrega) ?></td>
 
                                 <td class="w3-border"><?= $materiale->has('localizacione') ? $this->Html->link($materiale->localizacione->label, ['controller' => 'Localizaciones', 'action' => 'view', $materiale->localizacione->id]) : '' ?></td>
 

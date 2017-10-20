@@ -73,7 +73,7 @@ class CentrosController extends AppController
 
         $this->loadModel('Ordens');
         $query=$this->Ordens->find('all')
-                                        ->where(['centro_id' => $id])
+                                        ->where(['Ordens.centro_id' => $id])
                                         ->contain(['Estados', 'Centros', 'Proceso', 'Prioridades', 'Categorias']);
 
         $ordens=$this->paginate($query,['scope'=>'mis_Ordens']);
@@ -81,7 +81,7 @@ class CentrosController extends AppController
 
         $this->loadModel('Proceso');
         $query=$this->Proceso->find('all')
-                                        ->where(['centro_id' => $id])
+                                        ->where(['Proceso.centro_id' => $id])
                                         ->contain(['Familias', 'Monedas', 'Ivas', 'Centros']);
 
         $proceso=$this->paginate($query,['scope'=>'mis_Proceso']);

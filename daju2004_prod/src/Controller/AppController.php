@@ -47,6 +47,7 @@ class AppController extends Controller
         
         
         $this->loadComponent('Auth', [
+            'authorize' => ['Controller'],
             'loginRedirect' => [
                 'controller' => 'Centros',
                 'action' => 'index'
@@ -77,23 +78,25 @@ class AppController extends Controller
         //$this->loadComponent('Security');
         //$this->loadComponent('Csrf');
     }
-    /*public function isAuthorized($user)
+    
+    public function isAuthorized($user)
     {
-        // Admin can access every action
+         //Admin can access every action
         if (isset($user['tipo']) && $user['tipo'] === 'admin') {
             return true;
         }
-
+        
         // Default deny
         return false;
+        
     }
-
     /**
      * Before render callback.
      *
      * @param \Cake\Event\Event $event The beforeRender event.
      * @return \Cake\Network\Response|null|void
      */
+    
     public function beforeFilter(Event $event)
     {
         $this->Auth->allow(['index', 'view', 'display']);

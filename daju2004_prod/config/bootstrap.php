@@ -227,3 +227,5 @@ Plugin::load('NiceAdmin');
 Plugin::load('MyBakePlugin', ['bootstrap' => false, 'routes' => true]);
 
 Plugin::load('BootstrapUI');
+
+Plugin::load('BootstrapUI');

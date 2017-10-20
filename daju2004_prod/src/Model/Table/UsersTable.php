@@ -66,11 +66,11 @@ class UsersTable extends Table
 
         $validator
             ->requirePresence('username', 'create')
-            ->notEmpty('username','Nombre de usuario obligatorio');
+            ->notEmpty('username');
 
         $validator
             ->requirePresence('password', 'create')
-            ->notEmpty('password','Contraseña obligatoria');
+            ->notEmpty('password');
 
         $validator
             ->email('email')
@@ -80,10 +80,10 @@ class UsersTable extends Table
             ->allowEmpty('direccion');
 
         $validator
-            ->notEmpty('tipo', 'Introduzca tipo de cuenta')
+            ->notEmpty('tipo', 'Se requiere un tipo')
             ->add('tipo', 'inList', [
-                'rule' => ['inList', ['administrador', 'usuario']],
-                'message' => 'Introduzca un tipo válido'
+                'rule' => ['inList', ['admin', 'user']],
+                'message' => 'Introduzca el tipo correcto'
             ]);
 
         $validator

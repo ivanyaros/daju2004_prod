@@ -8,7 +8,11 @@
     <h3><?= h($orden->label) ?>
         <?php $my_url_edit=$this->Url->build(['controller' => 'ordens','action' => 'edit',$orden->id])  ?>
         <button onClick="location.href='<?= $my_url_edit?>'" class="w3-button  w3-circle w3-black"> <?= __("Edit")?></button>
-    </h3>        
+        <div class="w3-button w3-circle w3-red">
+        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $orden->id], ['confirm' => __('Are you sure you want to delete # {0}?', $orden->id)]) ?>
+        </div>
+    </h3>
+    <?php print_r($objetos); ?>
     <table class="w3-table w3-border w3-bordered w3-hoverable w3-theme-d4">
         <tr>
             <td class="w3-border"><?= __('Name') ?></td>

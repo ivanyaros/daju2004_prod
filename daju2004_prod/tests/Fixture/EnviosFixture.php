@@ -56,12 +56,12 @@ class EnviosFixture extends TestFixture
         [
             'id' => 1,
             'proveedores_cliente_id' => 1,
-            'fecha_pedido' => '2017-06-15 10:48:12',
-            'fecha_envio' => '2017-06-15 10:48:12',
+            'fecha_pedido' => '2017-09-05 11:15:36',
+            'fecha_envio' => '2017-09-05 11:15:36',
             'albaran' => 'Lorem ipsum dolor sit amet',
             'pedidos_empresa_id' => 1,
             'centro_id' => 1,
-            'fecha_entrega' => '2017-06-15 10:48:12',
+            'fecha_entrega' => '2017-09-05 11:15:36',
             'observaciones' => 'Lorem ipsum dolor sit amet',
             'direccione_id' => 1
         ],

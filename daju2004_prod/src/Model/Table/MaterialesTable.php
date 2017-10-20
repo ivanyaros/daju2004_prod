@@ -67,8 +67,8 @@ class MaterialesTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->dateTime('fecha_entega')
-            ->allowEmpty('fecha_entega');
+            ->dateTime('fecha_entrega')
+            ->allowEmpty('fecha_entrega');
 
         $validator
             ->boolean('bobina')

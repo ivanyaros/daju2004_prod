@@ -12,7 +12,7 @@
         <legend><?= __('Edit Materiale') ?></legend>
         <?php
             echo $this->Form->control('material_id', ['options' => $material, 'empty' => true]);
-            echo $this->Form->control('fecha_entega', ['empty' => true]);
+            echo $this->Form->control('fecha_entrega', ['empty' => true]);
             echo $this->Form->control('localizacione_id', ['options' => $localizaciones, 'empty' => true]);
             echo $this->Form->control('entradas_de_materiale_id', ['options' => $entradasDeMateriales, 'empty' => true]);
             echo $this->Form->control('bobina');
