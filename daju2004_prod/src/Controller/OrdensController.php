@@ -97,7 +97,7 @@ class OrdensController extends AppController
                 $this->loadModel('ProcesoProductoSalida');
                 $queryP=$this->ProcesoProductoSalida->find('all')
                                                                 ->where(['ProcesoProductoSalida.proceso_id' => $orden->proceso_id]);
-                $this->loadModel('Objetos');
+                /*$this->loadModel('Objetos');
                 foreach($queryP as $pps){
                     $obj=$this->Objetos->newEntity();
                     $obj->producto_id=$pps->producto_id;
@@ -105,7 +105,7 @@ class OrdensController extends AppController
                     $this->Objetos->save($obj);
 
                 }
-
+                */
                 $query=$this->Subproceso->find('all')
                                                 ->where(['Subproceso.proceso_id' => $orden->proceso_id]);
                 $this->loadModel('Tareas');

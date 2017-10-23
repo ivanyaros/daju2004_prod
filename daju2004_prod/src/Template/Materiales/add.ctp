@@ -8,12 +8,22 @@
 $(document).ready(function(){
     $("#selBobinas").hide();
     $("#jq_form").hide();
+    $("#formaLotes").hide();
     //$("#lasBobinas").hide();
     $("#btnBobinas").click(function(){
         $("#sel").hide();
         $("#selBobinas").show();
         $("#modo_entrada").val("bobinas");
     });
+    $("#btnLote").click(function(){
+    	$("#sel").hide();
+    	$("#jq_form").show();
+    	$("#modo_entrada").val("lotes");
+    	$("#formaLotes").show();
+    	$("#lasBobinas").hide();
+
+
+    })
     $("#btnNumBobinas").click(function(){
         $("#jq_form").show();
 
@@ -56,6 +66,14 @@ $(document).ready(function(){
             <input id="modo_entrada" name="modo" value="" type="hidden">
             <input id="txt_num_bobinas" name="numBobinas" value="" type="hidden">
         </div>
+        <div id="formaLotes">
+        	<?php 
+        		echo $this->Form->control('peso_ud');
+        		echo $this->Form->control('bobinas');
+        		echo $this->Form->control('metros_brutos');
+            	echo $this->Form->control('metros_netos');
+        	?>
+        </div>
             <?php 
                 echo $this->Form->control('material_id', ['options' => $material, 'empty' => true]);
                 echo $this->Form->control('localizacione_id', ['options' => $localizaciones, 'empty' => true]);
@@ -71,9 +89,7 @@ $(document).ready(function(){
                 <tbody>
             </table>
         </div>
-        <button type="submit" >Submit</button>
-
-        
+        <button type="submit" >Enviar</button>        
     </form>
 </div>
   

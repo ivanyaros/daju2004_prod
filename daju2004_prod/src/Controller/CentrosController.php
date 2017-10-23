@@ -20,6 +20,7 @@ class CentrosController extends AppController
      */
     public function index()
     {
+        $this->set('userName',$this->Auth->user('username'));
         $centros = $this->paginate($this->Centros);
 
         $this->set(compact('centros'));

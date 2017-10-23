@@ -38,6 +38,7 @@ class AppController extends Controller
      * @return void
      */
     //$this->loadComponent('Auth');
+
     public function initialize()
     {
         parent::initialize();
@@ -53,11 +54,12 @@ class AppController extends Controller
                 'action' => 'index'
             ],
             'logoutRedirect' => [
-                'controller' => 'Pages',
-                'action' => 'display',
-                'home'
+                'controller' => 'Centros',
+                'action' => 'index',
+                
             ]
         ]);
+
        /* $this->loadComponent('Auth', [
             'authorize' => ['Controller'],
             'loginRedirect' => [
@@ -82,12 +84,12 @@ class AppController extends Controller
     public function isAuthorized($user)
     {
          //Admin can access every action
-        if (isset($user['tipo']) && $user['tipo'] === 'admin') {
+        /*if (isset($user['tipo']) && $user['tipo'] === 'admin') {
             return true;
         }
-        
+        */
         // Default deny
-        return false;
+        return true;
         
     }
     /**
@@ -99,7 +101,7 @@ class AppController extends Controller
     
     public function beforeFilter(Event $event)
     {
-        $this->Auth->allow(['index', 'view', 'display']);
+        //$this->Auth->allow(['']);
     }
     public function beforeRender(Event $event)
     {

@@ -72,14 +72,11 @@ class MaterialesController extends AppController
         }
         if ($this->request->is('post')) {
             $data=$this->request->getData();
-            debug($data);
-            $saved=0;
-            if($data["modo"]=="bobinas"){
-                $this->loadModel('EntradasDeMateriales');
-                $laEntrada=$this->EntradasDeMateriales->get($data["entradas_de_materiale_id"]);
-                $fecha_entrega=$laEntrada->fecha_recepcion;
+            $this->loadModel('EntradasDeMateriales');
+            $laEntrada=$this->EntradasDeMateriales->get($data["entradas_de_materiale_id"]);
+            $fecha_entrega=$laEntrada->fecha_recepcion;
+            if($data["modo"]=="bobinas"){                
                 for($i=1;$i<=$data["numBobinas"];$i++){
-                    //debug($data["bobina"][$i+1]);
                     $mat=$this->Materiales->newEntity();
                     $mat->material_id=$data["material_id"];
                     $mat->fecha_entrega=$fecha_entrega;
@@ -89,25 +86,25 @@ class MaterialesController extends AppController
                     $mat->lote=$data["lote"];
                     $mat->numero_bobina=$data["bobina"][$i]["number"];
                     $mat->metros_netos=$data["bobina"][$i]["metros"];
-                    //debug($mat);
                     if ($this->Materiales->save($mat)) {
-                        //debug($mat);
                         $this->Flash->success(__('The material has been saved.'));
                     }else{
                         $this->Flash->error(__('The material could not be saved. Please, try again.'));
                     }
-                    debug($mat);
                 }
-                    return $this->redirect(['action' => 'index']);
-
-
-
-
-
-                
-                //debug("Entro en if");
-                
+                return $this->redirect(['action' => 'index']);
             }
+            if($data["modo"]=="lotes"){
+                $mat=$this->Materiales->newEntity();
+                $mat->material_id=$data["material_id"];        
+                $mat->fecha_entrega=$fecha_entrega;
+                $mat->localizacione_id=$data["localizacione_id"];
+                $mat->entradas_de_materiale_id=$data["entradas_de_materiale_id"];
+                $mat->bobina=0;
+                $mat->lote=$data["lote"];    
+
+
+            }   
             /*
             $materiale = $this->Materiales->patchEntity($materiale, $this->request->getData());
             $this->loadModel('EntradasDeMateriales');

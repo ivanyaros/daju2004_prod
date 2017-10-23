@@ -28,10 +28,7 @@ class Categoria extends Entity
     protected function _getLabel()
     {
 
-            if (!empty($this->_properties['name'])){
-                return '('.$this->_properties['id'].')'.$this->_properties['name'];
-            }
-            return '('.$this->_properties['id'].')';
+            return '('.$this->_properties['id'].')'.$this->_properties['nombre'];
     }
     
     protected $_accessible = [

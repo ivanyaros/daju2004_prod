@@ -70,17 +70,20 @@ class SubprocesoController extends AppController
         if($external_name!=null){
             $subproceso->$external_name=$external_id;
         }
+        $myPage=$this->referer();
         if ($this->request->is('post')) {
+            //debug($this->request);
             $subproceso = $this->Subproceso->patchEntity($subproceso, $this->request->getData());
             if ($this->Subproceso->save($subproceso)) {
                 $this->Flash->success(__('The subproceso has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
+                $page=$this->request->getData()["myPage"];
+                return $this->redirect($page,true);
             }
             $this->Flash->error(__('The subproceso could not be saved. Please, try again.'));
         }
         $proceso = $this->Subproceso->Proceso->find('list', ['limit' => 200]);
         $this->set(compact('subproceso', 'proceso'));
+        $this->set('myPage',$myPage);
         $this->set('_serialize', ['subproceso']);
     }
 

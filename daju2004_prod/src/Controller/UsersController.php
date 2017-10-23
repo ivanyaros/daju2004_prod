@@ -17,7 +17,7 @@ class UsersController extends AppController
      public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
-        $this->Auth->allow('add');
+        //$this->Auth->allow('add');
     }
     /**
      * Index method
@@ -27,6 +27,7 @@ class UsersController extends AppController
 
      public function login()
     {
+        $this->viewBuilder()->setLayout('ordenTrabajo');
         if ($this->request->is('post')) {
             $user = $this->Auth->identify();
             if ($user) {

@@ -41,6 +41,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <body class="w3-theme">
     <div class="w3-theme w3-sidebar w3-bar-block w3-collapse w3-card-2 " style="width:200px;" id="mySidebar">
         <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Close &times;</button>
+        <a href="/users/logout" class="w3-theme w3-bar-item w3-button">Desconectar</a>
         <a href="/categorias" class="w3-theme w3-bar-item w3-button">Categorias</a>
         <a href="/centros" class="w3-theme w3-bar-item w3-button">Centros</a>
         <a href="/direcciones" class="w3-bar-item w3-button">Direcciones</a>
@@ -87,6 +88,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <div class="w3-container">
             <h1>
                 <?= $this->fetch('title');
+                   
                     
                  ?>
                 <?php if(isset($modelo)): ?>
